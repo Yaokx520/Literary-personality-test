@@ -3,7 +3,7 @@
 两个单页 H5 测试：**文学人格测试**与**诗心测试**。不问典故、不考书目，凭情境与画面中的本能反应，匹配最相近的作家或诗人。纯静态页面，无需登录，打开链接即可使用，支持微信 / QQ 分享。
 
 ---
-<img width="1073" height="2247" alt="6f3ee037beb65a5fda12cce9bf3549e5" src="https://github.com/user-attachments/assets/6a2d355c-0715-4e0d-9f10-28a786bc83ff" />
+<img width="393" height="839" alt="图片" src="https://github.com/user-attachments/assets/e3ba0294-98af-4fd2-b2be-31fb2a3f99ab" />
 
 ## 在线体验
 
@@ -30,7 +30,7 @@
 **本地文件：** `literary_personality_test_full.html`（或部署为 `index.html`）
 
 ---
-<img width="393" height="839" alt="图片" src="https://github.com/user-attachments/assets/e3ba0294-98af-4fd2-b2be-31fb2a3f99ab" />
+
 ## 诗心测试
 
 **测测你更像哪位中国诗人**
@@ -44,9 +44,9 @@
 
 **本地文件：** `chinese_poet_personality_test.html`
 
-
+<img width="1073" height="2247" alt="6f3ee037beb65a5fda12cce9bf3549e5" src="https://github.com/user-attachments/assets/6a2d355c-0715-4e0d-9f10-28a786bc83ff" />
 ---
-<img width="240" height="436" alt="图片" src="https://github.com/user-attachments/assets/89282c54-7c2a-46e1-a595-e589a51d579d" />
+
 ## 两个测试的区别
 
 | 对比项 | 文学人格测试 | 诗心测试 |
@@ -59,6 +59,7 @@
 
 两个测试可独立使用，也可都测一遍，看看「世界文学气质」与「中国诗心」是否指向同一个人。
 
+<img width="393" height="796" alt="图片" src="https://github.com/user-attachments/assets/00253df5-a5fb-4cca-8d8a-829de29329f1" />
 ---
 
 ## 功能概览
@@ -69,10 +70,10 @@
 - 结果支持复制分享文案
 - GitHub Pages 一键部署
 
-
+<img width="240" height="436" alt="图片" src="https://github.com/user-attachments/assets/89282c54-7c2a-46e1-a595-e589a51d579d" />
 
 ---
-<img width="393" height="796" alt="图片" src="https://github.com/user-attachments/assets/00253df5-a5fb-4cca-8d8a-829de29329f1" />
+
 ## 本地使用
 
 1. 克隆本仓库
