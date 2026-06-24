@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no, email=no, address=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="x5-orientation" content="portrait" />
+  <meta name="x5-fullscreen" content="true" />
+  <meta name="x5-page-mode" content="app" />
+  <meta name="description" content="22题文学气质小测，从66位作家中找出你最像的那一位。" />
+  <meta property="og:title" content="测测你更像哪个文学家" />
+  <meta property="og:description" content="22题情境小测，匹配你的文学气质与作家原型。" />
+  <meta property="og:type" content="website" />
+  <title>测测你更像哪个文学家</title>
+  <style>
+    :root {
+      --bg: #f6f1e8; --card: #fffaf1; --ink: #2b241c; --muted: #6f6458;
+      --line: #e7dccd; --accent: #8b5e34; --accent2: #b08968; --good: #2f6f4e;
+      --shadow: 0 18px 50px rgba(43,36,28,.10); --radius: 22px;
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: radial-gradient(circle at top left, rgba(176,137,104,.18), transparent 26%),
+        radial-gradient(circle at top right, rgba(139,94,52,.10), transparent 22%),
+        linear-gradient(180deg, #fbf8f2, #f4ede4 55%, #efe6d8);
+      min-height: 100vh;
+      padding-bottom: env(safe-area-inset-bottom, 0);
+      overflow-x: hidden;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 20px 16px calc(24px + env(safe-area-inset-bottom, 0)); }
+    .hero, .card {
+      background: rgba(255,250,241,.92); border: 1px solid rgba(231,220,205,.95);
+      border-radius: var(--radius); box-shadow: var(--shadow);
+    }
+    .hero { padding: 28px; position: relative; overflow: hidden; }
+    .hero::after {
+      content: ""; position: absolute; inset: auto -50px -70px auto; width: 220px; height: 220px;
+      border-radius: 50%; background: radial-gradient(circle, rgba(176,137,104,.18), transparent 68%); pointer-events: none;
+    }
+    .eyebrow {
+      display: inline-flex; padding: 8px 12px; border-radius: 999px;
+      background: rgba(139,94,52,.08); color: var(--accent); font-size: 13px;
+      letter-spacing: .08em; font-weight: 700;
+    }
+    h1 { margin: 16px 0 10px; font-size: clamp(28px, 4vw, 48px); line-height: 1.1; }
+    .intro { margin: 0; max-width: 760px; color: var(--muted); font-size: 16px; line-height: 1.85; }
+    .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .tag { padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.72); color: var(--accent); font-size: 13px; }
+    .grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: 18px; margin-top: 18px; }
+    .panel { padding: 22px; }
+    .section-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+    .section-title h2 { margin: 0; font-size: 22px; }
+    .section-title small { color: var(--muted); }
+    .progress-bar { height: 10px; border-radius: 999px; background: #efe4d4; overflow: hidden; }
+    .progress-fill { height: 100%; width: 0%; border-radius: inherit; background: linear-gradient(90deg, var(--accent2), var(--accent)); transition: width .35s ease; }
+    .q-count { margin-top: 10px; color: var(--muted); font-size: 14px; }
+    .question { font-size: 23px; line-height: 1.4; margin: 8px 0 18px; font-weight: 700; }
+    .type-pill { display: inline-block; margin-bottom: 8px; padding: 6px 10px; border-radius: 999px; background: rgba(47,111,78,.10); color: var(--good); font-size: 12px; font-weight: 700; }
+    .options { display: grid; gap: 10px; }
+    .opt {
+      width: 100%; text-align: left; padding: 16px 18px; border-radius: 16px;
+      border: 1px solid var(--line); background: #fff; cursor: pointer; line-height: 1.65; font-size: 16px;
+      transition: border-color .15s, background .15s; touch-action: manipulation;
+      -webkit-user-select: none; user-select: none;
+    }
+    .opt:active { background: rgba(139,94,52,.08); }
+    .opt.active { border-color: var(--accent); background: rgba(139,94,52,.06); }
+    .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+    .btn {
+      border: 0; border-radius: 14px; padding: 14px 18px; cursor: pointer; font-weight: 700; font-size: 16px;
+      transition: opacity .15s; touch-action: manipulation; min-height: 48px;
+    }
+    .btn.primary { background: linear-gradient(135deg, var(--accent2), var(--accent)); color: #fff; }
+    .btn.ghost { background: rgba(255,255,255,.75); color: var(--ink); border: 1px solid var(--line); }
+    .btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+    .mini { color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .library { display: grid; gap: 12px; max-height: 72vh; overflow: auto; padding-right: 4px; }
+    .region-title { font-size: 13px; font-weight: 700; color: var(--accent); margin: 8px 0 4px; letter-spacing: .05em; }
+    .writer { padding: 14px; border-radius: 16px; border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.82), rgba(250,242,229,.95)); }
+    .writer-top { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+    .writer h3 { margin: 0; font-size: 16px; }
+    .writer .kind { color: var(--accent); font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .writer p { margin: 8px 0 0; color: var(--muted); line-height: 1.7; font-size: 13px; }
+    .writer .quote { margin-top: 8px; padding-left: 10px; border-left: 3px solid rgba(139,94,52,.25); font-style: italic; color: #4b3d31; font-size: 13px; }
+    .result { display: none; margin-top: 18px; padding: 24px; border-radius: 24px; background: linear-gradient(180deg, #fffaf1, #f8efe2); border: 1px solid rgba(231,220,205,.95); box-shadow: var(--shadow); }
+    .result.show { display: block; }
+    .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .result h2 { margin: 0 0 8px; font-size: 30px; }
+    .lead { color: var(--muted); line-height: 1.8; margin: 0 0 18px; }
+    .result-box { border-radius: 18px; background: rgba(255,255,255,.72); border: 1px solid var(--line); padding: 16px; margin-bottom: 12px; }
+    .result-box h3 { margin: 0 0 8px; font-size: 16px; }
+    .result-box p { margin: 0; color: var(--muted); line-height: 1.8; }
+    .top5 { display: grid; gap: 10px; }
+    .top5-item { display: grid; grid-template-columns: 36px 1fr 52px; gap: 10px; align-items: center; }
+    .top5-rank { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 14px; background: rgba(139,94,52,.12); color: var(--accent); }
+    .top5-rank.gold { background: linear-gradient(135deg, #d4a574, var(--accent)); color: #fff; }
+    .top5-name { font-weight: 700; font-size: 15px; }
+    .top5-meta { font-size: 12px; color: var(--muted); }
+    .meter { height: 8px; border-radius: 999px; background: #efe4d4; overflow: hidden; margin-top: 4px; }
+    .meter > i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent2), var(--accent)); }
+    .radar-wrap { display: flex; justify-content: center; padding: 8px 0; }
+    .radar-wrap svg { max-width: 100%; height: auto; }
+    .personality-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .personality-tags span { padding: 6px 10px; border-radius: 999px; background: rgba(47,111,78,.10); color: var(--good); font-size: 12px; font-weight: 700; }
+    .quote-card { padding: 16px; border-radius: 16px; background: rgba(139,94,52,.06); border: 1px solid rgba(139,94,52,.15); }
+    .quote-card blockquote { margin: 0; font-size: 18px; line-height: 1.7; color: #4b3d31; font-style: italic; }
+    .quote-card cite { display: block; margin-top: 10px; color: var(--muted); font-size: 14px; font-style: normal; }
+    .top5-quotes { display: grid; gap: 10px; }
+    .top5-quote-item { padding: 10px 12px; border-radius: 12px; background: rgba(255,255,255,.6); border: 1px solid var(--line); font-size: 13px; line-height: 1.7; color: var(--muted); }
+    .top5-quote-item strong { color: var(--ink); font-size: 14px; }
+    .share { width: 100%; min-height: 100px; resize: none; border: 1px solid var(--line); border-radius: 16px; padding: 14px; background: rgba(255,255,255,.86); line-height: 1.7; font-size: 16px; }
+    .share-tip { margin-top: 8px; font-size: 13px; color: var(--accent); line-height: 1.6; }
+    .toast {
+      position: fixed; left: 50%; bottom: calc(72px + env(safe-area-inset-bottom, 0));
+      transform: translateX(-50%) translateY(20px); opacity: 0; pointer-events: none;
+      background: rgba(43,36,28,.88); color: #fff; padding: 12px 20px; border-radius: 999px;
+      font-size: 14px; z-index: 9999; transition: opacity .25s, transform .25s;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .mobile-bar {
+      display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 100;
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0));
+      background: rgba(255,250,241,.96); border-top: 1px solid var(--line);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      gap: 10px;
+    }
+    .mobile-bar .btn { flex: 1; }
+    .view-test .mobile-bar { display: flex; }
+    .view-test .test-area .controls { display: none; }
+    .publish-tip {
+      margin-top: 14px; padding: 12px 14px; border-radius: 14px;
+      background: rgba(139,94,52,.06); border: 1px dashed rgba(139,94,52,.25);
+      font-size: 13px; color: var(--muted); line-height: 1.75;
+    }
+    .publish-tip strong { color: var(--accent); }
+    .hidden { display: none !important; }
+    .view-welcome .test-area { display: none; }
+    .view-test .welcome-cta { display: none; }
+    .view-test .library-aside { display: none; }
+    .view-test .grid { grid-template-columns: 1fr; }
+    .view-result .test-area { display: none; }
+    .view-result .library-aside { display: none; }
+    .view-result .grid { display: none; }
+    @media (max-width: 900px) {
+      .grid, .result-grid { grid-template-columns: 1fr; }
+      .hero, .panel, .result { padding: 18px; }
+      .question { font-size: 20px; }
+      .library-aside { display: block; }
+      .view-welcome .library-aside { margin-top: 0; }
+      .view-test { padding-bottom: 72px; }
+    }
+    @media (min-width: 901px) {
+      .opt:hover { transform: translateY(-1px); border-color: rgba(139,94,52,.35); box-shadow: 0 10px 24px rgba(43,36,28,.08); }
+      .btn:hover { transform: translateY(-1px); }
+    }
+  </style>
+</head>
+<body class="view-welcome">
+  <div class="wrap">
+    <section class="hero">
+      <span class="eyebrow">文学气质小测</span>
+      <h1>测测你更像哪个文学家</h1>
+      <p class="intro">不问典故，不考书目。只凭你在雨夜、街角、话别与梦醒时的本能反应，从 <strong>66 位</strong>作家中，找出与你气息最相近的那一个。全程 <strong>22 题</strong>，约四五分钟。</p>
+      <div class="meta">
+        <span class="tag">66 位作家</span>
+        <span class="tag">22 题情境</span>
+        <span class="tag">微信 · QQ 可打开</span>
+        <span class="tag">结果可分享</span>
+      </div>
+      <div class="publish-tip">
+        <strong>如何发到微信 / QQ？</strong> 将本页上传至任意网页空间（如公众号图文外链、腾讯文档网页、GitHub Pages、个人服务器），获得 <strong>https 链接</strong> 后即可推送或转发；也可把文件发给好友，在手机浏览器中打开。
+      </div>
+      <div class="controls welcome-cta" style="margin-top:20px">
+        <button class="btn primary" id="startBtn">开始测试</button>
+        <button class="btn ghost" id="browseBtn">浏览作家库</button>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="card panel test-area">
+        <div class="section-title">
+          <h2>测试问题</h2>
+          <small>22 题 · 单选</small>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="q-count" id="qCount">第 1 / 22 题</div>
+        <div class="type-pill" id="typePill">文学气质</div>
+        <div class="question" id="questionText"></div>
+        <div class="options" id="optionsBox"></div>
+        <div class="controls">
+          <button class="btn ghost" id="prevBtn">上一题</button>
+          <button class="btn ghost" id="resetBtn">重置</button>
+          <button class="btn primary" id="nextBtn">下一题</button>
+        </div>
+        <p class="mini" id="hintText">每道题选择最接近你的答案。</p>
+      </section>
+
+      <aside class="card panel library-aside">
+        <div class="section-title">
+          <h2>文学家库</h2>
+          <small id="libCount">66 位</small>
+        </div>
+        <div class="library" id="libraryBox"></div>
+      </aside>
+    </div>
+
+    <section class="result" id="resultBox">
+      <div class="result-grid">
+        <div>
+          <span class="eyebrow">文学人格结果</span>
+          <h2 id="resultTitle"></h2>
+          <p class="lead" id="resultIntro"></p>
+          <div class="personality-tags" id="personalityTags"></div>
+          <div class="result-box" style="margin-top:14px">
+            <h3>判语</h3>
+            <p id="resultOneLiner"></p>
+          </div>
+          <div class="result-box">
+            <h3>几分缘由</h3>
+            <p id="resultWhy"></p>
+          </div>
+          <div class="result-box quote-card">
+            <h3 style="margin-bottom:12px">文学家名言</h3>
+            <blockquote id="resultQuote"></blockquote>
+            <cite id="resultQuoteAuthor"></cite>
+          </div>
+          <div class="result-box">
+            <h3>Top 5 名言摘记</h3>
+            <div id="top5Quotes" class="top5-quotes"></div>
+          </div>
+        </div>
+        <div>
+          <div class="result-box">
+            <h3>文学气质雷达图</h3>
+            <div class="radar-wrap"><svg id="radarChart" width="320" height="320" viewBox="0 0 320 320"></svg></div>
+            <p class="mini" style="text-align:center;margin-top:4px">实线：你的画像 · 虚线：最佳匹配作家</p>
+          </div>
+          <div class="result-box">
+            <h3>Top 5 匹配</h3>
+            <div class="top5" id="top5List"></div>
+          </div>
+          <div class="result-box">
+            <h3>分享文案</h3>
+            <textarea class="share" id="shareText" readonly></textarea>
+            <p class="share-tip" id="shareTip">微信内建议长按上方文案全选复制；或点「复制」按钮。</p>
+          </div>
+          <div class="controls">
+            <button class="btn primary" id="againBtn">再测一次</button>
+            <button class="btn ghost" id="copyBtn">复制分享文案</button>
+            <button class="btn ghost" id="showLibBtn">查看作家库</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="mobile-bar" id="mobileBar">
+    <button class="btn ghost" id="mobilePrevBtn">上一题</button>
+    <button class="btn primary" id="mobileNextBtn">下一题</button>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script>
+const WRITERS = [
+{id:'kongzi',name:'孔子',region:'中国',kind:'儒家哲思派',traits:[6,4,9,2,10,2],quote:'「学而时习之，不亦说乎。」',intro:'你重视秩序、修养与对他人的关怀，相信文字应载道、思想应化人。',one:'你像一位温和的师者，在秩序与仁心中寻找永恒。'},
+{id:'zhuangzi',name:'庄子',region:'中国',kind:'逍遥哲思派',traits:[3,8,10,5,5,7],quote:'「相濡以沫，不如相忘于江湖。」',intro:'你不愿被规则束缚，偏爱自由想象与反常识的智慧。',one:'你像一阵穿林的风，轻盈、跳脱、难以定义。'},
+{id:'quyuan',name:'屈原',region:'中国',kind:'浪漫忧思派',traits:[7,10,7,4,8,5],quote:'「路漫漫其修远兮，吾将上下而求索。」',intro:'你有强烈的理想主义与家国情怀，情感浓烈而执着。',one:'你像一首悲怆的长歌，炽热、忠贞、不肯妥协。'},
+{id:'libai',name:'李白',region:'中国',kind:'豪放浪漫派',traits:[3,10,6,3,5,6],quote:'「天生我材必有用，千金散尽还复来。」',intro:'你热情奔放，相信生命应当壮丽，语言是你的酒与剑。',one:'你像明月与长风，洒脱、明亮、不拘一格。'},
+{id:'dufu',name:'杜甫',region:'中国',kind:'沉郁家国派',traits:[7,9,5,4,10,3],quote:'「国破山河在，城春草木深。」',intro:'你把个人命运放进时代洪流，悲悯而厚重。',one:'你像一首慢慢展开的长诗，沉稳、厚重、悲悯。'},
+{id:'sushi',name:'苏轼',region:'中国',kind:'旷达文人派',traits:[5,9,7,3,7,5],quote:'「回首向来萧瑟处，归去，也无风雨也无晴。」',intro:'你能在逆境中保持幽默与旷达，兼具才情与人间烟火气。',one:'你像一场雨后的彩虹，通透、温润、有余味。'},
+{id:'caoxueqin',name:'曹雪芹',region:'中国',kind:'世情洞察派',traits:[6,8,6,5,9,4],quote:'「满纸荒唐言，一把辛酸泪。」',intro:'你善于写尽人情冷暖与命运无常，细腻而苍凉。',one:'你像一面照见众生的镜子，华美与悲凉并存。'},
+{id:'luxun',name:'鲁迅',region:'中国',kind:'锋利现实派',traits:[10,4,7,5,8,6],quote:'「希望是本无所谓有，无所谓无的。」',intro:'你对世界有敏锐痛感，善于用犀利语言照亮矛盾。',one:'你像一把冷静的手术刀，直接切开情绪与现实。'},
+{id:'shencongwen',name:'沈从文',region:'中国',kind:'田园抒情派',traits:[3,8,4,4,8,3],quote:'「凡事都靠一个缘字。」',intro:'你从朴素日常中感受秩序与美，温柔而宁静。',one:'你像一条安静的河，温润、平和、缓缓流动。'},
+{id:'laoshe',name:'老舍',region:'中国',kind:'京味写实派',traits:[7,5,4,5,9,3],quote:'「人是最美的风景。」',intro:'你关注市井与普通人的尊严，幽默里藏着辛酸。',one:'你像胡同里的灯火，亲切、幽默、有烟火气。'},
+{id:'zhangailing',name:'张爱玲',region:'中国',kind:'精致疏离派',traits:[7,7,5,8,5,6],quote:'「生命是一袭华美的袍，爬满了蚤子。」',intro:'你善于在细节里看见人性，习惯保留距离与分寸。',one:'你有漂亮的分寸感，也有看穿繁华的清醒。'},
+{id:'yuhua',name:'余华',region:'中国',kind:'冷幽默生存派',traits:[8,5,4,6,7,4],quote:'「人是为了活着本身而活着。」',intro:'你能在荒诞与困难里保持韧性，用幽默消化沉重。',one:'你像一块被生活磨圆的石头，沉默，但不轻易碎裂。'},
+{id:'murasaki',name:'紫式部',region:'日本',kind:'细腻物语派',traits:[5,9,4,6,7,5],quote:'「逢えずして恋しき人を待つほどに。」',intro:'你极擅写微妙情感与阶层光影，文字含蓄而绵长。',one:'你像一层和纸后的光影，幽微、雅致、欲说还休。'},
+{id:'natsume',name:'夏目漱石',region:'日本',kind:'近代自省派',traits:[7,6,8,6,7,5],quote:'「智に働けば角が立つ。」',intro:'你在传统与现代之间徘徊，文风克制而思辨。',one:'你像一座安静的庭园，理性与感伤彼此映照。'},
+{id:'kawabata',name:'川端康成',region:'日本',kind:'物哀美学派',traits:[4,9,5,7,6,5],quote:'「美在于发现者眼中。」',intro:'你对瞬间之美极度敏感，偏爱洁净、哀婉与寂静。',one:'你像雪国的炉火，安静、透明、略带寒意。'},
+{id:'mishima',name:'三岛由纪夫',region:'日本',kind:'唯美激烈派',traits:[6,9,7,5,4,8],quote:'「不被人理解，反而成为我的骄傲。」',intro:'你追求形式之美与精神强度，矛盾而绚烂。',one:'你像一把淬火的刀，华丽、危险、不肯平庸。'},
+{id:'oe',name:'大江健三郎',region:'日本',kind:'人道反核派',traits:[8,6,7,5,9,6],quote:'「人間は自分の言葉で世界をつくる。」',intro:'你关心弱者与历史创伤，文学是伦理与救赎的场域。',one:'你像一道不肯愈合的伤口，严肃、担当、向光而行。'},
+{id:'murakami',name:'村上春树',region:'日本',kind:'都市孤独派',traits:[5,7,4,9,5,6],quote:'「闭上眼睛，世界就会变得不一样。」',intro:'你习惯在日常与梦境间穿行，孤独是你的节奏。',one:'你像一段低声播放的音乐，安静、流动、带点疏离。'},
+{id:'shakespeare',name:'莎士比亚',region:'英美',kind:'戏剧全景派',traits:[7,9,6,4,8,7],quote:'「To be, or not to be, that is the question.」',intro:'你洞察人性全部光谱，悲剧与喜剧皆在手心。',one:'你像一座剧场，悲欢并置，万象俱备。'},
+{id:'austen',name:'简·奥斯汀',region:'英美',kind:'世情讽刺派',traits:[6,7,4,6,7,4],quote:'「A lady\'s imagination is very rapid.」',intro:'你精于社交细节与婚姻伦理，幽默而克制。',one:'你像一场精致的下午茶，机智、含蓄、刀锋在笑里。'},
+{id:'dickens',name:'狄更斯',region:'英美',kind:'社会温情派',traits:[8,6,4,5,10,4],quote:'「It was the best of times, it was the worst of times.」',intro:'你关注底层命运，宏大叙事里总有温情与正义。',one:'你像伦敦的雾与灯，阴暗处仍有人性的光。'},
+{id:'woolf',name:'弗吉尼亚·伍尔夫',region:'英美',kind:'意识流派',traits:[5,8,7,7,6,8],quote:'「生命不是一条直线，而是一团波光。」',intro:'你对瞬间感受极敏锐，擅长写意识与时间的流动。',one:'你像一面会呼吸的镜子，映照内心的细波。'},
+{id:'orwell',name:'乔治·奥威尔',region:'英美',kind:'政治寓言派',traits:[10,3,7,5,8,7],quote:'「Big Brother is watching you.」',intro:'你警惕权力与语言操控，文学是清醒与抵抗。',one:'你像一支永不熄灭的警报，冷静、锋利、不肯沉默。'},
+{id:'poe',name:'爱伦·坡',region:'英美',kind:'哥特悬疑派',traits:[6,8,6,8,4,9],quote:'「All that we see or seem is but a dream within a dream.」',intro:'你迷恋黑暗、梦境与心理边缘，形式紧凑而诡异。',one:'你像一座午夜钟楼，神秘、阴郁、令人着迷。'},
+{id:'whitman',name:'惠特曼',region:'英美',kind:'自由颂歌派',traits:[5,10,6,3,8,7],quote:'「I contain multitudes.」',intro:'你拥抱多元与身体性，诗歌是开放的生命宣言。',one:'你像原野上的风，辽阔、热烈、拒绝被框住。'},
+{id:'hemingway',name:'海明威',region:'英美',kind:'硬汉极简派',traits:[7,5,4,6,6,5],quote:'「人可以被毁灭，但不能被打败。」',intro:'你相信简洁有力的句子，在沉默里承受命运。',one:'你像一块被海浪打磨的礁石，坚硬、沉默、有力量。'},
+{id:'fitzgerald',name:'菲茨杰拉德',region:'英美',kind:'爵士幻灭派',traits:[6,9,5,8,5,6],quote:'「于是我们奋力向前划，逆流而上。」',intro:'你写繁华与幻灭，浪漫里藏着时代的裂痕。',one:'你像盖茨比的绿灯，璀璨、遥远、带着哀愁。'},
+{id:'faulkner',name:'福克纳',region:'英美',kind:'南方史诗派',traits:[7,8,7,5,8,9],quote:'「The past is never dead. It isn\'t even past.」',intro:'你构建复杂时间与家族史诗，密度极高。',one:'你像一片浓密的南方森林，缠绕、深沉、难以读完。'},
+{id:'salinger',name:'塞林格',region:'英美',kind:'青春疏离派',traits:[6,6,5,9,5,6],quote:'「I am sick of not saying what I mean.」',intro:'你写青春期的敏感、叛逆与对真诚的渴望。',one:'你像麦田里的守望者，倔强、孤独、不肯长大。'},
+{id:'vonnegut',name:'冯内古特',region:'英美',kind:'黑色幽默派',traits:[8,4,7,5,7,8],quote:'「So it goes.」',intro:'你用荒诞与幽默面对战争与虚无，温柔而反讽。',one:'你像一颗歪斜的星星，好笑、悲凉、却很有人味。'},
+{id:'morrison',name:'托妮·莫里森',region:'英美',kind:'黑人史诗派',traits:[8,9,6,5,10,7],quote:'「Freeing yourself was one thing; claiming ownership of that freed self was another.」',intro:'你书写记忆、种族与女性创伤，语言充满诗性与力量。',one:'你像一首从泥土里长出的歌，沉痛、庄严、不可磨灭。'},
+{id:'mccarthy',name:'科马克·麦卡锡',region:'英美',kind:'末世冷峻派',traits:[8,6,5,7,6,7],quote:'「You never know what worse luck your bad luck has saved you from.」',intro:'你文风冷硬，在荒原与暴力中追问人性底线。',one:'你像荒原上的余烬，冷冽、稀疏、却灼人。'},
+{id:'rousseau',name:'卢梭',region:'法国',kind:'启蒙情感派',traits:[7,8,8,4,8,5],quote:'「人生而自由，却无往不在枷锁之中。」',intro:'你相信自然与真诚，对文明有深情也有怀疑。',one:'你像林间的回声，热烈、敏感、追问本真。'},
+{id:'balzac',name:'巴尔扎克',region:'法国',kind:'现实主义派',traits:[8,6,5,6,8,4],quote:'「人间喜剧」',intro:'你把社会写成巨大的舞台，人物与金钱交织。',one:'你像一座城市的档案室，庞杂、真实、毫不留情。'},
+{id:'hugo',name:'雨果',region:'法国',kind:'浪漫人道派',traits:[7,10,6,4,10,5],quote:'「比海洋更宽阔的是人的胸怀。」',intro:'你兼具史诗气概与人道关怀，为弱者发声。',one:'你像一座大教堂，宏伟、悲悯、向光敞开。'},
+{id:'baudelaire',name:'波德莱尔',region:'法国',kind:'都市象征派',traits:[6,9,7,8,4,8],quote:'「你永远不知道，在街角会遇见怎样的命运。」',intro:'你在现代都市中寻找美与堕落，诗风浓艳而颓废。',one:'你像霓虹下的影子，艳丽、破碎、令人上瘾。'},
+{id:'proust',name:'普鲁斯特',region:'法国',kind:'记忆意识派',traits:[5,8,9,6,6,8],quote:'「真正的发现之旅在于拥有新的眼睛。」',intro:'你把时间与记忆写成绵延的迷宫，感官极其细腻。',one:'你像一块玛德琳蛋糕，轻轻一触，往事涌来。'},
+{id:'camus',name:'加缪',region:'法国',kind:'荒诞反抗派',traits:[8,5,8,6,7,6],quote:'「在隆冬，我终于知道，我身上有一个不可战胜的夏天。」',intro:'你在荒诞中坚持清醒与尊严，反抗本身就是意义。',one:'你像西西弗斯的石头，沉重，却带着不屈的光。'},
+{id:'goethe',name:'歌德',region:'德语',kind:'古典全才派',traits:[6,9,8,3,7,6],quote:'「理论是灰色的，而生命之树常青。」',intro:'你追求全面发展与古典平衡，浪漫与理性并存。',one:'你像一座文艺复兴的花园，丰饶、深邃、历久弥新。'},
+{id:'heine',name:'海涅',region:'德语',kind:'讽刺抒情派',traits:[7,9,6,5,6,6],quote:'「哪里有痛苦，哪里就有诗歌。」',intro:'你的诗既浪漫又辛辣，爱与讽刺并行。',one:'你像一把裹着玫瑰的匕首，优美，却带着锋芒。'},
+{id:'kafka',name:'卡夫卡',region:'德语',kind:'荒诞焦虑派',traits:[8,4,8,8,5,7],quote:'「我不是世界的一部分，我只是世界的边缘。」',intro:'你对规则与身份感到警觉，常在秩序中看见荒诞。',one:'你像一座静默的迷宫，越走越能看见内心的回声。'},
+{id:'mann',name:'托马斯·曼',region:'德语',kind:'启蒙小说派',traits:[7,7,9,5,7,6],quote:'「时间是正义的，因为它终将揭示一切。」',intro:'你擅长把哲学、疾病与文明危机写进长篇叙事。',one:'你像一座缓慢旋转的钟楼，庄严、复杂、耐人寻味。'},
+{id:'hesse',name:'黑塞',region:'德语',kind:'精神追寻派',traits:[5,8,9,6,8,6],quote:'「对每个人而言，真正的职责只有一个：找到自我。」',intro:'你写精神成长与东方智慧，内向而澄澈。',one:'你像一条通往内心的路，安静、深邃、引人独行。'},
+{id:'rilke',name:'里尔克',region:'德语',kind:'纯诗沉思派',traits:[4,10,9,6,6,5],quote:'「有何胜利可言？挺住意味着一切。」',intro:'你以诗性语言沉思存在、孤独与美。',one:'你像一封写给未来的信，缓慢、纯粹、触及灵魂。'},
+{id:'pushkin',name:'普希金',region:'俄语',kind:'民族抒情派',traits:[5,10,6,4,7,5],quote:'「假如生活欺骗了你，不要悲伤，不要心急。」',intro:'你既是民族诗人，也是优雅与自由的象征。',one:'你像俄罗斯的白桦林，清澈、挺拔、带着忧郁。'},
+{id:'dostoevsky',name:'陀思妥耶夫斯基',region:'俄语',kind:'灵魂拷问派',traits:[9,7,9,7,8,7],quote:'「人是一个谜。解开这个谜，即使搭上性命，也值得。」',intro:'你深入道德深渊与信仰危机，人物在极端中显形。',one:'你像一场暴风雪中的忏悔，激烈、幽暗、不可回避。'},
+{id:'tolstoy',name:'托尔斯泰',region:'俄语',kind:'史诗道德派',traits:[8,8,8,4,10,5],quote:'「幸福的家庭都是相似的，不幸的家庭各有各的不幸。」',intro:'你以宏大视野追问道德、战争与生命意义。',one:'你像一片辽阔的田野，厚重、庄严、容纳一切。'},
+{id:'chekhov',name:'契诃夫',region:'俄语',kind:'淡淡忧伤派',traits:[6,7,5,6,9,4],quote:'「人应该像水一样，没有形状，却能适应一切容器。」',intro:'你写日常里的沉默与无奈，幽默中带着温柔。',one:'你像黄昏里的炊烟，清淡、悠远、令人惆怅。'},
+{id:'bulgakov',name:'布尔加科夫',region:'俄语',kind:'魔幻讽刺派',traits:[8,7,7,5,6,9],quote:'「手稿不灭。」',intro:'你在荒诞与审查中保持创造，魔幻里藏着真话。',one:'你像一场魔鬼的舞会，荒诞、绚烂、不肯被遗忘。'},
+{id:'solzhenitsyn',name:'索尔仁尼琴',region:'俄语',kind:'良知见证派',traits:[10,5,7,5,9,5],quote:'「一条真理胜过整个世界。」',intro:'你以文学见证极权与苦难，尊严高于一切。',one:'你像西伯利亚的风，冷硬、清醒、令人无法回避。'},
+{id:'borges',name:'博尔赫斯',region:'拉美',kind:'概念迷宫派',traits:[6,6,10,5,4,8],quote:'「天堂应该是图书馆的模样。」',intro:'你喜欢拆结构、追溯层级，对真实本身充满兴趣。',one:'你像一座会自我折叠的图书馆，复杂而迷人。'},
+{id:'neruda',name:'聂鲁达',region:'拉美',kind:'爱情革命派',traits:[6,10,5,4,8,6],quote:'「我要对你做，春天对樱桃树做的事。」',intro:'你的诗炽热而政治，爱与大地同样澎湃。',one:'你像南美的海洋，汹涌、浪漫、充满生命力。'},
+{id:'marquez',name:'马尔克斯',region:'拉美',kind:'魔幻现实派',traits:[7,9,7,4,8,8],quote:'「面对行刑队，上校将会回想起父亲带他去见识冰块的那个下午。」',intro:'你把神话与现实织在一起，时间像河流一样回旋。',one:'你像一场绵延百年的雨，奇幻、潮湿、无法忘却。'},
+{id:'vargasllosa',name:'略萨',region:'拉美',kind:'结构叙事派',traits:[8,6,7,5,7,7],quote:'「写作是对权力的反抗。」',intro:'你擅长多线叙事与政治寓言，结构精密。',one:'你像一张复杂的地图，层层展开，指向权力与欲望。'},
+{id:'paz',name:'帕斯',region:'拉美',kind:'诗性哲思派',traits:[5,9,10,5,6,7],quote:'「一朵花不需要理由地开放。」',intro:'你在诗与散文间游走，追问身份、时间与神秘。',one:'你像沙漠里的太阳，炽热、抽象、照耀万物。'},
+{id:'bolano',name:'波拉尼奥',region:'拉美',kind:'流亡漫游派',traits:[7,7,6,8,6,8],quote:'「文学是世上最危险的职业。」',intro:'你写流亡、青春与文学的幽灵，叙事散漫而迷人。',one:'你像一条没有终点的公路，荒凉、自由、充满传说。'},
+{id:'kundera',name:'昆德拉',region:'其他',kind:'轻与重派',traits:[7,7,9,6,5,7],quote:'「人类一思考，上帝就发笑。」',intro:'你在玩笑与哲思间衡量存在的轻重。',one:'你像一面反光的窗，戏谑、深刻、捉摸不定。'},
+{id:'calvino',name:'卡尔维诺',region:'其他',kind:'结构童话派',traits:[5,8,9,4,5,9],quote:'「你对任何一条路都还不满意，因为你想同时走两条路。」',intro:'你把文学变成结构游戏，轻盈而智性。',one:'你像一本会自我重组的书，好玩、精巧、永不读完。'},
+{id:'pamuk',name:'帕慕克',region:'其他',kind:'文明交错派',traits:[7,8,8,6,7,6],quote:'「我到底是谁？这个问题始终困扰着我。」',intro:'你在东西方、个人与历史之间编织迷宫。',one:'你像伊斯坦布尔的雪，覆盖着记忆与身份。'},
+{id:'ibsen',name:'易卜生',region:'其他',kind:'社会问题派',traits:[9,5,7,5,8,6],quote:'「社会就像一艘船，人人都该有掌舵的责任。」',intro:'你用戏剧解剖家庭伦理与社会虚伪。',one:'你像一扇被敲响的门，问题一旦提出，就无法假装没听见。'},
+{id:'andersen',name:'安徒生',region:'其他',kind:'童话寓言派',traits:[5,9,6,5,8,6],quote:'「仅仅活着是不够的，你还应该有阳光、自由和一点花的芬芳。」',intro:'你用童话写尽孤独、美与命运的不公。',one:'你像一颗会流泪的星星，温柔、凄美、照亮童年。'},
+{id:'saramago',name:'萨拉马戈',region:'其他',kind:'寓言叙述派',traits:[8,6,8,5,9,7],quote:'「人类当有更多的耐心。」',intro:'你以绵延长句写集体命运与道德寓言。',one:'你像一场蔓延的失明，集体、寓言、令人战栗。'},
+{id:'tagore',name:'泰戈尔',region:'其他',kind:'灵性抒情派',traits:[4,10,8,3,9,5],quote:'「生如夏花之绚烂，死如秋叶之静美。」',intro:'你的诗充满自然、神性与爱的光辉。',one:'你像恒河上的月光，宁静、圣洁、普照众生。'},
+{id:'naipaul',name:'奈保尔',region:'其他',kind:'后殖民观察派',traits:[8,5,7,7,6,6],quote:'「世界如其所是，而非如我们所愿。」',intro:'你以冷峻目光写殖民遗产与身份撕裂。',one:'你像一面没有温度的镜子，清晰、尖锐、令人不适。'},
+{id:'achebe',name:'钦努阿·阿契贝',region:'其他',kind:'非洲叙事派',traits:[8,6,5,5,9,5],quote:'「直到狮子有了自己的史学家，狩猎的故事才不会只称赞猎人。」',intro:'你为被沉默的历史发声，重建非洲叙事。',one:'你像部落的鼓声，沉稳、有力、唤醒记忆。'},
+{id:'gibran',name:'纪伯伦',region:'其他',kind:'哲理诗语派',traits:[4,10,8,4,8,4],quote:'「你的儿女不是你的儿女，他们是生命对自身渴望的儿女。」',intro:'你的文字如诗如箴言，温柔而富有灵性。',one:'你像沙漠里的清泉，简洁、深邃、抚慰人心。'}
+];
+
+const QUESTIONS = [
+{q:'夜雨敲窗的时候，你最先想起的常常是——',type:'夜思',opts:[
+{t:'未寄出的信，和没说尽的话',d:[1,3,1,2,2,1]},
+{t:'某条旧路，某个人走远的背影',d:[0,3,1,2,2,0]},
+{t:'城里还有多少醒着的人',d:[2,1,2,2,3,0]},
+{t:'雨声本身，像一场没有结局的对白',d:[1,2,3,2,0,2]}
+]},
+{q:'若把此刻心绪写成半句话，它多半会停在——',type:'心绪',opts:[
+{t:'「原来如此。」',d:[2,1,2,1,1,1]},
+{t:'「可惜……」',d:[1,3,1,2,2,0]},
+{t:'「罢了。」',d:[1,1,1,2,2,1]},
+{t:'「等等，这不对。」',d:[2,0,3,1,0,2]}
+]},
+{q:'走进人群，你更像——',type:'人海',opts:[
+{t:'冷眼旁观的记录者',d:[2,1,2,2,1,1]},
+{t:'随时会被感动或刺痛的人',d:[0,3,1,1,3,0]},
+{t:'礼貌而疏离的过客',d:[1,2,1,3,0,1]},
+{t:'暗中编排故事的人',d:[1,2,3,2,0,2]}
+]},
+{q:'一本好书翻至中途被打断，你心里会闪过——',type:'读书记',opts:[
+{t:'得找个安静处把它读完',d:[1,2,1,2,1,1]},
+{t:'正好停在悬念处，余味更长',d:[1,3,1,2,0,2]},
+{t:'书里那个人，此刻在做什么',d:[0,2,2,2,2,1]},
+{t:'这页该做记号，日后还要回来',d:[2,1,3,1,1,2]}
+]},
+{q:'「乡愁」一词，先唤起的并非地名，而是——',type:'乡愁',opts:[
+{t:'某种再回不去的语气',d:[0,3,1,2,2,0]},
+{t:'旧物、旧声、旧气味',d:[0,3,0,1,3,0]},
+{t:'少年时莽撞又真诚的自己',d:[1,2,1,2,2,1]},
+{t:'时间本身在后退',d:[1,2,3,2,1,2]}
+]},
+{q:'你更熟稔哪一种沉默——',type:'沉默',opts:[
+{t:'两个人都不说话，却都明白',d:[0,2,1,2,3,0]},
+{t:'热闹场合里，独自清醒的那几秒',d:[1,1,2,3,0,1]},
+{t:'把话咽下去之后的长久',d:[2,2,1,2,2,0]},
+{t:'想说什么，却找不到准确的词',d:[1,2,3,2,0,2]}
+]},
+{q:'提笔写字时，最先落下的往往是——',type:'笔端',opts:[
+{t:'一个不肯妥协的问题',d:[3,0,2,0,1,1]},
+{t:'一个具体的场景：窗、灯、雨',d:[0,3,1,2,1,1]},
+{t:'一句没头没尾的诗',d:[0,3,2,1,1,2]},
+{t:'一个古怪却迷人的设定',d:[1,1,3,1,0,3]}
+]},
+{q:'委屈说不出口时，你通常——',type:'隐忍',opts:[
+{t:'写下来，或在心里反复推敲',d:[2,2,2,2,1,2]},
+{t:'装作没事，把日子照常过下去',d:[1,1,0,1,3,0]},
+{t:'远离人群，等情绪自己沉下去',d:[0,2,1,3,1,0]},
+{t:'突然笑出来，把气氛岔开',d:[1,1,0,2,2,2]}
+]},
+{q:'哪一种光线，最容易让你放松——',type:'光线',opts:[
+{t:'黄昏将尽，天色将暗未暗',d:[0,3,1,2,1,1]},
+{t:'清晨薄雾里的第一束光',d:[0,3,1,1,2,1]},
+{t:'深夜台灯下那一圈暖黄',d:[0,2,2,3,1,1]},
+{t:'正午过于直白、无处躲藏的白',d:[2,1,2,1,2,2]}
+]},
+{q:'若以季节自况，你更接近——',type:'季节',opts:[
+{t:'暮春：繁盛里已有凋零',d:[1,3,1,1,2,1]},
+{t:'长夏：闷热、漫长、不肯退场',d:[2,2,2,1,1,2]},
+{t:'深秋：清冽、疏朗、略带回望',d:[1,2,2,2,2,1]},
+{t:'残冬：冷硬、寂静、却孕育转机',d:[2,1,3,2,1,2]}
+]},
+{q:'听闻远方灾祸，你的第一反应更像——',type:'远讯',opts:[
+{t:'追问缘由，不肯轻易接受',d:[3,0,2,0,2,1]},
+{t:'心口一沉，久久缓不过来',d:[1,3,1,1,3,0]},
+{t:'先沉默，把细节一条条拼起来',d:[2,1,2,2,2,1]},
+{t:'觉得荒诞，却又无法当作笑话',d:[2,1,3,2,1,3]}
+]},
+{q:'一个好故事，你希望它从何处起笔——',type:'起笔',opts:[
+{t:'一桩小事，却照见整个时代',d:[3,1,1,1,3,0]},
+{t:'一次偶遇，气氛先于情节',d:[1,3,1,2,1,1]},
+{t:'一句谜语，或一个反常的细节',d:[1,1,3,2,0,3]},
+{t:'日常崩裂的那一瞬间',d:[2,2,1,2,2,2]}
+]},
+{q:'与朋友话别，你常说或常做的是——',type:'话别',opts:[
+{t:'不多言，但会多看一眼',d:[1,2,1,2,2,0]},
+{t:'说些轻巧的话，把沉重盖住',d:[1,2,0,2,2,2]},
+{t:'突然讲起一件不相干的小事',d:[1,3,1,2,1,2]},
+{t:'把「再见」说得像「后会有期」',d:[0,3,1,1,2,1]}
+]},
+{q:'从梦中醒来，留在枕边的往往是——',type:'梦醒',opts:[
+{t:'一个说不清的情绪',d:[0,3,1,2,1,2]},
+{t:'一个清晰的画面，像谁拍下的旧照片',d:[0,3,1,2,2,1]},
+{t:'一句梦里的对白，醒来仍记得',d:[1,2,2,2,1,2]},
+{t:'只剩空白，却觉得失去了什么',d:[1,2,3,3,0,2]}
+]},
+{q:'街角余晖正好，你会——',type:'街角',opts:[
+{t:'停下脚步，看人群与光影',d:[1,2,1,2,1,0]},
+{t:'想起某个与此无关的旧人',d:[0,3,1,2,2,0]},
+{t:'掏出手机，又怕拍不出当时的气氛',d:[1,2,1,3,0,1]},
+{t:'觉得这一刻不该被打扰',d:[0,2,2,3,1,1]}
+]},
+{q:'对「荒唐」二字，你的第一直觉是——',type:'荒唐',opts:[
+{t:'世事的常态，不必大惊小怪',d:[2,1,2,1,2,2]},
+{t:'华美表象下的蛀空',d:[2,2,1,2,1,2]},
+{t:'命运开的一个冷笑话',d:[1,2,2,2,1,3]},
+{t:'有人把荒诞当作遮羞布',d:[3,0,2,1,2,2]}
+]},
+{q:'若不得不舍弃一样，你更不愿放手的是——',type:'取舍',opts:[
+{t:'说真话的胆量',d:[3,0,2,0,2,1]},
+{t:'对美的敏锐与留恋',d:[0,3,2,1,1,2]},
+{t:'与少数人之间的情义',d:[0,2,0,1,4,0]},
+{t:'独立思考的余地',d:[2,1,3,2,0,2]}
+]},
+{q:'独处时，你最享受的是——',type:'独处',opts:[
+{t:'什么也不做，让时间流过去',d:[0,2,2,3,1,0]},
+{t:'读书、听风、与自己对话',d:[1,2,3,2,1,1]},
+{t:'把琐碎日子整理得有条理',d:[2,0,1,1,2,0]},
+{t:'任思绪乱跑，记下偶然的念头',d:[1,2,3,2,0,3]}
+]},
+{q:'若说话与写字只能留一样——',type:'表达',opts:[
+{t:'写字。话一出口就容易失真',d:[1,2,2,2,1,2]},
+{t:'说话。字太慢，跟不上心跳',d:[0,3,1,1,2,1]},
+{t:'都不需要太多，沉默更诚实',d:[1,1,2,3,1,1]},
+{t:'换种方式：画、走、或只是看',d:[1,2,3,2,0,2]}
+]},
+{q:'凝视镜中的自己，你更多看见——',type:'镜中',opts:[
+{t:'一张熟悉的脸，和陌生的神情',d:[1,2,2,2,1,2]},
+{t:'岁月留下的细纹与故事',d:[1,2,1,2,3,0]},
+{t:'此刻疲惫或兴奋的状态',d:[1,1,1,2,1,1]},
+{t:'一个尚未成为的人',d:[1,2,3,2,1,2]}
+]},
+{q:'窗外有风掠过，你想到的是——',type:'风',opts:[
+{t:'远方，和到不了的地方',d:[0,3,2,2,1,1]},
+{t:'谁此刻正站在另一扇窗前',d:[0,3,1,2,2,0]},
+{t:'树叶、尘土、被卷起的心事',d:[1,3,1,2,2,1]},
+{t:'风本身，不必追问去向',d:[1,2,3,1,1,2]}
+]},
+{q:'若此生只能留下一段文字，你希望它是——',type:'终笔',opts:[
+{t:'一句让人无法忽视的真话',d:[3,0,1,0,2,1]},
+{t:'一首读过便忘不掉的诗',d:[0,4,2,1,2,2]},
+{t:'一段把某人轻轻放下的故事',d:[1,3,1,2,3,0]},
+{t:'一个留给后人的谜',d:[1,2,3,2,0,3]}
+]}
+];
+
+</script>
+  <script>
+    const DIMS = ['现实批判','抒情浪漫','哲思抽象','都市孤独','人文悲悯','先锋实验'];
+    const state = { index: 0, scores: [0,0,0,0,0,0], chosen: [] };
+
+    const els = {
+      body: document.body, progressFill: document.getElementById('progressFill'),
+      qCount: document.getElementById('qCount'), typePill: document.getElementById('typePill'),
+      questionText: document.getElementById('questionText'), optionsBox: document.getElementById('optionsBox'),
+      prevBtn: document.getElementById('prevBtn'), nextBtn: document.getElementById('nextBtn'),
+      resetBtn: document.getElementById('resetBtn'), hintText: document.getElementById('hintText'),
+      libraryBox: document.getElementById('libraryBox'), resultBox: document.getElementById('resultBox'),
+      resultTitle: document.getElementById('resultTitle'), resultIntro: document.getElementById('resultIntro'),
+      resultOneLiner: document.getElementById('resultOneLiner'), resultWhy: document.getElementById('resultWhy'),
+      resultQuote: document.getElementById('resultQuote'), resultQuoteAuthor: document.getElementById('resultQuoteAuthor'),
+      personalityTags: document.getElementById('personalityTags'), top5List: document.getElementById('top5List'),
+      top5Quotes: document.getElementById('top5Quotes'),
+      shareText: document.getElementById('shareText'), radarChart: document.getElementById('radarChart')
+    };
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(showToast._tid);
+      showToast._tid = setTimeout(() => t.classList.remove('show'), 2200);
+    }
+
+    function copyShareText() {
+      const ta = els.shareText;
+      ta.focus();
+      ta.select();
+      ta.setSelectionRange(0, ta.value.length);
+      const ok = () => {
+        document.getElementById('copyBtn').textContent = '已复制';
+        showToast('文案已复制');
+        setTimeout(() => document.getElementById('copyBtn').textContent = '复制分享文案', 1500);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(ta.value).then(ok).catch(() => {
+          try { document.execCommand('copy'); ok(); }
+          catch (e) { showToast('请长按文案全选复制'); }
+        });
+      } else {
+        try { document.execCommand('copy'); ok(); }
+        catch (e) { showToast('请长按文案全选复制'); }
+      }
+    }
+
+    function norm(v) {
+      const s = Math.sqrt(v.reduce((a,b)=>a+b*b,0)) || 1;
+      return v.map(x => x / s);
+    }
+
+    function similarity(user, traits) {
+      const u = norm(user), t = norm(traits);
+      return u.reduce((s, x, i) => s + x * t[i], 0);
+    }
+
+    function renderLibrary() {
+      const groups = {};
+      WRITERS.forEach(w => { (groups[w.region] ||= []).push(w); });
+      els.libraryBox.innerHTML = Object.entries(groups).map(([region, list]) => `
+        <div class="region-block">
+          <div class="region-title">${region}（${list.length}）</div>
+          ${list.map(w => `
+            <article class="writer">
+              <div class="writer-top"><h3>${w.name}</h3><span class="kind">${w.kind}</span></div>
+              <p>${w.intro}</p>
+              <div class="quote">${w.quote}</div>
+            </article>`).join('')}
+        </div>`).join('');
+    }
+
+    function setView(v) {
+      els.body.className = 'view-' + v;
+      if (v === 'browse') { els.body.className = 'view-welcome'; document.querySelector('.library-aside').scrollIntoView({behavior:'smooth'}); }
+    }
+
+    function updateQuestion() {
+      const q = QUESTIONS[state.index];
+      els.questionText.textContent = q.q;
+      els.typePill.textContent = q.type;
+      els.qCount.textContent = `第 ${state.index + 1} / ${QUESTIONS.length} 题`;
+      els.progressFill.style.width = `${(state.index / QUESTIONS.length) * 100}%`;
+      els.prevBtn.disabled = state.index === 0;
+      els.nextBtn.textContent = state.index === QUESTIONS.length - 1 ? '查看结果' : '下一题';
+      syncMobileBar();
+      els.optionsBox.innerHTML = '';
+      q.opts.forEach((opt, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'opt' + (state.chosen[state.index] === i ? ' active' : '');
+        btn.textContent = opt.t;
+        btn.onclick = () => { state.chosen[state.index] = i; updateQuestion(); };
+        els.optionsBox.appendChild(btn);
+      });
+      els.hintText.textContent = state.chosen[state.index] !== null ? '选好了就点下一题。' : '凭直觉选一项，不必想太久。';
+    }
+
+    function recalcScores() {
+      state.scores = [0,0,0,0,0,0];
+      state.chosen.forEach((ci, qi) => {
+        if (ci === null) return;
+        QUESTIONS[qi].opts[ci].d.forEach((v, i) => state.scores[i] += v);
+      });
+    }
+
+    function dominantDims(scores, n=3) {
+      return scores.map((v,i)=>({i,v})).sort((a,b)=>b.v-a.v).slice(0,n).map(x=>DIMS[x.i]);
+    }
+
+    function buildWhy(top, dims) {
+      const whispers = {
+        '现实批判':'你惯于撕开表象，对空话与伪饰格外警觉',
+        '抒情浪漫':'你的感受浓烈而真诚，字句里常有余温',
+        '哲思抽象':'你爱追问本质，在隐喻与悖论里找答案',
+        '都市孤独':'你与人群保持距离，内心却自有秩序',
+        '人文悲悯':'你对他人处境敏感，笔下总有温度',
+        '先锋实验':'你不肯按常理叙述，总想换一种写法'
+      };
+      return `你的气质里，「${dims[0]}」最为醒目——${whispers[dims[0]]}。读${top.name}的文字，常有照见自己的瞬间。`;
+    }
+
+    function drawRadar(userScores, writerTraits) {
+      const cx=160, cy=160, R=110, n=DIMS.length;
+      const maxU = Math.max(...userScores, 1), maxT = 10;
+      const pt = (vals, max, r=R) => vals.map((v,i) => {
+        const a = -Math.PI/2 + i * 2*Math.PI/n;
+        const rr = (v/max)*r;
+        return [cx + rr*Math.cos(a), cy + rr*Math.sin(a)];
+      });
+      const poly = pts => pts.map(p=>p.join(',')).join(' ');
+      const grid = [0.25,0.5,0.75,1].map(f => {
+        const pts = DIMS.map((_,i) => {
+          const a = -Math.PI/2 + i * 2*Math.PI/n;
+          return [cx+R*f*Math.cos(a), cy+R*f*Math.sin(a)];
+        });
+        return `<polygon points="${poly(pts)}" fill="none" stroke="#e7dccd" stroke-width="1"/>`;
+      }).join('');
+      const axes = DIMS.map((d,i) => {
+        const a = -Math.PI/2 + i * 2*Math.PI/n;
+        const x = cx + (R+22)*Math.cos(a), y = cy + (R+22)*Math.sin(a);
+        return `<line x1="${cx}" y1="${cy}" x2="${cx+R*Math.cos(a)}" y2="${cy+R*Math.sin(a)}" stroke="#e7dccd"/><text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#6f6458">${d}</text>`;
+      }).join('');
+      const uPts = pt(userScores, maxU), wPts = pt(writerTraits, maxT);
+      els.radarChart.innerHTML = `${grid}${axes}
+        <polygon points="${poly(wPts)}" fill="rgba(176,137,104,.15)" stroke="#b08968" stroke-width="2" stroke-dasharray="6 4"/>
+        <polygon points="${poly(uPts)}" fill="rgba(139,94,52,.25)" stroke="#8b5e34" stroke-width="2"/>`;
+    }
+
+    function showResult() {
+      recalcScores();
+      const ranked = WRITERS.map(w => ({ w, sim: similarity(state.scores, w.traits) }))
+        .sort((a,b) => b.sim - a.sim);
+      const top = ranked[0].w;
+      const pct = v => Math.round(v * 100);
+      const dims = dominantDims(state.scores);
+
+      els.resultTitle.textContent = top.name;
+      els.resultIntro.textContent = top.intro;
+      els.resultOneLiner.textContent = top.one;
+      els.resultWhy.textContent = buildWhy(top, dims);
+      els.resultQuote.textContent = top.quote;
+      els.resultQuoteAuthor.textContent = `—— ${top.name}（${top.region} · ${top.kind}）`;
+      els.personalityTags.innerHTML = dims.map(d => `<span>${d}</span>`).join('');
+
+      els.top5List.innerHTML = ranked.slice(0,5).map((r,i) => `
+        <div class="top5-item">
+          <div class="top5-rank ${i===0?'gold':''}">${i+1}</div>
+          <div>
+            <div class="top5-name">${r.w.name}</div>
+            <div class="top5-meta">${r.w.region} · ${r.w.kind}</div>
+            <div class="meter"><i style="width:${pct(r.sim)}%"></i></div>
+          </div>
+          <strong>${pct(r.sim)}%</strong>
+        </div>`).join('');
+
+      els.top5Quotes.innerHTML = ranked.slice(0,5).map((r,i) => `
+        <div class="top5-quote-item"><strong>${i+1}. ${r.w.name}</strong><br>${r.w.quote}</div>`).join('');
+
+      drawRadar(state.scores, top.traits);
+      els.shareText.value = `我测出来更像「${top.name}」。\n${top.one}\n气质：${dims.join(' · ')}\n近邻：${ranked.slice(1,5).map(r=>r.w.name).join('、')}\n${top.quote}\n——你也来测一测？`;
+      els.resultBox.classList.add('show');
+      setView('result');
+      els.resultBox.scrollIntoView({behavior:'smooth'});
+    }
+
+    function startTest() {
+      state.index = 0;
+      state.chosen = Array(QUESTIONS.length).fill(null);
+      state.scores = [0,0,0,0,0,0];
+      els.resultBox.classList.remove('show');
+      setView('test');
+      updateQuestion();
+      document.querySelector('.test-area').scrollIntoView({behavior:'smooth'});
+    }
+
+    function resetAll() { startTest(); }
+    function next() {
+      if (state.chosen[state.index] === null) { showToast('先选一项吧'); return; }
+      if (state.index < QUESTIONS.length - 1) { state.index++; updateQuestion(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+      else { els.progressFill.style.width = '100%'; showResult(); }
+    }
+    function prev() { if (state.index > 0) { state.index--; updateQuestion(); window.scrollTo({ top: 0, behavior: 'smooth' }); } }
+
+    function syncMobileBar() {
+      const mb = document.getElementById('mobileNextBtn');
+      if (mb) mb.textContent = state.index === QUESTIONS.length - 1 ? '查看结果' : '下一题';
+      const mp = document.getElementById('mobilePrevBtn');
+      if (mp) mp.disabled = state.index === 0;
+    }
+
+    document.getElementById('startBtn').onclick = startTest;
+    document.getElementById('browseBtn').onclick = () => setView('browse');
+    document.getElementById('showLibBtn').onclick = () => { setView('welcome'); document.querySelector('.library-aside').scrollIntoView({behavior:'smooth'}); };
+    document.getElementById('nextBtn').onclick = next;
+    document.getElementById('prevBtn').onclick = prev;
+    document.getElementById('resetBtn').onclick = resetAll;
+    document.getElementById('againBtn').onclick = () => {
+      state.index = 0;
+      state.chosen = Array(QUESTIONS.length).fill(null);
+      state.scores = [0,0,0,0,0,0];
+      els.resultBox.classList.remove('show');
+      setView('welcome');
+      els.progressFill.style.width = '0%';
+    };
+    document.getElementById('mobileNextBtn').onclick = next;
+    document.getElementById('mobilePrevBtn').onclick = prev;
+    document.getElementById('copyBtn').onclick = copyShareText;
+
+    renderLibrary();
+  </script>
+</body>
+</html>
