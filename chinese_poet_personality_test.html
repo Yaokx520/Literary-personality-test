@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no, email=no, address=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="x5-orientation" content="portrait" />
+  <meta name="x5-fullscreen" content="true" />
+  <meta name="x5-page-mode" content="app" />
+  <meta name="description" content="22题诗境小测，从先秦至清末民初66位诗人中，找出与你气息最相近的一位。" />
+  <meta property="og:title" content="测测你更像哪位中国诗人" />
+  <meta property="og:description" content="22题诗意情境小测，匹配你的诗心与中国诗人原型。" />
+  <meta property="og:type" content="website" />
+  <title>测测你更像哪位中国诗人</title>
+  <style>
+    :root {
+      --bg: #f6f1e8; --card: #fffaf1; --ink: #2b241c; --muted: #6f6458;
+      --line: #e7dccd; --accent: #3d5c4a; --accent2: #5a7d66; --good: #2f6f4e;
+      --shadow: 0 18px 50px rgba(43,36,28,.10); --radius: 22px;
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: radial-gradient(circle at top left, rgba(176,137,104,.18), transparent 26%),
+        radial-gradient(circle at top right, rgba(139,94,52,.10), transparent 22%),
+        linear-gradient(180deg, #fbf8f2, #f4ede4 55%, #efe6d8);
+      min-height: 100vh;
+      padding-bottom: env(safe-area-inset-bottom, 0);
+      overflow-x: hidden;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 20px 16px calc(24px + env(safe-area-inset-bottom, 0)); }
+    .hero, .card {
+      background: rgba(255,250,241,.92); border: 1px solid rgba(231,220,205,.95);
+      border-radius: var(--radius); box-shadow: var(--shadow);
+    }
+    .hero { padding: 28px; position: relative; overflow: hidden; }
+    .hero::after {
+      content: ""; position: absolute; inset: auto -50px -70px auto; width: 220px; height: 220px;
+      border-radius: 50%; background: radial-gradient(circle, rgba(176,137,104,.18), transparent 68%); pointer-events: none;
+    }
+    .eyebrow {
+      display: inline-flex; padding: 8px 12px; border-radius: 999px;
+      background: rgba(139,94,52,.08); color: var(--accent); font-size: 13px;
+      letter-spacing: .08em; font-weight: 700;
+    }
+    h1 { margin: 16px 0 10px; font-size: clamp(28px, 4vw, 48px); line-height: 1.1; }
+    .intro { margin: 0; max-width: 760px; color: var(--muted); font-size: 16px; line-height: 1.85; }
+    .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .tag { padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.72); color: var(--accent); font-size: 13px; }
+    .grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: 18px; margin-top: 18px; }
+    .panel { padding: 22px; }
+    .section-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; scroll-margin-top: 12px; }
+    .section-title h2 { margin: 0; font-size: 22px; }
+    .section-title small { color: var(--muted); }
+    .progress-bar { height: 10px; border-radius: 999px; background: #efe4d4; overflow: hidden; }
+    .progress-fill { height: 100%; width: 0%; border-radius: inherit; background: linear-gradient(90deg, var(--accent2), var(--accent)); transition: width .35s ease; }
+    .q-count { margin-top: 10px; color: var(--muted); font-size: 14px; }
+    .question { font-size: 23px; line-height: 1.4; margin: 8px 0 18px; font-weight: 700; }
+    .type-pill { display: inline-block; margin-bottom: 8px; padding: 6px 10px; border-radius: 999px; background: rgba(47,111,78,.10); color: var(--good); font-size: 12px; font-weight: 700; }
+    .options { display: grid; gap: 10px; }
+    .opt {
+      width: 100%; text-align: left; padding: 16px 18px; border-radius: 16px;
+      border: 1px solid var(--line); background: #fff; cursor: pointer; line-height: 1.65; font-size: 16px;
+      transition: border-color .15s, background .15s; touch-action: manipulation;
+      -webkit-user-select: none; user-select: none;
+    }
+    .opt:active { background: rgba(139,94,52,.08); }
+    .opt.active { border-color: var(--accent); background: rgba(139,94,52,.06); }
+    .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+    .btn {
+      border: 0; border-radius: 14px; padding: 14px 18px; cursor: pointer; font-weight: 700; font-size: 16px;
+      transition: opacity .15s; touch-action: manipulation; min-height: 48px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:focus { outline: none; }
+    .btn.primary { background: linear-gradient(135deg, var(--accent2), var(--accent)); color: #fff; }
+    .btn.ghost { background: rgba(255,255,255,.75); color: var(--ink); border: 1px solid var(--line); }
+    .btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+    .mini { color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .library { display: grid; gap: 12px; max-height: 72vh; overflow: auto; padding-right: 4px; }
+    .region-title { font-size: 13px; font-weight: 700; color: var(--accent); margin: 8px 0 4px; letter-spacing: .05em; }
+    .writer { padding: 14px; border-radius: 16px; border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.82), rgba(250,242,229,.95)); }
+    .writer-top { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+    .writer h3 { margin: 0; font-size: 16px; }
+    .writer .kind { color: var(--accent); font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .writer p { margin: 8px 0 0; color: var(--muted); line-height: 1.7; font-size: 13px; }
+    .writer .quote { margin-top: 8px; padding-left: 10px; border-left: 3px solid rgba(139,94,52,.25); font-style: italic; color: #4b3d31; font-size: 13px; }
+    .result { display: none; margin-top: 18px; padding: 24px; border-radius: 24px; background: linear-gradient(180deg, #fffaf1, #f8efe2); border: 1px solid rgba(231,220,205,.95); box-shadow: var(--shadow); }
+    .result.show { display: block; }
+    .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .result h2 { margin: 0 0 8px; font-size: 30px; }
+    .lead { color: var(--muted); line-height: 1.8; margin: 0 0 18px; }
+    .result-box { border-radius: 18px; background: rgba(255,255,255,.72); border: 1px solid var(--line); padding: 16px; margin-bottom: 12px; }
+    .result-box h3 { margin: 0 0 8px; font-size: 16px; }
+    .result-box p { margin: 0; color: var(--muted); line-height: 1.8; }
+    .top5 { display: grid; gap: 10px; }
+    .top5-item { display: grid; grid-template-columns: 36px 1fr 52px; gap: 10px; align-items: center; }
+    .top5-rank { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 14px; background: rgba(139,94,52,.12); color: var(--accent); }
+    .top5-rank.gold { background: linear-gradient(135deg, #d4a574, var(--accent)); color: #fff; }
+    .top5-name { font-weight: 700; font-size: 15px; }
+    .top5-meta { font-size: 12px; color: var(--muted); }
+    .meter { height: 8px; border-radius: 999px; background: #efe4d4; overflow: hidden; margin-top: 4px; }
+    .meter > i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent2), var(--accent)); }
+    .radar-wrap { display: flex; justify-content: center; padding: 8px 0; }
+    .radar-wrap svg { max-width: 100%; height: auto; }
+    .personality-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .personality-tags span { padding: 6px 10px; border-radius: 999px; background: rgba(47,111,78,.10); color: var(--good); font-size: 12px; font-weight: 700; }
+    .quote-card { padding: 16px; border-radius: 16px; background: rgba(139,94,52,.06); border: 1px solid rgba(139,94,52,.15); }
+    .quote-card blockquote { margin: 0; font-size: 18px; line-height: 1.7; color: #4b3d31; font-style: italic; }
+    .quote-card cite { display: block; margin-top: 10px; color: var(--muted); font-size: 14px; font-style: normal; }
+    .top5-quotes { display: grid; gap: 10px; }
+    .top5-quote-item { padding: 10px 12px; border-radius: 12px; background: rgba(255,255,255,.6); border: 1px solid var(--line); font-size: 13px; line-height: 1.7; color: var(--muted); }
+    .top5-quote-item strong { color: var(--ink); font-size: 14px; }
+    .share { width: 100%; min-height: 100px; resize: none; border: 1px solid var(--line); border-radius: 16px; padding: 14px; background: rgba(255,255,255,.86); line-height: 1.7; font-size: 16px; }
+    .share-tip { margin-top: 8px; font-size: 13px; color: var(--accent); line-height: 1.6; }
+    .toast {
+      position: fixed; left: 50%; bottom: calc(72px + env(safe-area-inset-bottom, 0));
+      transform: translateX(-50%) translateY(20px); opacity: 0; pointer-events: none;
+      background: rgba(43,36,28,.88); color: #fff; padding: 12px 20px; border-radius: 999px;
+      font-size: 14px; z-index: 9999; transition: opacity .25s, transform .25s;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .mobile-bar {
+      display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 100;
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0));
+      background: rgba(255,250,241,.96); border-top: 1px solid var(--line);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      gap: 10px;
+    }
+    .mobile-bar .btn { flex: 1; }
+    #testArea { scroll-margin-top: 8px; }
+    .view-test .mobile-bar { display: flex; }
+    .view-test .test-area .controls { display: none; }
+    .publish-tip {
+      margin-top: 14px; padding: 12px 14px; border-radius: 14px;
+      background: rgba(139,94,52,.06); border: 1px dashed rgba(139,94,52,.25);
+      font-size: 13px; color: var(--muted); line-height: 1.75;
+    }
+    .publish-tip strong { color: var(--accent); }
+    .hidden { display: none !important; }
+    .view-welcome .test-area { display: none; }
+    .view-test .hero { display: none; }
+    .view-test .welcome-cta { display: none; }
+    .view-test .library-aside { display: none; }
+    .view-test .grid { grid-template-columns: 1fr; margin-top: 0; }
+    .view-test .wrap { padding-top: 12px; }
+    .view-result .test-area { display: none; }
+    .view-result .library-aside { display: none; }
+    .view-result .grid { display: none; }
+    @media (max-width: 900px) {
+      .grid, .result-grid { grid-template-columns: 1fr; }
+      .hero, .panel, .result { padding: 18px; }
+      .question { font-size: 20px; }
+      .library-aside { display: block; }
+      .view-welcome .library-aside { margin-top: 0; }
+      .view-test { padding-bottom: 72px; }
+      .view-test .panel { padding: 16px; }
+      .view-test .question { font-size: 19px; margin: 6px 0 14px; }
+      .wrap { padding: 16px 14px calc(16px + env(safe-area-inset-bottom, 0)); }
+    }
+    @media (min-width: 901px) {
+      .view-test .test-area { max-width: 720px; margin: 0 auto; }
+      .view-result .result { max-width: 1100px; margin: 0 auto; }
+      .opt:hover { transform: translateY(-1px); border-color: rgba(139,94,52,.35); box-shadow: 0 10px 24px rgba(43,36,28,.08); }
+      .btn:hover { transform: translateY(-1px); }
+    }
+  </style>
+</head>
+<body class="view-welcome">
+  <div class="wrap">
+    <section class="hero">
+      <span class="eyebrow">诗心小测</span>
+      <h1>测测你更像哪位中国诗人</h1>
+      <p class="intro">自先秦至清末民初，精选 <strong>66 位</strong>诗人（止于1918年）。不问典故，只凭你在落红、夜读、江舟、秋风里的本能反应，寻一位与你诗心相映的古人。全程 <strong>22 题</strong>，句句有画面。</p>
+      <div class="meta">
+        <span class="tag">66 位诗人</span>
+        <span class="tag">22 题诗境</span>
+        <span class="tag">先秦—清末民初</span>
+        <span class="tag">结果可分享</span>
+      </div>
+      <div class="publish-tip">
+        <strong>本项目为爱发电，您觉得不错的话，欢迎转发给好友。如果您也喜欢文学或者有创作的想法，欢迎关注我的微信公众号秋轩诗抄，与我一同徜徉文学的海洋。</strong>
+      </div>
+      <div class="controls welcome-cta" style="margin-top:20px">
+        <button class="btn primary" id="startBtn">开始测试</button>
+        <button class="btn ghost" id="browseBtn">浏览诗人库</button>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="card panel test-area" id="testArea">
+        <div class="section-title" id="questionAnchor">
+          <h2>测试问题</h2>
+          <small>22 题 · 单选</small>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="q-count" id="qCount">第 1 / 22 题</div>
+        <div class="type-pill" id="typePill">文学气质</div>
+        <div class="question" id="questionText"></div>
+        <div class="options" id="optionsBox"></div>
+        <div class="controls">
+          <button class="btn ghost" id="prevBtn">上一题</button>
+          <button class="btn ghost" id="resetBtn">重置</button>
+          <button class="btn primary" id="nextBtn">下一题</button>
+        </div>
+        <p class="mini" id="hintText">每道题选择最接近你的答案。</p>
+      </section>
+
+      <aside class="card panel library-aside">
+        <div class="section-title">
+          <h2>诗人库</h2>
+          <small id="libCount">66 位</small>
+        </div>
+        <div class="library" id="libraryBox"></div>
+      </aside>
+    </div>
+
+    <section class="result" id="resultBox">
+      <div class="result-grid">
+        <div>
+          <span class="eyebrow">诗心结果</span>
+          <h2 id="resultTitle"></h2>
+          <p class="lead" id="resultIntro"></p>
+          <div class="personality-tags" id="personalityTags"></div>
+          <div class="result-box" style="margin-top:14px">
+            <h3>判语</h3>
+            <p id="resultOneLiner"></p>
+          </div>
+          <div class="result-box">
+            <h3>几分缘由</h3>
+            <p id="resultWhy"></p>
+          </div>
+          <div class="result-box quote-card">
+            <h3 style="margin-bottom:12px">诗人名句</h3>
+            <blockquote id="resultQuote"></blockquote>
+            <cite id="resultQuoteAuthor"></cite>
+          </div>
+          <div class="result-box">
+            <h3>Top 5 名言摘记</h3>
+            <div id="top5Quotes" class="top5-quotes"></div>
+          </div>
+        </div>
+        <div>
+          <div class="result-box">
+            <h3>诗心雷达图</h3>
+            <div class="radar-wrap"><svg id="radarChart" width="320" height="320" viewBox="0 0 320 320"></svg></div>
+            <p class="mini" style="text-align:center;margin-top:4px">实线：你的诗心 · 虚线：最相近的诗人</p>
+          </div>
+          <div class="result-box">
+            <h3>Top 5 匹配</h3>
+            <div class="top5" id="top5List"></div>
+          </div>
+          <div class="result-box">
+            <h3>分享文案</h3>
+            <textarea class="share" id="shareText" readonly></textarea>
+            <p class="share-tip" id="shareTip">微信内建议长按上方文案全选复制；或点「复制」按钮。</p>
+          </div>
+          <div class="controls">
+            <button class="btn primary" id="againBtn">再测一次</button>
+            <button class="btn ghost" id="copyBtn">复制分享文案</button>
+            <button class="btn ghost" id="showLibBtn">查看诗人库</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="mobile-bar" id="mobileBar">
+    <button class="btn ghost" id="mobilePrevBtn">上一题</button>
+    <button class="btn primary" id="mobileNextBtn">下一题</button>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script>
+const WRITERS = [
+{id:'quyuan',name:'屈原',region:'先秦',kind:'浪漫忧思',traits:[7,10,7,4,8,5],quote:'「路漫漫其修远兮，吾将上下而求索。」',intro:'你心怀理想与忠忱，情感浓烈，常于困顿中仍不肯放下对光明的追寻。',one:'你像湘水上的香草，幽香自苦，不肯折腰。'},
+{id:'songyu',name:'宋玉',region:'先秦',kind:'哀婉迷离',traits:[4,9,5,5,4,6],quote:'「悲哉秋之为气也，萧瑟兮草木摇落而变衰。」',intro:'你对季节、美与衰败极度敏感，文风绮丽而含哀。',one:'你像秋风里的一叶，美而易碎，却令人难忘。'},
+{id:'laozi',name:'老子',region:'先秦',kind:'玄言哲思',traits:[3,5,10,7,4,4],quote:'「大音希声，大象无形。」',intro:'你偏爱以简驭繁，在静默与悖论里见大道。',one:'你像深谷中的回声，轻而深远。'},
+{id:'zhuangzi',name:'庄子',region:'先秦',kind:'逍遥寓言',traits:[2,8,10,8,3,7],quote:'「相濡以沫，不如相忘于江湖。」',intro:'你不愿被俗务缚住，想象辽阔，语带跳脱之思。',one:'你像庄周梦蝶，清醒与迷离并存。'},
+{id:'shijing',name:'佚名（诗经）',region:'先秦',kind:'民间天籁',traits:[5,8,3,4,8,2],quote:'「关关雎鸠，在河之洲。」',intro:'你贴近土地与人心，朴素真挚，自有节律。',one:'你像田野上的歌谣，未经雕饰却动人。'},
+{id:'caocao',name:'曹操',region:'汉',kind:'慷慨沉雄',traits:[7,7,5,4,7,5],quote:'「对酒当歌，人生几何。」',intro:'你胸有丘壑，能在乱世豪情与人生无常间自如切换。',one:'你像碣石山上的长风，苍凉而有力。'},
+{id:'caozhi',name:'曹植',region:'汉',kind:'才高情炽',traits:[5,10,5,3,5,6],quote:'「捐躯赴国难，视死忽如归。」',intro:'你才情奔溢，情感炽烈，常于华辞中见真伤。',one:'你像洛神凌波，惊艳而带有距离。'},
+{id:'sima',name:'司马相如',region:'汉',kind:'铺张扬丽',traits:[4,9,4,3,4,7],quote:'「有一美人兮，见之不忘。」',intro:'你擅铺陈意象，辞采华美，气势阔大。',one:'你像长门宫前的月色，浓丽而幽深。'},
+{id:'caiyan',name:'蔡琰',region:'汉',kind:'乱世悲音',traits:[6,9,4,5,9,4],quote:'「胡笳互动，牧马悲鸣。」',intro:'你历经流离，诗声哀婉，字字是命运刻痕。',one:'你像胡笳十八拍，悲而不碎。'},
+{id:'suwu',name:'苏武',region:'汉',kind:'节义坚忍',traits:[6,7,5,6,9,3],quote:'「愿为双黄鹄，送子以远游。」',intro:'你重诺守节，情感深藏于克制之中。',one:'你像北海牧羊的飞雪，沉默而坚贞。'},
+{id:'zhangheng',name:'张衡',region:'汉',kind:'思接千载',traits:[5,7,9,4,6,6],quote:'「思曰余身，曾何劳兮。」',intro:'你兼诗与思，好观天地万象以写人心。',one:'你像浑天仪上的星轨，周密而辽远。'},
+{id:'ruanji',name:'阮籍',region:'魏晋',kind:'孤愤游仙',traits:[6,7,8,7,4,8],quote:'「夜中不能寐，起坐弹鸣琴。」',intro:'你内心孤愤，常以酒与诗逃避俗世，意象诡奇。',one:'你像竹林里的月光，清冷而难测。'},
+{id:'jikang',name:'嵇康',region:'魏晋',kind:'清峻绝俗',traits:[5,8,8,8,3,7],quote:'「目送归鸿，手挥五弦。」',intro:'你追求精神自由，风骨清峻，不肯俯仰随人。',one:'你像广陵散余音，绝响而孤高。'},
+{id:'taoyuan',name:'陶渊明',region:'魏晋',kind:'田园淡远',traits:[3,8,7,10,5,3],quote:'「采菊东篱下，悠然见南山。」',intro:'你向往朴素自足，于日常烟火中见真意。',one:'你像东篱秋色，淡而有味。'},
+{id:'xieling',name:'谢灵运',region:'魏晋',kind:'山水雕镌',traits:[3,9,6,7,4,6],quote:'「池塘生春草，园柳变鸣禽。」',intro:'你善写山水，工笔细丽，意境清远。',one:'你像春涧清流，精致而灵动。'},
+{id:'baozhao',name:'鲍照',region:'魏晋',kind:'骨力刚劲',traits:[7,8,4,4,7,6],quote:'「人生岂合长如此，安能鬖鬖垂羽翼。」',intro:'你诗风劲利，常于困顿中发出不平之音。',one:'你像寒夜里的铁马，铿锵带霜。'},
+{id:'yuxin',name:'庾信',region:'魏晋',kind:'故国哀思',traits:[7,9,5,5,9,5],quote:'「日暮途远，人间何限。」',intro:'你身世飘零，哀思深挚，晚年尤工。',one:'你像江南残雨，湿冷而绵长。'},
+{id:'zuosi',name:'左思',region:'魏晋',kind:'沉郁讽喻',traits:[8,6,6,4,7,5],quote:'「铅刀一快，截水难流。」',intro:'你才高志大，常于讽喻中见身世之感。',one:'你像三都赋里的城郭，厚重而森然。'},
+{id:'jiangyan',name:'江淹',region:'魏晋',kind:'才思绚烂',traits:[5,9,6,4,5,7],quote:'「春草碧色，春水渌波。」',intro:'你早年辞采绚烂，善写离别与幻梦。',one:'你像梦笔生花的残墨，绮丽而易逝。'},
+{id:'heson',name:'何逊',region:'魏晋',kind:'清峭深婉',traits:[4,8,5,6,5,4],quote:'「江暗雨欲来，浪白风初起。」',intro:'你诗风清峭，善写细小景物中的情绪。',one:'你像江雨初来，凉意先于雨声。'},
+{id:'xietiao',name:'谢朓',region:'魏晋',kind:'清新浅远',traits:[4,8,5,6,4,5],quote:'「余霞散成绮，澄江静如练。」',intro:'你清新隽永，写景如画，音调流转。',one:'你像澄江练影，明澈而悠远。'},
+{id:'libai',name:'李白',region:'唐',kind:'豪放浪漫',traits:[4,10,6,5,4,8],quote:'「天生我材必有用，千金散尽还复来。」',intro:'你热情奔放，想象奇绝，诗如酒与剑。',one:'你像明月与长风，洒脱不羁。'},
+{id:'dufu',name:'杜甫',region:'唐',kind:'沉郁顿挫',traits:[9,8,5,3,10,4],quote:'「国破山河在，城春草木深。」',intro:'你把个人命运与家国苍生紧紧系在一起。',one:'你像一首慢慢展开的长史，厚重悲悯。'},
+{id:'wangwei',name:'王维',region:'唐',kind:'诗画禅境',traits:[3,8,8,8,5,4],quote:'「行到水穷处，坐看云起时。」',intro:'你诗中有画，画中有禅，意境空明。',one:'你像空山新雨，静穆而清远。'},
+{id:'menghao',name:'孟浩然',region:'唐',kind:'冲淡自然',traits:[3,8,5,9,5,3],quote:'「绿树村边合，青山郭外斜。」',intro:'你偏爱山水田园，语淡意深。',one:'你像鹿门春晓，清淡自足。'},
+{id:'wangchang',name:'王昌龄',region:'唐',kind:'七绝圣手',traits:[6,8,4,5,7,5],quote:'「秦时明月汉时关，万里长征人未还。」',intro:'你边塞与闺情并重，意境雄浑含蓄。',one:'你像关城月色，苍凉而明净。'},
+{id:'baiju',name:'白居易',region:'唐',kind:'通俗深婉',traits:[7,8,4,4,9,4],quote:'「同是天涯沦落人，相逢何必曾相识。」',intro:'你关怀民间疾苦，语言平易而情致深婉。',one:'你像浔阳夜月，贴近人心。'},
+{id:'lishang',name:'李商隐',region:'唐',kind:'朦胧多义',traits:[5,9,8,6,4,7],quote:'「春蚕到死丝方尽，蜡炬成灰泪始干。」',intro:'你善用隐喻，情感幽深，旨趣多解。',one:'你像夜雨寄北，朦胧而缠绵。'},
+{id:'dumu',name:'杜牧',region:'唐',kind:'俊逸伤别',traits:[6,8,5,5,5,6],quote:'「十年一觉扬州梦，赢得青楼薄幸名。」',intro:'你才情俊逸，常于繁华余烬中感喟。',one:'你像杜牧之诗里的残烛，风流而带怅惘。'},
+{id:'liuyuxi',name:'刘禹锡',region:'唐',kind:'豪迈清健',traits:[6,7,6,5,6,6],quote:'「沉舟侧畔千帆过，病树前头万木春。」',intro:'你历经沉浮仍保豁达，格调清健。',one:'你像巴山夜雨后的晨光，韧而有光。'},
+{id:'hanyu',name:'韩愈',region:'唐',kind:'文以载道',traits:[8,6,7,3,8,5],quote:'「蚍蜉撼大树，可笑不自量。」',intro:'你主张文以载道，笔力雄健，敢言敢谏。',one:'你像泰山石，嶙峋而正大。'},
+{id:'liuzong',name:'柳宗元',region:'唐',kind:'清冷深峻',traits:[7,7,8,7,6,5],quote:'「孤舟蓑笠翁，独钓寒江雪。」',intro:'你诗文清冷峻洁，于孤寂中见深致。',one:'你像寒江独钓，冷而清绝。'},
+{id:'yuanzhen',name:'元稹',region:'唐',kind:'深情真挚',traits:[6,9,4,4,7,4],quote:'「曾经沧海难为水，除却巫山不是云。」',intro:'你于爱情与身世间写得真挚动人。',one:'你像沧海遗珠，情深而不滥。'},
+{id:'lihe',name:'李贺',region:'唐',kind:'鬼仙奇崛',traits:[5,8,7,5,3,10],quote:'「天若有情天亦老。」',intro:'你想象诡奇，辞采瑰丽，如鬼仙之诗。',one:'你像李贺诗中的紫皇，诡丽而惊心。'},
+{id:'wenti',name:'温庭筠',region:'唐',kind:'花间秾艳',traits:[4,9,5,6,4,6],quote:'「玲珑骰子安红豆，入骨相思知不知。」',intro:'你词采秾丽，善写闺思与艳情。',one:'你像花间集里的暗香，秾丽而幽微。'},
+{id:'weiyin',name:'韦应物',region:'唐',kind:'闲淡清远',traits:[4,7,6,8,6,3],quote:'「春潮带雨晚来急，野渡无人舟自横。」',intro:'你诗风闲淡，于日常景物中见深远。',one:'你像野渡春潮，自在而清远。'},
+{id:'chenzi',name:'陈子昂',region:'唐',kind:'孤愤高唱',traits:[7,8,7,5,6,6],quote:'「前不见古人，后不见来者。」',intro:'你登高长啸，孤愤慷慨，开一代诗风。',one:'你像幽州台上的长风，孤独而嘹亮。'},
+{id:'zhangjiu',name:'张九龄',region:'唐',kind:'雅正深婉',traits:[6,8,6,5,7,4],quote:'「海上生明月，天涯共此时。」',intro:'你格调雅正，情思深婉，有宰相之风。',one:'你像海上明月，清辉照远。'},
+{id:'wangbo',name:'王勃',region:'唐',kind:'少年英发',traits:[5,9,5,3,5,7],quote:'「落霞与孤鹜齐飞，秋水共长天一色。」',intro:'你才气早发，辞采华茂，意境开阔。',one:'你像滕王阁上的落霞，绚烂而短暂。'},
+{id:'hezhiz',name:'贺知章',region:'唐',kind:'疏放真率',traits:[4,8,5,6,5,5],quote:'「不知细叶谁裁出，二月春风似剪刀。」',intro:'你性情疏放，诗风真率自然，亦工绝句。',one:'你像碧玉妆成的春风，轻快而明净。'},
+{id:'censen',name:'岑参',region:'唐',kind:'奇峭壮逸',traits:[5,8,4,5,6,7],quote:'「忽如一夜春风来，千树万树梨花开。」',intro:'你诗风奇峭壮逸，善写边塞风雪与奇景。',one:'你像轮台夜雪，奇丽而寒光四射。'},
+{id:'gaoshi',name:'高适',region:'唐',kind:'慷慨悲壮',traits:[7,7,4,4,7,5],quote:'「战士军前半死生，美人帐下犹歌舞。」',intro:'你诗笔雄健，边塞与送别皆见慷慨之气。',one:'你像燕歌行里的征鼓，悲壮而浑厚。'},
+{id:'sushi',name:'苏轼',region:'宋',kind:'旷达豪放',traits:[6,9,7,5,7,6],quote:'「回首向来萧瑟处，归去，也无风雨也无晴。」',intro:'你兼才情与豁达，于风雨人生中仍保通透。',one:'你像一场雨后的彩虹，温润而有光。'},
+{id:'xinqiji',name:'辛弃疾',region:'宋',kind:'豪壮沉郁',traits:[8,8,5,4,9,6],quote:'「醉里挑灯看剑，梦回吹角连营。」',intro:'你壮志与沉郁交织，词如金戈铁马。',one:'你像剑气与词章，刚劲而悲凉。'},
+{id:'liqingz',name:'李清照',region:'宋',kind:'婉约深挚',traits:[5,10,4,6,6,5],quote:'「寻寻觅觅，冷冷清清，凄凄惨惨戚戚。」',intro:'你情感细腻深挚，词风婉约而力透纸背。',one:'你像残荷听雨，凄美而真切。'},
+{id:'luyou',name:'陆游',region:'宋',kind:'爱国深情',traits:[8,8,4,4,10,4],quote:'「王师北定中原日，家祭无忘告乃翁。」',intro:'你一生心系家国，老而弥坚，诗情沉郁。',one:'你像剑南春雨，湿冷而炽热。'},
+{id:'ouyang',name:'欧阳修',region:'宋',kind:'平易深婉',traits:[6,8,5,4,8,4],quote:'「月上柳梢头，人约黄昏后。」',intro:'你文风平易，情思深婉，领袖一代文风。',one:'你像浅酌低唱的黄昏，温润可亲。'},
+{id:'liuyong',name:'柳永',region:'宋',kind:'市井深情',traits:[5,9,4,5,6,5],quote:'「今宵酒醒何处？杨柳岸，晓风残月。」',intro:'你善写羁旅与艳情，浅斟低唱深入人心。',one:'你像晓风残月下的渡口，缠绵而落寞。'},
+{id:'qinguang',name:'秦观',region:'宋',kind:'纤柔婉约',traits:[4,10,5,5,5,4],quote:'「两情若是久长时，又岂在朝朝暮暮。」',intro:'你词风纤柔，善写柔情与幻梦。',one:'你像少游词里的春水，柔而深流。'},
+{id:'jiangkui',name:'姜夔',region:'宋',kind:'清空骚雅',traits:[5,9,6,7,4,6],quote:'「二十四桥仍在，波心荡，冷月无声。」',intro:'你词风清空，意境冷寂，音律精工。',one:'你像扬州冷月，清空而哀婉。'},
+{id:'yanshu',name:'晏殊',region:'宋',kind:'富贵闲雅',traits:[4,8,5,5,5,4],quote:'「无可奈何花落去，似曾相识燕归来。」',intro:'你闲雅雍容，于富贵气象中见人生哲思。',one:'你像小园香径，闲雅而含蓄。'},
+{id:'fanzhong',name:'范仲淹',region:'宋',kind:'忧乐天下',traits:[8,7,6,3,10,4],quote:'「先天下之忧而忧，后天下之乐而乐。」',intro:'你胸怀天下，诗文兼济，风骨高峻。',one:'你像岳阳楼上的江风，浩荡而清醒。'},
+{id:'huangtin',name:'黄庭坚',region:'宋',kind:'奇崛瘦硬',traits:[6,7,8,5,5,8],quote:'「落木千山天远大，澄江一道月分明。」',intro:'你诗风奇崛瘦硬，学古而不泥古。',one:'你像涪翁笔底的瘦竹，劲直而清奇。'},
+{id:'yangwan',name:'杨万里',region:'宋',kind:'清新活法',traits:[4,8,5,6,6,6],quote:'「小荷才露尖尖角，早有蜻蜓立上头。」',intro:'你追求活法，于寻常景物中见清新妙趣。',one:'你像小池新荷，灵动而生机盎然。'},
+{id:'fancheng',name:'范成大',region:'宋',kind:'田园纪实',traits:[5,8,4,7,8,4],quote:'「昼出耘田夜绩麻，村庄儿女各当家。」',intro:'你善写田园风物与民间疾苦，语淡情深。',one:'你像四时田园杂兴，朴实而温厚。'},
+{id:'wentian',name:'文天祥',region:'宋',kind:'正气浩歌',traits:[9,7,5,3,10,4],quote:'「人生自古谁无死，留取丹心照汗青。」',intro:'你以诗明志，浩然正气，宁折不弯。',one:'你像零丁洋上的浪，悲壮而澄明。'},
+{id:'mayuan',name:'马致远',region:'元',kind:'秋思绝唱',traits:[5,9,6,7,5,5],quote:'「枯藤老树昏鸦，小桥流水人家。」',intro:'你曲风萧疏，秋思绝唱，意境苍茫。',one:'你像古道西风，萧瑟而深远。'},
+{id:'zhangyh',name:'张养浩',region:'元',kind:'忧民刚直',traits:[8,7,5,4,9,4],quote:'「兴，百姓苦；亡，百姓苦。」',intro:'你关心民瘼，辞直意切，刚直不阿。',one:'你像潼关怀古，沉痛而坦荡。'},
+{id:'gaoqi',name:'高启',region:'明',kind:'俊逸清新',traits:[5,8,5,5,6,6],quote:'「琼枝雪缀，偏耐凌寒。」',intro:'你诗风俊逸，才高气华，清新流丽。',one:'你像明初梅花，清峭而明艳。'},
+{id:'tangyin',name:'唐寅',region:'明',kind:'风流才情',traits:[5,9,5,6,4,7],quote:'「桃花坞里桃花庵，桃花庵下桃花仙。」',intro:'你才情风流，诗画兼工，放达与感伤并存。',one:'你像桃花庵里的春色，风流而带自嘲。'},
+{id:'nalan',name:'纳兰性德',region:'清',kind:'深情绵邈',traits:[5,10,5,6,5,4],quote:'「人生若只如初见，何事秋风悲画扇。」',intro:'你词作情深，哀感顽艳，真率动人。',one:'你像初见时的秋风，美而令人心碎。'},
+{id:'gongziz',name:'龚自珍',region:'清',kind:'变革呐喊',traits:[8,8,7,4,8,7],quote:'「落红不是无情物，化作春泥更护花。」',intro:'你忧世愤世，诗风奇崛，呼唤变革。',one:'你像落红化泥，悲愤中仍有热诚。'},
+{id:'zhengban',name:'郑板桥',region:'清',kind:'竹石风骨',traits:[7,7,6,6,7,5],quote:'「咬定青山不放松，立根原在破岩中。」',intro:'你诗书画三绝，风骨坚劲，关怀民间。',one:'你像石间修竹，清劲而倔强。'},
+{id:'huangzx',name:'黄遵宪',region:'清',kind:'革新诗界',traits:[7,7,7,4,8,8],quote:'「我手写我口，古岂能拘我。」',intro:'你倡诗界革命，开新风，兼忧国与革新。',one:'你像晚清惊雷，旧壳里出新声。'},
+{id:'suman',name:'苏曼殊',region:'清末民初',kind:'才情孤冷',traits:[5,9,7,6,5,7],quote:'「春雨楼头尺八箫，何时归看浙江潮。」',intro:'你才情孤冷，诗风清丽，身世如飘萍。',one:'你像尺八箫声，清越而孤寂。'},
+{id:'liuyazi',name:'柳亚子',region:'清末民初',kind:'旧体新声',traits:[7,8,6,4,8,6],quote:'「可怜吾辈曾如此，风雨飘摇任壮夫。」',intro:'你承旧体而写新声，忧时愤世，笔力纵横。',one:'你像南社诗魂，旧酒装新愁。'}
+];
+
+const QUESTIONS = [
+{q:'暮春午后，阶前落红成径。你驻足时，心里最先浮现的是——',type:'落红',opts:[
+{t:'「化作春泥更护花」——凋零里仍有深情',d:[2,3,2,1,4,1]},
+{t:'「无可奈何花落去」——繁华难留的怅惘',d:[1,4,2,2,2,2]},
+{t:'「花自飘零水自流」——任它去，我只静静看',d:[0,3,3,3,1,1]},
+{t:'「花落人亡两不知」——美与哀倏忽而至',d:[1,4,3,2,2,3]}
+]},
+{q:'夜读至半，烛花爆了一声。你放下书卷，望向窗外——',type:'夜读',opts:[
+{t:'远山如墨，星河沉默，天地大而无言',d:[1,2,4,3,2,2]},
+{t:'细雨敲窗，像谁未写完的句子',d:[0,4,2,3,2,3]},
+{t:'街市灯火未熄，人间仍有未眠人',d:[3,2,1,2,4,1]},
+{t:'只有自己的影子，投在墙上格外清晰',d:[1,3,3,4,1,2]}
+]},
+{q:'若你是一枚印章，最想镌的字是——',type:'印信',opts:[
+{t:'「忠」——不负所托，不负所信',d:[3,2,2,1,4,1]},
+{t:'「逸」——身在尘中，心在云外',d:[0,3,3,4,1,2]},
+{t:'「真」——宁为璞玉，不为雕饰',d:[2,3,3,2,2,2]},
+{t:'「奇」——宁惊世，也不平庸',d:[1,3,4,2,0,4]}
+]},
+{q:'江上孤舟，远帆一点。你更想成为——',type:'江舟',opts:[
+{t:'岸上人，把此情写进诗里',d:[1,4,2,2,3,3]},
+{t:'舟中客，任水流向东或西',d:[0,3,3,4,1,2]},
+{t:'撑篙者，明知逆水仍要前行',d:[4,2,2,1,4,1]},
+{t:'水中月，明灭随波，不执一物',d:[1,3,4,3,1,3]}
+]},
+{q:'秋风起兮，你最先感到的是——',type:'秋风',opts:[
+{t:'衣袂生寒，故园路远',d:[2,4,2,3,3,2]},
+{t:'木叶萧萧，天地辽阔而人渺小',d:[1,3,3,3,2,3]},
+{t:'金戈铁马，边关月色如霜',d:[4,3,1,2,4,2]},
+{t:'酒意正酣，正好登高长啸',d:[2,4,2,2,2,4]}
+]},
+{q:'月下独酌，无人对饮。你会——',type:'独酌',opts:[
+{t:'邀明月与影，三者成欢',d:[0,4,3,3,1,4]},
+{t:'想起某个人，酒便淡了',d:[1,4,1,3,3,1]},
+{t:'把愁思一行行写下来',d:[2,4,2,3,2,3]},
+{t:'听风过竹林，比酒更醉人',d:[0,3,4,4,1,2]}
+]},
+{q:'你偏爱哪一种水声——',type:'水声',opts:[
+{t:'山泉漱石，清泠不绝',d:[0,3,4,4,1,2]},
+{t:'大江东去，逝者如斯',d:[2,3,3,2,4,3]},
+{t:'雨打芭蕉，夜深无眠',d:[1,4,2,3,2,3]},
+{t:'野渡无人，春潮晚急',d:[0,3,2,4,2,2]}
+]},
+{q:'若必须用一种颜色形容你的诗心——',type:'诗心',opts:[
+{t:'青——雨后远山，淡而深远',d:[0,3,3,4,2,2]},
+{t:'白——大雪空山，冷而明净',d:[1,3,4,3,2,2]},
+{t:'朱——残阳如血，烈而沉痛',d:[4,3,2,2,4,3]},
+{t:'黛——水墨晕开，浓淡自知',d:[1,4,3,2,2,4]}
+]},
+{q:'登高远眺，你脱口而出的是——',type:'登高',opts:[
+{t:'「前不见古人，后不见来者」',d:[2,3,4,3,2,4]},
+{t:'「会当凌绝顶，一览众山小」',d:[3,3,2,2,3,3]},
+{t:'「念天地之悠悠，独怆然而涕下」',d:[2,4,3,3,3,3]},
+{t:'「白云回望合，青霭入看无」',d:[0,3,3,4,1,2]}
+]},
+{q:'友人远行，渡口杨柳依依。你赠他——',type:'送别',opts:[
+{t:'一句不说尽的话，留余味',d:[1,4,2,3,2,3]},
+{t:'一壶酒，各自饮尽别意',d:[2,3,1,2,3,2]},
+{t:'一首刚写好的诗，字字是今日',d:[1,4,2,2,3,4]},
+{t:'折一枝柳，或一枚旧物',d:[0,4,1,2,3,1]}
+]},
+{q:'梦中常见一座楼阁，它通常是——',type:'梦楼',opts:[
+{t:'高阁临江，笑语喧哗却转眼成空',d:[2,3,2,2,2,4]},
+{t:'荒台野寺，钟声杳杳',d:[1,3,4,4,2,2]},
+{t:'藏书万卷，无人来读',d:[1,2,4,3,2,3]},
+{t:'朱门绣户，门掩黄昏细雨',d:[1,4,2,3,2,3]}
+]},
+{q:'你写第一句诗时，往往先看见——',type:'起句',opts:[
+{t:'一个画面：窗、灯、雨、马',d:[1,4,1,2,2,3]},
+{t:'一种声音：钟、雁、蛩、砧',d:[0,4,2,3,2,3]},
+{t:'一个问题：为何、如何、何必',d:[3,1,4,2,2,3]},
+{t:'一个奇想：若花能言，若月可钓',d:[1,3,4,2,0,4]}
+]},
+{q:'雪落无声，天地一色。你更想——',type:'雪夜',opts:[
+{t:'踏雪寻梅，留一串脚印',d:[0,4,2,4,1,3]},
+{t:'围炉温酒，听人说起旧年',d:[1,3,1,2,4,1]},
+{t:'独钓寒江，任雪落满蓑衣',d:[2,3,3,4,2,3]},
+{t:'闭门著书，把世界关在门外',d:[1,2,4,4,1,3]}
+]},
+{q:'对「乡愁」二字，你最先想起——',type:'乡愁',opts:[
+{t:'村口老树，炊烟与童谣',d:[0,4,1,3,4,1]},
+{t:'旧时月色，照不见归路',d:[1,4,2,3,3,2]},
+{t:'少小离家的那一身行囊',d:[2,3,1,2,4,2]},
+{t:'书卷里读到的、却再回不去的地方',d:[1,3,3,3,3,3]}
+]},
+{q:'你更愿在哪种时间里写诗——',type:'时辰',opts:[
+{t:'黄昏将尽，百鸟归林',d:[0,4,2,3,2,3]},
+{t:'子夜三更，万籁俱寂',d:[1,3,4,4,1,3]},
+{t:'破晓时分，露湿青衫',d:[0,3,3,4,2,2]},
+{t:'正午艳阳，万物毕露无藏',d:[3,2,2,1,3,4]}
+]},
+{q:'若诗是一扇门，你希望读者推开后看见——',type:'诗门',opts:[
+{t:'山河万里，苍生疾苦',d:[4,2,2,1,4,2]},
+{t:'庭院深深，一寸相思',d:[1,4,1,3,2,2]},
+{t:'云海仙山，或可追问的玄机',d:[1,3,4,3,1,4]},
+{t:'市井巷陌，烟火与笑声',d:[2,3,1,2,4,3]}
+]},
+{q:'你更难释怀的是——',type:'释怀',opts:[
+{t:'国破家亡，山河变色',d:[4,3,2,1,4,2]},
+{t:'故人零落，音容渐渺',d:[1,4,2,3,3,2]},
+{t:'壮志未酬，岁月催人',d:[3,3,2,2,4,3]},
+{t:'美事太短，盛筵必散',d:[1,4,3,2,2,4]}
+]},
+{q:'若把你写成一种植物——',type:'草木',opts:[
+{t:'松——岁寒后知松柏后凋',d:[3,2,3,4,3,2]},
+{t:'梅——疏影横斜，暗香浮动',d:[1,4,2,3,2,3]},
+{t:'竹——中空有节，风来不折',d:[2,3,3,4,2,3]},
+{t:'兰——幽谷自芳，不求人知',d:[0,3,4,4,1,3]}
+]},
+{q:'听雨一夜，天明时你记得的是——',type:'听雨',opts:[
+{t:'瓦上跳珠，如大珠小珠落玉盘',d:[0,4,2,3,1,4]},
+{t:'芭蕉叶上，一声声都是愁',d:[1,4,2,3,3,2]},
+{t:'铁马冰河，闯入梦来',d:[4,3,2,2,4,3]},
+{t:'空阶滴沥，无人共听',d:[1,3,3,4,2,2]}
+]},
+{q:'你更相信哪一种「永恒」——',type:'永恒',opts:[
+{t:'写在纸上的诗，后人仍会读',d:[2,4,2,2,3,4]},
+{t:'山河依旧，人事已非',d:[2,3,3,3,4,3]},
+{t:'道义与真情，薪火相传',d:[3,2,3,2,4,2]},
+{t:'刹那即永恒，花开即圆满',d:[0,4,3,3,1,4]}
+]},
+{q:'春水初生，你更想做的事是——',type:'春水',opts:[
+{t:'沿溪而行，看柳色初深',d:[0,4,2,4,1,2]},
+{t:'临水赋诗，把波光写进句里',d:[1,4,2,3,2,4]},
+{t:'与友对酌，话旧年人事',d:[2,3,1,2,4,2]},
+{t:'独坐水湄，听潮声如诉',d:[1,3,3,4,2,3]}
+]},
+{q:'最后一题：若只留一句诗给后世，你选——',type:'终句',opts:[
+{t:'「人生到处知何似，应似飞鸿踏雪泥」',d:[1,3,3,3,2,3]},
+{t:'「此中有真意，欲辨已忘言」',d:[0,3,4,4,1,2]},
+{t:'「安得广厦千万间，大庇天下寒士俱欢颜」',d:[4,2,2,1,4,2]},
+{t:'「天生我材必有用，千金散尽还复来」',d:[2,4,3,2,2,4]}
+]}
+];
+
+</script>
+  <script>
+    const DIMS = ['感时忧世','写意抒情','玄思清远','隐逸疏离','家国情怀','奇崛翻新'];
+    const state = { index: 0, scores: [0,0,0,0,0,0], chosen: [] };
+
+    const els = {
+      body: document.body, progressFill: document.getElementById('progressFill'),
+      qCount: document.getElementById('qCount'), typePill: document.getElementById('typePill'),
+      questionText: document.getElementById('questionText'), optionsBox: document.getElementById('optionsBox'),
+      prevBtn: document.getElementById('prevBtn'), nextBtn: document.getElementById('nextBtn'),
+      resetBtn: document.getElementById('resetBtn'), hintText: document.getElementById('hintText'),
+      libraryBox: document.getElementById('libraryBox'), resultBox: document.getElementById('resultBox'),
+      resultTitle: document.getElementById('resultTitle'), resultIntro: document.getElementById('resultIntro'),
+      resultOneLiner: document.getElementById('resultOneLiner'), resultWhy: document.getElementById('resultWhy'),
+      resultQuote: document.getElementById('resultQuote'), resultQuoteAuthor: document.getElementById('resultQuoteAuthor'),
+      personalityTags: document.getElementById('personalityTags'), top5List: document.getElementById('top5List'),
+      top5Quotes: document.getElementById('top5Quotes'),
+      shareText: document.getElementById('shareText'), radarChart: document.getElementById('radarChart')
+    };
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(showToast._tid);
+      showToast._tid = setTimeout(() => t.classList.remove('show'), 2200);
+    }
+
+    function copyShareText() {
+      const ta = els.shareText;
+      ta.focus();
+      ta.select();
+      ta.setSelectionRange(0, ta.value.length);
+      const ok = () => {
+        document.getElementById('copyBtn').textContent = '已复制';
+        showToast('文案已复制');
+        setTimeout(() => document.getElementById('copyBtn').textContent = '复制分享文案', 1500);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(ta.value).then(ok).catch(() => {
+          try { document.execCommand('copy'); ok(); }
+          catch (e) { showToast('请长按文案全选复制'); }
+        });
+      } else {
+        try { document.execCommand('copy'); ok(); }
+        catch (e) { showToast('请长按文案全选复制'); }
+      }
+    }
+
+    function norm(v) {
+      const s = Math.sqrt(v.reduce((a,b)=>a+b*b,0)) || 1;
+      return v.map(x => x / s);
+    }
+
+    function similarity(user, traits) {
+      const u = norm(user), t = norm(traits);
+      return u.reduce((s, x, i) => s + x * t[i], 0);
+    }
+
+    function renderLibrary() {
+      const groups = {};
+      WRITERS.forEach(w => { (groups[w.region] ||= []).push(w); });
+      els.libraryBox.innerHTML = Object.entries(groups).map(([region, list]) => `
+        <div class="region-block">
+          <div class="region-title">${region}（${list.length}）</div>
+          ${list.map(w => `
+            <article class="writer">
+              <div class="writer-top"><h3>${w.name}</h3><span class="kind">${w.kind}</span></div>
+              <p>${w.intro}</p>
+              <div class="quote">${w.quote}</div>
+            </article>`).join('')}
+        </div>`).join('');
+    }
+
+    function setView(v) {
+      els.body.className = 'view-' + v;
+      if (v === 'browse') { els.body.className = 'view-welcome'; document.querySelector('.library-aside').scrollIntoView({behavior:'smooth'}); }
+    }
+
+    function selectOption(i) {
+      state.chosen[state.index] = i;
+      [...els.optionsBox.children].forEach((btn, j) => btn.classList.toggle('active', j === i));
+      els.hintText.textContent = '选好了就点下一题。';
+    }
+
+    function updateQuestion() {
+      const q = QUESTIONS[state.index];
+      els.questionText.textContent = q.q;
+      els.typePill.textContent = q.type;
+      els.qCount.textContent = `第 ${state.index + 1} / ${QUESTIONS.length} 题`;
+      els.progressFill.style.width = `${(state.index / QUESTIONS.length) * 100}%`;
+      els.prevBtn.disabled = state.index === 0;
+      els.nextBtn.textContent = state.index === QUESTIONS.length - 1 ? '查看结果' : '下一题';
+      syncMobileBar();
+      els.optionsBox.innerHTML = '';
+      q.opts.forEach((opt, i) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'opt' + (state.chosen[state.index] === i ? ' active' : '');
+        btn.textContent = opt.t;
+        btn.onclick = (e) => { e.preventDefault(); selectOption(i); };
+        els.optionsBox.appendChild(btn);
+      });
+      els.hintText.textContent = state.chosen[state.index] !== null ? '选好了就点下一题。' : '凭直觉选一项，不必想太久。';
+    }
+
+    function recalcScores() {
+      state.scores = [0,0,0,0,0,0];
+      state.chosen.forEach((ci, qi) => {
+        if (ci === null) return;
+        QUESTIONS[qi].opts[ci].d.forEach((v, i) => state.scores[i] += v);
+      });
+    }
+
+    function dominantDims(scores, n=3) {
+      return scores.map((v,i)=>({i,v})).sort((a,b)=>b.v-a.v).slice(0,n).map(x=>DIMS[x.i]);
+    }
+
+    function buildWhy(top, dims) {
+      const whispers = {
+        '感时忧世':'你惯于观照世事，笔下常有苍生冷暖',
+        '写意抒情':'你的感受浓烈而真诚，字字带情韵',
+        '玄思清远':'你爱追问天地，于静默中见大道',
+        '隐逸疏离':'你与喧嚣保持距离，心向林泉',
+        '家国情怀':'你把深情放进山河与人间',
+        '奇崛翻新':'你不肯平庸，总想换一种笔法'
+      };
+      return `你的诗心里，「${dims[0]}」最为醒目——${whispers[dims[0]]}。读${top.name}，常有照见自己的瞬间。`;
+    }
+
+    function drawRadar(userScores, writerTraits) {
+      const cx=160, cy=160, R=110, n=DIMS.length;
+      const maxU = Math.max(...userScores, 1), maxT = 10;
+      const pt = (vals, max, r=R) => vals.map((v,i) => {
+        const a = -Math.PI/2 + i * 2*Math.PI/n;
+        const rr = (v/max)*r;
+        return [cx + rr*Math.cos(a), cy + rr*Math.sin(a)];
+      });
+      const poly = pts => pts.map(p=>p.join(',')).join(' ');
+      const grid = [0.25,0.5,0.75,1].map(f => {
+        const pts = DIMS.map((_,i) => {
+          const a = -Math.PI/2 + i * 2*Math.PI/n;
+          return [cx+R*f*Math.cos(a), cy+R*f*Math.sin(a)];
+        });
+        return `<polygon points="${poly(pts)}" fill="none" stroke="#e7dccd" stroke-width="1"/>`;
+      }).join('');
+      const axes = DIMS.map((d,i) => {
+        const a = -Math.PI/2 + i * 2*Math.PI/n;
+        const x = cx + (R+22)*Math.cos(a), y = cy + (R+22)*Math.sin(a);
+        return `<line x1="${cx}" y1="${cy}" x2="${cx+R*Math.cos(a)}" y2="${cy+R*Math.sin(a)}" stroke="#e7dccd"/><text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#6f6458">${d}</text>`;
+      }).join('');
+      const uPts = pt(userScores, maxU), wPts = pt(writerTraits, maxT);
+      els.radarChart.innerHTML = `${grid}${axes}
+        <polygon points="${poly(wPts)}" fill="rgba(176,137,104,.15)" stroke="#b08968" stroke-width="2" stroke-dasharray="6 4"/>
+        <polygon points="${poly(uPts)}" fill="rgba(139,94,52,.25)" stroke="#8b5e34" stroke-width="2"/>`;
+    }
+
+    function showResult() {
+      recalcScores();
+      const ranked = WRITERS.map(w => ({ w, sim: similarity(state.scores, w.traits) }))
+        .sort((a,b) => b.sim - a.sim);
+      const top = ranked[0].w;
+      const pct = v => Math.round(v * 100);
+      const dims = dominantDims(state.scores);
+
+      els.resultTitle.textContent = top.name;
+      els.resultIntro.textContent = top.intro;
+      els.resultOneLiner.textContent = top.one;
+      els.resultWhy.textContent = buildWhy(top, dims);
+      els.resultQuote.textContent = top.quote;
+      els.resultQuoteAuthor.textContent = `—— ${top.name}（${top.region} · ${top.kind}）`;
+      els.personalityTags.innerHTML = dims.map(d => `<span>${d}</span>`).join('');
+
+      els.top5List.innerHTML = ranked.slice(0,5).map((r,i) => `
+        <div class="top5-item">
+          <div class="top5-rank ${i===0?'gold':''}">${i+1}</div>
+          <div>
+            <div class="top5-name">${r.w.name}</div>
+            <div class="top5-meta">${r.w.region} · ${r.w.kind}</div>
+            <div class="meter"><i style="width:${pct(r.sim)}%"></i></div>
+          </div>
+          <strong>${pct(r.sim)}%</strong>
+        </div>`).join('');
+
+      els.top5Quotes.innerHTML = ranked.slice(0,5).map((r,i) => `
+        <div class="top5-quote-item"><strong>${i+1}. ${r.w.name}</strong><br>${r.w.quote}</div>`).join('');
+
+      drawRadar(state.scores, top.traits);
+      els.shareText.value = `我测出来更像诗人「${top.name}」。\n${top.one}\n诗心：${dims.join(' · ')}\n近邻：${ranked.slice(1,5).map(r=>r.w.name).join('、')}\n${top.quote}\n——你也来测一测你的诗心？`;
+      els.resultBox.classList.add('show');
+      setView('result');
+      els.resultBox.scrollIntoView({behavior:'smooth'});
+    }
+
+    function startTest() {
+      state.index = 0;
+      state.chosen = Array(QUESTIONS.length).fill(null);
+      state.scores = [0,0,0,0,0,0];
+      els.resultBox.classList.remove('show');
+      setView('test');
+      updateQuestion();
+      requestAnimationFrame(() => {
+        document.getElementById('testArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+
+    function resetAll() { startTest(); }
+    function next(e) {
+      if (e) e.preventDefault();
+      if (state.chosen[state.index] === null) { showToast('先选一项吧'); return; }
+      if (document.activeElement) document.activeElement.blur();
+      if (state.index < QUESTIONS.length - 1) {
+        state.index++;
+        updateQuestion();
+      } else {
+        els.progressFill.style.width = '100%';
+        showResult();
+      }
+    }
+    function prev(e) {
+      if (e) e.preventDefault();
+      if (state.index > 0) {
+        if (document.activeElement) document.activeElement.blur();
+        state.index--;
+        updateQuestion();
+      }
+    }
+
+    function syncMobileBar() {
+      const mb = document.getElementById('mobileNextBtn');
+      if (mb) mb.textContent = state.index === QUESTIONS.length - 1 ? '查看结果' : '下一题';
+      const mp = document.getElementById('mobilePrevBtn');
+      if (mp) mp.disabled = state.index === 0;
+    }
+
+    document.getElementById('startBtn').onclick = startTest;
+    document.getElementById('browseBtn').onclick = () => setView('browse');
+    document.getElementById('showLibBtn').onclick = () => { setView('welcome'); document.querySelector('.library-aside').scrollIntoView({behavior:'smooth'}); };
+    document.getElementById('nextBtn').onclick = next;
+    document.getElementById('prevBtn').onclick = prev;
+    document.getElementById('resetBtn').onclick = resetAll;
+    document.getElementById('againBtn').onclick = () => {
+      state.index = 0;
+      state.chosen = Array(QUESTIONS.length).fill(null);
+      state.scores = [0,0,0,0,0,0];
+      els.resultBox.classList.remove('show');
+      setView('welcome');
+      els.progressFill.style.width = '0%';
+    };
+    document.getElementById('mobileNextBtn').onclick = next;
+    document.getElementById('mobilePrevBtn').onclick = prev;
+    document.getElementById('copyBtn').onclick = copyShareText;
+
+    renderLibrary();
+  </script>
+</body>
+</html>
