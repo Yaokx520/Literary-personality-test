@@ -59,7 +59,6 @@
 
 两个测试可独立使用，也可都测一遍，看看「世界文学气质」与「中国诗心」是否指向同一个人。
 
-<img width="393" height="796" alt="图片" src="https://github.com/user-attachments/assets/00253df5-a5fb-4cca-8d8a-829de29329f1" />
 ---
 
 ## 功能概览
@@ -70,7 +69,6 @@
 - 结果支持复制分享文案
 - GitHub Pages 一键部署
 
-<img width="240" height="436" alt="图片" src="https://github.com/user-attachments/assets/89282c54-7c2a-46e1-a595-e589a51d579d" />
 
 ---
 
