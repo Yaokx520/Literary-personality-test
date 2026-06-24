@@ -108,6 +108,7 @@ Literary-personality-test/
 
 ## 许可与联系方式
 
-转载请备注项目来源https://github.com/Yaokx520/，本项目免费开放，如遇收费或恶意扣费，请通过github网站（https://github.com/Yaokx520）或微信公众号（秋轩诗抄）联系本人。
+转载请备注项目来源https://github.com/Yaokx520/。
+本项目免费开放，如遇收费或恶意扣费，请通过github网站（https://github.com/Yaokx520）或微信公众号（秋轩诗抄）联系本人。
 
 仅供娱乐与创作参考，不代表任何严肃文学评价。欢迎 Fork、改进与分享，请注明出处https://github.com/Yaokx520/。
