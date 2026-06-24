@@ -4,7 +4,6 @@
 
 ---
 <img width="1073" height="2247" alt="6f3ee037beb65a5fda12cce9bf3549e5" src="https://github.com/user-attachments/assets/6a2d355c-0715-4e0d-9f10-28a786bc83ff" />
-<img width="416" height="731" alt="图片" src="https://github.com/user-attachments/assets/141cce8e-e1d2-4cf0-b243-bda21e3ac5ab" />
 
 ## 在线体验
 
@@ -29,10 +28,9 @@
 - **作家库**：测试时可隐藏，首页可浏览全部 66 位作家
 
 **本地文件：** `literary_personality_test_full.html`（或部署为 `index.html`）
-<img width="393" height="839" alt="图片" src="https://github.com/user-attachments/assets/e3ba0294-98af-4fd2-b2be-31fb2a3f99ab" />
 
 ---
-
+<img width="393" height="839" alt="图片" src="https://github.com/user-attachments/assets/e3ba0294-98af-4fd2-b2be-31fb2a3f99ab" />
 ## 诗心测试
 
 **测测你更像哪位中国诗人**
@@ -45,10 +43,10 @@
 - **诗人库**：按时代分期，测试时可隐藏
 
 **本地文件：** `chinese_poet_personality_test.html`
-<img width="240" height="436" alt="图片" src="https://github.com/user-attachments/assets/89282c54-7c2a-46e1-a595-e589a51d579d" />
+
 
 ---
-
+<img width="240" height="436" alt="图片" src="https://github.com/user-attachments/assets/89282c54-7c2a-46e1-a595-e589a51d579d" />
 ## 两个测试的区别
 
 | 对比项 | 文学人格测试 | 诗心测试 |
@@ -70,11 +68,11 @@
 - 移动端适配，底部固定「上一题 / 下一题」
 - 结果支持复制分享文案
 - GitHub Pages 一键部署
-<img width="233" height="336" alt="图片" src="https://github.com/user-attachments/assets/438cbb10-7bf7-4367-8cae-5984440f2276" />
-<img width="393" height="796" alt="图片" src="https://github.com/user-attachments/assets/00253df5-a5fb-4cca-8d8a-829de29329f1" />
+
+
 
 ---
-
+<img width="393" height="796" alt="图片" src="https://github.com/user-attachments/assets/00253df5-a5fb-4cca-8d8a-829de29329f1" />
 ## 本地使用
 
 1. 克隆本仓库
@@ -99,11 +97,12 @@ Literary-personality-test/
 
 本项目为爱发电，您觉得不错的话，欢迎转发给好友。如果您也喜欢文学或者有创作的想法，欢迎关注我的微信公众号 **秋轩诗抄**，与我一同徜徉文学的海洋。
 
+
+---
+
 ## 公众号
 
 <img width="430" height="430" alt="6ecf4652771540b7a4e8757508051bcb" src="https://github.com/user-attachments/assets/f6c0bc7c-6a62-48e2-885d-f256b4369817" />
-
----
 
 ## 许可与联系方式
 
