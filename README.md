@@ -3,7 +3,7 @@
 两个单页 H5 测试：**文学人格测试**与**诗心测试**。不问典故、不考书目，凭情境与画面中的本能反应，匹配最相近的作家或诗人。纯静态页面，无需登录，打开链接即可使用，支持微信 / QQ 分享。
 
 ---
-<img width="393" height="839" alt="图片" src="https://github.com/user-attachments/assets/e3ba0294-98af-4fd2-b2be-31fb2a3f99ab" />
+
 
 ## 在线体验
 
