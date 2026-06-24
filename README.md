@@ -29,6 +29,8 @@
 
 **本地文件：** `literary_personality_test_full.html`（或部署为 `index.html`）
 
+<img width="1080" height="2412" alt="0fb335ea5563061bccdb2e4ab5606187" src="https://github.com/user-attachments/assets/0a6c7664-2de4-4d58-8909-b80a4865a674" />
+
 ---
 
 ## 诗心测试
@@ -69,6 +71,7 @@
 - 结果支持复制分享文案
 - GitHub Pages 一键部署
 
+<img width="1080" height="6477" alt="dd3581e5002ee151e96fea1c4d429edb" src="https://github.com/user-attachments/assets/7b77b4cb-4a7b-416b-8146-068fbd8549de" />
 
 ---
 
