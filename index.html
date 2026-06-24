@@ -53,7 +53,7 @@
     .tag { padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.72); color: var(--accent); font-size: 13px; }
     .grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: 18px; margin-top: 18px; }
     .panel { padding: 22px; }
-    .section-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+    .section-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; scroll-margin-top: 12px; }
     .section-title h2 { margin: 0; font-size: 22px; }
     .section-title small { color: var(--muted); }
     .progress-bar { height: 10px; border-radius: 999px; background: #efe4d4; overflow: hidden; }
@@ -74,7 +74,9 @@
     .btn {
       border: 0; border-radius: 14px; padding: 14px 18px; cursor: pointer; font-weight: 700; font-size: 16px;
       transition: opacity .15s; touch-action: manipulation; min-height: 48px;
+      -webkit-tap-highlight-color: transparent;
     }
+    .btn:focus { outline: none; }
     .btn.primary { background: linear-gradient(135deg, var(--accent2), var(--accent)); color: #fff; }
     .btn.ghost { background: rgba(255,255,255,.75); color: var(--ink); border: 1px solid var(--line); }
     .btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
@@ -130,6 +132,7 @@
       gap: 10px;
     }
     .mobile-bar .btn { flex: 1; }
+    #testArea { scroll-margin-top: 8px; }
     .view-test .mobile-bar { display: flex; }
     .view-test .test-area .controls { display: none; }
     .publish-tip {
@@ -140,9 +143,11 @@
     .publish-tip strong { color: var(--accent); }
     .hidden { display: none !important; }
     .view-welcome .test-area { display: none; }
+    .view-test .hero { display: none; }
     .view-test .welcome-cta { display: none; }
     .view-test .library-aside { display: none; }
-    .view-test .grid { grid-template-columns: 1fr; }
+    .view-test .grid { grid-template-columns: 1fr; margin-top: 0; }
+    .view-test .wrap { padding-top: 12px; }
     .view-result .test-area { display: none; }
     .view-result .library-aside { display: none; }
     .view-result .grid { display: none; }
@@ -153,8 +158,13 @@
       .library-aside { display: block; }
       .view-welcome .library-aside { margin-top: 0; }
       .view-test { padding-bottom: 72px; }
+      .view-test .panel { padding: 16px; }
+      .view-test .question { font-size: 19px; margin: 6px 0 14px; }
+      .wrap { padding: 16px 14px calc(16px + env(safe-area-inset-bottom, 0)); }
     }
     @media (min-width: 901px) {
+      .view-test .test-area { max-width: 720px; margin: 0 auto; }
+      .view-result .result { max-width: 1100px; margin: 0 auto; }
       .opt:hover { transform: translateY(-1px); border-color: rgba(139,94,52,.35); box-shadow: 0 10px 24px rgba(43,36,28,.08); }
       .btn:hover { transform: translateY(-1px); }
     }
@@ -173,7 +183,7 @@
         <span class="tag">结果可分享</span>
       </div>
       <div class="publish-tip">
-        <strong>如何发到微信 / QQ？</strong> 将本页上传至任意网页空间（如公众号图文外链、腾讯文档网页、GitHub Pages、个人服务器），获得 <strong>https 链接</strong> 后即可推送或转发；也可把文件发给好友，在手机浏览器中打开。
+        <strong>本项目为爱发电，欢迎转发给好友。如果您喜欢或者有更好的想法，欢迎关注我的微信公众号秋轩诗抄，与我一同徜徉文学的海洋。</strong>
       </div>
       <div class="controls welcome-cta" style="margin-top:20px">
         <button class="btn primary" id="startBtn">开始测试</button>
@@ -182,8 +192,8 @@
     </section>
 
     <div class="grid">
-      <section class="card panel test-area">
-        <div class="section-title">
+      <section class="card panel test-area" id="testArea">
+        <div class="section-title" id="questionAnchor">
           <h2>测试问题</h2>
           <small>22 题 · 单选</small>
         </div>
@@ -547,6 +557,12 @@ const QUESTIONS = [
       if (v === 'browse') { els.body.className = 'view-welcome'; document.querySelector('.library-aside').scrollIntoView({behavior:'smooth'}); }
     }
 
+    function selectOption(i) {
+      state.chosen[state.index] = i;
+      [...els.optionsBox.children].forEach((btn, j) => btn.classList.toggle('active', j === i));
+      els.hintText.textContent = '选好了就点下一题。';
+    }
+
     function updateQuestion() {
       const q = QUESTIONS[state.index];
       els.questionText.textContent = q.q;
@@ -559,9 +575,10 @@ const QUESTIONS = [
       els.optionsBox.innerHTML = '';
       q.opts.forEach((opt, i) => {
         const btn = document.createElement('button');
+        btn.type = 'button';
         btn.className = 'opt' + (state.chosen[state.index] === i ? ' active' : '');
         btn.textContent = opt.t;
-        btn.onclick = () => { state.chosen[state.index] = i; updateQuestion(); };
+        btn.onclick = (e) => { e.preventDefault(); selectOption(i); };
         els.optionsBox.appendChild(btn);
       });
       els.hintText.textContent = state.chosen[state.index] !== null ? '选好了就点下一题。' : '凭直觉选一项，不必想太久。';
@@ -662,16 +679,32 @@ const QUESTIONS = [
       els.resultBox.classList.remove('show');
       setView('test');
       updateQuestion();
-      document.querySelector('.test-area').scrollIntoView({behavior:'smooth'});
+      requestAnimationFrame(() => {
+        document.getElementById('testArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     }
 
     function resetAll() { startTest(); }
-    function next() {
+    function next(e) {
+      if (e) e.preventDefault();
       if (state.chosen[state.index] === null) { showToast('先选一项吧'); return; }
-      if (state.index < QUESTIONS.length - 1) { state.index++; updateQuestion(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-      else { els.progressFill.style.width = '100%'; showResult(); }
+      if (document.activeElement) document.activeElement.blur();
+      if (state.index < QUESTIONS.length - 1) {
+        state.index++;
+        updateQuestion();
+      } else {
+        els.progressFill.style.width = '100%';
+        showResult();
+      }
     }
-    function prev() { if (state.index > 0) { state.index--; updateQuestion(); window.scrollTo({ top: 0, behavior: 'smooth' }); } }
+    function prev(e) {
+      if (e) e.preventDefault();
+      if (state.index > 0) {
+        if (document.activeElement) document.activeElement.blur();
+        state.index--;
+        updateQuestion();
+      }
+    }
 
     function syncMobileBar() {
       const mb = document.getElementById('mobileNextBtn');
