@@ -1,0 +1,18 @@
+{
+  "radar_dims": ["现实批判", "抒情浪漫", "哲思抽象", "都市孤独", "人文悲悯", "先锋实验"],
+  "style": "3D Pixar 国际风，低饱和度柔和色调，6男6女",
+  "cards": {
+    "0_4": { "type": "人文观察", "gender": "male", "color": "muted green" },
+    "0_5": { "type": "批判先锋", "gender": "male", "color": "muted red" },
+    "1_3": { "type": "都市独语", "gender": "female", "color": "muted blue-grey" },
+    "1_4": { "type": "浪漫悲悯", "gender": "female", "color": "muted pink" },
+    "2_5": { "type": "抽象实验", "gender": "female", "color": "muted purple" },
+    "2_1": { "type": "哲思浪漫", "gender": "male", "color": "muted sage green" },
+    "3_1": { "type": "孤独抒情", "gender": "female", "color": "muted steel blue" },
+    "3_2": { "type": "都市哲思", "gender": "male", "color": "muted navy" },
+    "4_0": { "type": "悲悯现实", "gender": "male", "color": "muted brown" },
+    "4_1": { "type": "人文浪漫", "gender": "female", "color": "muted terracotta" },
+    "5_2": { "type": "先锋哲思", "gender": "female", "color": "muted magenta" },
+    "5_0": { "type": "实验批判", "gender": "male", "color": "muted charcoal red" }
+  }
+}
