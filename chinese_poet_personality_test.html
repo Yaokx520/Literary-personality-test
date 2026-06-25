@@ -473,7 +473,20 @@ const WRITERS = [
     function poetJitter(poetId) {
       return (hashStr(state.sessionSeed + poetId) % 1000) / 100000;
     }
-    const Q1_TRACK = ['13', '46', '79', '10', '46'];
+
+    /* 匹配校准：提高李白/白居易出现率，谢灵运约 1–2%（经 1.2 万次随机路径模拟标定） */
+    const POET_MATCH_BOOST = {
+      libai: 0.095, baiju: 0.076, xieling: 0.043,
+      hanyu: -0.022, quyuan: -0.022, zhanghy: -0.022,
+      taoyuan: -0.016, zhuangzi: -0.016, liuzong: -0.016,
+      dufu: -0.01, wentian: -0.008, gongziz: -0.008
+    };
+
+    function poetMatchBoost(poetId) {
+      return POET_MATCH_BOOST[poetId] || 0;
+    }
+
+    const Q1_TRACK = ['13', '46', '79', '10'];
     const MILESTONE_TRACKS = {
       '13': [3],
       '46': [4, 6],
@@ -785,7 +798,7 @@ const WRITERS = [
       const peak = tops.reduce((s, o) => s + traits[o.i] * (u[o.i] || 0), 0) * 0.08;
       const spread = Math.sqrt(traitVariance(traits));
       const distinct = 0.9 + Math.min(0.1, spread * 0.05);
-      return cos * distinct + peak + poetJitter(poetId || '');
+      return cos * distinct + peak + poetJitter(poetId || '') + poetMatchBoost(poetId || '');
     }
 
     const els = {
@@ -872,9 +885,11 @@ const WRITERS = [
       return ((n - 1) / state.targetCount) * 100;
     }
 
-    function selectOption(i) {
-      state.answers[state.currentId] = i;
-      [...els.optionsBox.children].forEach((btn, j) => btn.classList.toggle('active', j === i));
+    function selectOption(realIdx) {
+      state.answers[state.currentId] = realIdx;
+      [...els.optionsBox.children].forEach(btn => {
+        btn.classList.toggle('active', Number(btn.dataset.idx) === realIdx);
+      });
       els.hintText.textContent = '选好了就点下一题。';
     }
 
@@ -892,10 +907,11 @@ const WRITERS = [
       syncMobileBar();
       els.optionsBox.innerHTML = '';
       const order = optionOrderFor(q.id, q.opts.length);
-      order.forEach((realIdx, displayIdx) => {
+      order.forEach(realIdx => {
         const opt = q.opts[realIdx];
         const btn = document.createElement('button');
         btn.type = 'button';
+        btn.dataset.idx = String(realIdx);
         btn.className = 'opt' + (state.answers[state.currentId] === realIdx ? ' active' : '');
         btn.textContent = opt.t;
         btn.onclick = (e) => { e.preventDefault(); selectOption(realIdx); };
