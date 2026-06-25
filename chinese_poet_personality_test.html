@@ -153,6 +153,19 @@
     .result { display: none; margin-top: 18px; padding: 24px; border-radius: 24px; background: linear-gradient(180deg, #fffaf1, #f8efe2); border: 1px solid rgba(231,220,205,.95); box-shadow: var(--shadow); }
     .result.show { display: block; }
     .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .result-title-row {
+      display: flex; align-items: center; justify-content: flex-start; gap: 12px;
+      margin: 0 0 8px;
+    }
+    .result-title-row h2 { margin: 0; font-size: 30px; flex: 1; min-width: 0; line-height: 1.25; }
+    .result-avatar {
+      flex-shrink: 0; width: 132px; margin-left: auto;
+    }
+    .result-avatar img {
+      width: 100%; height: auto; max-height: 148px; display: block; object-fit: contain;
+      filter: drop-shadow(0 3px 10px rgba(43,36,28,.14)); border-radius: 10px;
+    }
+    .result-avatar svg { width: 100%; height: 100%; display: block; filter: drop-shadow(0 3px 8px rgba(43,36,28,.12)); }
     .result h2 { margin: 0 0 8px; font-size: 30px; }
     .lead { color: var(--muted); line-height: 1.8; margin: 0 0 18px; }
     .result-box { border-radius: 18px; background: rgba(255,255,255,.72); border: 1px solid var(--line); padding: 16px; margin-bottom: 12px; }
@@ -298,7 +311,10 @@
             <div class="theme-flower" id="resultFlowerIcon"></div>
             <p id="resultFlowerDesc"></p>
           </div>
-          <h2 id="resultTitle"></h2>
+          <div class="result-title-row">
+            <h2 id="resultTitle"></h2>
+            <div class="result-avatar" id="resultAvatar" aria-hidden="true" title="诗心小人"></div>
+          </div>
           <p class="lead" id="resultIntro"></p>
           <div class="personality-tags" id="personalityTags"></div>
           <div class="result-box" style="margin-top:14px">
@@ -423,6 +439,7 @@ const WRITERS = [
 
 </script>
   <script src="chinese_poet_questions.js"></script>
+  <script src="chinese_poet_avatars.js"></script>
   <script>
     const DIMS = ['感时忧世','写意抒情','玄思清远','隐逸疏离','家国情怀','奇崛翻新'];
     const MIN_Q = 10, MAX_Q = 16, BRANCH_ADD = 3;
@@ -808,7 +825,8 @@ const WRITERS = [
       prevBtn: document.getElementById('prevBtn'), nextBtn: document.getElementById('nextBtn'),
       resetBtn: document.getElementById('resetBtn'), hintText: document.getElementById('hintText'),
       libraryBox: document.getElementById('libraryBox'), resultBox: document.getElementById('resultBox'),
-      resultTitle: document.getElementById('resultTitle'), resultIntro: document.getElementById('resultIntro'),
+      resultTitle: document.getElementById('resultTitle'), resultAvatar: document.getElementById('resultAvatar'),
+      resultIntro: document.getElementById('resultIntro'),
       resultOneLiner: document.getElementById('resultOneLiner'), resultWhy: document.getElementById('resultWhy'),
       resultQuote: document.getElementById('resultQuote'), resultQuoteAuthor: document.getElementById('resultQuoteAuthor'),
       personalityTags: document.getElementById('personalityTags'), top5List: document.getElementById('top5List'),
@@ -987,6 +1005,13 @@ const WRITERS = [
       const flowerLabel = FLOWER_LABELS[flowerKey];
 
       els.resultTitle.textContent = top.name;
+      if (els.resultAvatar && typeof poetAvatarHtml === 'function') {
+        const avKey = poetAvatarKey(state.scores);
+        const avType = POET_AVATAR_TYPE[avKey] || '';
+        const avLabel = POET_AVATAR_PAIRS[avKey] || '';
+        els.resultAvatar.innerHTML = poetAvatarHtml(avKey);
+        els.resultAvatar.title = avType ? `${avType} · ${avLabel}` : '诗心小人';
+      }
       els.resultIntro.textContent = top.intro;
       els.resultOneLiner.textContent = top.one;
       els.resultWhy.textContent = buildWhy(top, dims);

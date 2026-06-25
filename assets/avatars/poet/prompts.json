@@ -1,0 +1,54 @@
+{
+  "radar_dims": ["感时忧世", "写意抒情", "玄思清远", "隐逸疏离", "家国情怀", "奇崛翻新"],
+  "rules": "卡片仅保留类型四字标题与雷达图，禁止数字序号、副标题、底部判语。人物长发飘逸，有个性动作与古风小景。",
+  "cards": {
+    "0_4": {
+      "type": "忧国志士",
+      "prompt": "Guofeng personality card. Left: young male scholar in red-orange hanfu, long flowing hair with ribbon, standing on wooden balcony looking at distant sunset, worried patriotic pose. Right: hexagonal radar chart filled red-orange. Radar labels exactly: 感时忧世, 写意抒情, 玄思清远, 隐逸疏离, 家国情怀, 奇崛翻新. Title text only: 忧国志士. NO number, NO subtitle, NO bottom text. Soft watercolor cute guofeng."
+    },
+    "0_5": {
+      "type": "奇思异士",
+      "prompt": "Guofeng personality card. Left: eccentric male in teal hanfu, long wild flowing hair, sitting beside wooden mechanical device, curious inventive pose. Right: hexagonal radar chart filled teal. Radar labels exactly: 感时忧世, 写意抒情, 玄思清远, 隐逸疏离, 家国情怀, 奇崛翻新. Title only: 奇思异士. NO number, NO extra text. Soft watercolor guofeng."
+    },
+    "1_3": {
+      "type": "逍遥隐士",
+      "prompt": "Guofeng personality card. Left: carefree male in sage green hanfu, long flowing hair loose, sitting under pine tree holding tea cup, relaxed smile. Right: hexagonal radar chart filled green. Radar labels: 感时忧世, 写意抒情, 玄思清远, 隐逸疏离, 家国情怀, 奇崛翻新. Title only: 逍遥隐士. NO number, NO extra text."
+    },
+    "1_4": {
+      "type": "清雅才女",
+      "prompt": "Guofeng personality card. Left: elegant female in purple-white hanfu, long flowing hair with hairpin, holding round silk fan, wisteria background. Right: hexagonal radar chart filled purple. Radar labels: 感时忧世, 写意抒情, 玄思清远, 隐逸疏离, 家国情怀, 奇崛翻新. Title only: 清雅才女. NO number, NO extra text."
+    },
+    "2_5": {
+      "type": "幻梦诗客",
+      "prompt": "Guofeng personality card. Left: dreamy male in lavender hanfu, long flowing hair, hand reaching toward glowing butterflies, ethereal pose. Right: hexagonal radar chart filled lavender. Radar labels: 感时忧世, 写意抒情, 玄思清远, 隐逸疏离, 家国情怀, 奇崛翻新. Title only: 幻梦诗客. NO number, NO extra text."
+    },
+    "2_1": {
+      "type": "墨客诗人",
+      "prompt": "Guofeng personality card. Left: young male scholar in light blue hanfu, long hair in topknot with flowing ribbon, writing with brush at desk. Right: hexagonal radar chart filled blue. Radar labels: 感时忧世, 写意抒情, 玄思清远, 隐逸疏离, 家国情怀, 奇崛翻新. Title only: 墨客诗人. NO number, NO extra text."
+    },
+    "3_1": {
+      "type": "哀婉词人",
+      "prompt": "Guofeng personality card. Left: gentle female in soft pink hanfu, long flowing hair, sitting by oil lamp resting chin on hand, melancholic eyes. Right: hexagonal radar chart filled pink. Radar labels: 感时忧世, 写意抒情, 玄思清远, 隐逸疏离, 家国情怀, 奇崛翻新. Title only: 哀婉词人. NO number, NO extra text."
+    },
+    "3_2": {
+      "type": "禅心居士",
+      "prompt": "Guofeng personality card. Left: calm male in grey-green hanfu, long hair tied simply, meditating near bamboo and stone lantern. Right: hexagonal radar chart filled grey-green. Radar labels: 感时忧世, 写意抒情, 玄思清远, 隐逸疏离, 家国情怀, 奇崛翻新. Title only: 禅心居士. NO number, NO extra text."
+    },
+    "4_0": {
+      "type": "策谋之士",
+      "prompt": "Guofeng personality card. Left: serious male in dark brown hanfu, long flowing hair, leaning over map on table hand on chin, strategist pose. Right: hexagonal radar chart filled brown. Radar labels: 感时忧世, 写意抒情, 玄思清远, 隐逸疏离, 家国情怀, 奇崛翻新. Title only: 策谋之士. NO number, NO extra text."
+    },
+    "4_1": {
+      "type": "温润君子",
+      "prompt": "Guofeng personality card. Left: kind male in light green hanfu, long neat flowing hair, holding bamboo scroll with gentle smile. Right: hexagonal radar chart filled light green. Radar labels: 感时忧世, 写意抒情, 玄思清远, 隐逸疏离, 家国情怀, 奇崛翻新. Title only: 温润君子. NO number, NO extra text."
+    },
+    "5_2": {
+      "type": "瑰奇诗客",
+      "prompt": "Guofeng personality card. Left: bold male in purple hanfu, long dramatic flowing hair, holding ink brush with innovative flair. Right: hexagonal radar chart filled purple. Radar labels: 感时忧世, 写意抒情, 玄思清远, 隐逸疏离, 家国情怀, 奇崛翻新. Title only: 瑰奇诗客. NO number, NO extra text."
+    },
+    "5_0": {
+      "type": "豪放词人",
+      "prompt": "Guofeng personality card. Left: jovial male in golden yellow hanfu, long flowing hair, tilting head back holding wine gourd, laughing freely. Right: hexagonal radar chart filled gold. Radar labels: 感时忧世, 写意抒情, 玄思清远, 隐逸疏离, 家国情怀, 奇崛翻新. Title only: 豪放词人. NO number, NO extra text."
+    }
+  }
+}
