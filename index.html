@@ -9,15 +9,16 @@
   <meta name="x5-orientation" content="portrait" />
   <meta name="x5-fullscreen" content="true" />
   <meta name="x5-page-mode" content="app" />
-  <meta name="description" content="22题文学气质小测，从66位作家中找出你最像的那一位。" />
+  <meta name="description" content="文学气质小测，10–16题分支情境题，从66位作家中找出你最像的那一位。" />
   <meta property="og:title" content="测测你更像哪个文学家" />
-  <meta property="og:description" content="22题情境小测，匹配你的文学气质与作家原型。" />
+  <meta property="og:description" content="十余题情境小测，竹枝花信与分支抽题，匹配你的文学气质。" />
   <meta property="og:type" content="website" />
   <title>测测你更像哪个文学家</title>
   <style>
     :root {
       --bg: #f6f1e8; --card: #fffaf1; --ink: #2b241c; --muted: #6f6458;
       --line: #e7dccd; --accent: #8b5e34; --accent2: #b08968; --good: #2f6f4e;
+      --bamboo: #789262; --bamboo-light: #9db88a; --bamboo-dark: #5a7348;
       --shadow: 0 18px 50px rgba(43,36,28,.10); --radius: 22px;
     }
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -56,9 +57,52 @@
     .section-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; scroll-margin-top: 12px; }
     .section-title h2 { margin: 0; font-size: 22px; }
     .section-title small { color: var(--muted); }
-    .progress-bar { height: 10px; border-radius: 999px; background: #efe4d4; overflow: hidden; }
-    .progress-fill { height: 100%; width: 0%; border-radius: inherit; background: linear-gradient(90deg, var(--accent2), var(--accent)); transition: width .35s ease; }
-    .q-count { margin-top: 10px; color: var(--muted); font-size: 14px; }
+    .progress-bar { display: none; }
+    .bamboo-progress { position: relative; margin: 12px 0 8px; padding: 32px 14px 6px; }
+    .bamboo-track {
+      position: relative; height: 40px; border-radius: 20px;
+      background: linear-gradient(180deg, #ebe4d4 0%, #d9cfb8 38%, #e8e0ce 62%, #ebe4d4 100%);
+      border: 2px solid #c8bc9e;
+      box-shadow: inset 0 3px 8px rgba(43,36,28,.10), 0 2px 0 rgba(255,255,255,.45);
+      overflow: visible;
+    }
+    .bamboo-fill {
+      position: absolute; left: 0; top: 0; height: 100%; width: 0%; border-radius: inherit;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,.12) 0 2px, transparent 2px 18px),
+        linear-gradient(180deg, var(--bamboo-light) 0%, var(--bamboo) 42%, var(--bamboo-dark) 100%);
+      box-shadow: inset 0 2px 0 rgba(255,255,255,.28);
+      transition: width .45s ease; z-index: 1;
+    }
+    .bamboo-flower {
+      position: absolute; top: 50%; margin-left: -24px; width: 48px; z-index: 3;
+      pointer-events: none; transform: translateY(-50%) scale(0); opacity: 0;
+      transition: transform .5s cubic-bezier(.34,1.56,.64,1), opacity .35s ease;
+    }
+    .bamboo-flower.bloom { transform: translateY(-50%) scale(1); opacity: 1; }
+    .flower-label {
+      position: absolute; left: 50%; bottom: calc(100% + 14px); transform: translateX(-50%);
+      font-size: 11px; font-weight: 700; color: var(--bamboo-dark); white-space: nowrap;
+    }
+    .flower-icon svg { width: 44px; height: 44px; filter: drop-shadow(0 2px 4px rgba(43,36,28,.18)); }
+    .result-flower-theme {
+      display: flex; align-items: center; gap: 12px; margin: 12px 0 4px; padding: 12px 14px;
+      border-radius: 16px; background: rgba(255,255,255,.65); border: 1px solid var(--line);
+    }
+    .result-flower-theme .theme-flower svg { width: 40px; height: 40px; }
+    .result-flower-theme p { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .result-flower-theme strong { color: var(--accent); font-size: 15px; }
+    .mute-btn {
+      position: fixed; top: calc(12px + env(safe-area-inset-top, 0)); right: 14px; z-index: 200;
+      display: none; align-items: center; gap: 6px;
+      padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line);
+      background: rgba(255,250,241,.94); color: var(--ink); font-size: 14px; font-weight: 700;
+      cursor: pointer; box-shadow: var(--shadow); backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px); touch-action: manipulation;
+    }
+    .mute-btn.show { display: inline-flex; }
+    .mute-btn .icon { font-size: 16px; line-height: 1; }
+    .q-count { margin-top: 8px; color: var(--bamboo-dark); font-size: 15px; font-weight: 700; letter-spacing: .06em; }
     .question { font-size: 23px; line-height: 1.4; margin: 8px 0 18px; font-weight: 700; }
     .type-pill { display: inline-block; margin-bottom: 8px; padding: 6px 10px; border-radius: 999px; background: rgba(47,111,78,.10); color: var(--good); font-size: 12px; font-weight: 700; }
     .options { display: grid; gap: 10px; }
@@ -175,15 +219,15 @@
     <section class="hero">
       <span class="eyebrow">文学气质小测</span>
       <h1>测测你更像哪个文学家</h1>
-      <p class="intro">不问典故，不考书目。只凭你在雨夜、街角、话别与梦醒时的本能反应，从 <strong>66 位</strong>作家中，找出与你气息最相近的那一个。全程 <strong>22 题</strong>，约四五分钟。</p>
+      <p class="intro">不问典故，不考书目。只凭你在雨夜、街角、话别与梦醒时的本能反应，从 <strong>66 位</strong>作家中，找出与你气息最相近的那一个。只需回答 <strong>十余题</strong>；分支选项处会在竹枝上绽出对应花信，结果页亦会随花信倾向播放配乐。</p>
       <div class="meta">
         <span class="tag">66 位作家</span>
-        <span class="tag">22 题情境</span>
+        <span class="tag">10–16 题 · 分支抽题</span>
         <span class="tag">微信 · QQ 可打开</span>
         <span class="tag">结果可分享</span>
       </div>
       <div class="publish-tip">
-        <strong>本项目为爱发电，欢迎转发给好友。如果您喜欢或者有更好的想法，欢迎关注我的微信公众号秋轩诗抄，与我一同徜徉文学的海洋。</strong>
+        <strong>本项目为爱发电，您觉得不错的话，欢迎转发给好友。如果您也喜欢文学或者有创作的想法，欢迎关注我的微信公众号秋轩诗抄，与我一同徜徉文学的海洋。</strong>
       </div>
       <div class="controls welcome-cta" style="margin-top:20px">
         <button class="btn primary" id="startBtn">开始测试</button>
@@ -195,10 +239,14 @@
       <section class="card panel test-area" id="testArea">
         <div class="section-title" id="questionAnchor">
           <h2>测试问题</h2>
-          <small>22 题 · 单选</small>
+          <small id="qTotalLabel">10–16 题 · 单选</small>
         </div>
-        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-        <div class="q-count" id="qCount">第 1 / 22 题</div>
+        <div class="bamboo-progress" aria-hidden="false">
+          <div class="bamboo-track" id="bambooTrack">
+            <div class="bamboo-fill" id="progressFill"></div>
+          </div>
+        </div>
+        <div class="q-count" id="qCount">第 1 题</div>
         <div class="type-pill" id="typePill">文学气质</div>
         <div class="question" id="questionText"></div>
         <div class="options" id="optionsBox"></div>
@@ -223,6 +271,10 @@
       <div class="result-grid">
         <div>
           <span class="eyebrow">文学人格结果</span>
+          <div class="result-flower-theme" id="resultFlowerTheme">
+            <div class="theme-flower" id="resultFlowerIcon"></div>
+            <p id="resultFlowerDesc"></p>
+          </div>
           <h2 id="resultTitle"></h2>
           <p class="lead" id="resultIntro"></p>
           <div class="personality-tags" id="personalityTags"></div>
@@ -272,6 +324,9 @@
     <button class="btn ghost" id="mobilePrevBtn">上一题</button>
     <button class="btn primary" id="mobileNextBtn">下一题</button>
   </div>
+  <button type="button" class="mute-btn" id="muteBtn" aria-label="静音">
+    <span class="icon" id="muteIcon">🔊</span><span id="muteLabel">静音</span>
+  </button>
   <div class="toast" id="toast"></div>
   <script>
 const WRITERS = [
@@ -343,395 +398,8 @@ const WRITERS = [
 {id:'gibran',name:'纪伯伦',region:'其他',kind:'哲理诗语派',traits:[4,10,8,4,8,4],quote:'「你的儿女不是你的儿女，他们是生命对自身渴望的儿女。」',intro:'你的文字如诗如箴言，温柔而富有灵性。',one:'你像沙漠里的清泉，简洁、深邃、抚慰人心。'}
 ];
 
-const QUESTIONS = [
-{q:'夜雨敲窗的时候，你最先想起的常常是——',type:'夜思',opts:[
-{t:'未寄出的信，和没说尽的话',d:[1,3,1,2,2,1]},
-{t:'某条旧路，某个人走远的背影',d:[0,3,1,2,2,0]},
-{t:'城里还有多少醒着的人',d:[2,1,2,2,3,0]},
-{t:'雨声本身，像一场没有结局的对白',d:[1,2,3,2,0,2]}
-]},
-{q:'若把此刻心绪写成半句话，它多半会停在——',type:'心绪',opts:[
-{t:'「原来如此。」',d:[2,1,2,1,1,1]},
-{t:'「可惜……」',d:[1,3,1,2,2,0]},
-{t:'「罢了。」',d:[1,1,1,2,2,1]},
-{t:'「等等，这不对。」',d:[2,0,3,1,0,2]}
-]},
-{q:'走进人群，你更像——',type:'人海',opts:[
-{t:'冷眼旁观的记录者',d:[2,1,2,2,1,1]},
-{t:'随时会被感动或刺痛的人',d:[0,3,1,1,3,0]},
-{t:'礼貌而疏离的过客',d:[1,2,1,3,0,1]},
-{t:'暗中编排故事的人',d:[1,2,3,2,0,2]}
-]},
-{q:'一本好书翻至中途被打断，你心里会闪过——',type:'读书记',opts:[
-{t:'得找个安静处把它读完',d:[1,2,1,2,1,1]},
-{t:'正好停在悬念处，余味更长',d:[1,3,1,2,0,2]},
-{t:'书里那个人，此刻在做什么',d:[0,2,2,2,2,1]},
-{t:'这页该做记号，日后还要回来',d:[2,1,3,1,1,2]}
-]},
-{q:'「乡愁」一词，先唤起的并非地名，而是——',type:'乡愁',opts:[
-{t:'某种再回不去的语气',d:[0,3,1,2,2,0]},
-{t:'旧物、旧声、旧气味',d:[0,3,0,1,3,0]},
-{t:'少年时莽撞又真诚的自己',d:[1,2,1,2,2,1]},
-{t:'时间本身在后退',d:[1,2,3,2,1,2]}
-]},
-{q:'你更熟稔哪一种沉默——',type:'沉默',opts:[
-{t:'两个人都不说话，却都明白',d:[0,2,1,2,3,0]},
-{t:'热闹场合里，独自清醒的那几秒',d:[1,1,2,3,0,1]},
-{t:'把话咽下去之后的长久',d:[2,2,1,2,2,0]},
-{t:'想说什么，却找不到准确的词',d:[1,2,3,2,0,2]}
-]},
-{q:'提笔写字时，最先落下的往往是——',type:'笔端',opts:[
-{t:'一个不肯妥协的问题',d:[3,0,2,0,1,1]},
-{t:'一个具体的场景：窗、灯、雨',d:[0,3,1,2,1,1]},
-{t:'一句没头没尾的诗',d:[0,3,2,1,1,2]},
-{t:'一个古怪却迷人的设定',d:[1,1,3,1,0,3]}
-]},
-{q:'委屈说不出口时，你通常——',type:'隐忍',opts:[
-{t:'写下来，或在心里反复推敲',d:[2,2,2,2,1,2]},
-{t:'装作没事，把日子照常过下去',d:[1,1,0,1,3,0]},
-{t:'远离人群，等情绪自己沉下去',d:[0,2,1,3,1,0]},
-{t:'突然笑出来，把气氛岔开',d:[1,1,0,2,2,2]}
-]},
-{q:'哪一种光线，最容易让你放松——',type:'光线',opts:[
-{t:'黄昏将尽，天色将暗未暗',d:[0,3,1,2,1,1]},
-{t:'清晨薄雾里的第一束光',d:[0,3,1,1,2,1]},
-{t:'深夜台灯下那一圈暖黄',d:[0,2,2,3,1,1]},
-{t:'正午过于直白、无处躲藏的白',d:[2,1,2,1,2,2]}
-]},
-{q:'若以季节自况，你更接近——',type:'季节',opts:[
-{t:'暮春：繁盛里已有凋零',d:[1,3,1,1,2,1]},
-{t:'长夏：闷热、漫长、不肯退场',d:[2,2,2,1,1,2]},
-{t:'深秋：清冽、疏朗、略带回望',d:[1,2,2,2,2,1]},
-{t:'残冬：冷硬、寂静、却孕育转机',d:[2,1,3,2,1,2]}
-]},
-{q:'听闻远方灾祸，你的第一反应更像——',type:'远讯',opts:[
-{t:'追问缘由，不肯轻易接受',d:[3,0,2,0,2,1]},
-{t:'心口一沉，久久缓不过来',d:[1,3,1,1,3,0]},
-{t:'先沉默，把细节一条条拼起来',d:[2,1,2,2,2,1]},
-{t:'觉得荒诞，却又无法当作笑话',d:[2,1,3,2,1,3]}
-]},
-{q:'一个好故事，你希望它从何处起笔——',type:'起笔',opts:[
-{t:'一桩小事，却照见整个时代',d:[3,1,1,1,3,0]},
-{t:'一次偶遇，气氛先于情节',d:[1,3,1,2,1,1]},
-{t:'一句谜语，或一个反常的细节',d:[1,1,3,2,0,3]},
-{t:'日常崩裂的那一瞬间',d:[2,2,1,2,2,2]}
-]},
-{q:'与朋友话别，你常说或常做的是——',type:'话别',opts:[
-{t:'不多言，但会多看一眼',d:[1,2,1,2,2,0]},
-{t:'说些轻巧的话，把沉重盖住',d:[1,2,0,2,2,2]},
-{t:'突然讲起一件不相干的小事',d:[1,3,1,2,1,2]},
-{t:'把「再见」说得像「后会有期」',d:[0,3,1,1,2,1]}
-]},
-{q:'从梦中醒来，留在枕边的往往是——',type:'梦醒',opts:[
-{t:'一个说不清的情绪',d:[0,3,1,2,1,2]},
-{t:'一个清晰的画面，像谁拍下的旧照片',d:[0,3,1,2,2,1]},
-{t:'一句梦里的对白，醒来仍记得',d:[1,2,2,2,1,2]},
-{t:'只剩空白，却觉得失去了什么',d:[1,2,3,3,0,2]}
-]},
-{q:'街角余晖正好，你会——',type:'街角',opts:[
-{t:'停下脚步，看人群与光影',d:[1,2,1,2,1,0]},
-{t:'想起某个与此无关的旧人',d:[0,3,1,2,2,0]},
-{t:'掏出手机，又怕拍不出当时的气氛',d:[1,2,1,3,0,1]},
-{t:'觉得这一刻不该被打扰',d:[0,2,2,3,1,1]}
-]},
-{q:'对「荒唐」二字，你的第一直觉是——',type:'荒唐',opts:[
-{t:'世事的常态，不必大惊小怪',d:[2,1,2,1,2,2]},
-{t:'华美表象下的蛀空',d:[2,2,1,2,1,2]},
-{t:'命运开的一个冷笑话',d:[1,2,2,2,1,3]},
-{t:'有人把荒诞当作遮羞布',d:[3,0,2,1,2,2]}
-]},
-{q:'若不得不舍弃一样，你更不愿放手的是——',type:'取舍',opts:[
-{t:'说真话的胆量',d:[3,0,2,0,2,1]},
-{t:'对美的敏锐与留恋',d:[0,3,2,1,1,2]},
-{t:'与少数人之间的情义',d:[0,2,0,1,4,0]},
-{t:'独立思考的余地',d:[2,1,3,2,0,2]}
-]},
-{q:'独处时，你最享受的是——',type:'独处',opts:[
-{t:'什么也不做，让时间流过去',d:[0,2,2,3,1,0]},
-{t:'读书、听风、与自己对话',d:[1,2,3,2,1,1]},
-{t:'把琐碎日子整理得有条理',d:[2,0,1,1,2,0]},
-{t:'任思绪乱跑，记下偶然的念头',d:[1,2,3,2,0,3]}
-]},
-{q:'若说话与写字只能留一样——',type:'表达',opts:[
-{t:'写字。话一出口就容易失真',d:[1,2,2,2,1,2]},
-{t:'说话。字太慢，跟不上心跳',d:[0,3,1,1,2,1]},
-{t:'都不需要太多，沉默更诚实',d:[1,1,2,3,1,1]},
-{t:'换种方式：画、走、或只是看',d:[1,2,3,2,0,2]}
-]},
-{q:'凝视镜中的自己，你更多看见——',type:'镜中',opts:[
-{t:'一张熟悉的脸，和陌生的神情',d:[1,2,2,2,1,2]},
-{t:'岁月留下的细纹与故事',d:[1,2,1,2,3,0]},
-{t:'此刻疲惫或兴奋的状态',d:[1,1,1,2,1,1]},
-{t:'一个尚未成为的人',d:[1,2,3,2,1,2]}
-]},
-{q:'窗外有风掠过，你想到的是——',type:'风',opts:[
-{t:'远方，和到不了的地方',d:[0,3,2,2,1,1]},
-{t:'谁此刻正站在另一扇窗前',d:[0,3,1,2,2,0]},
-{t:'树叶、尘土、被卷起的心事',d:[1,3,1,2,2,1]},
-{t:'风本身，不必追问去向',d:[1,2,3,1,1,2]}
-]},
-{q:'若此生只能留下一段文字，你希望它是——',type:'终笔',opts:[
-{t:'一句让人无法忽视的真话',d:[3,0,1,0,2,1]},
-{t:'一首读过便忘不掉的诗',d:[0,4,2,1,2,2]},
-{t:'一段把某人轻轻放下的故事',d:[1,3,1,2,3,0]},
-{t:'一个留给后人的谜',d:[1,2,3,2,0,3]}
-]}
-];
-
 </script>
-  <script>
-    const DIMS = ['现实批判','抒情浪漫','哲思抽象','都市孤独','人文悲悯','先锋实验'];
-    const state = { index: 0, scores: [0,0,0,0,0,0], chosen: [] };
-
-    const els = {
-      body: document.body, progressFill: document.getElementById('progressFill'),
-      qCount: document.getElementById('qCount'), typePill: document.getElementById('typePill'),
-      questionText: document.getElementById('questionText'), optionsBox: document.getElementById('optionsBox'),
-      prevBtn: document.getElementById('prevBtn'), nextBtn: document.getElementById('nextBtn'),
-      resetBtn: document.getElementById('resetBtn'), hintText: document.getElementById('hintText'),
-      libraryBox: document.getElementById('libraryBox'), resultBox: document.getElementById('resultBox'),
-      resultTitle: document.getElementById('resultTitle'), resultIntro: document.getElementById('resultIntro'),
-      resultOneLiner: document.getElementById('resultOneLiner'), resultWhy: document.getElementById('resultWhy'),
-      resultQuote: document.getElementById('resultQuote'), resultQuoteAuthor: document.getElementById('resultQuoteAuthor'),
-      personalityTags: document.getElementById('personalityTags'), top5List: document.getElementById('top5List'),
-      top5Quotes: document.getElementById('top5Quotes'),
-      shareText: document.getElementById('shareText'), radarChart: document.getElementById('radarChart')
-    };
-
-    function showToast(msg) {
-      const t = document.getElementById('toast');
-      t.textContent = msg;
-      t.classList.add('show');
-      clearTimeout(showToast._tid);
-      showToast._tid = setTimeout(() => t.classList.remove('show'), 2200);
-    }
-
-    function copyShareText() {
-      const ta = els.shareText;
-      ta.focus();
-      ta.select();
-      ta.setSelectionRange(0, ta.value.length);
-      const ok = () => {
-        document.getElementById('copyBtn').textContent = '已复制';
-        showToast('文案已复制');
-        setTimeout(() => document.getElementById('copyBtn').textContent = '复制分享文案', 1500);
-      };
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(ta.value).then(ok).catch(() => {
-          try { document.execCommand('copy'); ok(); }
-          catch (e) { showToast('请长按文案全选复制'); }
-        });
-      } else {
-        try { document.execCommand('copy'); ok(); }
-        catch (e) { showToast('请长按文案全选复制'); }
-      }
-    }
-
-    function norm(v) {
-      const s = Math.sqrt(v.reduce((a,b)=>a+b*b,0)) || 1;
-      return v.map(x => x / s);
-    }
-
-    function similarity(user, traits) {
-      const u = norm(user), t = norm(traits);
-      return u.reduce((s, x, i) => s + x * t[i], 0);
-    }
-
-    function renderLibrary() {
-      const groups = {};
-      WRITERS.forEach(w => { (groups[w.region] ||= []).push(w); });
-      els.libraryBox.innerHTML = Object.entries(groups).map(([region, list]) => `
-        <div class="region-block">
-          <div class="region-title">${region}（${list.length}）</div>
-          ${list.map(w => `
-            <article class="writer">
-              <div class="writer-top"><h3>${w.name}</h3><span class="kind">${w.kind}</span></div>
-              <p>${w.intro}</p>
-              <div class="quote">${w.quote}</div>
-            </article>`).join('')}
-        </div>`).join('');
-    }
-
-    function setView(v) {
-      els.body.className = 'view-' + v;
-      if (v === 'browse') { els.body.className = 'view-welcome'; document.querySelector('.library-aside').scrollIntoView({behavior:'smooth'}); }
-    }
-
-    function selectOption(i) {
-      state.chosen[state.index] = i;
-      [...els.optionsBox.children].forEach((btn, j) => btn.classList.toggle('active', j === i));
-      els.hintText.textContent = '选好了就点下一题。';
-    }
-
-    function updateQuestion() {
-      const q = QUESTIONS[state.index];
-      els.questionText.textContent = q.q;
-      els.typePill.textContent = q.type;
-      els.qCount.textContent = `第 ${state.index + 1} / ${QUESTIONS.length} 题`;
-      els.progressFill.style.width = `${(state.index / QUESTIONS.length) * 100}%`;
-      els.prevBtn.disabled = state.index === 0;
-      els.nextBtn.textContent = state.index === QUESTIONS.length - 1 ? '查看结果' : '下一题';
-      syncMobileBar();
-      els.optionsBox.innerHTML = '';
-      q.opts.forEach((opt, i) => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'opt' + (state.chosen[state.index] === i ? ' active' : '');
-        btn.textContent = opt.t;
-        btn.onclick = (e) => { e.preventDefault(); selectOption(i); };
-        els.optionsBox.appendChild(btn);
-      });
-      els.hintText.textContent = state.chosen[state.index] !== null ? '选好了就点下一题。' : '凭直觉选一项，不必想太久。';
-    }
-
-    function recalcScores() {
-      state.scores = [0,0,0,0,0,0];
-      state.chosen.forEach((ci, qi) => {
-        if (ci === null) return;
-        QUESTIONS[qi].opts[ci].d.forEach((v, i) => state.scores[i] += v);
-      });
-    }
-
-    function dominantDims(scores, n=3) {
-      return scores.map((v,i)=>({i,v})).sort((a,b)=>b.v-a.v).slice(0,n).map(x=>DIMS[x.i]);
-    }
-
-    function buildWhy(top, dims) {
-      const whispers = {
-        '现实批判':'你惯于撕开表象，对空话与伪饰格外警觉',
-        '抒情浪漫':'你的感受浓烈而真诚，字句里常有余温',
-        '哲思抽象':'你爱追问本质，在隐喻与悖论里找答案',
-        '都市孤独':'你与人群保持距离，内心却自有秩序',
-        '人文悲悯':'你对他人处境敏感，笔下总有温度',
-        '先锋实验':'你不肯按常理叙述，总想换一种写法'
-      };
-      return `你的气质里，「${dims[0]}」最为醒目——${whispers[dims[0]]}。读${top.name}的文字，常有照见自己的瞬间。`;
-    }
-
-    function drawRadar(userScores, writerTraits) {
-      const cx=160, cy=160, R=110, n=DIMS.length;
-      const maxU = Math.max(...userScores, 1), maxT = 10;
-      const pt = (vals, max, r=R) => vals.map((v,i) => {
-        const a = -Math.PI/2 + i * 2*Math.PI/n;
-        const rr = (v/max)*r;
-        return [cx + rr*Math.cos(a), cy + rr*Math.sin(a)];
-      });
-      const poly = pts => pts.map(p=>p.join(',')).join(' ');
-      const grid = [0.25,0.5,0.75,1].map(f => {
-        const pts = DIMS.map((_,i) => {
-          const a = -Math.PI/2 + i * 2*Math.PI/n;
-          return [cx+R*f*Math.cos(a), cy+R*f*Math.sin(a)];
-        });
-        return `<polygon points="${poly(pts)}" fill="none" stroke="#e7dccd" stroke-width="1"/>`;
-      }).join('');
-      const axes = DIMS.map((d,i) => {
-        const a = -Math.PI/2 + i * 2*Math.PI/n;
-        const x = cx + (R+22)*Math.cos(a), y = cy + (R+22)*Math.sin(a);
-        return `<line x1="${cx}" y1="${cy}" x2="${cx+R*Math.cos(a)}" y2="${cy+R*Math.sin(a)}" stroke="#e7dccd"/><text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#6f6458">${d}</text>`;
-      }).join('');
-      const uPts = pt(userScores, maxU), wPts = pt(writerTraits, maxT);
-      els.radarChart.innerHTML = `${grid}${axes}
-        <polygon points="${poly(wPts)}" fill="rgba(176,137,104,.15)" stroke="#b08968" stroke-width="2" stroke-dasharray="6 4"/>
-        <polygon points="${poly(uPts)}" fill="rgba(139,94,52,.25)" stroke="#8b5e34" stroke-width="2"/>`;
-    }
-
-    function showResult() {
-      recalcScores();
-      const ranked = WRITERS.map(w => ({ w, sim: similarity(state.scores, w.traits) }))
-        .sort((a,b) => b.sim - a.sim);
-      const top = ranked[0].w;
-      const pct = v => Math.round(v * 100);
-      const dims = dominantDims(state.scores);
-
-      els.resultTitle.textContent = top.name;
-      els.resultIntro.textContent = top.intro;
-      els.resultOneLiner.textContent = top.one;
-      els.resultWhy.textContent = buildWhy(top, dims);
-      els.resultQuote.textContent = top.quote;
-      els.resultQuoteAuthor.textContent = `—— ${top.name}（${top.region} · ${top.kind}）`;
-      els.personalityTags.innerHTML = dims.map(d => `<span>${d}</span>`).join('');
-
-      els.top5List.innerHTML = ranked.slice(0,5).map((r,i) => `
-        <div class="top5-item">
-          <div class="top5-rank ${i===0?'gold':''}">${i+1}</div>
-          <div>
-            <div class="top5-name">${r.w.name}</div>
-            <div class="top5-meta">${r.w.region} · ${r.w.kind}</div>
-            <div class="meter"><i style="width:${pct(r.sim)}%"></i></div>
-          </div>
-          <strong>${pct(r.sim)}%</strong>
-        </div>`).join('');
-
-      els.top5Quotes.innerHTML = ranked.slice(0,5).map((r,i) => `
-        <div class="top5-quote-item"><strong>${i+1}. ${r.w.name}</strong><br>${r.w.quote}</div>`).join('');
-
-      drawRadar(state.scores, top.traits);
-      els.shareText.value = `我测出来更像「${top.name}」。\n${top.one}\n气质：${dims.join(' · ')}\n近邻：${ranked.slice(1,5).map(r=>r.w.name).join('、')}\n${top.quote}\n——你也来测一测？`;
-      els.resultBox.classList.add('show');
-      setView('result');
-      els.resultBox.scrollIntoView({behavior:'smooth'});
-    }
-
-    function startTest() {
-      state.index = 0;
-      state.chosen = Array(QUESTIONS.length).fill(null);
-      state.scores = [0,0,0,0,0,0];
-      els.resultBox.classList.remove('show');
-      setView('test');
-      updateQuestion();
-      requestAnimationFrame(() => {
-        document.getElementById('testArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    }
-
-    function resetAll() { startTest(); }
-    function next(e) {
-      if (e) e.preventDefault();
-      if (state.chosen[state.index] === null) { showToast('先选一项吧'); return; }
-      if (document.activeElement) document.activeElement.blur();
-      if (state.index < QUESTIONS.length - 1) {
-        state.index++;
-        updateQuestion();
-      } else {
-        els.progressFill.style.width = '100%';
-        showResult();
-      }
-    }
-    function prev(e) {
-      if (e) e.preventDefault();
-      if (state.index > 0) {
-        if (document.activeElement) document.activeElement.blur();
-        state.index--;
-        updateQuestion();
-      }
-    }
-
-    function syncMobileBar() {
-      const mb = document.getElementById('mobileNextBtn');
-      if (mb) mb.textContent = state.index === QUESTIONS.length - 1 ? '查看结果' : '下一题';
-      const mp = document.getElementById('mobilePrevBtn');
-      if (mp) mp.disabled = state.index === 0;
-    }
-
-    document.getElementById('startBtn').onclick = startTest;
-    document.getElementById('browseBtn').onclick = () => setView('browse');
-    document.getElementById('showLibBtn').onclick = () => { setView('welcome'); document.querySelector('.library-aside').scrollIntoView({behavior:'smooth'}); };
-    document.getElementById('nextBtn').onclick = next;
-    document.getElementById('prevBtn').onclick = prev;
-    document.getElementById('resetBtn').onclick = resetAll;
-    document.getElementById('againBtn').onclick = () => {
-      state.index = 0;
-      state.chosen = Array(QUESTIONS.length).fill(null);
-      state.scores = [0,0,0,0,0,0];
-      els.resultBox.classList.remove('show');
-      setView('welcome');
-      els.progressFill.style.width = '0%';
-    };
-    document.getElementById('mobileNextBtn').onclick = next;
-    document.getElementById('mobilePrevBtn').onclick = prev;
-    document.getElementById('copyBtn').onclick = copyShareText;
-
-    renderLibrary();
-  </script>
+  <script src="literary_questions.js"></script>
+  <script src="literary_test_app.js"></script>
 </body>
 </html>
