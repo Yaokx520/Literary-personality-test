@@ -245,7 +245,7 @@
       <p class="intro">自先秦至清末民初，精选 <strong>66 位</strong>诗人（止于1918年）。不问典故，只凭你在落红、夜读、江舟、秋风里的本能反应，寻一位与你诗心相映的古人。只需回答 <strong>十余题</strong>；分支选项处会在竹枝上绽出对应花信，结果页亦会随诗心倾向播放配乐。</p>
       <div class="meta">
         <span class="tag">66 位诗人</span>
-        <span class="tag">10–18 题 · 分支抽题</span>
+        <span class="tag">10–16 题 · 分支抽题</span>
         <span class="tag">先秦—清末民初</span>
         <span class="tag">结果可分享</span>
       </div>
@@ -262,7 +262,7 @@
       <section class="card panel test-area" id="testArea">
         <div class="section-title" id="questionAnchor">
           <h2>测试问题</h2>
-          <small id="qTotalLabel">10–18 题 · 单选</small>
+          <small id="qTotalLabel">10–16 题 · 单选</small>
         </div>
         <div class="bamboo-progress" aria-hidden="false">
           <div class="bamboo-track" id="bambooTrack">
@@ -425,7 +425,7 @@ const WRITERS = [
   <script src="chinese_poet_questions.js"></script>
   <script>
     const DIMS = ['感时忧世','写意抒情','玄思清远','隐逸疏离','家国情怀','奇崛翻新'];
-    const MIN_Q = 10, MAX_Q = 18, BRANCH_ADD = 4;
+    const MIN_Q = 10, MAX_Q = 16, BRANCH_ADD = 3;
     const state = {
       path: [],
       answers: {},
@@ -439,18 +439,28 @@ const WRITERS = [
     /* 第 1 题选项决定分支关卡组；各关卡选项统一映射花型与延题 */
     const Q1_TRACK = ['13', '46', '79', '10'];
     const MILESTONE_TRACKS = {
-      '13': [1, 3],
+      '13': [3],
       '46': [4, 6],
       '79': [7, 9],
       '10': [10]
     };
-    const MILESTONE_OPTION_META = [
-      { flower: 'taohua', add: 0 },
-      { flower: 'lihua', add: BRANCH_ADD },
-      { flower: 'meihua', add: 0 },
-      { flower: 'juhua', add: BRANCH_ADD }
-    ];
-    const MILESTONE_POS = { 1: 16, 3: 34, 4: 16, 6: 34, 7: 16, 9: 34, 10: 52 };
+    const BRANCH_FLOWERS = ['taohua', 'lihua', 'meihua', 'juhua', 'mudan'];
+    const EXTEND_OPTS = new Set([1, 3]);
+
+    function totalFlowerSlots() {
+      return 1 + state.activeMilestones.length;
+    }
+
+    function flowerSlotPosition(branchIndex) {
+      const total = totalFlowerSlots();
+      if (total <= 2) return [100 / 3, 200 / 3][Math.min(branchIndex, 1)];
+      return (100 / 4) * (branchIndex + 1);
+    }
+
+    function branchOptionMeta(optIndex, branchIndex) {
+      const flower = BRANCH_FLOWERS[(optIndex + branchIndex) % BRANCH_FLOWERS.length];
+      return { flower, add: EXTEND_OPTS.has(optIndex) ? BRANCH_ADD : 0 };
+    }
 
     const FLOWER_LABELS = {
       taohua: '灼灼桃华',
@@ -597,8 +607,18 @@ const WRITERS = [
       updateMuteBtn();
     }
 
-    function tendencyFlower(topDim) {
-      return TENDENCY_TO_FLOWER[topDim] || 'meihua';
+    function resultFlowerKey() {
+      const keys = Object.keys(state.milestones).sort((a, b) => Number(a) - Number(b));
+      if (!keys.length) return tendencyFlower(dominantDims(state.scores)[0]);
+      const counts = {};
+      let lastFlower = state.milestones[keys[keys.length - 1]].flower;
+      keys.forEach(k => {
+        const f = state.milestones[k].flower;
+        counts[f] = (counts[f] || 0) + 1;
+      });
+      const max = Math.max(...Object.values(counts));
+      const top = Object.entries(counts).filter(([, c]) => c === max).map(([f]) => f);
+      return top.length === 1 ? top[0] : lastFlower;
     }
 
     function isTerminalId(id) { return id && POET_Q[id]?.end === true; }
@@ -615,32 +635,34 @@ const WRITERS = [
       state.targetCount = Math.min(MAX_Q, total);
     }
 
-    function renderMilestoneFlower(milestone, flowerKey) {
+    function renderMilestoneFlower(milestone, flowerKey, branchIndex) {
       const track = document.getElementById('bambooTrack');
       track.querySelector(`[data-milestone="${milestone}"]`)?.remove();
-      const jitter = Math.floor(Math.random() * 5) - 2;
-      const pct = Math.min(94, Math.max(8, MILESTONE_POS[milestone] + jitter));
+      const pct = flowerSlotPosition(branchIndex);
       const label = FLOWER_LABELS[flowerKey] || '';
       const div = document.createElement('div');
       div.className = 'bamboo-flower';
       div.dataset.milestone = String(milestone);
       div.dataset.flower = flowerKey;
-      div.style.left = pct >= 92 ? 'calc(100% - 24px)' : pct + '%';
+      div.style.left = pct + '%';
       div.innerHTML = `<span class="flower-label">${label}</span><div class="flower-icon">${flowerSvg(flowerKey)}</div>`;
       track.appendChild(div);
       requestAnimationFrame(() => div.classList.add('bloom'));
     }
 
-    function applyMilestone(milestone, optIndex) {
-      const meta = MILESTONE_OPTION_META[optIndex];
-      if (!meta) return;
-      state.milestones[milestone] = { optIndex, add: meta.add, flower: meta.flower };
+    function applyMilestone(milestone, optIndex, branchIndex) {
+      const meta = branchOptionMeta(optIndex, branchIndex);
+      state.milestones[milestone] = { optIndex, add: meta.add, flower: meta.flower, branchIndex };
       recalcTargetCount();
-      renderMilestoneFlower(milestone, meta.flower);
+      renderMilestoneFlower(milestone, meta.flower, branchIndex);
+    }
+
+    function tendencyFlower(topDim) {
+      return TENDENCY_TO_FLOWER[topDim] || 'meihua';
     }
 
     function clearMilestonesAfter(pathLen) {
-      state.activeMilestones.forEach(m => {
+      [1, ...state.activeMilestones].forEach(m => {
         if (pathLen < m && state.milestones[m]) {
           delete state.milestones[m];
           document.querySelector(`[data-milestone="${m}"]`)?.remove();
@@ -674,22 +696,34 @@ const WRITERS = [
     }
 
     function resolveNext(opt, q) {
-      let next = opt.next;
-      if (!next || !POET_Q[next]) return pickContinueHub();
-
       const pl = pathLength();
 
-      if (isTerminalId(next) && shouldBlockTerminal(pl)) {
-        const alts = q.opts.map(o => o.next).filter(id => id && POET_Q[id] && !isTerminalId(id));
-        next = alts.find(id => id !== opt.next) || alts[0];
-        if (!next || isTerminalId(next)) next = pickContinueHub();
-      }
-
-      if (pl >= state.targetCount - 1 && !isTerminalId(next)) {
+      if (pl >= state.targetCount - 1) {
         return pickTerminal();
       }
 
-      return next || pickContinueHub();
+      function pickFirstValid(ids) {
+        const seen = new Set();
+        for (const id of ids) {
+          if (!id || seen.has(id) || !POET_Q[id]) continue;
+          seen.add(id);
+          if (isTerminalId(id)) {
+            if (!shouldBlockTerminal(pl)) return id;
+            continue;
+          }
+          if (!state.path.includes(id)) return id;
+        }
+        return null;
+      }
+
+      const altNext = q.opts.map(o => o.next).filter(Boolean);
+      const id = pickFirstValid([opt.next, ...altNext]);
+      if (id) return id;
+
+      const hub = pickContinueHub();
+      if (hub) return hub;
+
+      return pickTerminal();
     }
 
     function traitVariance(t) {
@@ -884,7 +918,7 @@ const WRITERS = [
       const maxSim = ranked[0].sim || 1;
       const pct = v => Math.round((v / maxSim) * 100);
       const dims = dominantDims(state.scores);
-      const flowerKey = tendencyFlower(dims[0]);
+      const flowerKey = resultFlowerKey();
       const flowerLabel = FLOWER_LABELS[flowerKey];
 
       els.resultTitle.textContent = top.name;
@@ -897,7 +931,7 @@ const WRITERS = [
 
       document.getElementById('resultFlowerIcon').innerHTML = flowerSvg(flowerKey);
       document.getElementById('resultFlowerDesc').innerHTML =
-        `诗心倾向：<strong>${dims[0]}</strong> · 花型意象 <strong>${flowerLabel}</strong>`;
+        `诗心倾向：<strong>${dims[0]}</strong> · 花信意象 <strong>${flowerLabel}</strong>（依分支花信而定）`;
 
       playFlowerMusic(flowerKey);
       showMuteBtn(true);
@@ -959,10 +993,10 @@ const WRITERS = [
       if (state.path.length === 1) {
         state.track = Q1_TRACK[ci] || '13';
         state.activeMilestones = [...MILESTONE_TRACKS[state.track]];
-      }
-
-      if (state.activeMilestones.includes(state.path.length)) {
-        applyMilestone(state.path.length, ci);
+        applyMilestone(1, ci, 0);
+      } else if (state.activeMilestones.includes(state.path.length)) {
+        const branchIndex = 1 + state.activeMilestones.indexOf(state.path.length);
+        applyMilestone(state.path.length, ci, branchIndex);
       }
 
       if (state.path.length >= state.targetCount) {
@@ -974,6 +1008,7 @@ const WRITERS = [
       const opt = q.opts[ci];
       let nextId = q.end ? pickContinueHub() : resolveNext(opt, q);
       if (!nextId || !POET_Q[nextId]) nextId = pickContinueHub();
+      if (nextId === state.currentId) nextId = pickContinueHub() || pickTerminal();
       if (!nextId || !POET_Q[nextId]) {
         els.progressFill.style.width = '100%';
         showResult();
