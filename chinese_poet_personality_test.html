@@ -433,11 +433,47 @@ const WRITERS = [
       targetCount: MIN_Q,
       track: null,
       activeMilestones: [],
-      milestones: {}
+      milestones: {},
+      sessionSeed: 0,
+      optionOrders: {}
     };
 
-    /* 第 1 题选项决定分支关卡组；各关卡选项统一映射花型与延题 */
-    const Q1_TRACK = ['13', '46', '79', '10'];
+    function pickStartId() {
+      const pool = (typeof POET_START_POOL !== 'undefined' && POET_START_POOL.length)
+        ? POET_START_POOL : [POET_START];
+      return pool[Math.floor(Math.random() * pool.length)] || POET_START;
+    }
+
+    function hashStr(s) {
+      let h = 2166136261;
+      for (let i = 0; i < s.length; i++) {
+        h ^= s.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+      }
+      return h >>> 0;
+    }
+
+    function shuffleSeeded(arr, seed) {
+      let s = seed >>> 0;
+      for (let i = arr.length - 1; i > 0; i--) {
+        s = Math.imul(s ^ (s >>> 15), 2246822519);
+        const j = (s >>> 0) % (i + 1);
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function optionOrderFor(qid, len) {
+      if (!state.optionOrders[qid]) {
+        state.optionOrders[qid] = shuffleSeeded([...Array(len).keys()], hashStr(state.sessionSeed + qid));
+      }
+      return state.optionOrders[qid];
+    }
+
+    function poetJitter(poetId) {
+      return (hashStr(state.sessionSeed + poetId) % 1000) / 100000;
+    }
+    const Q1_TRACK = ['13', '46', '79', '10', '46'];
     const MILESTONE_TRACKS = {
       '13': [3],
       '46': [4, 6],
@@ -731,14 +767,25 @@ const WRITERS = [
       return t.reduce((s,x)=>s+(x-m)**2,0)/t.length;
     }
 
-    function matchScore(userScores, traits) {
-      const u = norm(userScores), t = norm(traits);
-      const cos = u.reduce((s,x,i)=>s+x*t[i],0);
-      const tops = userScores.map((v,i)=>({v,i})).sort((a,b)=>b.v-a.v).slice(0,2);
-      const peak = tops.reduce((s,o)=>s+t[o.i]*(u[o.i]||0),0)*0.15;
-      const spread = Math.sqrt(traitVariance(t));
-      const distinct = 0.88 + Math.min(0.12, spread * 0.06);
-      return cos * distinct + peak;
+    function profileVector(scores) {
+      const n = Math.max(state.path.length, 1);
+      const perQ = scores.map(v => v / n);
+      const ranks = scores.map((v, i) => ({ v, i }))
+        .sort((a, b) => b.v - a.v)
+        .map((o, ri) => ({ i: o.i, r: (scores.length - ri) / scores.length }));
+      const rankW = Array(scores.length).fill(0);
+      ranks.forEach(o => { rankW[o.i] = o.r; });
+      return perQ.map((v, i) => v * 0.55 + rankW[i] * 0.45);
+    }
+
+    function matchScore(userScores, traits, poetId) {
+      const u = norm(profileVector(userScores)), t = norm(traits);
+      const cos = u.reduce((s, x, i) => s + x * t[i], 0);
+      const tops = userScores.map((v, i) => ({ v, i })).sort((a, b) => b.v - a.v).slice(0, 2);
+      const peak = tops.reduce((s, o) => s + traits[o.i] * (u[o.i] || 0), 0) * 0.08;
+      const spread = Math.sqrt(traitVariance(traits));
+      const distinct = 0.9 + Math.min(0.1, spread * 0.05);
+      return cos * distinct + peak + poetJitter(poetId || '');
     }
 
     const els = {
@@ -844,12 +891,14 @@ const WRITERS = [
       els.nextBtn.textContent = atEnd ? '查看结果' : '下一题';
       syncMobileBar();
       els.optionsBox.innerHTML = '';
-      q.opts.forEach((opt, i) => {
+      const order = optionOrderFor(q.id, q.opts.length);
+      order.forEach((realIdx, displayIdx) => {
+        const opt = q.opts[realIdx];
         const btn = document.createElement('button');
         btn.type = 'button';
-        btn.className = 'opt' + (state.answers[state.currentId] === i ? ' active' : '');
+        btn.className = 'opt' + (state.answers[state.currentId] === realIdx ? ' active' : '');
         btn.textContent = opt.t;
-        btn.onclick = (e) => { e.preventDefault(); selectOption(i); };
+        btn.onclick = (e) => { e.preventDefault(); selectOption(realIdx); };
         els.optionsBox.appendChild(btn);
       });
       els.hintText.textContent = state.answers[state.currentId] !== undefined
@@ -912,7 +961,7 @@ const WRITERS = [
 
     function showResult() {
       recalcScores();
-      const ranked = WRITERS.map(w => ({ w, sim: matchScore(state.scores, w.traits) }))
+      const ranked = WRITERS.map(w => ({ w, sim: matchScore(state.scores, w.traits, w.id) }))
         .sort((a,b) => b.sim - a.sim);
       const top = ranked[0].w;
       const maxSim = ranked[0].sim || 1;
@@ -964,7 +1013,9 @@ const WRITERS = [
       showMuteBtn(false);
       state.path = [];
       state.answers = {};
-      state.currentId = POET_START;
+      state.sessionSeed = (Date.now() ^ (Math.random() * 0xFFFFFFFF)) >>> 0;
+      state.optionOrders = {};
+      state.currentId = pickStartId();
       state.scores = [0,0,0,0,0,0];
       state.milestones = {};
       state.track = null;
@@ -991,7 +1042,7 @@ const WRITERS = [
       if (!state.path.includes(state.currentId)) state.path.push(state.currentId);
 
       if (state.path.length === 1) {
-        state.track = Q1_TRACK[ci] || '13';
+        state.track = Q1_TRACK[Math.min(ci, Q1_TRACK.length - 1)] || '13';
         state.activeMilestones = [...MILESTONE_TRACKS[state.track]];
         applyMilestone(1, ci, 0);
       } else if (state.activeMilestones.includes(state.path.length)) {
@@ -1021,10 +1072,10 @@ const WRITERS = [
     function prev(e) {
       if (e) e.preventDefault();
       if (state.path.length === 0) return;
-      if (document.activeElement) document.activeElement.blur();
+        if (document.activeElement) document.activeElement.blur();
       state.currentId = state.path.pop();
       clearMilestonesAfter(state.path.length);
-      updateQuestion();
+        updateQuestion();
     }
 
     function syncMobileBar() {
@@ -1049,7 +1100,9 @@ const WRITERS = [
       showMuteBtn(false);
       state.path = [];
       state.answers = {};
-      state.currentId = POET_START;
+      state.sessionSeed = (Date.now() ^ (Math.random() * 0xFFFFFFFF)) >>> 0;
+      state.optionOrders = {};
+      state.currentId = pickStartId();
       state.scores = [0,0,0,0,0,0];
       state.milestones = {};
       state.track = null;
