@@ -196,7 +196,8 @@
     prevBtn: document.getElementById('prevBtn'), nextBtn: document.getElementById('nextBtn'),
     resetBtn: document.getElementById('resetBtn'), hintText: document.getElementById('hintText'),
     libraryBox: document.getElementById('libraryBox'), resultBox: document.getElementById('resultBox'),
-    resultTitle: document.getElementById('resultTitle'), resultIntro: document.getElementById('resultIntro'),
+    resultTitle: document.getElementById('resultTitle'), resultAvatar: document.getElementById('resultAvatar'),
+    resultIntro: document.getElementById('resultIntro'),
     resultOneLiner: document.getElementById('resultOneLiner'), resultWhy: document.getElementById('resultWhy'),
     resultQuote: document.getElementById('resultQuote'), resultQuoteAuthor: document.getElementById('resultQuoteAuthor'),
     personalityTags: document.getElementById('personalityTags'), top5List: document.getElementById('top5List'),
@@ -342,6 +343,13 @@
     const flowerLabel = FLOWER_LABELS[flowerKey];
 
     els.resultTitle.textContent = top.name;
+    if (els.resultAvatar && typeof litAvatarHtml === 'function') {
+      const avKey = litAvatarKey(state.scores);
+      const avType = LIT_AVATAR_TYPE[avKey] || '';
+      const avLabel = LIT_AVATAR_PAIRS[avKey] || '';
+      els.resultAvatar.innerHTML = litAvatarHtml(avKey);
+      els.resultAvatar.title = avType ? `${avType} · ${avLabel}` : '气质小人';
+    }
     els.resultIntro.textContent = top.intro;
     els.resultOneLiner.textContent = top.one;
     els.resultWhy.textContent = buildWhy(top, dims);
