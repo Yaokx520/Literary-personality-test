@@ -179,6 +179,19 @@
     .top5-meta { font-size: 12px; color: var(--muted); }
     .meter { height: 8px; border-radius: 999px; background: #efe4d4; overflow: hidden; margin-top: 4px; }
     .meter > i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent2), var(--accent)); }
+    .match-bar-chart { display: grid; gap: 12px; }
+    .match-bar-row { display: grid; grid-template-columns: 28px minmax(56px, 80px) 1fr 44px; gap: 8px; align-items: center; font-size: 14px; }
+    .match-bar-rank { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 12px; background: rgba(139,94,52,.12); color: var(--accent); }
+    .match-bar-rank.gold { background: linear-gradient(135deg, #d4a574, var(--accent)); color: #fff; }
+    .match-bar-name { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .match-bar-track { height: 10px; border-radius: 99px; background: #efe4d4; overflow: hidden; }
+    .match-bar-track > i { display: block; height: 100%; background: linear-gradient(90deg, var(--accent2), var(--accent)); border-radius: inherit; }
+    .match-bar-pct { font-weight: 700; color: var(--accent); text-align: right; font-size: 13px; }
+    .prob-hotcold { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .prob-hotcold h4 { margin: 0 0 8px; font-size: 14px; color: var(--accent); }
+    .prob-hotcold ol { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.9; color: var(--muted); }
+    .prob-hotcold .prob-val { color: var(--accent); font-weight: 600; }
+    .prob-hotcold .muted { list-style: none; padding: 0; }
     .radar-wrap { display: flex; justify-content: center; padding: 8px 0; }
     .radar-wrap svg { max-width: 100%; height: auto; }
     .personality-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
@@ -372,6 +385,18 @@
             <p class="mini" style="text-align:center;margin-top:4px">实线：你的诗心 · 虚线：最相近的诗人</p>
           </div>
           <div class="result-box">
+            <h3>本次匹配 TOP 3</h3>
+            <div id="matchBarTop3" class="match-bar-chart"></div>
+          </div>
+          <div class="result-box">
+            <h3>概率热门 / 冷门人格</h3>
+            <p class="mini" style="margin-bottom:10px">基于千次随机作答模拟，估计最易/最难匹配的诗人人格。</p>
+            <div class="prob-hotcold">
+              <div><h4>热门 TOP 3</h4><ol id="probHotList"></ol></div>
+              <div><h4>冷门 TOP 3</h4><ol id="probColdList"></ol></div>
+            </div>
+          </div>
+          <div class="result-box">
             <h3>Top 5 匹配</h3>
             <div class="top5" id="top5List"></div>
           </div>
@@ -485,6 +510,7 @@ const WRITERS = [
 </script>
   <script src="stats-config.js"></script>
   <script src="stats-client.js"></script>
+  <script src="personality_insights.js"></script>
   <script src="chinese_poet_questions.js"></script>
   <script src="chinese_poet_avatars.js"></script>
   <script>
@@ -2031,6 +2057,13 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
         <div class="top5-quote-item"><strong>${i+1}. ${r.w.name}</strong><br>${r.w.quote}</div>`).join('');
 
       drawRadar(state.scores, top.traits);
+
+      if (typeof PersonalityInsights !== 'undefined') {
+        PersonalityInsights.renderBarTop3(document.getElementById('matchBarTop3'), ranked, r => pct(r.sim));
+        const prob = PersonalityInsights.monteCarloRankings(WRITERS, (u, t, id) => matchScore(u, t, id));
+        PersonalityInsights.renderProbLists(document.getElementById('probHotList'), document.getElementById('probColdList'), prob);
+      }
+
       const avKey = typeof poetAvatarKey === 'function' ? poetAvatarKey(state.scores) : '';
       lastResult = {
         top, ranked, dims, scores: state.scores.slice(),

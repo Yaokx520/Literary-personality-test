@@ -31,20 +31,20 @@
     const url = cfg.apiBase + path;
     const body = JSON.stringify(payload);
 
-    if (navigator.sendBeacon) {
-      try {
-        const ok = navigator.sendBeacon(url, new Blob([body], { type: 'application/json' }));
-        if (ok) return Promise.resolve({ ok: true, beacon: true });
-      } catch (_) { /* fallback fetch */ }
-    }
-
     return fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json;charset=UTF-8' },
       body,
       keepalive: true,
       mode: 'cors'
-    }).then(r => r.json().catch(() => ({}))).catch(() => null);
+    }).then(r => r.json().catch(() => ({}))).catch(() => {
+      if (navigator.sendBeacon) {
+        try {
+          navigator.sendBeacon(url, new Blob([body], { type: 'application/json;charset=UTF-8' }));
+        } catch (_) { /* ignore */ }
+      }
+      return null;
+    });
   }
 
   function trackVisit(testType) {

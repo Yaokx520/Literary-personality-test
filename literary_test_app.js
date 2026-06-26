@@ -383,6 +383,14 @@
 
     drawRadar(state.scores, top.traits);
 
+    if (typeof PersonalityInsights !== 'undefined') {
+      const maxSim = ranked[0].sim || 1;
+      const pctRel = v => Math.round((v / maxSim) * 100);
+      PersonalityInsights.renderBarTop3(document.getElementById('matchBarTop3'), ranked, r => pctRel(r.sim));
+      const prob = PersonalityInsights.monteCarloRankings(WRITERS, (u, t) => similarity(u, t));
+      PersonalityInsights.renderProbLists(document.getElementById('probHotList'), document.getElementById('probColdList'), prob);
+    }
+
     if (typeof LiteraryShareCard !== 'undefined') {
       LiteraryShareCard.setResult({
         top, ranked, dims, scores: state.scores.slice(),
