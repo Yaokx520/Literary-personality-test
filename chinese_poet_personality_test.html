@@ -483,6 +483,8 @@ const WRITERS = [
 ];
 
 </script>
+  <script src="stats-config.js"></script>
+  <script src="stats-client.js"></script>
   <script src="chinese_poet_questions.js"></script>
   <script src="chinese_poet_avatars.js"></script>
   <script>
@@ -2043,6 +2045,9 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
       lastShareCanvas = null;
       Object.keys(shareAssetCache).forEach(k => delete shareAssetCache[k]);
       preloadShareAssetData(avKey, flowerKey);
+      if (typeof LitStats !== 'undefined') {
+        LitStats.trackResult('poet', { id: top.id, name: top.name });
+      }
       els.shareText.value = `我测出来更像诗人「${top.name}」。\n${top.one}\n诗心：${dims.join(' · ')}\n近邻：${ranked.slice(1,5).map(r=>r.w.name).join('、')}\n${top.quote}\n——你也来测一测你的诗心？\n诗心小测：${SHARE_URL}`;
       els.resultBox.classList.add('show');
       setView('result');
@@ -2166,6 +2171,8 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
     document.getElementById('shareImageBtn').onclick = () => shareShareCard().catch(e => { console.error(e); showToast('分享失败，请重试'); });
     document.getElementById('previewShareCardBtn').onclick = () => previewShareCard().catch(e => { console.error(e); showToast('预览失败，请重试'); });
     document.getElementById('muteBtn').onclick = toggleMute;
+
+    if (typeof LitStats !== 'undefined') LitStats.init('poet');
 
     renderLibrary();
   </script>

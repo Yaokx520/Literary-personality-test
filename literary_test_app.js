@@ -394,6 +394,10 @@
       });
     }
 
+    if (typeof LitStats !== 'undefined') {
+      LitStats.trackResult('literary', { id: top.id, name: top.name });
+    }
+
     els.shareText.value = `我测出来更像「${top.name}」。\n${top.one}\n气质：${dims.join(' · ')}\n近邻：${ranked.slice(1, 5).map(r => r.w.name).join('、')}\n${top.quote}\n——你也来测一测？\n文学气质小测：${SHARE_URL}`;
     els.resultBox.classList.add('show');
     setView('result');
@@ -516,6 +520,10 @@
 
   if (typeof LiteraryShareCard !== 'undefined') {
     LiteraryShareCard.init({ shareUrl: SHARE_URL, showToast });
+  }
+
+  if (typeof LitStats !== 'undefined') {
+    LitStats.init('literary');
   }
 
   renderLibrary();
