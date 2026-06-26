@@ -218,5 +218,5 @@ const POET_Q = {
   ]},
 };
 
-const POET_START = 'q01';
-const POET_START_POOL = ['q01','q02','q03','q04','q05'];
+const POET_START = 'q04';
+const POET_START_POOL = ['q04','q05','q03','q02','q01'];

@@ -53,6 +53,6 @@ for (const qid of Object.keys(POET_Q).sort((a, b) => Number(a.slice(1)) - Number
   });
   lines.push('  ]},');
 }
-lines.push('};', '', "const POET_START = 'q01';", "const POET_START_POOL = ['q01','q02','q03','q04','q05'];", '');
+lines.push('};', '', "const POET_START = 'q04';", "const POET_START_POOL = ['q04','q05','q03','q02','q01'];", '');
 fs.writeFileSync('chinese_poet_questions.js', lines.join('\n'), 'utf8');
 console.log('OK chinese_poet_questions.js');

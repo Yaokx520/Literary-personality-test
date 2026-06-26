@@ -385,12 +385,8 @@
             <p class="mini" style="text-align:center;margin-top:4px">实线：你的诗心 · 虚线：最相近的诗人</p>
           </div>
           <div class="result-box">
-            <h3>本次匹配 TOP 3</h3>
-            <div id="matchBarTop3" class="match-bar-chart"></div>
-          </div>
-          <div class="result-box">
-            <h3>概率热门 / 冷门人格</h3>
-            <p class="mini" style="margin-bottom:10px">基于千次随机作答模拟，估计最易/最难匹配的诗人人格。</p>
+            <h3>热度排行榜</h3>
+            <p class="mini" style="margin-bottom:10px">基于八千次随机作答模拟，估计最易/最难匹配的诗人人格。</p>
             <div class="prob-hotcold">
               <div><h4>热门 TOP 3</h4><ol id="probHotList"></ol></div>
               <div><h4>冷门 TOP 3</h4><ol id="probColdList"></ol></div>
@@ -845,8 +841,9 @@ const WRITERS = [
     }
 
     function pickContinueHub() {
-      const prefer = ['q22','q23','q24','q25','q18','q19','q20','q26','q27','q28','q29',
-        'q14','q15','q16','q17','q21','q10','q11','q12','q13','q06','q07','q08','q09'];
+      const prefer = ['q06','q07','q08','q09','q10','q11','q12','q13',
+        'q14','q15','q16','q17','q18','q19','q20','q21',
+        'q22','q23','q24','q25','q26','q27','q28','q29'];
       const id = prefer.find(h => POET_Q[h] && !isTerminalId(h) && !state.path.includes(h));
       if (id) return id;
       return Object.keys(POET_Q).find(h => !isTerminalId(h) && !state.path.includes(h));
@@ -2059,8 +2056,7 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
       drawRadar(state.scores, top.traits);
 
       if (typeof PersonalityInsights !== 'undefined') {
-        PersonalityInsights.renderBarTop3(document.getElementById('matchBarTop3'), ranked, r => pct(r.sim));
-        const prob = PersonalityInsights.monteCarloRankings(WRITERS, (u, t, id) => matchScore(u, t, id));
+        const prob = PersonalityInsights.monteCarloRankings(WRITERS, (u, t) => similarity(u, t), 8000, 'poet');
         PersonalityInsights.renderProbLists(document.getElementById('probHotList'), document.getElementById('probColdList'), prob);
       }
 
