@@ -28,7 +28,8 @@
   let lastSharePreviewUrl = '';
 
   function isWeChatBrowser() {
-    return /MicroMessenger/i.test(navigator.userAgent || '');
+    const ua = navigator.userAgent || '';
+    return /MicroMessenger/i.test(ua) || /\bQQ\//i.test(ua) || /MQQBrowser/i.test(ua);
   }
 
   function promiseWithTimeout(promise, ms, fallback) {
