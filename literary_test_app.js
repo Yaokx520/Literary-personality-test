@@ -341,10 +341,11 @@
     const dims = dominantDims(state.scores);
     const flowerKey = resultFlowerKey();
     const flowerLabel = FLOWER_LABELS[flowerKey];
+    const avKey = typeof litAvatarKey === 'function' ? litAvatarKey(state.scores) : '';
+    const why = buildWhy(top, dims);
 
     els.resultTitle.textContent = top.name;
     if (els.resultAvatar && typeof litAvatarHtml === 'function') {
-      const avKey = litAvatarKey(state.scores);
       const avType = LIT_AVATAR_TYPE[avKey] || '';
       const avLabel = LIT_AVATAR_PAIRS[avKey] || '';
       els.resultAvatar.innerHTML = litAvatarHtml(avKey);
@@ -352,7 +353,7 @@
     }
     els.resultIntro.textContent = top.intro;
     els.resultOneLiner.textContent = top.one;
-    els.resultWhy.textContent = buildWhy(top, dims);
+    els.resultWhy.textContent = why;
     els.resultQuote.textContent = top.quote;
     els.resultQuoteAuthor.textContent = `—— ${top.name}（${top.region} · ${top.kind}）`;
     els.personalityTags.innerHTML = dims.map(d => `<span>${d}</span>`).join('');
@@ -381,6 +382,18 @@
       <div class="top5-quote-item"><strong>${i + 1}. ${r.w.name}</strong><br>${r.w.quote}</div>`).join('');
 
     drawRadar(state.scores, top.traits);
+
+    if (typeof LiteraryShareCard !== 'undefined') {
+      LiteraryShareCard.setResult({
+        top, ranked, dims, scores: state.scores.slice(),
+        flowerKey, flowerLabel,
+        avKey,
+        avType: typeof LIT_AVATAR_TYPE !== 'undefined' ? (LIT_AVATAR_TYPE[avKey] || '') : '',
+        why,
+        pct
+      });
+    }
+
     els.shareText.value = `我测出来更像「${top.name}」。\n${top.one}\n气质：${dims.join(' · ')}\n近邻：${ranked.slice(1, 5).map(r => r.w.name).join('、')}\n${top.quote}\n——你也来测一测？\n文学气质小测：${SHARE_URL}`;
     els.resultBox.classList.add('show');
     setView('result');
@@ -500,6 +513,10 @@
   document.getElementById('mobilePrevBtn').onclick = prev;
   document.getElementById('copyBtn').onclick = copyShareText;
   document.getElementById('muteBtn').onclick = toggleMute;
+
+  if (typeof LiteraryShareCard !== 'undefined') {
+    LiteraryShareCard.init({ shareUrl: SHARE_URL, showToast });
+  }
 
   renderLibrary();
 })();
