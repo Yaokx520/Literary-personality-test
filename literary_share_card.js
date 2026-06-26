@@ -27,6 +27,28 @@
   let lastShareExportUrl = '';
   let lastSharePreviewUrl = '';
 
+  function isWeChatBrowser() {
+    return /MicroMessenger/i.test(navigator.userAgent || '');
+  }
+
+  function promiseWithTimeout(promise, ms, fallback) {
+    return Promise.race([
+      promise,
+      new Promise(resolve => setTimeout(() => resolve(fallback), ms))
+    ]);
+  }
+
+  function fetchWithTimeout(url, ms = 5000) {
+    if (typeof AbortController !== 'undefined') {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), ms);
+      return fetch(url, { signal: ctrl.signal })
+        .catch(() => null)
+        .finally(() => clearTimeout(timer));
+    }
+    return promiseWithTimeout(fetch(url).catch(() => null), ms, null);
+  }
+
   function showToast(msg) {
     config.showToast(msg);
   }
@@ -93,22 +115,32 @@
     catch (_) { return ''; }
   }
 
-  function xhrAsDataUrl(url) {
+  function xhrAsDataUrl(url, ms = 5000) {
     return new Promise(resolve => {
+      let settled = false;
+      const finish = (val) => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        resolve(val);
+      };
+      const timer = setTimeout(() => finish(''), ms);
       try {
         const xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.responseType = 'blob';
+        xhr.timeout = ms;
         xhr.onload = () => {
-          if (xhr.status !== 200 || !xhr.response) { resolve(''); return; }
+          if (xhr.status !== 200 || !xhr.response) { finish(''); return; }
           const reader = new FileReader();
-          reader.onload = () => resolve(String(reader.result || ''));
-          reader.onerror = () => resolve('');
+          reader.onload = () => finish(String(reader.result || ''));
+          reader.onerror = () => finish('');
           reader.readAsDataURL(xhr.response);
         };
-        xhr.onerror = () => resolve('');
+        xhr.onerror = () => finish('');
+        xhr.ontimeout = () => finish('');
         xhr.send();
-      } catch (_) { resolve(''); }
+      } catch (_) { finish(''); }
     });
   }
 
@@ -129,36 +161,52 @@
     catch (_) { return src; }
   }
 
-  async function resolveAssetDataUrl(src, maxW, maxH) {
+  function getDomImageDataUrl(src, maxW, maxH) {
     if (!src) return '';
-    if (shareAssetCache[src]) return shareAssetCache[src];
-
     const url = resolveAssetSrc(src);
     const tail = src.split('/').pop();
     for (const img of document.querySelectorAll('#resultAvatar img, .result-avatar img')) {
       if (!img.complete || !img.naturalWidth) continue;
       const s = img.currentSrc || img.src;
-      if (s === url || (tail && s.includes(tail))) {
+      if (s === url || (tail && (s.includes(tail) || s.endsWith('/' + tail)))) {
         const data = imgToCompressedDataUrl(img, maxW, maxH, 'image/jpeg', 0.88);
-        if (data) { shareAssetCache[src] = data; return data; }
+        if (data) return data;
       }
     }
+    return '';
+  }
 
+  async function resolveAssetDataUrl(src, maxW, maxH) {
+    if (!src) return '';
+    if (shareAssetCache[src]) return shareAssetCache[src];
+
+    const domData = getDomImageDataUrl(src, maxW, maxH);
+    if (domData) {
+      shareAssetCache[src] = domData;
+      return domData;
+    }
+
+    const url = resolveAssetSrc(src);
     let raw = '';
-    try {
-      const resp = await fetch(url);
-      if (resp.ok) {
-        const blob = await resp.blob();
-        raw = await new Promise((resolve, reject) => {
-          const reader = new FileReader();
-          reader.onload = () => resolve(String(reader.result || ''));
-          reader.onerror = reject;
-          reader.readAsDataURL(blob);
-        });
-      }
-    } catch (_) { /* fetch 不可用则尝试 XHR */ }
 
-    if (!raw) raw = await xhrAsDataUrl(url);
+    if (!isWeChatBrowser()) {
+      try {
+        const resp = await fetchWithTimeout(url, 5000);
+        if (resp && resp.ok) {
+          const blob = await promiseWithTimeout(resp.blob(), 4000, null);
+          if (blob) {
+            raw = await promiseWithTimeout(new Promise((resolve, reject) => {
+              const reader = new FileReader();
+              reader.onload = () => resolve(String(reader.result || ''));
+              reader.onerror = reject;
+              reader.readAsDataURL(blob);
+            }), 4000, '');
+          }
+        }
+      } catch (_) { /* fetch 不可用则尝试 XHR */ }
+    }
+
+    if (!raw) raw = await xhrAsDataUrl(url, 5000);
 
     if (!raw) {
       try {
@@ -207,18 +255,19 @@
   }
 
   async function preloadShareAssetData(avKey, flowerKey) {
-    Object.keys(shareAssetCache).forEach(k => delete shareAssetCache[k]);
     const avSrc = typeof LIT_AVATAR_IMG !== 'undefined' ? LIT_AVATAR_IMG[avKey] : '';
     const domImg = document.querySelector('#resultAvatar img');
     if (domImg && avSrc) {
       try {
-        await waitForImg(domImg);
+        await promiseWithTimeout(waitForImg(domImg, 4000), 4500, null);
         const data = imgToCompressedDataUrl(domImg, 520, 0, 'image/jpeg', 0.88);
         if (data) shareAssetCache[avSrc] = shareAssetCache['avatar:' + avKey] = data;
       } catch (_) { /* DOM 立绘未就绪 */ }
     }
-    if (avSrc && !shareAssetCache[avSrc]) await resolveAvatarDataUrl(avKey);
-    await resolveFlowerDataUrl(flowerKey);
+    if (avSrc && !shareAssetCache[avSrc]) {
+      await promiseWithTimeout(resolveAvatarDataUrl(avKey), 5000, '');
+    }
+    await promiseWithTimeout(resolveFlowerDataUrl(flowerKey), 5000, '');
   }
 
   function svgHrefAttr(dataUrl) {
@@ -386,8 +435,8 @@
     if (!r) throw new Error('no result');
     const shareUrl = config.shareUrl || '';
     const W = 750, pad = 40, heroH = 360, contentStartY = 200 + heroH;
-    const avData = await resolveAvatarDataUrl(r.avKey);
-    const flData = await resolveFlowerDataUrl(r.flowerKey);
+    const avData = await promiseWithTimeout(resolveAvatarDataUrl(r.avKey), 5000, '');
+    const flData = await promiseWithTimeout(resolveFlowerDataUrl(r.flowerKey), 5000, '');
     const songName = FLOWER_SONG[r.flowerKey] || '';
 
     let y = contentStartY + 28 + 36;
@@ -650,22 +699,29 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
     if (forceRebuild) revokeSharePreviewUrl();
     if (!forceRebuild && lastShareExportUrl) return lastShareExportUrl;
 
-    let canvasUrl = '';
-    try {
-      const canvas = await buildShareCardCanvas();
-      lastShareCanvas = canvas;
-      canvasUrl = await tryCanvasExportUrl(canvas);
-    } catch (e) {
-      console.warn('canvas build/export failed', e);
-    }
-    if (canvasUrl) {
-      revokeSharePreviewUrl();
-      lastShareExportUrl = canvasUrl;
-      if (canvasUrl.startsWith('blob:')) lastSharePreviewUrl = canvasUrl;
-      return canvasUrl;
+    const wechat = isWeChatBrowser();
+
+    if (!wechat) {
+      let canvasUrl = '';
+      try {
+        const canvas = await promiseWithTimeout(buildShareCardCanvas(), 12000, null);
+        if (canvas) {
+          lastShareCanvas = canvas;
+          canvasUrl = await promiseWithTimeout(tryCanvasExportUrl(canvas), 4000, '');
+        }
+      } catch (e) {
+        console.warn('canvas build/export failed', e);
+      }
+      if (canvasUrl) {
+        revokeSharePreviewUrl();
+        lastShareExportUrl = canvasUrl;
+        if (canvasUrl.startsWith('blob:')) lastSharePreviewUrl = canvasUrl;
+        return canvasUrl;
+      }
     }
 
-    const svgUrl = await buildShareCardSvgDataUrl();
+    const svgUrl = await promiseWithTimeout(buildShareCardSvgDataUrl(), 12000, '');
+    if (!svgUrl) throw new Error('svg build failed');
     lastShareExportUrl = svgUrl;
     return svgUrl;
   }
@@ -679,8 +735,11 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
     });
     try {
       showToast('正在生成结果卡…');
-      if (lastResult) await preloadShareAssetData(lastResult.avKey, lastResult.flowerKey);
-      const url = await ensureShareCardUrl(true);
+      if (lastResult) {
+        preloadShareAssetData(lastResult.avKey, lastResult.flowerKey).catch(() => {});
+      }
+      const url = await promiseWithTimeout(ensureShareCardUrl(true), 18000, '');
+      if (!url) throw new Error('share card timeout');
       await fn(url);
     } catch (e) {
       console.error('share card error', e);
