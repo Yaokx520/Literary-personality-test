@@ -953,7 +953,7 @@ const WRITERS = [
     function imgToCompressedDataUrl(img, maxW, maxH, mime, quality) {
       if (!img || !img.naturalWidth) return '';
       let w = img.naturalWidth, h = img.naturalHeight;
-      const scale = Math.min(1, maxW / w, maxH / h);
+      const scale = Math.min(1, maxW / w, maxH > 0 ? maxH / h : Infinity);
       w = Math.max(1, Math.round(w * scale));
       h = Math.max(1, Math.round(h * scale));
       const c = document.createElement('canvas');
@@ -1036,7 +1036,9 @@ const WRITERS = [
       if (raw.startsWith('data:image/') && (raw.length > 420000 || maxW)) {
         try {
           const img = await loadImageFromDataUrl(raw);
-          const compressed = imgToCompressedDataUrl(img, maxW || 480, maxH || 480, 'image/jpeg', 0.85);
+          const limitW = maxW || 520;
+          const limitH = maxH > 0 ? maxH : img.naturalHeight;
+          const compressed = imgToCompressedDataUrl(img, limitW, limitH, 'image/jpeg', 0.85);
           if (compressed) raw = compressed;
         } catch (_) { /* 保持原图 */ }
       }
@@ -1063,7 +1065,7 @@ const WRITERS = [
       if (!src) return '';
       const cacheKey = 'avatar:' + avKey;
       if (shareAssetCache[cacheKey]) return shareAssetCache[cacheKey];
-      const data = await resolveAssetDataUrl(src, 480, 568);
+      const data = await resolveAssetDataUrl(src, 520, 0);
       if (data) shareAssetCache[cacheKey] = data;
       return data;
     }
@@ -1075,7 +1077,7 @@ const WRITERS = [
       if (domImg && avSrc) {
         try {
           await waitForImg(domImg);
-          const data = imgToCompressedDataUrl(domImg, 480, 568, 'image/jpeg', 0.88);
+          const data = imgToCompressedDataUrl(domImg, 520, 0, 'image/jpeg', 0.88);
           if (data) shareAssetCache[avSrc] = shareAssetCache['avatar:' + avKey] = data;
         } catch (_) { /* DOM 立绘未就绪 */ }
       }
@@ -1086,6 +1088,59 @@ const WRITERS = [
     function svgHrefAttr(dataUrl) {
       if (!dataUrl) return '';
       return dataUrl.replace(/&/g, '&amp;').replace(/#/g, '%23');
+    }
+
+    /** 英雄区布局：人物区 : 花信区 = 2 : 1 */
+    function shareCardHeroLayout(W, pad, heroY, heroH) {
+      const inner = 14;
+      const blockX = pad + inner;
+      const blockW = W - pad * 2 - inner * 2;
+      const blockH = heroH - inner * 2;
+      const avW = Math.floor(blockW * 2 / 3);
+      const flW = blockW - avW;
+      const blockY = heroY + inner;
+      return {
+        blockX, blockY, blockW, blockH,
+        av: { x: blockX, y: blockY, w: avW, h: blockH },
+        fl: { x: blockX + avW, y: blockY, w: flW, h: blockH }
+      };
+    }
+
+    function fitImageInBox(nw, nh, box) {
+      if (!nw || !nh) return { x: box.x, y: box.y, w: box.w, h: box.h };
+      const scale = Math.min(box.w / nw, box.h / nh);
+      const w = nw * scale;
+      const h = nh * scale;
+      return {
+        x: box.x + (box.w - w) / 2,
+        y: box.y + (box.h - h) / 2,
+        w, h
+      };
+    }
+
+    function canvasFillTextCentered(ctx, text, cx, y, maxWidth) {
+      const chars = [...(text || '')];
+      let line = '';
+      for (const ch of chars) {
+        const test = line + ch;
+        if (ctx.measureText(test).width > maxWidth && line) {
+          ctx.fillText(line, cx, y);
+          line = ch;
+          y += 20;
+        } else line = test;
+      }
+      if (line) ctx.fillText(line, cx, y);
+      return y;
+    }
+
+    async function dataUrlImageSize(dataUrl) {
+      if (!dataUrl) return { w: 0, h: 0 };
+      try {
+        const img = await loadImageFromDataUrl(dataUrl);
+        return { w: img.naturalWidth, h: img.naturalHeight };
+      } catch (_) {
+        return { w: 0, h: 0 };
+      }
     }
 
     async function fetchAsDataUrl(src) {
@@ -1170,8 +1225,13 @@ const WRITERS = [
       const footerY = y + 20;
       const H = footerY + 96;
       const heroY = 188;
-      const avX = pad + 36, avY = heroY + 38, avW = 240, avH = 284;
-      const flowerColX = avX + avW + 48, flowerSize = 108, flowerY = heroY + 52;
+      const layout = shareCardHeroLayout(W, pad, heroY, heroH);
+      const avSize = await dataUrlImageSize(avData);
+      const avFit = fitImageInBox(avSize.w, avSize.h, layout.av);
+      const flImageSize = Math.min(layout.fl.w - 12, 80);
+      const flowerX = layout.fl.x + (layout.fl.w - flImageSize) / 2;
+      const flowerY = layout.fl.y + 28;
+      const flTextX = layout.fl.x + layout.fl.w / 2;
 
       const textBlock = (title, lines, startY, italic) => {
         let out = `<text x="${pad}" y="${startY}" fill="#8b5e34" font-size="18" font-weight="700" font-family="'Noto Serif SC', serif">${svgEsc(title)}</text>`;
@@ -1195,11 +1255,12 @@ const WRITERS = [
 <text x="${W / 2}" y="130" text-anchor="middle" fill="#2b241c" font-size="42" font-weight="700" font-family="'Noto Serif SC', serif">更像「${svgEsc(r.top.name)}」</text>
 <text x="${W / 2}" y="162" text-anchor="middle" fill="#6f6458" font-size="16" font-family="'Noto Serif SC', serif">${svgEsc(r.top.region)} · ${svgEsc(r.top.kind)}</text>
 <rect x="${pad}" y="${heroY}" width="${W - pad * 2}" height="${heroH}" rx="18" fill="rgba(139,94,52,0.05)" stroke="#e7dccd"/>
-${avData ? `<image xlink:href="${svgHrefAttr(avData)}" href="${svgHrefAttr(avData)}" x="${avX}" y="${avY}" width="${avW}" height="${avH}" preserveAspectRatio="xMidYMid meet"/>` : `<rect x="${avX}" y="${avY}" width="${avW}" height="${avH}" rx="12" fill="rgba(139,94,52,0.08)"/><text x="${avX + avW / 2}" y="${avY + avH / 2}" text-anchor="middle" fill="#8b5e34" font-size="16" font-family="'Noto Serif SC', serif">${svgEsc(r.avType || '气质小人')}</text>`}
-${flData ? `<image xlink:href="${svgHrefAttr(flData)}" href="${svgHrefAttr(flData)}" x="${flowerColX}" y="${flowerY}" width="${flowerSize}" height="${flowerSize}" preserveAspectRatio="xMidYMid meet"/>` : ''}
-<text x="${flowerColX}" y="${flowerY + flowerSize + 36}" fill="#8b5e34" font-size="17" font-weight="700" font-family="'Noto Serif SC', serif">花信：${svgEsc(r.flowerLabel)}</text>
-<text x="${flowerColX}" y="${flowerY + flowerSize + 64}" fill="#6f6458" font-size="15" font-family="'Noto Serif SC', serif">歌曲：${svgEsc(songName)}</text>
-${r.avType ? `<text x="${flowerColX}" y="${flowerY + flowerSize + 96}" fill="#2f6f4e" font-size="15" font-weight="600" font-family="'Noto Serif SC', serif">气质小人 · ${svgEsc(r.avType)}</text>` : ''}
+<line x1="${layout.fl.x}" y1="${layout.blockY + 8}" x2="${layout.fl.x}" y2="${layout.blockY + layout.blockH - 8}" stroke="#e7dccd" stroke-width="1"/>
+${avData ? `<image xlink:href="${svgHrefAttr(avData)}" href="${svgHrefAttr(avData)}" x="${avFit.x}" y="${avFit.y}" width="${avFit.w}" height="${avFit.h}" preserveAspectRatio="xMidYMid meet"/>` : `<rect x="${layout.av.x}" y="${layout.av.y}" width="${layout.av.w}" height="${layout.av.h}" rx="12" fill="rgba(139,94,52,0.08)"/><text x="${layout.av.x + layout.av.w / 2}" y="${layout.av.y + layout.av.h / 2}" text-anchor="middle" fill="#8b5e34" font-size="16" font-family="'Noto Serif SC', serif">${svgEsc(r.avType || '气质小人')}</text>`}
+${flData ? `<image xlink:href="${svgHrefAttr(flData)}" href="${svgHrefAttr(flData)}" x="${flowerX}" y="${flowerY}" width="${flImageSize}" height="${flImageSize}" preserveAspectRatio="xMidYMid meet"/>` : ''}
+<text x="${flTextX}" y="${flowerY + flImageSize + 28}" text-anchor="middle" fill="#8b5e34" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">花信：${svgEsc(r.flowerLabel)}</text>
+<text x="${flTextX}" y="${flowerY + flImageSize + 50}" text-anchor="middle" fill="#6f6458" font-size="12" font-family="'Noto Serif SC', serif">歌曲：${svgEsc(songName)}</text>
+${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor="middle" fill="#2f6f4e" font-size="12" font-weight="600" font-family="'Noto Serif SC', serif">气质小人 · ${svgEsc(r.avType)}</text>` : ''}
 <text x="${W / 2}" y="${bodyY}" text-anchor="middle" fill="#2f6f4e" font-size="14" font-weight="600" font-family="'Noto Serif SC', serif">${svgEsc(r.dims.join(' · '))}</text>
 <text x="${W / 2}" y="${bodyY + 28}" text-anchor="middle" fill="#6f6458" font-size="14" font-family="'Noto Serif SC', serif">诗心倾向 · ${svgEsc(r.dims[0])}</text>`;
 
@@ -1416,53 +1477,63 @@ ${r.avType ? `<text x="${flowerColX}" y="${flowerY + flowerSize + 96}" fill="#2f
       ctx.fillText(`${r.top.region} · ${r.top.kind}`, W / 2, 162);
 
       const heroY = 188;
+      const layout = shareCardHeroLayout(W, pad, heroY, heroH);
       roundRect(ctx, pad, heroY, W - pad * 2, heroH, 18);
       ctx.fillStyle = 'rgba(139,94,52,.05)';
       ctx.fill();
       ctx.strokeStyle = 'rgba(231,220,205,.9)';
       ctx.lineWidth = 1;
       ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(layout.fl.x, layout.blockY + 8);
+      ctx.lineTo(layout.fl.x, layout.blockY + layout.blockH - 8);
+      ctx.strokeStyle = 'rgba(231,220,205,.9)';
+      ctx.stroke();
 
       const avSrc = typeof POET_AVATAR_IMG !== 'undefined' ? POET_AVATAR_IMG[r.avKey] : '';
-      const avW = 240, avH = 284, avX = pad + 36, avY = heroY + 38;
       if (avSrc) {
         try {
           const avImg = await imageLoadWithTimeout(loadCanvasImage(avSrc), 8000, 'avatar');
-          ctx.drawImage(avImg, avX, avY, avW, avH);
+          const fit = fitImageInBox(avImg.naturalWidth, avImg.naturalHeight, layout.av);
+          ctx.drawImage(avImg, fit.x, fit.y, fit.w, fit.h);
         } catch (_) {
           ctx.fillStyle = 'rgba(139,94,52,.08)';
-          roundRect(ctx, avX, avY, avW, avH, 12);
+          roundRect(ctx, layout.av.x, layout.av.y, layout.av.w, layout.av.h, 12);
           ctx.fill();
           ctx.fillStyle = '#8b5e34';
           ctx.font = '600 16px "Noto Serif SC", serif';
           ctx.textAlign = 'center';
-          ctx.fillText(r.avType || '气质小人', avX + avW / 2, avY + avH / 2);
+          ctx.fillText(r.avType || '气质小人', layout.av.x + layout.av.w / 2, layout.av.y + layout.av.h / 2);
           ctx.textAlign = 'left';
         }
       }
 
-      const flowerColX = avX + avW + 48;
-      const flowerSize = 108;
-      const flowerY = heroY + 52;
+      const flImageSize = Math.min(layout.fl.w - 12, 80);
+      const flowerX = layout.fl.x + (layout.fl.w - flImageSize) / 2;
+      const flowerY = layout.fl.y + 28;
+      const flTextX = layout.fl.x + layout.fl.w / 2;
       try {
         const flImg = await imageLoadWithTimeout(loadFlowerImage(r.flowerKey), 8000, 'flower');
-        ctx.drawImage(flImg, flowerColX, flowerY, flowerSize, flowerSize);
+        const flFit = fitImageInBox(flImg.naturalWidth, flImg.naturalHeight, {
+          x: flowerX, y: flowerY, w: flImageSize, h: flImageSize
+        });
+        ctx.drawImage(flImg, flFit.x, flFit.y, flFit.w, flFit.h);
       } catch (_) { /* 花信图加载失败时跳过 */ }
 
-      ctx.textAlign = 'left';
+      ctx.textAlign = 'center';
       ctx.fillStyle = '#8b5e34';
-      ctx.font = '700 17px "Noto Serif SC", serif';
-      ctx.fillText(`花信：${r.flowerLabel}`, flowerColX, flowerY + flowerSize + 36);
+      ctx.font = '700 14px "Noto Serif SC", serif';
+      ctx.fillText(`花信：${r.flowerLabel}`, flTextX, flowerY + flImageSize + 28);
       ctx.fillStyle = '#6f6458';
-      ctx.font = '15px "Noto Serif SC", serif';
+      ctx.font = '12px "Noto Serif SC", serif';
       const songName = FLOWER_SONG[r.flowerKey] || '';
-      ctx.fillText(`歌曲：${songName}`, flowerColX, flowerY + flowerSize + 64);
-
+      canvasFillTextCentered(ctx, `歌曲：${songName}`, flTextX, flowerY + flImageSize + 50, layout.fl.w - 8);
       if (r.avType) {
         ctx.fillStyle = '#2f6f4e';
-        ctx.font = '600 15px "Noto Serif SC", serif';
-        ctx.fillText(`气质小人 · ${r.avType}`, flowerColX, flowerY + flowerSize + 96);
+        ctx.font = '600 12px "Noto Serif SC", serif';
+        ctx.fillText(`气质小人 · ${r.avType}`, flTextX, flowerY + flImageSize + 92);
       }
+      ctx.textAlign = 'left';
 
       y = contentStartY;
       ctx.textAlign = 'center';
