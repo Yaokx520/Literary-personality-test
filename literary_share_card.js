@@ -341,6 +341,10 @@
   }
 
   async function tryCanvasExportUrl(canvas) {
+    if (isWeChatBrowser()) {
+      const dataUrl = canvasToSaveDataUrl(canvas);
+      return dataUrl || '';
+    }
     try {
       const blob = await canvasToBlob(canvas);
       return URL.createObjectURL(blob);
@@ -351,6 +355,66 @@
         return '';
       }
     }
+  }
+
+  function canvasToSaveDataUrl(canvas) {
+    if (!canvas) return '';
+    let target = canvas;
+    if (isWeChatBrowser() && canvas.height > 2800) {
+      const scale = 2800 / canvas.height;
+      const scaled = document.createElement('canvas');
+      scaled.width = Math.max(1, Math.round(canvas.width * scale));
+      scaled.height = Math.max(1, Math.round(canvas.height * scale));
+      scaled.getContext('2d').drawImage(canvas, 0, 0, scaled.width, scaled.height);
+      target = scaled;
+    }
+    try {
+      const jpeg = target.toDataURL('image/jpeg', isWeChatBrowser() ? 0.86 : 0.92);
+      if (jpeg && jpeg.length > 200) return jpeg;
+    } catch (_) { /* 尝试 PNG */ }
+    try {
+      return target.toDataURL('image/png');
+    } catch (_) {
+      return '';
+    }
+  }
+
+  async function rasterizeToSaveableUrl(sourceUrl) {
+    if (!sourceUrl) return '';
+    if (/^data:image\/(png|jpeg|jpg|webp)/i.test(sourceUrl)) return sourceUrl;
+
+    try {
+      const img = await promiseWithTimeout(loadImageFromDataUrl(sourceUrl), 10000, null);
+      if (!img) return '';
+      const w = img.naturalWidth || img.width || 750;
+      const h = img.naturalHeight || img.height || 1200;
+      const c = document.createElement('canvas');
+      c.width = w;
+      c.height = h;
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = '#fffaf1';
+      ctx.fillRect(0, 0, w, h);
+      ctx.drawImage(img, 0, 0, w, h);
+      return canvasToSaveDataUrl(c);
+    } catch (_) {
+      return '';
+    }
+  }
+
+  async function finalizeExportUrl(url) {
+    if (!url) return '';
+    if (!isWeChatBrowser()) return url;
+    if (/^data:image\/(png|jpeg|jpg)/i.test(url)) return url;
+    const raster = await promiseWithTimeout(rasterizeToSaveableUrl(url), 12000, '');
+    return raster || url;
+  }
+
+  function updateShareModalTip() {
+    const tip = document.querySelector('.share-card-modal-tip');
+    if (!tip) return;
+    tip.textContent = isWeChatBrowser()
+      ? '长按下方图片 → 选择「保存图片」；若无法保存，请截图'
+      : '长按图片保存到相册，或截图分享';
   }
 
   function showShareCardModal(url) {
@@ -373,6 +437,7 @@
     const preview = document.getElementById('shareCardPreview');
     preview.src = url;
     preview.classList.add('show');
+    updateShareModalTip();
     showShareCardModal(url);
     preview.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
@@ -697,33 +762,34 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
 
   async function ensureShareCardUrl(forceRebuild = false) {
     if (forceRebuild) revokeSharePreviewUrl();
-    if (!forceRebuild && lastShareExportUrl) return lastShareExportUrl;
-
-    const wechat = isWeChatBrowser();
-
-    if (!wechat) {
-      let canvasUrl = '';
-      try {
-        const canvas = await promiseWithTimeout(buildShareCardCanvas(), 12000, null);
-        if (canvas) {
-          lastShareCanvas = canvas;
-          canvasUrl = await promiseWithTimeout(tryCanvasExportUrl(canvas), 4000, '');
-        }
-      } catch (e) {
-        console.warn('canvas build/export failed', e);
-      }
-      if (canvasUrl) {
-        revokeSharePreviewUrl();
-        lastShareExportUrl = canvasUrl;
-        if (canvasUrl.startsWith('blob:')) lastSharePreviewUrl = canvasUrl;
-        return canvasUrl;
-      }
+    if (!forceRebuild && lastShareExportUrl) {
+      return finalizeExportUrl(lastShareExportUrl);
     }
 
-    const svgUrl = await promiseWithTimeout(buildShareCardSvgDataUrl(), 12000, '');
-    if (!svgUrl) throw new Error('svg build failed');
-    lastShareExportUrl = svgUrl;
-    return svgUrl;
+    const wechat = isWeChatBrowser();
+    let rawUrl = '';
+
+    try {
+      const canvas = await promiseWithTimeout(buildShareCardCanvas(), wechat ? 15000 : 12000, null);
+      if (canvas) {
+        lastShareCanvas = canvas;
+        rawUrl = await promiseWithTimeout(tryCanvasExportUrl(canvas), 5000, '');
+      }
+    } catch (e) {
+      console.warn('canvas build/export failed', e);
+    }
+
+    if (!rawUrl) {
+      const svgUrl = await promiseWithTimeout(buildShareCardSvgDataUrl(), 12000, '');
+      rawUrl = svgUrl;
+    }
+
+    if (!rawUrl) throw new Error('share card build failed');
+
+    const finalUrl = await finalizeExportUrl(rawUrl);
+    lastShareExportUrl = finalUrl;
+    if (finalUrl.startsWith('blob:')) lastSharePreviewUrl = finalUrl;
+    return finalUrl;
   }
 
   async function withShareCardReady(fn) {
@@ -755,10 +821,18 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
   async function saveShareCard() {
     if (!lastResult) { showToast('请先完成测试'); return; }
     await withShareCardReady(async url => {
+      const saveUrl = await finalizeExportUrl(url);
       const name = lastResult.top.name.replace(/[\\/:*?"<>|]/g, '');
-      if (url.startsWith('blob:')) {
+
+      if (isWeChatBrowser()) {
+        showSharePreview(saveUrl);
+        showToast('长按图片选择「保存图片」');
+        return;
+      }
+
+      if (saveUrl.startsWith('blob:') || saveUrl.startsWith('data:image/')) {
         const a = document.createElement('a');
-        a.href = url;
+        a.href = saveUrl;
         a.download = `文学气质小测-${name}.png`;
         document.body.appendChild(a);
         a.click();
@@ -766,7 +840,7 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
         showToast('结果卡已保存');
         return;
       }
-      showSharePreview(url);
+      showSharePreview(saveUrl);
       showToast('请长按图片保存到相册');
     });
   }
@@ -775,10 +849,18 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
     if (!lastResult) { showToast('请先完成测试'); return; }
     const shareUrl = config.shareUrl || '';
     await withShareCardReady(async url => {
+      const saveUrl = await finalizeExportUrl(url);
       const title = `我测出来更像文学家「${lastResult.top.name}」`;
-      if (url.startsWith('blob:') && navigator.share) {
+
+      if (isWeChatBrowser()) {
+        showSharePreview(saveUrl);
+        showToast('请先保存图片，再发送给微信好友');
+        return;
+      }
+
+      if (saveUrl.startsWith('blob:') && navigator.share) {
         try {
-          const blob = await fetch(url).then(r => r.blob());
+          const blob = await fetch(saveUrl).then(r => r.blob());
           const file = new File([blob], '文学气质小测结果.png', { type: 'image/png' });
           if (navigator.canShare && navigator.canShare({ files: [file] })) {
             await navigator.share({ title, text: title + '\n' + shareUrl, files: [file] });
@@ -792,16 +874,17 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
           if (e && e.name === 'AbortError') return;
         }
       }
-      showSharePreview(url);
+      showSharePreview(saveUrl);
       showToast('请长按图片保存后发送给好友');
     });
   }
 
   async function previewShareCard() {
     if (!lastResult) { showToast('请先完成测试'); return; }
-    await withShareCardReady(url => {
-      showSharePreview(url);
-      showToast('结果卡已生成，长按图片保存');
+    await withShareCardReady(async url => {
+      const saveUrl = await finalizeExportUrl(url);
+      showSharePreview(saveUrl);
+      showToast(isWeChatBrowser() ? '长按图片即可保存' : '结果卡已生成，长按图片保存');
     });
   }
 
