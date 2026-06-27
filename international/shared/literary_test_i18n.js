@@ -2,7 +2,6 @@
 (function () {
   const I18N = window.LIT_I18N || {};
   const DIMS = I18N.dims || ['现实批判', '抒情浪漫', '哲思抽象', '都市孤独', '人文悲悯', '先锋实验'];
-  const RADAR_DIMS = ['现实批判', '抒情浪漫', '哲思抽象', '都市孤独', '人文悲悯', '先锋实验'];
   const MIN_Q = 10, MAX_Q = 16, BRANCH_ADD = 3;
   function packShareUrl() {
     if (I18N.shareUrl) return I18N.shareUrl;
@@ -20,13 +19,32 @@
     juhua: '东篱秋菊', mudan: '牡丹国色'
   };
 
+  /* packs/{lang}/ → repo root assets/ */
+  const ASSET_BASE = '../../../assets/';
+
   const FLOWER_AUDIO = {
-    taohua: '../../assets/music/妖扬「桃花树下桃花仙」桃花.mp3',
-    lihua: '../../assets/music/等什么君《春庭雪》梨花.mp3',
-    meihua: '../../assets/music/蒋雪儿《落了白》梅花.mp3',
-    juhua: '../../assets/music/李鑫一《一花一剑》菊花.mp3',
-    mudan: '../../assets/music/指尖笑《人间惊鸿宴》牡丹.mp3'
+    taohua: ASSET_BASE + 'music/妖扬「桃花树下桃花仙」桃花.mp3',
+    lihua: ASSET_BASE + 'music/等什么君《春庭雪》梨花.mp3',
+    meihua: ASSET_BASE + 'music/蒋雪儿《落了白》梅花.mp3',
+    juhua: ASSET_BASE + 'music/李鑫一《一花一剑》菊花.mp3',
+    mudan: ASSET_BASE + 'music/指尖笑《人间惊鸿宴》牡丹.mp3'
   };
+
+  function assetUrl(rel) {
+    if (!rel) return '';
+    if (/^https?:\/\//i.test(rel) || rel.startsWith('/')) return rel;
+    if (rel.startsWith('assets/')) return '../../../' + rel;
+    return ASSET_BASE + rel.replace(/^\.\//, '');
+  }
+
+  function litAvatarHtmlI18n(key) {
+    if (typeof LIT_AVATAR_IMG === 'undefined') return '';
+    const src = LIT_AVATAR_IMG[key];
+    if (!src) return '';
+    const type = (typeof LIT_AVATAR_TYPE !== 'undefined' && LIT_AVATAR_TYPE[key]) || '';
+    const alt = type ? `气质类型 ${type}` : '气质小人';
+    return `<img src="${assetUrl(src)}" alt="${alt}" loading="lazy">`;
+  }
 
   const music = { audio: null, muted: false, flower: null };
 
@@ -380,10 +398,17 @@
     }
   }
 
+  function svgEsc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
   function drawRadar(userScores, writerTraits) {
     const chart = els.radarChart || document.getElementById('radarChart');
     if (!chart) return;
-    const cx = 160, cy = 160, R = 95, n = RADAR_DIMS.length;
+    const cx = 160, cy = 160, R = 88, n = DIMS.length;
+    const maxLen = Math.max(...DIMS.map(d => [...d].length), 1);
+    const fontSize = maxLen > 14 ? 8 : maxLen > 10 ? 9 : 10;
+    const labelR = R + (maxLen > 12 ? 34 : 28);
     const maxU = Math.max(...userScores, 1), maxT = 10;
     const pt = (vals, max, r = R) => vals.map((v, i) => {
       const a = -Math.PI / 2 + i * 2 * Math.PI / n;
@@ -391,16 +416,16 @@
     });
     const poly = pts => pts.map(p => p.join(',')).join(' ');
     const grid = [0.25, 0.5, 0.75, 1].map(f => {
-      const pts = RADAR_DIMS.map((_, i) => {
+      const pts = DIMS.map((_, i) => {
         const a = -Math.PI / 2 + i * 2 * Math.PI / n;
         return [cx + R * f * Math.cos(a), cy + R * f * Math.sin(a)];
       });
       return `<polygon points="${poly(pts)}" fill="none" stroke="#e7dccd" stroke-width="1"/>`;
     }).join('');
-    const axes = RADAR_DIMS.map((d, i) => {
+    const axes = DIMS.map((d, i) => {
       const a = -Math.PI / 2 + i * 2 * Math.PI / n;
-      const x = cx + (R + 28) * Math.cos(a), y = cy + (R + 28) * Math.sin(a);
-      return `<line x1="${cx}" y1="${cy}" x2="${cx + R * Math.cos(a)}" y2="${cy + R * Math.sin(a)}" stroke="#e7dccd"/><text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#6f6458">${d}</text>`;
+      const x = cx + labelR * Math.cos(a), y = cy + labelR * Math.sin(a);
+      return `<line x1="${cx}" y1="${cy}" x2="${cx + R * Math.cos(a)}" y2="${cy + R * Math.sin(a)}" stroke="#e7dccd"/><text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="${fontSize}" fill="#6f6458">${svgEsc(d)}</text>`;
     }).join('');
     const uPts = pt(userScores, maxU), wPts = pt(writerTraits, maxT);
     chart.innerHTML = `${grid}${axes}
@@ -439,10 +464,10 @@
     const why = buildWhy(top, dims);
 
     els.resultTitle.textContent = top.name;
-    if (els.resultAvatar && typeof litAvatarHtml === 'function') {
+    if (els.resultAvatar && typeof LIT_AVATAR_IMG !== 'undefined') {
       const avType = LIT_AVATAR_TYPE[avKey] || '';
       const avLabel = LIT_AVATAR_PAIRS[avKey] || '';
-      els.resultAvatar.innerHTML = litAvatarHtml(avKey);
+      els.resultAvatar.innerHTML = litAvatarHtmlI18n(avKey);
       els.resultAvatar.title = avType ? `${avType} · ${avLabel}` : '气质小人';
     }
     els.resultIntro.textContent = top.intro;

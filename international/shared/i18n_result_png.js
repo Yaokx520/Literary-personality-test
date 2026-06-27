@@ -1,6 +1,5 @@
 /* International edition · result PNG card (Canvas-only, no external assets required) */
 (function (global) {
-  const RADAR_DIMS = ['现实批判', '抒情浪漫', '哲思抽象', '都市孤独', '人文悲悯', '先锋实验'];
   let payload = null;
   let cfg = { shareUrl: '', showToast: () => {}, labels: {} };
   let lastUrl = '';
@@ -56,7 +55,7 @@
       ctx.closePath();
     };
     [0.25, 0.5, 0.75, 1].forEach(f => {
-      const pts = RADAR_DIMS.map((_, i) => {
+      const pts = Array.from({ length: n }, (_, i) => {
         const a = -Math.PI / 2 + i * 2 * Math.PI / n;
         return [cx + R * f * Math.cos(a), cy + R * f * Math.sin(a)];
       });
