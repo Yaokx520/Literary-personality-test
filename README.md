@@ -11,7 +11,7 @@
 |------|------|
 | **文学人格测试** | https://yaokx520.github.io/Literary-personality-test/ |
 | **诗心测试** | https://yaokx520.github.io/Literary-personality-test/chinese_poet_personality_test.html |
-
+| **International literay personality test** | https://yaokx520.github.io/Literary-personality-test/international/ |
 > 建议将链接直接发给好友，或在公众号图文中作为外链使用。手机与电脑浏览器均可打开。
 
 ---
@@ -49,7 +49,7 @@
 <img width="1073" height="2247" alt="6f3ee037beb65a5fda12cce9bf3549e5" src="https://github.com/user-attachments/assets/6a2d355c-0715-4e0d-9f10-28a786bc83ff" />
 ---
 
-## 两个测试的区别
+## 三个测试的区别
 
 | 对比项 | 文学人格测试 | 诗心测试 |
 |--------|-------------|----------|
@@ -58,14 +58,15 @@
 | **题目风格** | 文学气质情境 | 诗意画面情境 |
 | **气质维度** | 现实批判、都市孤独等 | 感时忧世、隐逸疏离等 |
 | **适合谁** | 想对照世界文学原型 | 想对照中国古典诗心 |
-
-两个测试可独立使用，也可都测一遍，看看「世界文学气质」与「中国诗心」是否指向同一个人。
+International literay personality test： For the English，Español，Français，Português，日本語 and Русский users
+以上测试可独立使用，也可都测一遍，看看「世界文学气质」与「中国诗心」是否指向同一个人。
 
 ---
 
 ## 功能概览
 
 - 单页 HTML，数据内嵌，无后端
+- 支持多语种测试，并可以一键生成分享卡（中文）
 - 答题时隐藏介绍区与人物库，专注作答
 - 移动端适配，底部固定「上一题 / 下一题」
 - 结果支持复制分享文案
