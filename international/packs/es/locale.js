@@ -91,7 +91,14 @@ window.LIT_I18N = {
     "modalAlt": "Tarjeta de resultado",
     "generating": "Generando tarjeta…",
     "needResult": "Termina el test primero",
-    "genFail": "Error al generar, inténtalo de nuevo"
+    "genFail": "Error al generar, inténtalo de nuevo",
+    "flowerSongs": {
+      "taohua": "Yao Yang — El hada del melocotonero",
+      "lihua": "Deng Shenme Jun — Nieve en el jardín primaveral",
+      "meihua": "Jiang Xue'er — Blanco caído",
+      "juhua": "Li Xinyi — Una flor, una espada",
+      "mudan": "Zhijian Xiao — Banquete del mundo"
+    }
   },
   "shareUrl": "https://yaokx520.github.io/Literary-personality-test/international/packs/es/"
 };

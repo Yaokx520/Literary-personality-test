@@ -91,7 +91,14 @@ window.LIT_I18N = {
     "modalAlt": "Carte résultat",
     "generating": "Génération de la carte…",
     "needResult": "Terminez d'abord le test",
-    "genFail": "Échec de génération, réessayez"
+    "genFail": "Échec de génération, réessayez",
+    "flowerSongs": {
+      "taohua": "Yao Yang — Fée du pêcher",
+      "lihua": "Deng Shenme Jun — Neige de cour printanière",
+      "meihua": "Jiang Xue'er — Blanc tombé",
+      "juhua": "Li Xinyi — Une fleur, une épée",
+      "mudan": "Zhijian Xiao — Banquet du monde"
+    }
   },
   "shareUrl": "https://yaokx520.github.io/Literary-personality-test/international/packs/fr/"
 };

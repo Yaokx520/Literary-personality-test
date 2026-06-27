@@ -1,11 +1,54 @@
-/* International edition · result PNG card (Canvas-only, no external assets required) */
+/* International edition · result PNG card (Canvas, repo-root assets) */
 (function (global) {
   let payload = null;
   let cfg = { shareUrl: '', showToast: () => {}, labels: {} };
   let lastUrl = '';
 
+  const ASSET_BASE = '../../../assets/';
+
+  const FLOWER_IMG = {
+    taohua: ASSET_BASE + 'flowers/taohua.png',
+    lihua: ASSET_BASE + 'flowers/lihua.webp',
+    meihua: ASSET_BASE + 'flowers/meihua.png',
+    juhua: ASSET_BASE + 'flowers/juhua.png',
+    mudan: ASSET_BASE + 'flowers/mudan.png'
+  };
+
   function L(k, fb) {
     return (cfg.labels && cfg.labels[k]) || fb || k;
+  }
+
+  function songName(flowerKey) {
+    const songs = (cfg.labels && cfg.labels.flowerSongs) || {};
+    return songs[flowerKey] || '';
+  }
+
+  function flowerImgCandidates(flowerKey) {
+    const primary = FLOWER_IMG[flowerKey];
+    const alts = flowerKey === 'lihua'
+      ? [ASSET_BASE + 'flowers/lihua.webp', ASSET_BASE + 'flowers/lihua.png']
+      : [];
+    return [...new Set([primary, ...alts].filter(Boolean))];
+  }
+
+  function loadImage(src, ms) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      const timer = setTimeout(() => reject(new Error('img timeout')), ms || 8000);
+      img.onload = () => { clearTimeout(timer); resolve(img); };
+      img.onerror = () => { clearTimeout(timer); reject(new Error('img load fail')); };
+      img.src = src;
+    });
+  }
+
+  async function loadFlowerImage(flowerKey) {
+    for (const src of flowerImgCandidates(flowerKey)) {
+      try {
+        return await loadImage(src, 6000);
+      } catch (_) {}
+    }
+    return null;
   }
 
   function wrapText(ctx, text, maxW) {
@@ -32,6 +75,12 @@
     return y + use.length * lh;
   }
 
+  function fillTextCentered(ctx, text, cx, y, maxW, lh) {
+    const lines = wrapText(ctx, text, maxW);
+    lines.forEach((ln, i) => ctx.fillText(ln, cx, y + i * lh));
+    return y + lines.length * lh;
+  }
+
   function roundRect(ctx, x, y, w, h, r) {
     ctx.beginPath();
     ctx.moveTo(x + r, y);
@@ -42,54 +91,78 @@
     ctx.closePath();
   }
 
-  function drawMiniRadar(ctx, cx, cy, R, userScores, writerTraits) {
-    const n = 6;
-    const maxU = Math.max(...userScores, 1);
-    const pt = (vals, max) => vals.map((v, i) => {
-      const a = -Math.PI / 2 + i * 2 * Math.PI / n;
-      return [cx + (v / max) * R * Math.cos(a), cy + (v / max) * R * Math.sin(a)];
-    });
-    const poly = pts => {
-      ctx.beginPath();
-      pts.forEach((p, i) => (i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])));
-      ctx.closePath();
+  function heroLayout(W, pad, heroY, heroH) {
+    const inner = 14;
+    const blockX = pad + inner;
+    const blockW = W - pad * 2 - inner * 2;
+    const blockH = heroH - inner * 2;
+    const avW = Math.floor(blockW * 2 / 3);
+    const flW = blockW - avW;
+    const blockY = heroY + inner;
+    return {
+      blockX, blockY, blockW, blockH,
+      av: { x: blockX, y: blockY, w: avW, h: blockH },
+      fl: { x: blockX + avW, y: blockY, w: flW, h: blockH }
     };
-    [0.25, 0.5, 0.75, 1].forEach(f => {
-      const pts = Array.from({ length: n }, (_, i) => {
-        const a = -Math.PI / 2 + i * 2 * Math.PI / n;
-        return [cx + R * f * Math.cos(a), cy + R * f * Math.sin(a)];
-      });
-      ctx.strokeStyle = '#e7dccd';
-      ctx.lineWidth = 1;
-      poly(pts);
-      ctx.stroke();
-    });
-    poly(pt(writerTraits, 10));
-    ctx.fillStyle = 'rgba(176,137,104,.18)';
-    ctx.fill();
-    ctx.strokeStyle = '#b08968';
-    ctx.setLineDash([5, 4]);
-    ctx.stroke();
-    ctx.setLineDash([]);
-    poly(pt(userScores, maxU));
-    ctx.fillStyle = 'rgba(139,94,52,.28)';
-    ctx.fill();
-    ctx.strokeStyle = '#8b5e34';
-    ctx.lineWidth = 2;
-    ctx.stroke();
   }
 
-  async function drawAvatar(ctx, x, y, w, h) {
+  function fitImageInBox(nw, nh, box) {
+    if (!nw || !nh) return { x: box.x, y: box.y, w: box.w, h: box.h };
+    const scale = Math.min(box.w / nw, box.h / nh);
+    const w = nw * scale;
+    const h = nh * scale;
+    return {
+      x: box.x + (box.w - w) / 2,
+      y: box.y + (box.h - h) / 2,
+      w, h
+    };
+  }
+
+  async function drawAvatar(ctx, layout) {
     const img = document.querySelector('#resultAvatar img');
     if (!img || !img.complete || !img.naturalWidth) return false;
     try {
-      const scale = Math.min(w / img.naturalWidth, h / img.naturalHeight, 1);
-      const dw = img.naturalWidth * scale;
-      const dh = img.naturalHeight * scale;
-      ctx.drawImage(img, x + (w - dw) / 2, y + (h - dh) / 2, dw, dh);
+      const fit = fitImageInBox(img.naturalWidth, img.naturalHeight, layout.av);
+      ctx.drawImage(img, fit.x, fit.y, fit.w, fit.h);
       return true;
     } catch (_) {
       return false;
+    }
+  }
+
+  async function drawFlowerPanel(ctx, layout, p) {
+    const flSize = Math.min(layout.fl.w - 12, 80);
+    const flowerX = layout.fl.x + (layout.fl.w - flSize) / 2;
+    const flowerY = layout.fl.y + 20;
+    const flTextX = layout.fl.x + layout.fl.w / 2;
+    const maxTextW = layout.fl.w - 8;
+
+    const flImg = await loadFlowerImage(p.flowerKey);
+    if (flImg) {
+      ctx.drawImage(flImg, flowerX, flowerY, flSize, flSize);
+    } else {
+      ctx.fillStyle = 'rgba(139,94,52,.08)';
+      roundRect(ctx, flowerX, flowerY, flSize, flSize, 10);
+      ctx.fill();
+    }
+
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#8b5e34';
+    ctx.font = '700 13px sans-serif';
+    let ty = flowerY + flSize + 24;
+    ty = fillTextCentered(ctx, `${L('flower', 'Flower')}: ${p.flowerLabel || ''}`, flTextX, ty, maxTextW, 16);
+
+    ctx.fillStyle = '#6f6458';
+    ctx.font = '12px sans-serif';
+    const song = songName(p.flowerKey);
+    if (song) {
+      fillTextCentered(ctx, `${L('song', 'Song')}: ${song}`, flTextX, ty + 4, maxTextW, 15);
+    }
+
+    if (p.avType) {
+      ctx.fillStyle = '#2f6f4e';
+      ctx.font = '600 11px sans-serif';
+      fillTextCentered(ctx, `${L('avatar', 'Figure')} · ${p.avType}`, flTextX, ty + 28, maxTextW, 14);
     }
   }
 
@@ -138,16 +211,33 @@
     y += 36;
 
     const heroY = y;
-    const heroH = 200;
+    const heroH = 240;
     roundRect(ctx, pad, heroY, W - pad * 2, heroH, 16);
     ctx.fillStyle = 'rgba(139,94,52,.06)';
     ctx.fill();
-    await drawAvatar(ctx, pad + 20, heroY + 20, 200, heroH - 40);
-    drawMiniRadar(ctx, W - pad - 110, heroY + heroH / 2, 72, p.scores, p.top.traits);
-    ctx.fillStyle = '#6f6458';
-    ctx.font = '12px sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText(L('flower', 'Flower') + ': ' + (p.flowerLabel || ''), W / 2, heroY + heroH - 16);
+    ctx.strokeStyle = '#e7dccd';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    const layout = heroLayout(W, pad, heroY, heroH);
+    ctx.beginPath();
+    ctx.moveTo(layout.fl.x, layout.blockY + 8);
+    ctx.lineTo(layout.fl.x, layout.blockY + layout.blockH - 8);
+    ctx.strokeStyle = '#e7dccd';
+    ctx.stroke();
+
+    const hasAvatar = await drawAvatar(ctx, layout);
+    if (!hasAvatar && p.avType) {
+      ctx.fillStyle = 'rgba(139,94,52,.08)';
+      roundRect(ctx, layout.av.x, layout.av.y, layout.av.w, layout.av.h, 12);
+      ctx.fill();
+      ctx.fillStyle = '#8b5e34';
+      ctx.font = '600 15px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(p.avType, layout.av.x + layout.av.w / 2, layout.av.y + layout.av.h / 2);
+    }
+
+    await drawFlowerPanel(ctx, layout, p);
     y = heroY + heroH + 28;
 
     ctx.textAlign = 'left';

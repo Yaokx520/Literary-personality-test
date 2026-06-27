@@ -91,7 +91,14 @@ window.LIT_I18N = {
     "modalAlt": "Карточка результата",
     "generating": "Создание карточки…",
     "needResult": "Сначала завершите тест",
-    "genFail": "Не удалось создать карточку, повторите"
+    "genFail": "Не удалось создать карточку, повторите",
+    "flowerSongs": {
+      "taohua": "Yao Yang — Персиковая фея",
+      "lihua": "Deng Shenme Jun — Весенний снег",
+      "meihua": "Jiang Xue'er — Белый снег",
+      "juhua": "Li Xinyi — Один цветок, один меч",
+      "mudan": "Zhijian Xiao — Пир мира"
+    }
   },
   "shareUrl": "https://yaokx520.github.io/Literary-personality-test/international/packs/ru/"
 };

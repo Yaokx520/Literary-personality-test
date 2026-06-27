@@ -91,7 +91,14 @@ window.LIT_I18N = {
     "modalAlt": "Result card",
     "generating": "Generating card…",
     "needResult": "Please finish the test first",
-    "genFail": "Failed to generate card, try again"
+    "genFail": "Failed to generate card, try again",
+    "flowerSongs": {
+      "taohua": "Yao Yang — Peach Blossom Fairy",
+      "lihua": "Deng Shenme Jun — Spring Court Snow",
+      "meihua": "Jiang Xue'er — White Falls",
+      "juhua": "Li Xinyi — One Flower One Sword",
+      "mudan": "Zhijian Xiao — World's Startling Banquet"
+    }
   },
   "shareUrl": "https://yaokx520.github.io/Literary-personality-test/international/packs/en/"
 };

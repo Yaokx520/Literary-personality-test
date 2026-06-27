@@ -91,7 +91,14 @@ window.LIT_I18N = {
     "modalAlt": "Cartão de resultado",
     "generating": "Gerando cartão…",
     "needResult": "Conclua o teste primeiro",
-    "genFail": "Falha ao gerar, tente novamente"
+    "genFail": "Falha ao gerar, tente novamente",
+    "flowerSongs": {
+      "taohua": "Yao Yang — Fada do pessegueiro",
+      "lihua": "Deng Shenme Jun — Neve do jardim primaveril",
+      "meihua": "Jiang Xue'er — Branco caído",
+      "juhua": "Li Xinyi — Uma flor, uma espada",
+      "mudan": "Zhijian Xiao — Banquete do mundo"
+    }
   },
   "shareUrl": "https://yaokx520.github.io/Literary-personality-test/international/packs/pt/"
 };

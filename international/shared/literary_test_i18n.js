@@ -437,7 +437,7 @@
     if (typeof I18nResultPng !== 'undefined') I18nResultPng.bindButtons();
   }
 
-  function initShareExport(top, ranked, dims, why, flowerKey, flowerLabel, avKey, pctFn) {
+  function initShareExport(top, ranked, dims, why, flowerKey, flowerLabel, avKey, avType, pctFn) {
     if (typeof I18nResultPng === 'undefined') return;
     I18nResultPng.init({
       shareUrl: packShareUrl(),
@@ -445,7 +445,7 @@
       labels: I18N.shareLabels || {}
     });
     I18nResultPng.setPayload({
-      top, ranked, dims, why, flowerKey, flowerLabel, avKey,
+      top, ranked, dims, why, flowerKey, flowerLabel, avKey, avType,
       scores: state.scores.slice(),
       pct: pctFn
     });
@@ -461,12 +461,12 @@
     const flowerKey = resultFlowerKey();
     const flowerLabel = FLOWER_LABELS[flowerKey];
     const avKey = typeof litAvatarKey === 'function' ? litAvatarKey(state.scores) : '';
+    const avType = (typeof LIT_AVATAR_TYPE !== 'undefined' && avKey) ? (LIT_AVATAR_TYPE[avKey] || '') : '';
+    const avLabel = (typeof LIT_AVATAR_PAIRS !== 'undefined' && avKey) ? (LIT_AVATAR_PAIRS[avKey] || '') : '';
     const why = buildWhy(top, dims);
 
     els.resultTitle.textContent = top.name;
     if (els.resultAvatar && typeof LIT_AVATAR_IMG !== 'undefined') {
-      const avType = LIT_AVATAR_TYPE[avKey] || '';
-      const avLabel = LIT_AVATAR_PAIRS[avKey] || '';
       els.resultAvatar.innerHTML = litAvatarHtmlI18n(avKey);
       els.resultAvatar.title = avType ? `${avType} · ${avLabel}` : '气质小人';
     }
@@ -508,7 +508,7 @@
 
     renderProbRankings();
 
-    initShareExport(top, ranked, dims, why, flowerKey, flowerLabel, avKey, pct);
+    initShareExport(top, ranked, dims, why, flowerKey, flowerLabel, avKey, avType, pct);
 
     if (typeof LitStats !== 'undefined') {
       LitStats.trackResult('literary', { id: top.id, name: top.name });

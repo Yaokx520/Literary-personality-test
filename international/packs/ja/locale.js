@@ -91,7 +91,14 @@ window.LIT_I18N = {
     "modalAlt": "結果カード",
     "generating": "カード生成中…",
     "needResult": "先にテストを完了してください",
-    "genFail": "生成に失敗しました。再試行してください"
+    "genFail": "生成に失敗しました。再試行してください",
+    "flowerSongs": {
+      "taohua": "妖扬「桃花樹下桃花仙」",
+      "lihua": "等什么君《春庭雪》",
+      "meihua": "蒋雪儿《落了白》",
+      "juhua": "李鑫一《一花一剑》",
+      "mudan": "指尖笑《人间惊鸿宴》"
+    }
   },
   "shareUrl": "https://yaokx520.github.io/Literary-personality-test/international/packs/ja/"
 };
