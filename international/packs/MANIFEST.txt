@@ -1,0 +1,32 @@
+International Literary Temperament Test
+Languages: en, es, fr, pt, ja, ru
+
+en/index.html
+en/locale.js
+en/writers.js
+en/questions.js
+es/index.html
+es/locale.js
+es/writers.js
+es/questions.js
+fr/index.html
+fr/locale.js
+fr/writers.js
+fr/questions.js
+pt/index.html
+pt/locale.js
+pt/writers.js
+pt/questions.js
+ja/index.html
+ja/locale.js
+ja/writers.js
+ja/questions.js
+ru/index.html
+ru/locale.js
+ru/writers.js
+ru/questions.js
+
+shared/literary.css
+shared/literary_test_i18n.js
+
+Requires parent ../../assets ../../stats-config.js etc.

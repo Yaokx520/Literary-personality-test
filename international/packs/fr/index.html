@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="description" content="Test de tempérament littéraire — match among 66 writers." />
+  <title>Quel écrivain vous ressemble ?</title>
+  <link rel="stylesheet" href="../shared/literary.css" />
+</head>
+<body class="view-welcome">
+  <div class="wrap">
+    <section class="hero">
+      <span class="eyebrow">Test de tempérament littéraire</span>
+      <h1>Quel écrivain vous ressemble ?</h1>
+      <p class="intro">Pas de quiz ni de listes. Répondez par instinct parmi <strong>66 écrivains</strong>. Environ <strong>10–16 questions</strong> avec branches et fleurs sur la barre de bambou.</p>
+      <div class="meta">
+        <span class="tag">66 écrivains</span>
+        <span class="tag">10–16 Q · branches</span>
+        <span class="tag">Mobile</span>
+        <span class="tag">Partager</span>
+      </div>
+      <div class="controls welcome-cta" style="margin-top:20px">
+        <button class="btn primary" id="startBtn">Commencer</button>
+        <button class="btn ghost" id="browseBtn">Parcourir</button>
+      </div>
+    </section>
+    <div class="grid">
+      <section class="card panel test-area" id="testArea">
+        <div class="section-title" id="questionAnchor">
+          <h2>Questions</h2><small id="qTotalLabel">10–16 Q · choix unique</small>
+        </div>
+        <div class="bamboo-progress"><div class="bamboo-track" id="bambooTrack"><div class="bamboo-fill" id="progressFill"></div></div></div>
+        <div class="q-count" id="qCount"></div>
+        <div class="type-pill" id="typePill"></div>
+        <div class="question" id="questionText"></div>
+        <div class="options" id="optionsBox"></div>
+        <div class="controls">
+          <button class="btn ghost" id="prevBtn">Précédent</button>
+          <button class="btn ghost" id="resetBtn">Réinitialiser</button>
+          <button class="btn primary" id="nextBtn">Suivant</button>
+        </div>
+        <p class="mini" id="hintText"></p>
+      </section>
+      <aside class="card panel library-aside">
+        <div class="section-title"><h2>Bibliothèque</h2><small id="libCount"></small></div>
+        <div class="library" id="libraryBox"></div>
+      </aside>
+    </div>
+    <section class="result" id="resultBox">
+      <div class="result-grid">
+        <div>
+          <span class="eyebrow">Votre persona littéraire</span>
+          <div class="result-flower-theme" id="resultFlowerTheme"><div class="theme-flower" id="resultFlowerIcon"></div><p id="resultFlowerDesc"></p></div>
+          <div class="result-title-row"><h2 id="resultTitle"></h2><div class="result-avatar" id="resultAvatar"></div></div>
+          <p class="lead" id="resultIntro"></p>
+          <div class="personality-tags" id="personalityTags"></div>
+          <div class="result-box"><h3>Verdict</h3><p id="resultOneLiner"></p></div>
+          <div class="result-box"><h3>Pourquoi ce match</h3><p id="resultWhy"></p></div>
+          <div class="result-box quote-card"><h3>Citation</h3><blockquote id="resultQuote"></blockquote><cite id="resultQuoteAuthor"></cite></div>
+          <div class="result-box"><h3>Top 5 citations</h3><div id="top5Quotes" class="top5-quotes"></div></div>
+        </div>
+        <div>
+          <div class="result-box"><h3>Radar de tempérament</h3><div class="radar-wrap"><svg id="radarChart" width="320" height="320" viewBox="0 0 320 320"></svg></div><p class="mini" style="text-align:center;margin-top:4px">Plein : vous · Pointillé : meilleur match</p></div>
+          <div class="result-box"><h3>Popularité des matchs</h3><p class="mini" style="margin-bottom:10px">Estimé sur 8 000 simulations aléatoires.</p><div class="prob-hotcold"><div><h4>Populaire TOP 3</h4><ol id="probHotList"></ol></div><div><h4>Rare TOP 3</h4><ol id="probColdList"></ol></div></div></div>
+          <div class="result-box"><h3>Top 5 matchs</h3><div class="top5" id="top5List"></div></div>
+          <div class="result-box"><h3>Texte à partager</h3><textarea class="share" id="shareText" readonly></textarea><p class="share-tip" id="shareTip">Appui long pour copier.</p></div>
+          <div class="controls">
+            <button class="btn primary" id="againBtn">Refaire</button>
+            <button class="btn ghost" id="copyBtn">Copier</button>
+            <button class="btn ghost" id="showLibBtn">Bibliothèque</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="mobile-bar" id="mobileBar">
+    <button class="btn ghost" id="mobilePrevBtn">Précédent</button>
+    <button class="btn primary" id="mobileNextBtn">Suivant</button>
+  </div>
+  <button type="button" class="mute-btn" id="muteBtn"><span class="icon" id="muteIcon">🔊</span><span id="muteLabel">Muet</span></button>
+  <div class="toast" id="toast"></div>
+  <script src="../../stats-config.js"></script>
+  <script src="../../stats-client.js"></script>
+  <script src="../../personality_insights.js"></script>
+  <script src="locale.js"></script>
+  <script src="writers.js"></script>
+  <script src="questions.js"></script>
+  <script src="../../literary_avatars.js"></script>
+  <script src="../shared/literary_test_i18n.js"></script>
+</body>
+</html>
