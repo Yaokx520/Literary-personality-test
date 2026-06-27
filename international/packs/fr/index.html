@@ -63,7 +63,16 @@
           <div class="result-box"><h3>Radar de tempérament</h3><div class="radar-wrap"><svg id="radarChart" width="320" height="320" viewBox="0 0 320 320"></svg></div><p class="mini" style="text-align:center;margin-top:4px">Plein : vous · Pointillé : meilleur match</p></div>
           <div class="result-box"><h3>Popularité des matchs</h3><p class="mini" style="margin-bottom:10px">Estimé sur 8 000 simulations aléatoires.</p><div class="prob-hotcold"><div><h4>Populaire TOP 3</h4><ol id="probHotList"></ol></div><div><h4>Rare TOP 3</h4><ol id="probColdList"></ol></div></div></div>
           <div class="result-box"><h3>Top 5 matchs</h3><div class="top5" id="top5List"></div></div>
-          <div class="result-box"><h3>Texte à partager</h3><textarea class="share" id="shareText" readonly></textarea><p class="share-tip" id="shareTip">Appui long pour copier.</p></div>
+          <div class="result-box"><h3>Texte à partager</h3><textarea class="share" id="shareText" readonly></textarea><p class="share-tip" id="shareTip">Appui long pour copier.</p>
+            <h3 style="margin-top:16px">Carte résultat</h3>
+            <p class="mini">Enregistrez une carte avec match et verdict.</p>
+            <div class="share-card-actions">
+              <button class="btn primary" type="button" id="saveShareCardBtn">Enregistrer</button>
+              <button class="btn ghost" type="button" id="shareImageBtn">Partager l'image</button>
+              <button class="btn ghost" type="button" id="previewShareCardBtn">Aperçu</button>
+            </div>
+            <img class="share-card-preview" id="shareCardPreview" alt="Aperçu de la carte">
+          </div>
           <div class="controls">
             <button class="btn primary" id="againBtn">Refaire</button>
             <button class="btn ghost" id="copyBtn">Copier</button>
@@ -79,6 +88,13 @@
   </div>
   <button type="button" class="mute-btn" id="muteBtn"><span class="icon" id="muteIcon">🔊</span><span id="muteLabel">Muet</span></button>
   <div class="toast" id="toast"></div>
+  <div class="share-card-modal hidden" id="shareCardModal" role="dialog" aria-modal="true" aria-label="Carte résultat">
+    <div class="share-card-modal-inner">
+      <p class="share-card-modal-tip">Appui long sur l'image pour enregistrer, ou capture d'écran</p>
+      <img class="share-card-modal-img" id="shareCardModalImg" alt="Carte résultat">
+      <button type="button" class="btn ghost share-card-modal-close" id="shareCardModalClose">Fermer</button>
+    </div>
+  </div>
   <script src="../../stats-config.js"></script>
   <script src="../../stats-client.js"></script>
   <script src="../../personality_insights.js"></script>
@@ -86,6 +102,7 @@
   <script src="writers.js"></script>
   <script src="questions.js"></script>
   <script src="../../literary_avatars.js"></script>
+  <script src="../../literary_share_card.js"></script>
   <script src="../../shared/literary_test_i18n.js"></script>
 </body>
 </html>

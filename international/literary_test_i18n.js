@@ -304,6 +304,45 @@
     return tpl.replace('{dim}', dims[0]).replace('{whisper}', whisper).replace('{name}', top.name);
   }
 
+  let cachedProb = null;
+  function computeProbRankings() {
+    if (typeof PersonalityInsights === 'undefined' || !WRITERS?.length) return null;
+    return PersonalityInsights.monteCarloRankings(WRITERS, (u, t) => similarity(u, t), 8000, 'lit');
+  }
+  function warmupProbRankings() {
+    setTimeout(() => {
+      try { cachedProb = computeProbRankings(); } catch (e) { console.error('prob warmup', e); }
+    }, 200);
+  }
+  function renderProbRankings() {
+    const hotEl = document.getElementById('probHotList');
+    const coldEl = document.getElementById('probColdList');
+    if (!hotEl || !coldEl) return;
+    const approx = I18N.probApprox || 'approx.';
+    const render = (data) => {
+      if (typeof PersonalityInsights !== 'undefined') {
+        PersonalityInsights.renderProbLists(hotEl, coldEl, data, approx);
+      } else {
+        hotEl.innerHTML = coldEl.innerHTML = '<li class="muted">—</li>';
+      }
+    };
+    if (cachedProb) {
+      render(cachedProb);
+      return;
+    }
+    hotEl.innerHTML = coldEl.innerHTML = '<li class="muted">…</li>';
+    setTimeout(() => {
+      try {
+        cachedProb = computeProbRankings();
+        if (cachedProb) render(cachedProb);
+        else { hotEl.innerHTML = coldEl.innerHTML = '<li class="muted">—</li>'; }
+      } catch (e) {
+        console.error('prob rankings', e);
+        hotEl.innerHTML = coldEl.innerHTML = '<li class="muted">—</li>';
+      }
+    }, 0);
+  }
+
   function drawRadar(userScores, writerTraits) {
     const cx = 160, cy = 160, R = 110, n = DIMS.length;
     const maxU = Math.max(...userScores, 1), maxT = 10;
@@ -384,10 +423,7 @@
 
     drawRadar(state.scores, top.traits);
 
-    if (typeof PersonalityInsights !== 'undefined') {
-      const prob = PersonalityInsights.monteCarloRankings(WRITERS, (u, t) => similarity(u, t), 8000, 'lit');
-      PersonalityInsights.renderProbLists(document.getElementById('probHotList'), document.getElementById('probColdList'), prob);
-    }
+    renderProbRankings();
 
     if (typeof LiteraryShareCard !== 'undefined') {
       LiteraryShareCard.setResult({
@@ -530,8 +566,15 @@
   document.getElementById('muteBtn').onclick = toggleMute;
 
   if (typeof LiteraryShareCard !== 'undefined') {
-    LiteraryShareCard.init({ shareUrl: SHARE_URL, showToast });
+    LiteraryShareCard.init({
+      shareUrl: SHARE_URL,
+      showToast,
+      assetBase: '../../assets/',
+      labels: I18N.shareLabels || {}
+    });
   }
+
+  warmupProbRankings();
 
   if (typeof LitStats !== 'undefined') {
     LitStats.init('literary');

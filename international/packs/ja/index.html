@@ -63,7 +63,16 @@
           <div class="result-box"><h3>気質レーダー</h3><div class="radar-wrap"><svg id="radarChart" width="320" height="320" viewBox="0 0 320 320"></svg></div><p class="mini" style="text-align:center;margin-top:4px">実線：あなた · 破線：最良マッチ</p></div>
           <div class="result-box"><h3>マッチ人気度</h3><p class="mini" style="margin-bottom:10px">8,000回のランダム模擬に基づく推定。</p><div class="prob-hotcold"><div><h4>人気 TOP 3</h4><ol id="probHotList"></ol></div><div><h4>希少 TOP 3</h4><ol id="probColdList"></ol></div></div></div>
           <div class="result-box"><h3>Top 5 マッチ</h3><div class="top5" id="top5List"></div></div>
-          <div class="result-box"><h3>シェア文案</h3><textarea class="share" id="shareText" readonly></textarea><p class="share-tip" id="shareTip">長押しでコピー、またはコピーボタン。</p></div>
+          <div class="result-box"><h3>シェア文案</h3><textarea class="share" id="shareText" readonly></textarea><p class="share-tip" id="shareTip">長押しでコピー、またはコピーボタン。</p>
+            <h3 style="margin-top:16px">結果カード</h3>
+            <p class="mini">マッチ・小人・花信・判語入りカードを保存。</p>
+            <div class="share-card-actions">
+              <button class="btn primary" type="button" id="saveShareCardBtn">カード保存</button>
+              <button class="btn ghost" type="button" id="shareImageBtn">画像シェア</button>
+              <button class="btn ghost" type="button" id="previewShareCardBtn">プレビュー</button>
+            </div>
+            <img class="share-card-preview" id="shareCardPreview" alt="結果カードプレビュー">
+          </div>
           <div class="controls">
             <button class="btn primary" id="againBtn">もう一度</button>
             <button class="btn ghost" id="copyBtn">文案をコピー</button>
@@ -79,6 +88,13 @@
   </div>
   <button type="button" class="mute-btn" id="muteBtn"><span class="icon" id="muteIcon">🔊</span><span id="muteLabel">ミュート</span></button>
   <div class="toast" id="toast"></div>
+  <div class="share-card-modal hidden" id="shareCardModal" role="dialog" aria-modal="true" aria-label="結果カード">
+    <div class="share-card-modal-inner">
+      <p class="share-card-modal-tip">画像を長押しで保存、またはスクリーンショット</p>
+      <img class="share-card-modal-img" id="shareCardModalImg" alt="結果カード">
+      <button type="button" class="btn ghost share-card-modal-close" id="shareCardModalClose">閉じる</button>
+    </div>
+  </div>
   <script src="../../stats-config.js"></script>
   <script src="../../stats-client.js"></script>
   <script src="../../personality_insights.js"></script>
@@ -86,6 +102,7 @@
   <script src="writers.js"></script>
   <script src="questions.js"></script>
   <script src="../../literary_avatars.js"></script>
+  <script src="../../literary_share_card.js"></script>
   <script src="../../shared/literary_test_i18n.js"></script>
 </body>
 </html>

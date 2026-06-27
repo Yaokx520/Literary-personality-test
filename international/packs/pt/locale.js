@@ -71,5 +71,23 @@ window.LIT_I18N = {
     "Compaixão humana": "Você se importa com os outros",
     "Vanguarda": "Você recusa formas convencionais"
   },
-  "whyTpl": "Seu traço mais forte é 「{dim}」 — {whisper}. Ler {name} frequentemente o reflete."
+  "whyTpl": "Seu traço mais forte é 「{dim}」 — {whisper}. Ler {name} frequentemente o reflete.",
+  "shareLabels": {
+    "cardTitle": "Teste de temperamento literário · Meu resultado",
+    "matchLike": "Mais parecido com",
+    "temperament": "Temperamento literário",
+    "flower": "Flor",
+    "song": "Música",
+    "avatar": "Figura de temperamento",
+    "verdict": "Veredito",
+    "writerQuote": "Citação",
+    "top5": "Top 5 matches",
+    "why": "Por que este match",
+    "cta": "Descubra também o seu temperamento literário?",
+    "modalTip": "Toque longo na imagem para salvar, ou faça captura de tela",
+    "modalTipWx": "Toque longo na imagem → Salvar imagem; ou captura",
+    "modalClose": "Fechar",
+    "previewAlt": "Pré-visualização do cartão",
+    "modalAlt": "Cartão de resultado"
+  }
 };

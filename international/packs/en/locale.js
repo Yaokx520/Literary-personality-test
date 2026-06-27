@@ -71,5 +71,23 @@ window.LIT_I18N = {
     "Human compassion": "You feel for others and write with warmth",
     "Avant-garde": "You refuse ordinary forms and seek new voices"
   },
-  "whyTpl": "Your strongest trait is 「{dim}」 — {whisper}. Reading {name} often mirrors something in you."
+  "whyTpl": "Your strongest trait is 「{dim}」 — {whisper}. Reading {name} often mirrors something in you.",
+  "shareLabels": {
+    "cardTitle": "Literary Temperament Test · My Result",
+    "matchLike": "Most like",
+    "temperament": "Literary temperament",
+    "flower": "Flower token",
+    "song": "Song",
+    "avatar": "Temperament figure",
+    "verdict": "Verdict",
+    "writerQuote": "Writer quote",
+    "top5": "Top 5 matches",
+    "why": "Why this match",
+    "cta": "Discover your literary temperament too?",
+    "modalTip": "Long-press the image to save, or take a screenshot",
+    "modalTipWx": "Long-press the image below → Save image; or screenshot",
+    "modalClose": "Close",
+    "previewAlt": "Result card preview",
+    "modalAlt": "Result card"
+  }
 };

@@ -63,7 +63,16 @@
           <div class="result-box"><h3>Radar de temperamento</h3><div class="radar-wrap"><svg id="radarChart" width="320" height="320" viewBox="0 0 320 320"></svg></div><p class="mini" style="text-align:center;margin-top:4px">Sólida: tú · Discontinua: mejor match</p></div>
           <div class="result-box"><h3>Popularidad de match</h3><p class="mini" style="margin-bottom:10px">Estimado con 8.000 simulaciones aleatorias.</p><div class="prob-hotcold"><div><h4>Popular TOP 3</h4><ol id="probHotList"></ol></div><div><h4>Poco común TOP 3</h4><ol id="probColdList"></ol></div></div></div>
           <div class="result-box"><h3>Top 5 matches</h3><div class="top5" id="top5List"></div></div>
-          <div class="result-box"><h3>Texto para compartir</h3><textarea class="share" id="shareText" readonly></textarea><p class="share-tip" id="shareTip">Mantén pulsado para copiar.</p></div>
+          <div class="result-box"><h3>Texto para compartir</h3><textarea class="share" id="shareText" readonly></textarea><p class="share-tip" id="shareTip">Mantén pulsado para copiar.</p>
+            <h3 style="margin-top:16px">Tarjeta de resultado</h3>
+            <p class="mini">Guarda una tarjeta con match y veredicto.</p>
+            <div class="share-card-actions">
+              <button class="btn primary" type="button" id="saveShareCardBtn">Guardar tarjeta</button>
+              <button class="btn ghost" type="button" id="shareImageBtn">Compartir imagen</button>
+              <button class="btn ghost" type="button" id="previewShareCardBtn">Vista previa</button>
+            </div>
+            <img class="share-card-preview" id="shareCardPreview" alt="Vista previa de tarjeta">
+          </div>
           <div class="controls">
             <button class="btn primary" id="againBtn">Repetir</button>
             <button class="btn ghost" id="copyBtn">Copiar texto</button>
@@ -79,6 +88,13 @@
   </div>
   <button type="button" class="mute-btn" id="muteBtn"><span class="icon" id="muteIcon">🔊</span><span id="muteLabel">Silenciar</span></button>
   <div class="toast" id="toast"></div>
+  <div class="share-card-modal hidden" id="shareCardModal" role="dialog" aria-modal="true" aria-label="Tarjeta de resultado">
+    <div class="share-card-modal-inner">
+      <p class="share-card-modal-tip">Mantén pulsada la imagen para guardar, o haz captura</p>
+      <img class="share-card-modal-img" id="shareCardModalImg" alt="Tarjeta de resultado">
+      <button type="button" class="btn ghost share-card-modal-close" id="shareCardModalClose">Cerrar</button>
+    </div>
+  </div>
   <script src="../../stats-config.js"></script>
   <script src="../../stats-client.js"></script>
   <script src="../../personality_insights.js"></script>
@@ -86,6 +102,7 @@
   <script src="writers.js"></script>
   <script src="questions.js"></script>
   <script src="../../literary_avatars.js"></script>
+  <script src="../../literary_share_card.js"></script>
   <script src="../../shared/literary_test_i18n.js"></script>
 </body>
 </html>

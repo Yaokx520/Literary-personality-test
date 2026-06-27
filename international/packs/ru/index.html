@@ -63,7 +63,16 @@
           <div class="result-box"><h3>Рadar темперамента</h3><div class="radar-wrap"><svg id="radarChart" width="320" height="320" viewBox="0 0 320 320"></svg></div><p class="mini" style="text-align:center;margin-top:4px">Сплошная: вы · Пунктир: лучшее совпадение</p></div>
           <div class="result-box"><h3>Популярность совпадений</h3><p class="mini" style="margin-bottom:10px">Оценка по 8 000 случайных симуляций.</p><div class="prob-hotcold"><div><h4>Популярные TOP 3</h4><ol id="probHotList"></ol></div><div><h4>Редкие TOP 3</h4><ol id="probColdList"></ol></div></div></div>
           <div class="result-box"><h3>Топ-5 совпадений</h3><div class="top5" id="top5List"></div></div>
-          <div class="result-box"><h3>Текст для sharing</h3><textarea class="share" id="shareText" readonly></textarea><p class="share-tip" id="shareTip">Долгое нажатие для копирования.</p></div>
+          <div class="result-box"><h3>Текст для sharing</h3><textarea class="share" id="shareText" readonly></textarea><p class="share-tip" id="shareTip">Долгое нажатие для копирования.</p>
+            <h3 style="margin-top:16px">Карточка результата</h3>
+            <p class="mini">Сохраните карточку с match и вердиктом.</p>
+            <div class="share-card-actions">
+              <button class="btn primary" type="button" id="saveShareCardBtn">Сохранить</button>
+              <button class="btn ghost" type="button" id="shareImageBtn">Поделиться</button>
+              <button class="btn ghost" type="button" id="previewShareCardBtn">Предпросмотр</button>
+            </div>
+            <img class="share-card-preview" id="shareCardPreview" alt="Предпросмотр карточки">
+          </div>
           <div class="controls">
             <button class="btn primary" id="againBtn">Пройти снова</button>
             <button class="btn ghost" id="copyBtn">Копировать</button>
@@ -79,6 +88,13 @@
   </div>
   <button type="button" class="mute-btn" id="muteBtn"><span class="icon" id="muteIcon">🔊</span><span id="muteLabel">Без звука</span></button>
   <div class="toast" id="toast"></div>
+  <div class="share-card-modal hidden" id="shareCardModal" role="dialog" aria-modal="true" aria-label="Карточка результата">
+    <div class="share-card-modal-inner">
+      <p class="share-card-modal-tip">Долгое нажатие на изображение для сохранения или скриншот</p>
+      <img class="share-card-modal-img" id="shareCardModalImg" alt="Карточка результата">
+      <button type="button" class="btn ghost share-card-modal-close" id="shareCardModalClose">Закрыть</button>
+    </div>
+  </div>
   <script src="../../stats-config.js"></script>
   <script src="../../stats-client.js"></script>
   <script src="../../personality_insights.js"></script>
@@ -86,6 +102,7 @@
   <script src="writers.js"></script>
   <script src="questions.js"></script>
   <script src="../../literary_avatars.js"></script>
+  <script src="../../literary_share_card.js"></script>
   <script src="../../shared/literary_test_i18n.js"></script>
 </body>
 </html>

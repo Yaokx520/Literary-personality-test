@@ -71,5 +71,23 @@ window.LIT_I18N = {
     "Compasión humana": "Sientes por los demás y escribes con calidez",
     "Vanguardia": "Rechazas formas convencionales y buscas nuevas voces"
   },
-  "whyTpl": "Tu rasgo más fuerte es 「{dim}」 — {whisper}. Leer a {name} a menudo te refleja."
+  "whyTpl": "Tu rasgo más fuerte es 「{dim}」 — {whisper}. Leer a {name} a menudo te refleja.",
+  "shareLabels": {
+    "cardTitle": "Test de temperamento literario · Mi resultado",
+    "matchLike": "Más parecido a",
+    "temperament": "Temperamento literario",
+    "flower": "Flor",
+    "song": "Canción",
+    "avatar": "Figura de temperamento",
+    "verdict": "Veredicto",
+    "writerQuote": "Cita del escritor",
+    "top5": "Top 5 matches",
+    "why": "Por qué este match",
+    "cta": "¿Descubres también tu temperamento literario?",
+    "modalTip": "Mantén pulsada la imagen para guardar, o haz captura",
+    "modalTipWx": "Mantén pulsada la imagen → Guardar imagen; o captura",
+    "modalClose": "Cerrar",
+    "previewAlt": "Vista previa de tarjeta",
+    "modalAlt": "Tarjeta de resultado"
+  }
 };

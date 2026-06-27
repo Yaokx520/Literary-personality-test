@@ -21,11 +21,46 @@
   };
 
   const shareAssetCache = {};
-  let config = { shareUrl: '', showToast: () => {} };
+  let config = { shareUrl: '', showToast: () => {}, assetBase: 'assets/', labels: {} };
   let lastResult = null;
   let lastShareCanvas = null;
   let lastShareExportUrl = '';
   let lastSharePreviewUrl = '';
+
+  const DEFAULT_LABELS = {
+    cardTitle: '文学气质小测 · 我的文学气质结果',
+    matchLike: '更像',
+    temperament: '文学气质倾向',
+    flower: '花信',
+    song: '歌曲',
+    avatar: '气质小人',
+    verdict: '判语',
+    writerQuote: '文学家名言',
+    top5: 'Top 5 匹配',
+    why: '几分缘由',
+    cta: '你也来测一测你的文学气质？',
+    modalTip: '长按图片保存到相册，或截图分享',
+    modalTipWx: '长按下方图片 → 选择「保存图片」；若无法保存，请截图',
+    modalClose: '关闭',
+    saveFail: '保存失败，请重试',
+    shareFail: '分享失败，请重试',
+    previewFail: '预览失败，请重试',
+    saved: '结果卡已保存',
+    longPressSave: '长按图片保存到相册',
+    previewAlt: '结果分享卡预览',
+    modalAlt: '结果分享卡'
+  };
+
+  function L(key) {
+    return (config.labels && config.labels[key]) || DEFAULT_LABELS[key] || key;
+  }
+
+  function assetUrl(path) {
+    if (!path || /^(https?:|data:|blob:|\/)/.test(path) || path.startsWith('../')) return path;
+    const base = config.assetBase || 'assets/';
+    const rel = path.startsWith('assets/') ? path.slice(7) : path;
+    return base + rel;
+  }
 
   function isWeChatBrowser() {
     const ua = navigator.userAgent || '';
@@ -84,8 +119,18 @@
   }
 
   function flowerImgCandidates(flowerKey) {
-    const primary = FLOWER_IMG[flowerKey];
-    const alts = FLOWER_IMG_ALT[flowerKey] || [];
+    const b = config.assetBase || 'assets/';
+    const map = {
+      taohua: b + 'flowers/taohua.png',
+      lihua: b + 'flowers/lihua.webp',
+      meihua: b + 'flowers/meihua.png',
+      juhua: b + 'flowers/juhua.png',
+      mudan: b + 'flowers/mudan.png'
+    };
+    const primary = map[flowerKey];
+    const alts = flowerKey === 'lihua'
+      ? [b + 'flowers/lihua.webp', b + 'flowers/梨花.webp', b + 'flowers/lihua.png']
+      : [];
     return [...new Set([primary, ...alts].filter(Boolean))];
   }
 
@@ -246,7 +291,7 @@
   }
 
   async function resolveAvatarDataUrl(avKey) {
-    const src = typeof LIT_AVATAR_IMG !== 'undefined' ? LIT_AVATAR_IMG[avKey] : '';
+    const src = typeof LIT_AVATAR_IMG !== 'undefined' ? assetUrl(LIT_AVATAR_IMG[avKey]) : '';
     if (!src) return '';
     const cacheKey = 'avatar:' + avKey;
     if (shareAssetCache[cacheKey]) return shareAssetCache[cacheKey];
@@ -256,7 +301,7 @@
   }
 
   async function preloadShareAssetData(avKey, flowerKey) {
-    const avSrc = typeof LIT_AVATAR_IMG !== 'undefined' ? LIT_AVATAR_IMG[avKey] : '';
+    const avSrc = typeof LIT_AVATAR_IMG !== 'undefined' ? assetUrl(LIT_AVATAR_IMG[avKey]) : '';
     const domImg = document.querySelector('#resultAvatar img');
     if (domImg && avSrc) {
       try {
@@ -413,9 +458,7 @@
   function updateShareModalTip() {
     const tip = document.querySelector('.share-card-modal-tip');
     if (!tip) return;
-    tip.textContent = isWeChatBrowser()
-      ? '长按下方图片 → 选择「保存图片」；若无法保存，请截图'
-      : '长按图片保存到相册，或截图分享';
+    tip.textContent = isWeChatBrowser() ? L('modalTipWx') : L('modalTip');
   }
 
   function showShareCardModal(url) {
@@ -539,35 +582,35 @@
 </defs>
 <rect width="${W}" height="${H}" fill="url(#bg)"/>
 <rect x="24" y="24" width="${W - 48}" height="${H - 48}" rx="28" fill="rgba(255,255,255,0.88)" stroke="#e7dccd" stroke-width="2"/>
-<text x="${W / 2}" y="72" text-anchor="middle" fill="#8b5e34" font-size="22" font-weight="700" font-family="'Noto Serif SC', serif">文学气质小测 · 我的文学气质结果</text>
-<text x="${W / 2}" y="130" text-anchor="middle" fill="#2b241c" font-size="42" font-weight="700" font-family="'Noto Serif SC', serif">更像「${svgEsc(r.top.name)}」</text>
+<text x="${W / 2}" y="72" text-anchor="middle" fill="#8b5e34" font-size="22" font-weight="700" font-family="'Noto Serif SC', serif">${svgEsc(L('cardTitle'))}</text>
+<text x="${W / 2}" y="130" text-anchor="middle" fill="#2b241c" font-size="42" font-weight="700" font-family="'Noto Serif SC', serif">${svgEsc(L('matchLike'))}「${svgEsc(r.top.name)}」</text>
 <text x="${W / 2}" y="162" text-anchor="middle" fill="#6f6458" font-size="16" font-family="'Noto Serif SC', serif">${svgEsc(r.top.region)} · ${svgEsc(r.top.kind)}</text>
 <rect x="${pad}" y="${heroY}" width="${W - pad * 2}" height="${heroH}" rx="18" fill="rgba(139,94,52,0.05)" stroke="#e7dccd"/>
 <line x1="${layout.fl.x}" y1="${layout.blockY + 8}" x2="${layout.fl.x}" y2="${layout.blockY + layout.blockH - 8}" stroke="#e7dccd" stroke-width="1"/>
-${avData ? `<image xlink:href="${svgHrefAttr(avData)}" href="${svgHrefAttr(avData)}" x="${avFit.x}" y="${avFit.y}" width="${avFit.w}" height="${avFit.h}" preserveAspectRatio="xMidYMid meet"/>` : `<rect x="${layout.av.x}" y="${layout.av.y}" width="${layout.av.w}" height="${layout.av.h}" rx="12" fill="rgba(139,94,52,0.08)"/><text x="${layout.av.x + layout.av.w / 2}" y="${layout.av.y + layout.av.h / 2}" text-anchor="middle" fill="#8b5e34" font-size="16" font-family="'Noto Serif SC', serif">${svgEsc(r.avType || '气质小人')}</text>`}
+${avData ? `<image xlink:href="${svgHrefAttr(avData)}" href="${svgHrefAttr(avData)}" x="${avFit.x}" y="${avFit.y}" width="${avFit.w}" height="${avFit.h}" preserveAspectRatio="xMidYMid meet"/>` : `<rect x="${layout.av.x}" y="${layout.av.y}" width="${layout.av.w}" height="${layout.av.h}" rx="12" fill="rgba(139,94,52,0.08)"/><text x="${layout.av.x + layout.av.w / 2}" y="${layout.av.y + layout.av.h / 2}" text-anchor="middle" fill="#8b5e34" font-size="16" font-family="'Noto Serif SC', serif">${svgEsc(r.avType || L('avatar'))}</text>`}
 ${flData ? `<image xlink:href="${svgHrefAttr(flData)}" href="${svgHrefAttr(flData)}" x="${flowerX}" y="${flowerY}" width="${flImageSize}" height="${flImageSize}" preserveAspectRatio="xMidYMid meet"/>` : ''}
-<text x="${flTextX}" y="${flowerY + flImageSize + 28}" text-anchor="middle" fill="#8b5e34" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">花信：${svgEsc(r.flowerLabel)}</text>
-<text x="${flTextX}" y="${flowerY + flImageSize + 50}" text-anchor="middle" fill="#6f6458" font-size="12" font-family="'Noto Serif SC', serif">歌曲：${svgEsc(songName)}</text>
-${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor="middle" fill="#2f6f4e" font-size="12" font-weight="600" font-family="'Noto Serif SC', serif">气质小人 · ${svgEsc(r.avType)}</text>` : ''}
+<text x="${flTextX}" y="${flowerY + flImageSize + 28}" text-anchor="middle" fill="#8b5e34" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">${svgEsc(L('flower'))}：${svgEsc(r.flowerLabel)}</text>
+<text x="${flTextX}" y="${flowerY + flImageSize + 50}" text-anchor="middle" fill="#6f6458" font-size="12" font-family="'Noto Serif SC', serif">${svgEsc(L('song'))}：${svgEsc(songName)}</text>
+${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor="middle" fill="#2f6f4e" font-size="12" font-weight="600" font-family="'Noto Serif SC', serif">${svgEsc(L('avatar'))} · ${svgEsc(r.avType)}</text>` : ''}
 <text x="${W / 2}" y="${bodyY}" text-anchor="middle" fill="#2f6f4e" font-size="14" font-weight="600" font-family="'Noto Serif SC', serif">${svgEsc(r.dims.join(' · '))}</text>
-<text x="${W / 2}" y="${bodyY + 28}" text-anchor="middle" fill="#6f6458" font-size="14" font-family="'Noto Serif SC', serif">文学气质倾向 · ${svgEsc(r.dims[0])}</text>`;
+<text x="${W / 2}" y="${bodyY + 28}" text-anchor="middle" fill="#6f6458" font-size="14" font-family="'Noto Serif SC', serif">${svgEsc(L('temperament'))} · ${svgEsc(r.dims[0])}</text>`;
 
     bodyY += 64;
-    svg += textBlock('判语', wrapSvgLines(r.top.one, 22, 3), bodyY, false);
+    svg += textBlock(L('verdict'), wrapSvgLines(r.top.one, 22, 3), bodyY, false);
     bodyY += 28 + wrapSvgLines(r.top.one, 22, 3).length * 26 + 12;
-    svg += textBlock('文学家名言', wrapSvgLines(r.top.quote, 22, 4), bodyY, true);
+    svg += textBlock(L('writerQuote'), wrapSvgLines(r.top.quote, 22, 4), bodyY, true);
     bodyY += 28 + wrapSvgLines(r.top.quote, 22, 4).length * 26 + 8;
     svg += `<text x="${pad}" y="${bodyY}" fill="#6f6458" font-size="14" font-family="'Noto Serif SC', serif">—— ${svgEsc(r.top.name)}</text>`;
     bodyY += 36;
-    svg += `<text x="${pad}" y="${bodyY}" fill="#8b5e34" font-size="18" font-weight="700" font-family="'Noto Serif SC', serif">Top 5 匹配</text>`;
+    svg += `<text x="${pad}" y="${bodyY}" fill="#8b5e34" font-size="18" font-weight="700" font-family="'Noto Serif SC', serif">${svgEsc(L('top5'))}</text>`;
     r.ranked.slice(0, 5).forEach((item, i) => {
       bodyY += 24;
       svg += `<text x="${pad}" y="${bodyY}" fill="${i === 0 ? '#8b5e34' : '#6f6458'}" font-size="15" font-family="'Noto Serif SC', serif">${i + 1}. ${svgEsc(item.w.name)}  ${r.pct(item.sim)}%</text>`;
     });
     bodyY += 32;
-    svg += textBlock('几分缘由', wrapSvgLines(r.why, 24, 4), bodyY, false);
+    svg += textBlock(L('why'), wrapSvgLines(r.why, 24, 4), bodyY, false);
     svg += `<rect x="${pad}" y="${footerY}" width="${W - pad * 2}" height="72" rx="14" fill="rgba(139,94,52,0.08)"/>
-<text x="${W / 2}" y="${footerY + 32}" text-anchor="middle" fill="#8b5e34" font-size="15" font-weight="600" font-family="'Noto Serif SC', serif">你也来测一测你的文学气质？</text>
+<text x="${W / 2}" y="${footerY + 32}" text-anchor="middle" fill="#8b5e34" font-size="15" font-weight="600" font-family="'Noto Serif SC', serif">${svgEsc(L('cta'))}</text>
 <text x="${W / 2}" y="${footerY + 56}" text-anchor="middle" fill="#6f6458" font-size="13" font-family="'Noto Serif SC', serif">${svgEsc(shareUrl)}</text>
 </svg>`;
     return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
@@ -626,11 +669,11 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
     ctx.fillStyle = '#8b5e34';
     ctx.font = '700 22px "Noto Serif SC", serif';
     ctx.textAlign = 'center';
-    ctx.fillText('文学气质小测 · 我的文学气质结果', W / 2, 72);
+    ctx.fillText(L('cardTitle'), W / 2, 72);
 
     ctx.fillStyle = '#2b241c';
     ctx.font = '700 42px "Noto Serif SC", serif';
-    ctx.fillText(`更像「${r.top.name}」`, W / 2, 130);
+    ctx.fillText(`${L('matchLike')}「${r.top.name}」`, W / 2, 130);
 
     ctx.fillStyle = '#6f6458';
     ctx.font = '16px "Noto Serif SC", serif';
@@ -663,7 +706,7 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
         ctx.fillStyle = '#8b5e34';
         ctx.font = '600 16px "Noto Serif SC", serif';
         ctx.textAlign = 'center';
-        ctx.fillText(r.avType || '气质小人', layout.av.x + layout.av.w / 2, layout.av.y + layout.av.h / 2);
+        ctx.fillText(r.avType || L('avatar'), layout.av.x + layout.av.w / 2, layout.av.y + layout.av.h / 2);
         ctx.textAlign = 'left';
       }
     }
@@ -683,15 +726,15 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
     ctx.textAlign = 'center';
     ctx.fillStyle = '#8b5e34';
     ctx.font = '700 14px "Noto Serif SC", serif';
-    ctx.fillText(`花信：${r.flowerLabel}`, flTextX, flowerY + flImageSize + 28);
+    ctx.fillText(`${L('flower')}：${r.flowerLabel}`, flTextX, flowerY + flImageSize + 28);
     ctx.fillStyle = '#6f6458';
     ctx.font = '12px "Noto Serif SC", serif';
     const songName = FLOWER_SONG[r.flowerKey] || '';
-    canvasFillTextCentered(ctx, `歌曲：${songName}`, flTextX, flowerY + flImageSize + 50, layout.fl.w - 8);
+    canvasFillTextCentered(ctx, `${L('song')}：${songName}`, flTextX, flowerY + flImageSize + 50, layout.fl.w - 8);
     if (r.avType) {
       ctx.fillStyle = '#2f6f4e';
       ctx.font = '600 12px "Noto Serif SC", serif';
-      ctx.fillText(`气质小人 · ${r.avType}`, flTextX, flowerY + flImageSize + 92);
+      ctx.fillText(`${L('avatar')} · ${r.avType}`, flTextX, flowerY + flImageSize + 92);
     }
     ctx.textAlign = 'left';
 
@@ -703,13 +746,13 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
     y += 28;
     ctx.fillStyle = '#6f6458';
     ctx.font = '14px "Noto Serif SC", serif';
-    ctx.fillText(`文学气质倾向 · ${r.dims[0]}`, W / 2, y);
+    ctx.fillText(`${L('temperament')} · ${r.dims[0]}`, W / 2, y);
     y += 36;
 
     ctx.textAlign = 'left';
     ctx.fillStyle = '#8b5e34';
     ctx.font = '700 18px "Noto Serif SC", serif';
-    ctx.fillText('判语', pad, y);
+    ctx.fillText(L('verdict'), pad, y);
     y += 28;
     ctx.fillStyle = '#4b3d31';
     ctx.font = '16px "Noto Serif SC", serif';
@@ -717,7 +760,7 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
 
     ctx.fillStyle = '#8b5e34';
     ctx.font = '700 18px "Noto Serif SC", serif';
-    ctx.fillText('文学家名言', pad, y);
+    ctx.fillText(L('writerQuote'), pad, y);
     y += 28;
     ctx.fillStyle = '#4b3d31';
     ctx.font = 'italic 16px "Noto Serif SC", serif';
@@ -729,7 +772,7 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
 
     ctx.fillStyle = '#8b5e34';
     ctx.font = '700 18px "Noto Serif SC", serif';
-    ctx.fillText('Top 5 匹配', pad, y);
+    ctx.fillText(L('top5'), pad, y);
     y += 28;
     ctx.font = '15px "Noto Serif SC", serif';
     r.ranked.slice(0, 5).forEach((item, i) => {
@@ -741,7 +784,7 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
 
     ctx.fillStyle = '#8b5e34';
     ctx.font = '700 18px "Noto Serif SC", serif';
-    ctx.fillText('几分缘由', pad, y);
+    ctx.fillText(L('why'), pad, y);
     y += 28;
     ctx.fillStyle = '#6f6458';
     ctx.font = '15px "Noto Serif SC", serif';
@@ -753,7 +796,7 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
     ctx.fillStyle = '#8b5e34';
     ctx.font = '600 15px "Noto Serif SC", serif';
     ctx.textAlign = 'center';
-    ctx.fillText('你也来测一测你的文学气质？', W / 2, footerY + 32);
+    ctx.fillText(L('cta'), W / 2, footerY + 32);
     ctx.fillStyle = '#6f6458';
     ctx.font = '13px "Noto Serif SC", serif';
     ctx.fillText(shareUrl, W / 2, footerY + 56);
@@ -917,7 +960,12 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
   }
 
   function init(cfg) {
-    config = { shareUrl: cfg.shareUrl || '', showToast: cfg.showToast || (() => {}) };
+    config = {
+      shareUrl: cfg.shareUrl || '',
+      showToast: cfg.showToast || (() => {}),
+      assetBase: cfg.assetBase || 'assets/',
+      labels: cfg.labels || {}
+    };
     bindButtons();
   }
 

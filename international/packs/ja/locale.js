@@ -71,5 +71,23 @@ window.LIT_I18N = {
     "人文的慈悲": "他者への感受性が強い",
     "前衛実験": "常套を拒み、新しい書き方を求める"
   },
-  "whyTpl": "あなたの気質で「{dim}」が最も目立つ——{whisper}。{name}を読むと、自分が映る瞬間がある。"
+  "whyTpl": "あなたの気質で「{dim}」が最も目立つ——{whisper}。{name}を読むと、自分が映る瞬間がある。",
+  "shareLabels": {
+    "cardTitle": "文学気質テスト · あなたの結果",
+    "matchLike": "に近い",
+    "temperament": "文学気質",
+    "flower": "花信",
+    "song": "曲",
+    "avatar": "気質小人",
+    "verdict": "判語",
+    "writerQuote": "作家の名言",
+    "top5": "Top 5 マッチ",
+    "why": "なぜこの作家",
+    "cta": "あなたも文学気質を測ってみませんか？",
+    "modalTip": "画像を長押しで保存、またはスクリーンショット",
+    "modalTipWx": "下の画像を長押し → 画像を保存；またはスクショ",
+    "modalClose": "閉じる",
+    "previewAlt": "結果カードプレビュー",
+    "modalAlt": "結果カード"
+  }
 };

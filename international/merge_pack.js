@@ -59,6 +59,8 @@ function emitWriters(writers) {
 
 const qTr = JSON.parse(fs.readFileSync(path.join(TR, `questions.${lang}.json`), 'utf8'));
 const wTr = JSON.parse(fs.readFileSync(path.join(TR, `writers.${lang}.json`), 'utf8'));
+const quotesAll = JSON.parse(fs.readFileSync(path.join(TR, 'quotes.json'), 'utf8'));
+const qQuotes = quotesAll[lang] || {};
 
 const qs = loadJsConst(path.join(ROOT, 'literary_questions.js'), 'LIT_Q');
 Object.entries(qs).forEach(([id, q]) => {
@@ -81,7 +83,7 @@ writers.forEach(w => {
   w.kind = t.kind;
   w.intro = t.intro;
   w.one = t.one;
-  w.quote = t.quote;
+  w.quote = qQuotes[w.id] || t.quote;
 });
 
 fs.mkdirSync(outDir, { recursive: true });

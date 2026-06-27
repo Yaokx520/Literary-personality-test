@@ -45,8 +45,9 @@
     return result;
   }
 
-  function renderProbLists(hotEl, coldEl, data) {
-    const row = (x) => `<li>${x.name} <span class="prob-val">约 ${x.prob}%</span></li>`;
+  function renderProbLists(hotEl, coldEl, data, approxLabel) {
+    const label = approxLabel || '约';
+    const row = (x) => `<li>${x.name} <span class="prob-val">${label} ${x.prob}%</span></li>`;
     if (hotEl) {
       hotEl.innerHTML = data.hot.length ? data.hot.map(row).join('') : '<li class="muted">—</li>';
     }

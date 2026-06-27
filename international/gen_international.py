@@ -21,6 +21,69 @@ LANGS = {
     'ru': {'name': 'Русский', 'html_lang': 'ru', 'dir': 'ltr'},
 }
 
+SHARE_LABELS = {
+    'en': {
+        'cardTitle': 'Literary Temperament Test · My Result',
+        'matchLike': 'Most like', 'temperament': 'Literary temperament',
+        'flower': 'Flower token', 'song': 'Song', 'avatar': 'Temperament figure',
+        'verdict': 'Verdict', 'writerQuote': 'Writer quote', 'top5': 'Top 5 matches',
+        'why': 'Why this match', 'cta': 'Discover your literary temperament too?',
+        'modalTip': 'Long-press the image to save, or take a screenshot',
+        'modalTipWx': 'Long-press the image below → Save image; or screenshot',
+        'modalClose': 'Close', 'previewAlt': 'Result card preview', 'modalAlt': 'Result card',
+    },
+    'es': {
+        'cardTitle': 'Test de temperamento literario · Mi resultado',
+        'matchLike': 'Más parecido a', 'temperament': 'Temperamento literario',
+        'flower': 'Flor', 'song': 'Canción', 'avatar': 'Figura de temperamento',
+        'verdict': 'Veredicto', 'writerQuote': 'Cita del escritor', 'top5': 'Top 5 matches',
+        'why': 'Por qué este match', 'cta': '¿Descubres también tu temperamento literario?',
+        'modalTip': 'Mantén pulsada la imagen para guardar, o haz captura',
+        'modalTipWx': 'Mantén pulsada la imagen → Guardar imagen; o captura',
+        'modalClose': 'Cerrar', 'previewAlt': 'Vista previa de tarjeta', 'modalAlt': 'Tarjeta de resultado',
+    },
+    'fr': {
+        'cardTitle': 'Test de tempérament littéraire · Mon résultat',
+        'matchLike': 'Plus proche de', 'temperament': 'Tempérament littéraire',
+        'flower': 'Fleur', 'song': 'Chanson', 'avatar': 'Figure de tempérament',
+        'verdict': 'Verdict', 'writerQuote': 'Citation', 'top5': 'Top 5 matchs',
+        'why': 'Pourquoi ce match', 'cta': 'Découvrez aussi votre tempérament littéraire ?',
+        'modalTip': 'Appui long sur l\'image pour enregistrer, ou capture d\'écran',
+        'modalTipWx': 'Appui long sur l\'image → Enregistrer ; ou capture',
+        'modalClose': 'Fermer', 'previewAlt': 'Aperçu de la carte', 'modalAlt': 'Carte résultat',
+    },
+    'pt': {
+        'cardTitle': 'Teste de temperamento literário · Meu resultado',
+        'matchLike': 'Mais parecido com', 'temperament': 'Temperamento literário',
+        'flower': 'Flor', 'song': 'Música', 'avatar': 'Figura de temperamento',
+        'verdict': 'Veredito', 'writerQuote': 'Citação', 'top5': 'Top 5 matches',
+        'why': 'Por que este match', 'cta': 'Descubra também o seu temperamento literário?',
+        'modalTip': 'Toque longo na imagem para salvar, ou faça captura de tela',
+        'modalTipWx': 'Toque longo na imagem → Salvar imagem; ou captura',
+        'modalClose': 'Fechar', 'previewAlt': 'Pré-visualização do cartão', 'modalAlt': 'Cartão de resultado',
+    },
+    'ja': {
+        'cardTitle': '文学気質テスト · あなたの結果',
+        'matchLike': 'に近い', 'temperament': '文学気質',
+        'flower': '花信', 'song': '曲', 'avatar': '気質小人',
+        'verdict': '判語', 'writerQuote': '作家の名言', 'top5': 'Top 5 マッチ',
+        'why': 'なぜこの作家', 'cta': 'あなたも文学気質を測ってみませんか？',
+        'modalTip': '画像を長押しで保存、またはスクリーンショット',
+        'modalTipWx': '下の画像を長押し → 画像を保存；またはスクショ',
+        'modalClose': '閉じる', 'previewAlt': '結果カードプレビュー', 'modalAlt': '結果カード',
+    },
+    'ru': {
+        'cardTitle': 'Тест литературного темперамента · Мой результат',
+        'matchLike': 'Ближе всего к', 'temperament': 'Литературный темперамент',
+        'flower': 'Цветок', 'song': 'Песня', 'avatar': 'Фигура темперамента',
+        'verdict': 'Вердикт', 'writerQuote': 'Цитата писателя', 'top5': 'Топ-5 совпадений',
+        'why': 'Почему это совпадение', 'cta': 'Узнайте и свой литературный темперамент!',
+        'modalTip': 'Долгое нажатие на изображение для сохранения или скриншот',
+        'modalTipWx': 'Долгое нажатие на изображение → Сохранить; или скриншот',
+        'modalClose': 'Закрыть', 'previewAlt': 'Предпросмотр карточки', 'modalAlt': 'Карточка результата',
+    },
+}
+
 UI = {
     'en': {
         'title': 'Which Writer Are You?',
@@ -263,7 +326,7 @@ def merge_lang_pack(lang):
 
 
 def emit_locale_js(lang):
-    ui = UI[lang]
+    ui = {**UI[lang], 'shareLabels': SHARE_LABELS[lang]}
     return 'window.LIT_I18N = ' + json.dumps(ui, ensure_ascii=False, indent=2) + ';\n'
 
 
@@ -335,7 +398,16 @@ def emit_index_html(lang):
           <div class="result-box"><h3>{ui["radar"]}</h3><div class="radar-wrap"><svg id="radarChart" width="320" height="320" viewBox="0 0 320 320"></svg></div><p class="mini" style="text-align:center;margin-top:4px">{ui["radarHint"]}</p></div>
           <div class="result-box"><h3>{ui["probTitle"]}</h3><p class="mini" style="margin-bottom:10px">{ui["probHint"]}</p><div class="prob-hotcold"><div><h4>{ui["hot"]}</h4><ol id="probHotList"></ol></div><div><h4>{ui["cold"]}</h4><ol id="probColdList"></ol></div></div></div>
           <div class="result-box"><h3>{ui["top5"]}</h3><div class="top5" id="top5List"></div></div>
-          <div class="result-box"><h3>{ui["share"]}</h3><textarea class="share" id="shareText" readonly></textarea><p class="share-tip" id="shareTip">{ui["shareTip"]}</p></div>
+          <div class="result-box"><h3>{ui["share"]}</h3><textarea class="share" id="shareText" readonly></textarea><p class="share-tip" id="shareTip">{ui["shareTip"]}</p>
+            <h3 style="margin-top:16px">{ui["shareCard"]}</h3>
+            <p class="mini">{ui["shareCardHint"]}</p>
+            <div class="share-card-actions">
+              <button class="btn primary" type="button" id="saveShareCardBtn">{ui["saveCard"]}</button>
+              <button class="btn ghost" type="button" id="shareImageBtn">{ui["shareImg"]}</button>
+              <button class="btn ghost" type="button" id="previewShareCardBtn">{ui["previewCard"]}</button>
+            </div>
+            <img class="share-card-preview" id="shareCardPreview" alt="{SHARE_LABELS[lang]["previewAlt"]}">
+          </div>
           <div class="controls">
             <button class="btn primary" id="againBtn">{ui["again"]}</button>
             <button class="btn ghost" id="copyBtn">{ui["copy"]}</button>
@@ -351,6 +423,13 @@ def emit_index_html(lang):
   </div>
   <button type="button" class="mute-btn" id="muteBtn"><span class="icon" id="muteIcon">🔊</span><span id="muteLabel">{ui["mute"]}</span></button>
   <div class="toast" id="toast"></div>
+  <div class="share-card-modal hidden" id="shareCardModal" role="dialog" aria-modal="true" aria-label="{SHARE_LABELS[lang]["modalAlt"]}">
+    <div class="share-card-modal-inner">
+      <p class="share-card-modal-tip">{SHARE_LABELS[lang]["modalTip"]}</p>
+      <img class="share-card-modal-img" id="shareCardModalImg" alt="{SHARE_LABELS[lang]["modalAlt"]}">
+      <button type="button" class="btn ghost share-card-modal-close" id="shareCardModalClose">{SHARE_LABELS[lang]["modalClose"]}</button>
+    </div>
+  </div>
   <script src="../../stats-config.js"></script>
   <script src="../../stats-client.js"></script>
   <script src="../../personality_insights.js"></script>
@@ -358,6 +437,7 @@ def emit_index_html(lang):
   <script src="writers.js"></script>
   <script src="questions.js"></script>
   <script src="../../literary_avatars.js"></script>
+  <script src="../../literary_share_card.js"></script>
   <script src="../../shared/literary_test_i18n.js"></script>
 </body>
 </html>

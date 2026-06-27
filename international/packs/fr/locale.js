@@ -71,5 +71,23 @@ window.LIT_I18N = {
     "Compassion": "Vous ressentez pour les autres",
     "Avant-garde": "Vous refusez les formes ordinaires"
   },
-  "whyTpl": "Votre trait dominant est 「{dim}」 — {whisper}. Lire {name} vous reflète souvent."
+  "whyTpl": "Votre trait dominant est 「{dim}」 — {whisper}. Lire {name} vous reflète souvent.",
+  "shareLabels": {
+    "cardTitle": "Test de tempérament littéraire · Mon résultat",
+    "matchLike": "Plus proche de",
+    "temperament": "Tempérament littéraire",
+    "flower": "Fleur",
+    "song": "Chanson",
+    "avatar": "Figure de tempérament",
+    "verdict": "Verdict",
+    "writerQuote": "Citation",
+    "top5": "Top 5 matchs",
+    "why": "Pourquoi ce match",
+    "cta": "Découvrez aussi votre tempérament littéraire ?",
+    "modalTip": "Appui long sur l'image pour enregistrer, ou capture d'écran",
+    "modalTipWx": "Appui long sur l'image → Enregistrer ; ou capture",
+    "modalClose": "Fermer",
+    "previewAlt": "Aperçu de la carte",
+    "modalAlt": "Carte résultat"
+  }
 };
