@@ -1,0 +1,530 @@
+{
+  "kongzi": {
+    "name": "Конфуций",
+    "region": "Китай",
+    "kind": "Конфуцианская философия",
+    "intro": "Вы цените порядок, воспитание и заботу о других; слова должны нести нравственность, идеи — преображать.",
+    "one": "Вы подобны мягкому учителю, ищущему вечное в порядке и доброте.",
+    "quote": "「学而时习之，不亦说乎。」"
+  },
+  "zhuangzi": {
+    "name": "Чжуан-цзы",
+    "region": "Китай",
+    "kind": "Свободная философия",
+    "intro": "Вы не хотите быть скованы правилами; любите свободное воображение и мудрость вопреки условностям.",
+    "one": "Вы как ветер в лесу — лёгкий, неуловимый, неопределимый.",
+    "quote": "「相濡以沫，不如相忘于江湖。」"
+  },
+  "quyuan": {
+    "name": "Цюй Юань",
+    "region": "Китай",
+    "kind": "Романтическая меланхолия",
+    "intro": "У вас горячий идеализм и любовь к отечеству; чувства интенсивны и упорны.",
+    "one": "Вы как долгая скорбная песня — страстная, верная, не сдающаяся.",
+    "quote": "「路漫漫其修远兮，吾将上下而求索。」"
+  },
+  "libai": {
+    "name": "Ли Бо",
+    "region": "Китай",
+    "kind": "Дерзкий романтизм",
+    "intro": "Вы страстны и широки; жизнь должна быть величественной, язык — ваше вино и меч.",
+    "one": "Вы как яркая луна и длинный ветер — свободны, светлы, без оков.",
+    "quote": "「天生我材必有用，千金散尽还复来。」"
+  },
+  "dufu": {
+    "name": "Ду Фу",
+    "region": "Китай",
+    "kind": "Мрачный патриотизм",
+    "intro": "Вы помещаете личную судьбу в поток истории; голос сострадателен и тяжёл.",
+    "one": "Вы как длинное медленно разворачивающееся стихотворение — устойчивое, тяжёлая, полное жалости.",
+    "quote": "「国破山河在，城春草木深。」"
+  },
+  "sushi": {
+    "name": "Су Ши",
+    "region": "Китай",
+    "kind": "Беспечный литератор",
+    "intro": "В невзгодах сохраняете юмор и широту, сочетая талант с теплом быта.",
+    "one": "Вы как радуга после дождя — ясная, мягкая, с послевкусием.",
+    "quote": "「回首向来萧瑟处，归去，也无风雨也无晴。」"
+  },
+  "caoxueqin": {
+    "name": "Цao Сюэцинь",
+    "region": "Китай",
+    "kind": "Социальное прозрение",
+    "intro": "Вы пишете тепло и холод человеческих уз и каприз судьбы — тонко и тоскливо.",
+    "one": "Вы как зеркало, отражающее всех живых — великолепие и печаль вместе.",
+    "quote": "「满纸荒唐言，一把辛酸泪。」"
+  },
+  "luxun": {
+    "name": "Лу Синь",
+    "region": "Китай",
+    "kind": "Острый реализм",
+    "intro": "Вы остро чувствуете мир и острым языком освещаете противоречия.",
+    "one": "Вы как холодный скальpel, разрезающий эмоцию и реальность.",
+    "quote": "「希望是本无所谓有，无所谓无的。」"
+  },
+  "shencongwen": {
+    "name": "Шэнь Цунвэнь",
+    "region": "Китай",
+    "kind": "Пасторальная лирика",
+    "intro": "В простом быту находите порядок и красоту — нежно и спокойно.",
+    "one": "Вы как тихая река — тёплая, мирная, медленно текущая.",
+    "quote": "「凡事都靠一个缘字。」"
+  },
+  "laoshe": {
+    "name": "Лao Шэ",
+    "region": "Китай",
+    "kind": "Пекинский реализм",
+    "intro": "Заботитесь о достоинстве простых людей; в юморе скрыта горечь.",
+    "one": "Вы как фонарь в переулке — близкий, остроумный, полный жизни.",
+    "quote": "「人是最美的风景。」"
+  },
+  "zhangailing": {
+    "name": "Чжан Айлин",
+    "region": "Китай",
+    "kind": "Изящная отстранённость",
+    "intro": "В деталях видите человеческую природу и держите дистанцию с изяществом.",
+    "one": "У вас прекрасный такт и ясный взгляд сквозь блеск.",
+    "quote": "「生命是一袭华美的袍，爬满了蚤子。」"
+  },
+  "yuhua": {
+    "name": "Юй Хуа",
+    "region": "Китай",
+    "kind": "Ироничное выживание",
+    "intro": "Сохраняете стойкость в абсурде и трудностях, переваривая тяжесть юмором.",
+    "one": "Вы как камень, сглаженный жизнью — молчаливый, не легко разбить.",
+    "quote": "「人是为了活着本身而活着。」"
+  },
+  "murasaki": {
+    "name": "Мурасaki Sikibu",
+    "region": "Япония",
+    "kind": "Тонкий моногатари",
+    "intro": "Пишете subtle эмоции и свет social strata — сдержанно и долго.",
+    "one": "Вы как свет за washi — тонкий, elegant, слова наполовину.",
+    "quote": "「逢えずして恋しき人を待つほどに。」"
+  },
+  "natsume": {
+    "name": "Нatsume Soseki",
+    "region": "Япония",
+    "kind": "Современная introspection",
+    "intro": "Между tradition и modernity; стиль сдержан и reflective.",
+    "one": "Вы как тихий сад, где reason и melancholy отражают друг друга.",
+    "quote": "「智に働けば角が立つ。」"
+  },
+  "kawabata": {
+    "name": "Яsunari Kavabata",
+    "region": "Япония",
+    "kind": "Эстетика mono no aware",
+    "intro": "Чувствительны к мимолётной красоте; любите чистоту, печаль, тишину.",
+    "one": "Вы как очаг в snow country — тихий, прозрачный, слегка холодный.",
+    "quote": "「美在于发现者眼中。」"
+  },
+  "mishima": {
+    "name": "Yukio Misima",
+    "region": "Япония",
+    "kind": "Эстетическая intensity",
+    "intro": "Ищете formal красоту и духовные intensity — contradictory и dazzling.",
+    "one": "Вы как закалённый клинок — роскошная, опасный, отвергающий посредственность.",
+    "quote": "「不被人理解，反而成为我的骄傲。」"
+  },
+  "oe": {
+    "name": "Кenzaburo Oe",
+    "region": "Япония",
+    "kind": "Гуманистический антиядерный",
+    "intro": "Заботитесь о weak и historical wounds; literature — ethics и redemption.",
+    "one": "Вы как рана, что не заживает — serious, responsible, к свету.",
+    "quote": "「人間は自分の言葉で世界をつくる。」"
+  },
+  "murakami": {
+    "name": "Хaruki Murakami",
+    "region": "Япония",
+    "kind": "Городское одиночество",
+    "intro": "Ходите между everyday и снам; solitude задаёт rhythm.",
+    "one": "Вы как тихая music — calm, fluid, slightly distant.",
+    "quote": "「闭上眼睛，世界就会变得不一样。」"
+  },
+  "shakespeare": {
+    "name": "Уильям Шекспир",
+    "region": "Англоязычный мир",
+    "kind": "Драматическая панорама",
+    "intro": "Видите весь спектр человеческую природу; трагедия и комедия в руках.",
+    "one": "Вы как театр — радость и горе рядом, всё присутствует.",
+    "quote": "「To be, or not to be, that is the question.」"
+  },
+  "austen": {
+    "name": "Джейн Остин",
+    "region": "Англоязычный мир",
+    "kind": "Светская сатира",
+    "intro": "Мастерски владеете social detail и marriage ethics — остроумны и сдержанны.",
+    "one": "Вы как refined tea — clever, subtle, blade в laughter.",
+    "quote": "「A lady's imagination is very rapid.」"
+  },
+  "dickens": {
+    "name": "Чарльз Диккенс",
+    "region": "Англоязычный мир",
+    "kind": "Социальное тепло",
+    "intro": "Следите за fate бедных; в грандиозном повествовании остаётся warmth и justice.",
+    "one": "Вы как лондунский туман и фонари — темно, но человеческий свет.",
+    "quote": "「It was the best of times, it was the worst of times.」"
+  },
+  "woolf": {
+    "name": "Вирджиния Вулф",
+    "region": "Англоязычный мир",
+    "kind": "Поток сознания",
+    "intro": "Остро чувствуете instant и пишете flow consciousness и времени.",
+    "one": "Вы как breathing mirror, reflecting inner ripples.",
+    "quote": "「生命不是一条直线，而是一团波光。」"
+  },
+  "orwell": {
+    "name": "Джордж Оруэлл",
+    "region": "Англоязычный мир",
+    "kind": "Политическая allegory",
+    "intro": "Бдительны к власти и манипуляции языком; literature — ясность и сопротивление.",
+    "one": "Вы как alarm, что не гаснет — холодный, острый, отвергающий молчании.",
+    "quote": "「Big Brother is watching you.」"
+  },
+  "poe": {
+    "name": "Эдгар Аллан По",
+    "region": "Англоязычный мир",
+    "kind": "Готический suspense",
+    "intro": "Тянет к тьме, снам и краям психики — компактные, зловещие формы.",
+    "one": "Вы как midnight bell tower — mysterious, gloomy, mesmerizing.",
+    "quote": "「All that we see or seem is but a dream within a dream.」"
+  },
+  "whitman": {
+    "name": "Уолт Уитмен",
+    "region": "Англоязычный мир",
+    "kind": "Свободная ода",
+    "intro": "Принимаете множественность и телесность; поэзия — open declaration жизнью.",
+    "one": "Вы как ветер над открытой равниной — обширный, пылкий, отвергающий frame.",
+    "quote": "「I contain multitudes.」"
+  },
+  "hemingway": {
+    "name": "Эрнест Хемингуэй",
+    "region": "Англоязычный мир",
+    "kind": "Жёсткий минимализм",
+    "intro": "Доверяете сухим, сильным фразам и несёте судьбу в молчании.",
+    "one": "Вы как reef polished waves — hard, silent, strong.",
+    "quote": "「人可以被毁灭，但不能被打败。」"
+  },
+  "fitzgerald": {
+    "name": "Ф. Скott Фitzgerald",
+    "region": "Англоязычный мир",
+    "kind": "Джазовое разочарование",
+    "intro": "Пишете glamour и disillusion; романтизм hides cracks era.",
+    "one": "Вы как Гэтсби green лёгкую — brilliant, distant, tinged sorrow.",
+    "quote": "「于是我们奋力向前划，逆流而上。」"
+  },
+  "faulkner": {
+    "name": "Уильям Фолкнер",
+    "region": "Англоязычный мир",
+    "kind": "Южная эпопея",
+    "intro": "Строите сложное время и семейные эпопеи необычайной плотности.",
+    "one": "Вы как густой южный лес — переплетённый, глубокий, не кончающийся.",
+    "quote": "「The past is never dead. It isn't even past.」"
+  },
+  "salinger": {
+    "name": "Дж. Д. Сalinger",
+    "region": "Англоязычный мир",
+    "kind": "Юношеская отчуждённость",
+    "intro": "Пишете adolescent sensitivity, rebellion, hunger искренность.",
+    "one": "Вы как catcher in rye — stubborn, lonely, unwilling grow up.",
+    "quote": "「I am sick of not saying what I mean.」"
+  },
+  "vonnegut": {
+    "name": "Kurt Vonnegut",
+    "region": "Англоязычный мир",
+    "kind": "Чёрный юмор",
+    "intro": "Встречаете войну и пустоту с абсурдом и юмором — нежно и иронично.",
+    "one": "Вы как crooked star — funny, sad, deeply human.",
+    "quote": "「So it goes.」"
+  },
+  "morrison": {
+    "name": "Toni Morrison",
+    "region": "Англоязычный мир",
+    "kind": "Афроамериканская эпопея",
+    "intro": "Пишете memory, race, women trauma в poetic, мощные language.",
+    "one": "Вы как song rising soil — тяжёлая, solemn, indelible.",
+    "quote": "「Freeing yourself was one thing; claiming ownership of that freed self was another.」"
+  },
+  "mccarthy": {
+    "name": "Cormac McCarthy",
+    "region": "Англоязычный мир",
+    "kind": "Апокалиптическая суровость",
+    "intro": "Проза сурова; в пустоши и насилии ищете пределы человечности.",
+    "one": "Вы как embers plain — cold, sparse, yet burning.",
+    "quote": "「You never know what worse luck your bad luck has saved you from.」"
+  },
+  "rousseau": {
+    "name": "Жан-Жак Рousseau",
+    "region": "Франция",
+    "kind": "Просветительское чувство",
+    "intro": "Верите в природу и искренность; любите цивилизацию, но сомневаетесь.",
+    "one": "Вы как echo woods — passionate, sensitive, asking truth.",
+    "quote": "「人生而自由，却无往不在枷锁之中。」"
+  },
+  "balzac": {
+    "name": "Honoré de Balzac",
+    "region": "Франция",
+    "kind": "Реализм",
+    "intro": "Ставите общество на огромную сцену, где переплетаются люди и деньги.",
+    "one": "Вы как city archive — sprawling, real, merciless.",
+    "quote": "「人间喜剧」"
+  },
+  "hugo": {
+    "name": "Victor Hugo",
+    "region": "Франция",
+    "kind": "Романтический гуманизм",
+    "intro": "Сочетаете эпический размах с гуманизмом, говорите за слабых.",
+    "one": "Вы как cathedral — grand, compassionate, open лёгкую.",
+    "quote": "「比海洋更宽阔的是人的胸怀。」"
+  },
+  "baudelaire": {
+    "name": "Charles Baudelaire",
+    "region": "Франция",
+    "kind": "Городской symbolism",
+    "intro": "Ищете красоту и упадок в современном городе; поэзия lush, декадентен.",
+    "one": "Вы как тень под неоном — роскошная, разбить, вызывающая зависимость.",
+    "quote": "「你永远不知道，在街角会遇见怎样的命运。」"
+  },
+  "proust": {
+    "name": "Marcel Proust",
+    "region": "Франция",
+    "kind": "Память и сознание",
+    "intro": "Превращаете время и память в бесконечный лабиринт изысканных ощущений.",
+    "one": "Вы как madeleine — one touch и past floods in.",
+    "quote": "「真正的发现之旅在于拥有新的眼睛。」"
+  },
+  "camus": {
+    "name": "Albert Camus",
+    "region": "Франция",
+    "kind": "Абсурдное сопротивление",
+    "intro": "Сохраняете ясность, достоинство в абсурде; бунт сам по себе — смысл.",
+    "one": "Вы как Sisyphus stone — heavy, yet carrying undefeated лёгкую.",
+    "quote": "「在隆冬，我终于知道，我身上有一个不可战胜的夏天。」"
+  },
+  "goethe": {
+    "name": "Johann Wolfgang von Goethe",
+    "region": "Германия",
+    "kind": "Классический polymath",
+    "intro": "Стремитесь к целостности и классическому равновесию; романтизм и разум сосуществуют.",
+    "one": "Вы как Renaissance garden — fertile, глубокий, ever fresh.",
+    "quote": "「理论是灰色的，而生命之树常青。」"
+  },
+  "heine": {
+    "name": "Heinrich Heine",
+    "region": "Германия",
+    "kind": "Сатирическая лирика",
+    "intro": "поэзия романтичное и biting; любовь и сатира идут вместе.",
+    "one": "Вы как dagger wrapped roses — beautiful, yet edged.",
+    "quote": "「哪里有痛苦，哪里就有诗歌。」"
+  },
+  "kafka": {
+    "name": "Franz Kafka",
+    "region": "Германия",
+    "kind": "Абсурдная тревога",
+    "intro": "Бдительны rules и идентичности; в в порядке часто видите абсурд.",
+    "one": "Вы как silent maze — deeper go, more hear yourself.",
+    "quote": "「我不是世界的一部分，我只是世界的边缘。」"
+  },
+  "mann": {
+    "name": "Thomas Mann",
+    "region": "Германия",
+    "kind": "Просветительский роман",
+    "intro": "Weave philosophy, illness, civilizational crisis long narratives.",
+    "one": "Вы как clock tower turning slowly — solemn, complex, suggestive.",
+    "quote": "「时间是正义的，因为它终将揭示一切。」"
+  },
+  "hesse": {
+    "name": "Hermann Hesse",
+    "region": "Германия",
+    "kind": "Духовный поиск",
+    "intro": "Пишете духовный рост и восточную мудрость — внутренне, ясно.",
+    "one": "Вы как road внутренне — quiet, глубокий, inviting solitude.",
+    "quote": "「对每个人而言，真正的职责只有一个：找到自我。」"
+  },
+  "rilke": {
+    "name": "Rainer Maria Rilke",
+    "region": "Германия",
+    "kind": "Чистая поэтическая медитация",
+    "intro": "Meditate existence, solitude, красоту poetic language.",
+    "one": "Вы как letter future — slow, pure, touching soul.",
+    "quote": "「有何胜利可言？挺住意味着一切。」"
+  },
+  "pushkin": {
+    "name": "Alexander Pushkin",
+    "region": "Россия",
+    "kind": "Национальная лирика",
+    "intro": "Национальный поэт и символ изящества и свободы.",
+    "one": "Вы как Russian birch woods — clear, upright, touched melancholy.",
+    "quote": "「假如生活欺骗了你，不要悲伤，不要心急。」"
+  },
+  "dostoevsky": {
+    "name": "Fyodor Dostoevsky",
+    "region": "Россия",
+    "kind": "Допрос души",
+    "intro": "Спускаетесь в моральную бездну и кризисы веры; персонажи reveal extremity.",
+    "one": "Вы как исповедь в метели — яростная, темно, неизбежная.",
+    "quote": "「人是一个谜。解开这个谜，即使搭上性命，也值得。」"
+  },
+  "tolstoy": {
+    "name": "Leo Tolstoy",
+    "region": "Россия",
+    "kind": "Эпическая мораль",
+    "intro": "With обширный vision ask morality, войне, meaning жизнью.",
+    "one": "Вы как wide field — weighty, solemn, holding everything.",
+    "quote": "「幸福的家庭都是相似的，不幸的家庭各有各的不幸。」"
+  },
+  "chekhov": {
+    "name": "Anton Chekhov",
+    "region": "Россия",
+    "kind": "Тихая печаль",
+    "intro": "Пишете молчание и бессилие повседневности; юмор несёт нежность.",
+    "one": "Вы как evening smoke — лёгкую, far, quietly sad.",
+    "quote": "「人应该像水一样，没有形状，却能适应一切容器。」"
+  },
+  "bulgakov": {
+    "name": "Mikhail Bulgakov",
+    "region": "Россия",
+    "kind": "Магическая сатира",
+    "intro": "Творите в абсурде и цензуре; в волшебстве скрыта правда.",
+    "one": "Вы как бал дьявола — абсурде, dazzling, отвергающий forgotten.",
+    "quote": "「手稿不灭。」"
+  },
+  "solzhenitsyn": {
+    "name": "Aleksandr Solzhenitsyn",
+    "region": "Россия",
+    "kind": "Свидетель совести",
+    "intro": "Свидетельствуете о тоталитаризме и страдании; достоинство превыше всего.",
+    "one": "Вы как сибирский ветер — cold, ясно, невозможный игнорировать.",
+    "quote": "「一条真理胜过整个世界。」"
+  },
+  "borges": {
+    "name": "Jorge Luis Borges",
+    "region": "Латинская Америка",
+    "kind": "Концептуальный лабиринт",
+    "intro": "Разбираете структуры и уровни; вас захватывает сама реальность.",
+    "one": "Вы как библиотека, складывающаяся сама — сложная, завораживающая.",
+    "quote": "「天堂应该是图书馆的模样。」"
+  },
+  "neruda": {
+    "name": "Pablo Neruda",
+    "region": "Латинская Америка",
+    "kind": "Любовь и революция",
+    "intro": "поэзия burns politics любовь; земля и страсть вместе.",
+    "one": "Вы как южноамериканское море — бурное, романтичное, живое.",
+    "quote": "「我要对你做，春天对樱桃树做的事。」"
+  },
+  "marquez": {
+    "name": "Gabriel García Márquez",
+    "region": "Латинская Америка",
+    "kind": "Магический реализм",
+    "intro": "Weave myth reality; времени loops like river.",
+    "one": "Вы как rain lasting hundred years — fantastical, humid, unforgettable.",
+    "quote": "「面对行刑队，上校将会回想起父亲带他去见识冰块的那个下午。」"
+  },
+  "vargasllosa": {
+    "name": "Mario Vargas Llosa",
+    "region": "Латинская Америка",
+    "kind": "Структурное повествование",
+    "intro": "Мастерски владеете многолинейным повествованием и политической allegory.",
+    "one": "Вы как complex map unfolding layer toward власти desire.",
+    "quote": "「写作是对权力的反抗。」"
+  },
+  "paz": {
+    "name": "Octavio Paz",
+    "region": "Латинская Америка",
+    "kind": "Поэтическая философия",
+    "intro": "Между поэзией и прозой спрашиваете об идентичности, времени и тайне.",
+    "one": "Вы как солнце пустыни — яростная, абстрактное, освещающее всё.",
+    "quote": "「一朵花不需要理由地开放。」"
+  },
+  "bolano": {
+    "name": "Roberto Bolaño",
+    "region": "Латинская Америка",
+    "kind": "Изгнанник-странник",
+    "intro": "Пишете об изгнании, молодости, призраках литературы в бродячих captivating narratives.",
+    "one": "Вы как дорога без конца — пустынная, свободная, полная легенд.",
+    "quote": "「文学是世上最危险的职业。」"
+  },
+  "kundera": {
+    "name": "Milan Kundera",
+    "region": "Другое",
+    "kind": "Лёгкость и тяжесть",
+    "intro": "Взвешиваете существование между шуткой и философией, лёгкостью и тяжестью.",
+    "one": "Вы как отражающее окно — игривое, глубокое, неуловимое.",
+    "quote": "「人类一思考，上帝就发笑。」"
+  },
+  "calvino": {
+    "name": "Italo Calvino",
+    "region": "Другое",
+    "kind": "Структурная сказка",
+    "intro": "Превращаете литературу в structural play — лёгкую, интеллектуальную.",
+    "one": "Вы как книга, пересобирающая себя — игривое, сложная, не кончающаяся.",
+    "quote": "「你对任何一条路都还不满意，因为你想同时走两条路。」"
+  },
+  "pamuk": {
+    "name": "Orhan Pamuk",
+    "region": "Другое",
+    "kind": "Перекрёсток цивилизаций",
+    "intro": "Weave labyrinths East West, individual history.",
+    "one": "Вы как снег над Стамбулом — covering memory идентичности.",
+    "quote": "「我到底是谁？这个问题始终困扰着我。」"
+  },
+  "ibsen": {
+    "name": "Henrik Ibsen",
+    "region": "Другое",
+    "kind": "Социальная драма",
+    "intro": "Разбираете семейную этику и social hypocrisy через drama.",
+    "one": "Вы как дверь, в которую постучали — вопрос задан, его нельзя не услышать.",
+    "quote": "「社会就像一艘船，人人都该有掌舵的责任。」"
+  },
+  "andersen": {
+    "name": "Hans Christian Andersen",
+    "region": "Другое",
+    "kind": "Сказочная allegory",
+    "intro": "Сказками пишете одиночество, красоту, несправедливость.",
+    "one": "Вы как звезда, что плачет — нежная, bittersweet, освещающая детство.",
+    "quote": "「仅仅活着是不够的，你还应该有阳光、自由和一点花的芬芳。」"
+  },
+  "saramago": {
+    "name": "José Saramago",
+    "region": "Другое",
+    "kind": "Allegorical narrative",
+    "intro": "Пишете коллективная fate и moral fable длинными flowing sentences.",
+    "one": "Вы как распространяющаяся слепота — коллективная, алlegorical, жуткая.",
+    "quote": "「人类当有更多的耐心。」"
+  },
+  "tagore": {
+    "name": "Rabindranath Tagore",
+    "region": "Другое",
+    "kind": "Духовная лирика",
+    "intro": "поэзия glows nature, божественным, любовь.",
+    "one": "Вы как лунный свет над Гanges — спокойный, священный, shining all.",
+    "quote": "「生如夏花之绚烂，死如秋叶之静美。」"
+  },
+  "naipaul": {
+    "name": "V. S. Naipaul",
+    "region": "Другое",
+    "kind": "Постколониальный observer",
+    "intro": "Пишете о колониальном наследии и разорванной идентичности холодным взглядом.",
+    "one": "Вы как зеркало без тепла — clear, острый, неприятное.",
+    "quote": "「世界如其所是，而非如我们所愿。」"
+  },
+  "achebe": {
+    "name": "Chinua Achebe",
+    "region": "Другое",
+    "kind": "Африканское повествование",
+    "intro": "Даёте голос silenced history и rebuild African narrative.",
+    "one": "Вы как барабаны племени — ровные, мощные, пробуждающие память.",
+    "quote": "「直到狮子有了自己的史学家，狩猎的故事才不会只称赞猎人。」"
+  },
+  "gibran": {
+    "name": "Kahlil Gibran",
+    "region": "Другое",
+    "kind": "Философская поэзия",
+    "intro": "Ваши слова — поэзия и притча; нежные и духовные.",
+    "one": "Вы как источник в пустыне — simple, глубокий, утешающий сердца.",
+    "quote": "「你的儿女不是你的儿女，他们是生命对自身渴望的儿女。」"
+  }
+}

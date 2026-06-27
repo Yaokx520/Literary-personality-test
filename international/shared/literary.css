@@ -253,3 +253,4 @@
       .btn:hover { transform: translateY(-1px); }
     }
   
+    .bamboo-flower .flower-label { display: none; }

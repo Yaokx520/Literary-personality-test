@@ -1,0 +1,398 @@
+{
+  "q01": {
+    "q": "Quand la pluie frappe la fenêtre la nuit, vous pensez d'abord à—",
+    "type": "Pensée nocturne",
+    "opts": [
+      "Des lettres jamais envoyées, des mots restés en suspens",
+      "Une vieille route, une silhouette qui s'éloigne",
+      "Combien de gens dans la ville veillent encore",
+      "La pluie elle-même, comme un dialogue sans fin",
+      "Trop bizarre"
+    ]
+  },
+  "q02": {
+    "q": "Si vous écriviez une demi-phrase pour cette humeur, elle s'arrêterait à—",
+    "type": "Humeur",
+    "opts": [
+      "« Voilà. »",
+      "« Quel dommage… »",
+      "« Tant pis. »",
+      "« Attends — ce n'est pas ça. »",
+      "Aucune idée par où commencer"
+    ]
+  },
+  "q03": {
+    "q": "En entrant dans la foule, vous ressemblez plutôt à—",
+    "type": "Dans la foule",
+    "opts": [
+      "Un observateur froid qui note",
+      "Quelqu'un facilement touché ou blessé",
+      "Un passant poli et distant",
+      "Celui qui trame des histoires en secret",
+      "Aucune idée"
+    ]
+  },
+  "q04": {
+    "q": "Un bon livre interrompu à mi-chemin — vous pensez—",
+    "type": "Notes de lecture",
+    "opts": [
+      "Il faut un endroit calme pour le finir",
+      "S'arrêter au suspense laisse un meilleur arrière-goût",
+      "Que fait ce personnage en ce moment ?",
+      "Marquer cette page — j'y reviendrai",
+      "Esprit complètement vide"
+    ]
+  },
+  "q05": {
+    "q": "Le mot « nostalgie » évoque d'abord non un lieu, mais—",
+    "type": "Nostalgie",
+    "opts": [
+      "Un ton auquel on ne peut plus revenir",
+      "Vieilles choses, vieux sons, vieilles odeurs",
+      "Votre jeune moi, brusque et sincère",
+      "Le temps lui-même qui recule",
+      "De quoi parle-t-on ?"
+    ]
+  },
+  "q06": {
+    "q": "Quel silence connaissez-vous le mieux—",
+    "type": "Silence",
+    "opts": [
+      "Deux personnes silencieuses, mais qui se comprennent",
+      "Ces secondes de lucidité dans le bruit",
+      "Le long moment après avoir avalé ses mots",
+      "Vouloir parler sans trouver le mot juste",
+      "Fuir d'abord, réfléchir après"
+    ]
+  },
+  "q07": {
+    "q": "Quand vous écrivez, la première chose qui tombe est souvent—",
+    "type": "À la plume",
+    "opts": [
+      "Une question qui ne cède pas",
+      "Une scène concrète : fenêtre, lampe, pluie",
+      "Un vers sans début ni fin",
+      "Une idée étrange mais captivante",
+      "Peu importe, n'importe lequel"
+    ]
+  },
+  "q08": {
+    "q": "Quand la peine ne peut se dire, vous—",
+    "type": "Retenue",
+    "opts": [
+      "L'écrivez ou la retournez en silence",
+      "Faites semblant et continuez la vie",
+      "Vous éloignez jusqu'à ce que ça coule",
+      "Riez soudain pour détourner l'ambiance",
+      "Je suis juste là pour faire nombre"
+    ]
+  },
+  "q09": {
+    "q": "Quelle lumière vous détend le plus facilement—",
+    "type": "Lumière",
+    "opts": [
+      "Le crépuscule, le ciel entre clair et sombre",
+      "La première lumière dans la brume du matin",
+      "Le cercle chaud d'une lampe la nuit",
+      "Le blanc de midi, trop cru pour se cacher",
+      "Trop bizarre"
+    ]
+  },
+  "q10": {
+    "q": "Si vous vous compariez à une saison, vous seriez plutôt—",
+    "type": "Saisons",
+    "opts": [
+      "Fin printemps : abondance déjà teintée de déclin",
+      "Long été : lourd, interminable, réticent à partir",
+      "Profond automne : net, clair, un peu rétrospectif",
+      "Fin d'hiver : froid, immobile, mais porteur de renouveau",
+      "Aucune idée par où commencer"
+    ]
+  },
+  "q11": {
+    "q": "En apprenant une catastrophe lointaine, votre première réaction—",
+    "type": "Nouvelles lointaines",
+    "opts": [
+      "Demander pourquoi, refuser d'accepter facilement",
+      "Un cœur lourd qui met longtemps à se relever",
+      "Se taire et recomposer les détails",
+      "Trouver cela absurde, sans pouvoir en rire",
+      "Aucune idée"
+    ]
+  },
+  "q12": {
+    "q": "Une belle histoire — par où voudriez-vous qu'elle commence—",
+    "type": "Premier trait",
+    "opts": [
+      "Un petit fait qui reflète toute une époque",
+      "Une rencontre où l'atmosphère précède l'intrigue",
+      "Une énigme ou un détail déplacé",
+      "L'instant où le quotidien se fissure",
+      "Esprit complètement vide"
+    ]
+  },
+  "q13": {
+    "q": "En disant adieu à un ami, vous—",
+    "type": "Adieu",
+    "opts": [
+      "Dites peu, mais regardez une fois de plus",
+      "Des mots légers pour couvrir le poids",
+      "Parlez soudain d'une chose sans rapport",
+      "Faites de « au revoir » un « à bientôt »",
+      "De quoi parle-t-on ?"
+    ]
+  },
+  "q14": {
+    "q": "Au réveil d'un rêve, sur l'oreiller reste souvent—",
+    "type": "Au réveil",
+    "opts": [
+      "Une émotion sans nom",
+      "Une image nette, comme une vieille photo",
+      "Une réplique du rêve, encore mémorisée",
+      "Seulement le vide, mais un sentiment de perte",
+      "Fuir d'abord, réfléchir après"
+    ]
+  },
+  "q15": {
+    "q": "À un coin de rue où la lumière est juste, vous—",
+    "type": "Coin de rue",
+    "opts": [
+      "Vous arrêtez pour voir la foule et les ombres",
+      "Pensez à quelqu'un d'autrefois, sans lien avec l'instant",
+      "Sortez le téléphone, craignant de ne pas saisir l'ambiance",
+      "Sentez que ce moment ne doit pas être troublé",
+      "Peu importe, n'importe lequel"
+    ]
+  },
+  "q16": {
+    "q": "Votre premier instinct devant « l'absurde » est—",
+    "type": "L'absurde",
+    "opts": [
+      "L'état normal des choses — pas de surprise",
+      "Le vide sous une surface splendide",
+      "Une blague froide du destin",
+      "Celui qui se cache derrière l'absurde",
+      "Je suis juste là pour faire nombre"
+    ]
+  },
+  "q17": {
+    "q": "Si vous deviez renoncer à une chose, vous lâcheriez le moins—",
+    "type": "Choix",
+    "opts": [
+      "Le courage de dire la vérité",
+      "La sensibilité et l'attachement à la beauté",
+      "Les liens avec quelques êtres choisis",
+      "La place pour penser par soi-même",
+      "Trop bizarre"
+    ]
+  },
+  "q18": {
+    "q": "Seul, ce que vous préférez, c'est—",
+    "type": "Solitude",
+    "opts": [
+      "Ne rien faire, laisser le temps couler",
+      "Lire, écouter le vent, vous parler",
+      "Mettre de l'ordre dans les petits jours",
+      "Laisser errer la pensée, noter des idées",
+      "Aucune idée par où commencer"
+    ]
+  },
+  "q19": {
+    "q": "Si vous ne pouviez garder que parler ou écrire—",
+    "type": "Expression",
+    "opts": [
+      "Écrire. À l'oral, les mots se déforment",
+      "Parler. Écrire est trop lent pour le cœur",
+      "Peu des deux — le silence est plus honnête",
+      "Autrement : dessiner, marcher ou simplement voir",
+      "Aucune idée"
+    ]
+  },
+  "q20": {
+    "q": "Quel type de phrase vous touche le plus facilement ?",
+    "type": "Goût des mots",
+    "opts": [
+      "Directe, tranchante, avec une pointe",
+      "Calme, dense, comme un long plan",
+      "Froide, belle, avec un peu de distance",
+      "Abstraite, sautillante, qui fait penser",
+      "Esprit complètement vide"
+    ]
+  },
+  "q21": {
+    "q": "Dans une équipe, vous jouez le plus souvent—",
+    "type": "Collaboration",
+    "opts": [
+      "Celui qui pointe les problèmes",
+      "Celui qui adoucit l'ambiance",
+      "Celui qui travaille en silence",
+      "Celui qui propose des idées bizarres",
+      "De quoi parle-t-on ?"
+    ]
+  },
+  "q22": {
+    "q": "Un après-midi vide — vous remarquez d'abord—",
+    "type": "Après-midi",
+    "opts": [
+      "La lumière glissant lentement sur le sol",
+      "Des bruits lointains et faibles de la ville",
+      "Ce que vous n'avez pas encore achevé",
+      "Le temps qui soudain ralentit",
+      "Fuir d'abord, réfléchir après"
+    ]
+  },
+  "q23": {
+    "q": "Un vieux sophora au bord de la route — vous—",
+    "type": "Route ancienne",
+    "opts": [
+      "Vous reposez sous lui, écoutant le vent raconter",
+      "Glissez une feuille dans des pages inachevées",
+      "Vous souvenez d'un adieu et restez longtemps",
+      "Continuez sans vous retourner",
+      "Peu importe, n'importe lequel"
+    ]
+  },
+  "q24": {
+    "q": "Le papier de la fenêtre frémit au vent, comme une page non lue. Vous—",
+    "type": "Papier de fenêtre",
+    "opts": [
+      "Le retenez, craignant qu'il s'envole",
+      "Le laissez bruire en fond",
+      "Ouvrez la fenêtre et laissez entrer le vent",
+      "Fermez bien et allumez la lampe",
+      "Je suis juste là pour faire nombre"
+    ]
+  },
+  "q25": {
+    "q": "Quand monte la vapeur du thé, vous pensez à—",
+    "type": "Fumée du thé",
+    "opts": [
+      "De vieux amis autour du feu, peu de mots",
+      "Être seul, propice à écrire",
+      "La vie comme le thé : amère d'abord",
+      "Le thé refroidit et les gens se dispersent",
+      "Trop bizarre"
+    ]
+  },
+  "q26": {
+    "q": "En voyant les oies voler vers le sud, au fond—",
+    "type": "Oies du sud",
+    "opts": [
+      "La pensée du pays natal, sans la dire",
+      "Le monde vaste, le moi petit",
+      "L'envie de les suivre et voir loin",
+      "Casser un roseau pour l'offrir au voyageur",
+      "Aucune idée par où commencer"
+    ]
+  },
+  "q27": {
+    "q": "La cloche du temple ancien — son écho dans la vallée. Vous—",
+    "type": "Cloche du temple",
+    "opts": [
+      "Écoutez mains jointes jusqu'à la fin",
+      "Vous souvenez d'une phrase inachevée",
+      "Partez sans troubler le silence",
+      "Poussez la porte et empruntez un livre",
+      "Aucune idée"
+    ]
+  },
+  "q28": {
+    "q": "La lune filtrant par le papier, c'est comme—",
+    "type": "Clair de lune",
+    "opts": [
+      "Une lettre jamais envoyée, pliée dans la manche",
+      "D'anciennes années soudain limpides",
+      "Un petit chemin vers l'inconnu",
+      "Du mercure versé — lumière partout",
+      "Esprit complètement vide"
+    ]
+  },
+  "q29": {
+    "q": "Voulant confier votre cœur, au final vous—",
+    "type": "Secrets du cœur",
+    "opts": [
+      "L'écrivez et le confiez au vent de printemps",
+      "Le dites à un confident, en peu de mots",
+      "Le ravalez en un long soupir",
+      "Le dites aux monts et aux rivières — sans réponse",
+      "De quoi parle-t-on ?"
+    ]
+  },
+  "q30": {
+    "q": "Au milieu d'un livre, soudain vous ne voulez plus lire—",
+    "type": "Détour · Pages",
+    "opts": [
+      "Le fermer et revenir un autre jour",
+      "Sauter à la dernière page pour voir la fin",
+      "Changer de livre — aucun ne sera fini",
+      "Fixer la page de garde",
+      "Fuir d'abord, réfléchir après"
+    ]
+  },
+  "q31": {
+    "q": "Dans l'ascenseur avec quelqu'un vu une fois—",
+    "type": "Détour · Rencontre",
+    "opts": [
+      "Faire semblant de regarder le téléphone",
+      "Incliner légèrement la tête, tous deux silencieux",
+      "Vouloir parler puis ravaler",
+      "Se souvenir du nom mais feindre l'inconnu",
+      "Peu importe, n'importe lequel"
+    ]
+  },
+  "q32": {
+    "q": "Vous recevez un message sans contexte—",
+    "type": "Détour · Message",
+    "opts": [
+      "Le relire trois fois, devinant l'expéditeur",
+      "Ne pas répondre — attendre une explication",
+      "Répondre par un point d'interrogation",
+      "Supposer une erreur et balayer",
+      "Je suis juste là pour faire nombre"
+    ]
+  },
+  "q33": {
+    "q": "Un vieux ticket glissé dans le carnet—",
+    "type": "Détour · Souvenir",
+    "opts": [
+      "Reconstituer ce jour par la date",
+      "Le remettre et continuer autre chose",
+      "Le jeter pour ne pas évoquer",
+      "Le photographier puis oublier",
+      "Trop bizarre"
+    ]
+  },
+  "q34": {
+    "q": "Si vous ne pouviez laisser qu'une ligne sur la garde—",
+    "type": "Question finale",
+    "opts": [
+      "« Il y a ici une vérité, mais les mots m'échappent. »",
+      "« L'homme vit pour vivre. »",
+      "« Big Brother is watching you »",
+      "« So it goes. »",
+      "Aucune idée par où commencer"
+    ]
+  },
+  "q35": {
+    "q": "Dernière question : comment aimeriez-vous être mal lu—",
+    "type": "Question finale",
+    "opts": [
+      "Qu'on y lise de la chaleur dans le silence",
+      "Qu'on y lise une arête entre les mots",
+      "Qu'on y lise l'artifice de la structure",
+      "Qu'on y lise de nouvelles possibilités dans l'erreur",
+      "Aucune idée"
+    ]
+  },
+  "q36": {
+    "q": "Dernière question : si la littérature est une fenêtre, vous voulez qu'elle—",
+    "type": "Question finale",
+    "opts": [
+      "Montre les autres et vous-même",
+      "Se balance au vent sans se fermer",
+      "Ne s'ouvre qu'une fente — suffisant",
+      "S'ouvre grand et laisse entrer la pluie",
+      "Esprit complètement vide"
+    ]
+  }
+}

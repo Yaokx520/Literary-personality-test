@@ -1,0 +1,398 @@
+{
+  "q01": {
+    "q": "Cuando la lluvia golpea la ventana de noche, lo primero que piensas suele ser—",
+    "type": "Pensamiento nocturno",
+    "opts": [
+      "Cartas no enviadas y palabras no dichas",
+      "Un camino antiguo, una figura que se aleja",
+      "Cuánta gente en la ciudad sigue despierta",
+      "La lluvia misma, como un diálogo sin final",
+      "Qué raro"
+    ]
+  },
+  "q02": {
+    "q": "Si escribieras media frase de este ánimo, se detendría en—",
+    "type": "Estado de ánimo",
+    "opts": [
+      "«Así es.»",
+      "«Qué lástima…»",
+      "«Que sea.»",
+      "«Espera, esto no cuadra.»",
+      "Sin idea por dónde empezar"
+    ]
+  },
+  "q03": {
+    "q": "Al entrar en la multitud, eres más como—",
+    "type": "Entre la multitud",
+    "opts": [
+      "Un observador frío que anota",
+      "Alguien fácilmente conmovido o herido",
+      "Un transeúnte cortés y distante",
+      "Quien teje historias en secreto",
+      "Ni idea"
+    ]
+  },
+  "q04": {
+    "q": "Si interrumpen un buen libro a mitad, piensas—",
+    "type": "Notas de lectura",
+    "opts": [
+      "Hay que buscar un rincón tranquilo para acabarlo",
+      "Parar en el suspense deja mejor sabor",
+      "¿Qué estará haciendo ahora ese personaje?",
+      "Marcar esta página: volveré",
+      "Mente en blanco"
+    ]
+  },
+  "q05": {
+    "q": "La palabra «nostalgia» evoca primero no un lugar, sino—",
+    "type": "Nostalgia",
+    "opts": [
+      "Un tono al que ya no se puede volver",
+      "Objetos, sonidos y olores viejos",
+      "Tu yo adolescente, brusco y sincero",
+      "El tiempo mismo retrocediendo",
+      "¿De qué va esto?"
+    ]
+  },
+  "q06": {
+    "q": "¿Qué silencio conoces mejor—",
+    "type": "Silencio",
+    "opts": [
+      "Dos personas calladas, pero entendiéndose",
+      "Esos segundos de lucidez en un lugar ruidoso",
+      "Lo largo que queda tras tragarse las palabras",
+      "Querer hablar y no hallar la palabra exacta",
+      "Huir primero, pensar después"
+    ]
+  },
+  "q07": {
+    "q": "Al escribir, lo primero que cae suele ser—",
+    "type": "En la pluma",
+    "opts": [
+      "Una pregunta que no cede",
+      "Una escena concreta: ventana, lámpara, lluvia",
+      "Un verso sin principio ni fin",
+      "Una premisa extraña pero fascinante",
+      "Lo que sea, da igual"
+    ]
+  },
+  "q08": {
+    "q": "Cuando la injusticia no cabe en palabras, sueles—",
+    "type": "Contención",
+    "opts": [
+      "Escribirla o repasarla en silencio",
+      "Fingir que nada pasa y seguir el día",
+      "Alejarte de la gente hasta que baje",
+      "Reír de pronto para cambiar el ambiente",
+      "Solo vengo de relleno"
+    ]
+  },
+  "q09": {
+    "q": "¿Qué luz te relaja con más facilidad—",
+    "type": "Luz",
+    "opts": [
+      "El crepúsculo, el cielo entre claro y oscuro",
+      "La primera luz entre la niebla matinal",
+      "El círculo cálido de una lámpara nocturna",
+      "El blanco del mediodía, demasiado directo",
+      "Qué raro"
+    ]
+  },
+  "q10": {
+    "q": "Si te compararas con una estación, estarías más cerca de—",
+    "type": "Estaciones",
+    "opts": [
+      "Finales de primavera: plenitud ya con decadencia",
+      "Verano largo: húmedo, interminable, renuente a irse",
+      "Otoño profundo: frío, claro, con mirada atrás",
+      "Invierno tardío: duro, quieto, pero con renacer",
+      "Sin idea por dónde empezar"
+    ]
+  },
+  "q11": {
+    "q": "Al oír una catástrofe lejana, tu primera reacción es más—",
+    "type": "Noticias lejanas",
+    "opts": [
+      "Preguntar el porqué, no aceptar fácil",
+      "Un nudo en el pecho que tarda en irse",
+      "Callar y encajar los detalles uno a uno",
+      "Encontrarlo absurdo, sin poder reírse",
+      "Ni idea"
+    ]
+  },
+  "q12": {
+    "q": "Una buena historia — ¿por dónde querrías que empezara—",
+    "type": "Primer trazo",
+    "opts": [
+      "Un asunto menor que refleje toda una época",
+      "Un encuentro casual donde el clima va antes que la trama",
+      "Un acertijo o un detalle fuera de lugar",
+      "El instante en que lo cotidiano se resquebraja",
+      "Mente en blanco"
+    ]
+  },
+  "q13": {
+    "q": "Al despedirte de un amigo, sueles decir o hacer—",
+    "type": "Despedida",
+    "opts": [
+      "Poco, pero mirar una vez más",
+      "Palabras ligeras para cubrir lo pesado",
+      "Contar de pronto algo sin relación",
+      "Decir «adiós» como «hasta pronto»",
+      "¿De qué va esto?"
+    ]
+  },
+  "q14": {
+    "q": "Al despertar de un sueño, en la almohada queda a menudo—",
+    "type": "Al despertar",
+    "opts": [
+      "Una emoción sin nombre",
+      "Una imagen clara, como foto antigua",
+      "Una frase del sueño, aún recordada",
+      "Solo vacío, pero con sensación de pérdida",
+      "Huir primero, pensar después"
+    ]
+  },
+  "q15": {
+    "q": "En una esquina donde la luz cae justo, tú—",
+    "type": "Esquina",
+    "opts": [
+      "Te detienes a mirar gente y sombras",
+      "Piensas en alguien antiguo, ajeno a este instante",
+      "Sacas el móvil, temiendo no captar el ambiente",
+      "Sientes que este momento no debe interrumpirse",
+      "Lo que sea, da igual"
+    ]
+  },
+  "q16": {
+    "q": "Tu primer instinto ante «lo absurdo» es—",
+    "type": "Lo absurdo",
+    "opts": [
+      "Lo normal del mundo — no hay que asombrarse",
+      "Vacío bajo una superficie espléndida",
+      "Un chiste frío del destino",
+      "Quien usa lo absurdo como hoja de parra",
+      "Solo vengo de relleno"
+    ]
+  },
+  "q17": {
+    "q": "Si tuvieras que renunciar a una cosa, menos soltarías—",
+    "type": "Elección",
+    "opts": [
+      "El valor de decir la verdad",
+      "La sensibilidad y el apego a la belleza",
+      "Los lazos con unos pocos elegidos",
+      "Espacio para pensar por ti mismo",
+      "Qué raro"
+    ]
+  },
+  "q18": {
+    "q": "En soledad, lo que más disfrutas es—",
+    "type": "Soledad",
+    "opts": [
+      "No hacer nada, dejar pasar el tiempo",
+      "Leer, escuchar el viento, hablar contigo",
+      "Ordenar los días pequeños",
+      "Dejar vagar la mente y anotar ideas sueltas",
+      "Sin idea por dónde empezar"
+    ]
+  },
+  "q19": {
+    "q": "Si solo pudieras quedarte con hablar o escribir—",
+    "type": "Expresión",
+    "opts": [
+      "Escribir. Al hablar, las palabras se distorsionan",
+      "Hablar. Escribir es lento para el latido",
+      "Poco de ambos — el silencio es más honesto",
+      "Otra vía: dibujar, caminar o solo mirar",
+      "Ni idea"
+    ]
+  },
+  "q20": {
+    "q": "¿Qué tipo de frase te conmueve más fácilmente?",
+    "type": "Gusto literario",
+    "opts": [
+      "Directa, afilada, con una punta",
+      "Serena, densa, como un plano largo",
+      "Fría, bella, con un poco de distancia",
+      "Abstracta, saltarina, que hace pensar",
+      "Mente en blanco"
+    ]
+  },
+  "q21": {
+    "q": "En un equipo, sueles ser—",
+    "type": "Colaboración",
+    "opts": [
+      "Quien señala los problemas",
+      "Quien suaviza el ambiente",
+      "Quien trabaja en silencio",
+      "Quien propone ideas raras",
+      "¿De qué va esto?"
+    ]
+  },
+  "q22": {
+    "q": "En una tarde vacía, lo primero que notas es—",
+    "type": "Tarde vacía",
+    "opts": [
+      "La luz moviéndose lento por el suelo",
+      "Ruidos lejanos y tenues de la ciudad",
+      "Lo que aún no has terminado",
+      "El tiempo que de pronto se vuelve lento",
+      "Huir primero, pensar después"
+    ]
+  },
+  "q23": {
+    "q": "Junto al camino antiguo hay un soplo viejo — tú—",
+    "type": "Camino antiguo",
+    "opts": [
+      "Descansas bajo él, oyendo al viento contar",
+      "Doblas una hoja en manuscritos sin acabar",
+      "Recuerdas una despedida y te detienes mucho",
+      "Sigues caminando sin mirar atrás",
+      "Lo que sea, da igual"
+    ]
+  },
+  "q24": {
+    "q": "El papel de la ventana se mueve al viento, como una página no leída. Tú—",
+    "type": "Papel en la ventana",
+    "opts": [
+      "Lo sujetas, temiendo que vuele",
+      "Lo dejas crujir como fondo",
+      "Abres la ventana y dejas entrar el viento",
+      "Cierras bien y enciendes la lámpara",
+      "Solo vengo de relleno"
+    ]
+  },
+  "q25": {
+    "q": "Cuando sube el humo del té, piensas en—",
+    "type": "Humo del té",
+    "opts": [
+      "Viejos amigos junto al fuego, pocas palabras",
+      "Sentarte solo, ideal para escribir",
+      "La vida como té: amarga al principio",
+      "El té se enfría y la gente se dispersa",
+      "Qué raro"
+    ]
+  },
+  "q26": {
+    "q": "Al ver gansos volar al sur, en el fondo sientes—",
+    "type": "Gansos del sur",
+    "opts": [
+      "Añoranza de la patria, sin decirla",
+      "El mundo vasto, el yo pequeño",
+      "Ganas de ir con ellos y ver lejos",
+      "Romper un junco para regalar al caminante",
+      "Sin idea por dónde empezar"
+    ]
+  },
+  "q27": {
+    "q": "La campana del templo antiguo — su eco en el valle. Tú—",
+    "type": "Campana del templo",
+    "opts": [
+      "Escuchas con manos juntas hasta que cesa",
+      "Recuerdas una frase que no terminaste",
+      "Te vas, sin perturbar la quietud",
+      "Empujas la puerta y pides un libro",
+      "Ni idea"
+    ]
+  },
+  "q28": {
+    "q": "La luna filtrándose por el papel, es como—",
+    "type": "Claro de luna",
+    "opts": [
+      "Una carta no enviada, doblada en la manga",
+      "Años viejos que de pronto se aclaran",
+      "Un sendero pequeño hacia lo desconocido",
+      "Mercurio derramado — luz por doquier",
+      "Mente en blanco"
+    ]
+  },
+  "q29": {
+    "q": "Queriendo contar tu corazón a alguien, al final—",
+    "type": "Secretos del corazón",
+    "opts": [
+      "Lo escribes y se lo das al viento de primavera",
+      "Se lo dices a un confidente, en pocas palabras",
+      "Lo tragas y queda un suspiro largo",
+      "Se lo dices a montes y ríos — sin respuesta",
+      "¿De qué va esto?"
+    ]
+  },
+  "q30": {
+    "q": "A mitad de un libro, de pronto no quieres seguir—",
+    "type": "Desvío · Páginas",
+    "opts": [
+      "Lo cierras y vuelves otro día",
+      "Saltas a la última página a espiar el final",
+      "Cambias de libro — ninguno se acabará",
+      "Miras fijamente la portada",
+      "Huir primero, pensar después"
+    ]
+  },
+  "q31": {
+    "q": "En el ascensor con alguien a quien viste una vez—",
+    "type": "Desvío · Encuentro",
+    "opts": [
+      "Finges mirar el móvil",
+      "Asientes levemente, ambos en silencio",
+      "Quieres decir algo y lo tragas",
+      "Recuerdas su nombre pero actúas como desconocido",
+      "Lo que sea, da igual"
+    ]
+  },
+  "q32": {
+    "q": "Recibes un mensaje sin contexto—",
+    "type": "Desvío · Mensaje",
+    "opts": [
+      "Lo lees tres veces, adivinando quién es",
+      "No respondes — esperas explicación",
+      "Respondes con un signo de interrogación",
+      "Supones error y lo deslizas",
+      "Solo vengo de relleno"
+    ]
+  },
+  "q33": {
+    "q": "En la libreta hay un ticket viejo—",
+    "type": "Desvío · Recuerdo",
+    "opts": [
+      "Reconstruyes ese día por la fecha",
+      "Lo vuelves a guardar y sigues escribiendo",
+      "Lo tiras para no evocar",
+      "Lo fotografías y luego olvidas",
+      "Qué raro"
+    ]
+  },
+  "q34": {
+    "q": "Si solo pudieras dejar una línea en la guarda, eliges—",
+    "type": "Pregunta final",
+    "opts": [
+      "«Hay verdad aquí, pero al querer decirla, se pierde.»",
+      "«El hombre vive por vivir.»",
+      "«Big Brother is watching you»",
+      "«So it goes.»",
+      "Sin idea por dónde empezar"
+    ]
+  },
+  "q35": {
+    "q": "Última pregunta: ¿cómo te gustaría ser malinterpretado—",
+    "type": "Pregunta final",
+    "opts": [
+      "Que lean calor en el silencio",
+      "Que lean filo entre las palabras",
+      "Que lean artificio en la estructura",
+      "Que lean nuevas posibilidades en el error",
+      "Ni idea"
+    ]
+  },
+  "q36": {
+    "q": "Última pregunta: si la literatura es una ventana, quieres que—",
+    "type": "Pregunta final",
+    "opts": [
+      "Muestre a otros y a ti mismo",
+      "Se meza al viento sin cerrarse",
+      "Se abra solo un poco — basta",
+      "Se abra de par en par y entre la lluvia",
+      "Mente en blanco"
+    ]
+  }
+}

@@ -5,11 +5,12 @@ import json
 import os
 import re
 import shutil
+import subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'packs')
-QUESTIONS_SRC = os.path.join(ROOT, 'literary_questions.js')
-DATA_SRC = os.path.join(ROOT, 'literary_data.js')
+INTL = os.path.dirname(os.path.abspath(__file__))
+CSS_SRC = os.path.join(ROOT, 'index.html')
 
 LANGS = {
     'en': {'name': 'English', 'html_lang': 'en', 'dir': 'ltr'},
@@ -251,64 +252,14 @@ UI = {
     },
 }
 
-# Question text translations keyed by Chinese q text -> per lang
-# For scale: translate by question id patterns from source file
-Q_TRANSLATIONS = {
-    'en': {
-        '夜雨敲窗的时候，你最先想起的常常是——': 'When rain taps the window at night, you first think of—',
-        '若把此刻心绪写成半句话，它多半会停在——': 'If you wrote half a sentence for this mood, it would stop at—',
-        '走进人群，你更像——': 'Walking into a crowd, you are more like—',
-        '一本好书翻至中途被打断，你心里会闪过——': 'When a good book is interrupted midway, you think—',
-        '「乡愁」一词，先唤起的并非地名，而是——': 'The word "homesickness" first brings not a place, but—',
-        '你更熟稔哪一种沉默——': 'Which silence do you know best—',
-        '提笔写字时，最先落下的往往是——': 'When you write, the first thing to land is often—',
-        '这也太奇怪了': 'That is too weird',
-        '无从下手': 'No idea where to start',
-        '我不道啊': 'I have no clue',
-        '大脑一片空白': 'My mind goes blank',
-        '题在说什么？': 'What is this asking?',
-        '随便吧，都可以': 'Whatever, anything works',
-        '先逃了再说': 'Escape first, think later',
-    },
-}
 
-
-def load_writers():
-    with open(DATA_SRC, encoding='utf-8') as f:
-        src = f.read()
-    m = re.search(r'const WRITERS = \[([\s\S]*?)\];', src)
-    return 'const WRITERS = [' + m.group(1) + '];'
-
-
-def load_questions_js():
-    with open(QUESTIONS_SRC, encoding='utf-8') as f:
-        return f.read()
-
-
-def translate_questions(questions_js, lang):
-    if lang == 'zh':
-        return questions_js
-    out = questions_js
-    tr = Q_TRANSLATIONS.get(lang, Q_TRANSLATIONS.get('en', {}))
-    for zh, translated in tr.items():
-        out = out.replace(zh, translated)
-    # Replace common absurd options across langs
-    absurd = {
-        'es': {'这也太奇怪了': 'Qué raro', '无从下手': 'Sin idea', '我不道啊': 'Ni idea', '大脑一片空白': 'Mente en blanco', '题在说什么？': '¿De qué va?', '随便吧，都可以': 'Lo que sea', '先逃了再说': 'Huir primero'},
-        'fr': {'这也太奇怪了': 'Trop bizarre', '无从下手': 'Aucune idée', '我不道啊': 'Aucune idée', '大脑一片空白': 'Esprit vide', '题在说什么？': 'De quoi parle-t-on ?', '随便吧，都可以': 'Peu importe', '先逃了再说': 'Fuir d\'abord'},
-        'pt': {'这也太奇怪了': 'Muito estranho', '无从下手': 'Sem ideia', '我不道啊': 'Sei lá', '大脑一片空白': 'Mente vazia', '题在说什么？': 'Do que se trata?', '随便吧，都可以': 'Tanto faz', '先逃了再说': 'Fugir primeiro'},
-        'ja': {'这也太奇怪了': '変すぎる', '无从下手': '書けない', '我不道啊': 'わからない', '大脑一片空白': '真っ白', '题在说什么？': '何の話？', '随便吧，都可以': 'どれでも', '先逃了再说': 'とりあえず逃げる'},
-        'ru': {'这也太奇怪了': 'Слишком странно', '无从下手': 'Не знаю с чего', '我不道啊': 'Без понятия', '大脑一片空白': 'Пустота в голове', '题在说什么？': 'О чём это?', '随便吧，都可以': 'Любой', '先逃了再说': 'Сначала сбежать'},
-    }
-    if lang in absurd:
-        for zh, t in absurd[lang].items():
-            out = out.replace(zh, t)
-    if lang != 'en':
-        for zh, t in Q_TRANSLATIONS.get('en', {}).items():
-            if zh in out:
-                out = out.replace(zh, t)
-    header = f'/* Literary temperament questions · {LANGS[lang]["name"]} */\n'
-    return header + out
+def merge_lang_pack(lang):
+    dest = os.path.join(OUT, lang)
+    subprocess.run(
+        ['node', os.path.join(INTL, 'merge_pack.js'), lang, dest],
+        check=True,
+        cwd=INTL,
+    )
 
 
 def emit_locale_js(lang):
@@ -414,34 +365,30 @@ def emit_index_html(lang):
 
 
 def main():
-    questions_src = load_questions_js()
-    writers_js = load_writers()
-    css_src = os.path.join(ROOT, 'index.html')
-    with open(css_src, encoding='utf-8') as f:
+    with open(CSS_SRC, encoding='utf-8') as f:
         html = f.read()
     m = re.search(r'(<style>[\s\S]*?</style>)', html)
     css_block = m.group(1) if m else '<style></style>'
     css_content = css_block.replace('<style>', '').replace('</style>', '')
+    if '.bamboo-flower .flower-label' not in css_content:
+        css_content += '\n    .bamboo-flower .flower-label { display: none; }\n'
 
     shared = os.path.join(OUT, '..', 'shared')
     os.makedirs(shared, exist_ok=True)
     with open(os.path.join(shared, 'literary.css'), 'w', encoding='utf-8') as f:
         f.write(css_content)
-    shutil.copy2(os.path.join(os.path.dirname(__file__), 'literary_test_i18n.js'),
+    shutil.copy2(os.path.join(INTL, 'literary_test_i18n.js'),
                    os.path.join(shared, 'literary_test_i18n.js'))
 
     manifest = []
     for lang in LANGS:
         dest = os.path.join(OUT, lang)
         os.makedirs(dest, exist_ok=True)
+        merge_lang_pack(lang)
         with open(os.path.join(dest, 'index.html'), 'w', encoding='utf-8') as f:
             f.write(emit_index_html(lang))
         with open(os.path.join(dest, 'locale.js'), 'w', encoding='utf-8') as f:
             f.write(emit_locale_js(lang))
-        with open(os.path.join(dest, 'writers.js'), 'w', encoding='utf-8') as f:
-            f.write(writers_js)
-        with open(os.path.join(dest, 'questions.js'), 'w', encoding='utf-8') as f:
-            f.write(translate_questions(questions_src, lang))
         manifest.append(lang)
         print('Generated', lang)
 

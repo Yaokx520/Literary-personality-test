@@ -1,0 +1,398 @@
+{
+  "q01": {
+    "q": "When rain taps the window at night, you first think of—",
+    "type": "Night thoughts",
+    "opts": [
+      "Letters never sent, and words left unsaid",
+      "An old road, a figure receding into distance",
+      "How many people in the city are still awake",
+      "The rain itself, like a dialogue without end",
+      "That is too weird"
+    ]
+  },
+  "q02": {
+    "q": "If you wrote half a sentence for this mood, it would stop at—",
+    "type": "Mood",
+    "opts": [
+      "\"So that's how it is.\"",
+      "\"What a pity…\"",
+      "\"Let it be.\"",
+      "\"Wait — that's not right.\"",
+      "No idea where to start"
+    ]
+  },
+  "q03": {
+    "q": "Walking into a crowd, you are more like—",
+    "type": "In the crowd",
+    "opts": [
+      "A cool observer taking notes",
+      "Someone easily moved or stung",
+      "A polite, distant passerby",
+      "A storyteller arranging plots in secret",
+      "I have no clue"
+    ]
+  },
+  "q04": {
+    "q": "When a good book is interrupted midway, you think—",
+    "type": "Reading notes",
+    "opts": [
+      "I need a quiet place to finish it",
+      "Stopping at the cliffhanger makes the aftertaste linger",
+      "What is that character doing right now?",
+      "Mark this page — I'll come back",
+      "My mind goes blank"
+    ]
+  },
+  "q05": {
+    "q": "The word \"homesickness\" first brings not a place, but—",
+    "type": "Homesickness",
+    "opts": [
+      "A tone you can never return to",
+      "Old objects, old sounds, old scents",
+      "Your reckless, sincere younger self",
+      "Time itself rolling backward",
+      "What is this asking?"
+    ]
+  },
+  "q06": {
+    "q": "Which silence do you know best—",
+    "type": "Silence",
+    "opts": [
+      "Two people saying nothing, yet understanding",
+      "Those few seconds of clarity in a noisy room",
+      "The long stretch after swallowing your words",
+      "Wanting to speak but finding no exact word",
+      "Escape first, think later"
+    ]
+  },
+  "q07": {
+    "q": "When you write, the first thing to land is often—",
+    "type": "At the pen",
+    "opts": [
+      "A question that refuses compromise",
+      "A concrete scene: window, lamp, rain",
+      "A line of poetry without beginning or end",
+      "A strange yet captivating premise",
+      "Whatever, anything works"
+    ]
+  },
+  "q08": {
+    "q": "When hurt runs too deep to speak, you usually—",
+    "type": "Restraint",
+    "opts": [
+      "Write it down, or turn it over in your mind",
+      "Pretend nothing happened and carry on",
+      "Withdraw from people until the feeling sinks",
+      "Laugh suddenly to change the mood",
+      "I'm just here for the ride"
+    ]
+  },
+  "q09": {
+    "q": "Which light relaxes you most easily—",
+    "type": "Light",
+    "opts": [
+      "Dusk fading, the sky neither bright nor dark",
+      "First light through morning mist",
+      "The warm circle of a desk lamp at night",
+      "Midday white, too blunt to hide in",
+      "That is too weird"
+    ]
+  },
+  "q10": {
+    "q": "If you compared yourself to a season, you are closer to—",
+    "type": "Seasons",
+    "opts": [
+      "Late spring: abundance already tinged with decay",
+      "Long summer: humid, endless, unwilling to leave",
+      "Deep autumn: crisp, clear, slightly looking back",
+      "Late winter: cold, still, yet holding renewal",
+      "No idea where to start"
+    ]
+  },
+  "q11": {
+    "q": "Hearing of disaster far away, your first reaction is more like—",
+    "type": "Distant news",
+    "opts": [
+      "Demanding the cause, refusing easy acceptance",
+      "A sinking heart that takes long to recover",
+      "Silence first, piecing details together",
+      "Finding it absurd, yet unable to laugh it off",
+      "I have no clue"
+    ]
+  },
+  "q12": {
+    "q": "A good story — where would you want it to begin—",
+    "type": "Opening lines",
+    "opts": [
+      "A small matter that mirrors an entire age",
+      "A chance meeting where mood precedes plot",
+      "A riddle, or one irregular detail",
+      "The instant everyday life cracks open",
+      "My mind goes blank"
+    ]
+  },
+  "q13": {
+    "q": "Saying goodbye to a friend, you often say or do—",
+    "type": "Farewell",
+    "opts": [
+      "Say little, but look once more",
+      "Light words to cover the weight",
+      "Suddenly mention something unrelated",
+      "Make \"goodbye\" sound like \"until we meet again\"",
+      "What is this asking?"
+    ]
+  },
+  "q14": {
+    "q": "Waking from a dream, what lingers on the pillow is often—",
+    "type": "Waking",
+    "opts": [
+      "An emotion you cannot name",
+      "A clear image, like an old photograph",
+      "A line of dialogue from the dream, still remembered",
+      "Only blankness, yet feeling something lost",
+      "Escape first, think later"
+    ]
+  },
+  "q15": {
+    "q": "At a street corner where the light is just right, you—",
+    "type": "Street corner",
+    "opts": [
+      "Stop and watch the crowd and shadows",
+      "Think of someone old, unrelated to this moment",
+      "Reach for your phone, fearing you cannot capture the mood",
+      "Feel this moment should not be disturbed",
+      "Whatever, anything works"
+    ]
+  },
+  "q16": {
+    "q": "Your first instinct about \"the absurd\" is—",
+    "type": "Absurdity",
+    "opts": [
+      "The normal state of things — no need to be shocked",
+      "Hollowness beneath a gorgeous surface",
+      "A cold joke fate plays on us",
+      "Someone using absurdity as a fig leaf",
+      "I'm just here for the ride"
+    ]
+  },
+  "q17": {
+    "q": "If you had to give up one thing, you would least let go of—",
+    "type": "Choice",
+    "opts": [
+      "The courage to tell the truth",
+      "Acute sensitivity to and attachment to beauty",
+      "Bonds with a few chosen people",
+      "Room to think independently",
+      "That is too weird"
+    ]
+  },
+  "q18": {
+    "q": "Alone, what you enjoy most is—",
+    "type": "Solitude",
+    "opts": [
+      "Doing nothing, letting time pass",
+      "Reading, listening to wind, talking with yourself",
+      "Putting the small days in order",
+      "Letting thoughts wander, noting stray ideas",
+      "No idea where to start"
+    ]
+  },
+  "q19": {
+    "q": "If you could keep only speaking or writing—",
+    "type": "Expression",
+    "opts": [
+      "Writing. Words spoken too easily distort",
+      "Speaking. Writing is too slow for the heartbeat",
+      "Neither much — silence is more honest",
+      "Another way: drawing, walking, or simply watching",
+      "I have no clue"
+    ]
+  },
+  "q20": {
+    "q": "Which kind of sentence moves you more easily?",
+    "type": "Language taste",
+    "opts": [
+      "Direct, sharp, with a sting",
+      "Quiet, weighty, like a long take",
+      "Cool, beautiful, with a little distance",
+      "Abstract, leaping, making you think",
+      "My mind goes blank"
+    ]
+  },
+  "q21": {
+    "q": "In a team, you usually play the role of—",
+    "type": "Collaboration",
+    "opts": [
+      "The one who points out problems",
+      "The one who eases the mood",
+      "The one who works quietly",
+      "The one who proposes odd ideas",
+      "What is this asking?"
+    ]
+  },
+  "q22": {
+    "q": "On an empty afternoon, you first notice—",
+    "type": "Afternoon",
+    "opts": [
+      "Sunlight moving slowly across the floor",
+      "Distant, faint city sounds",
+      "Things you have not yet finished",
+      "Time suddenly slowing down",
+      "Escape first, think later"
+    ]
+  },
+  "q23": {
+    "q": "An old locust tree beside the post road — you would—",
+    "type": "Post road",
+    "opts": [
+      "Rest beneath it, listening to the wind tell old tales",
+      "Fold a leaf into unfinished manuscript pages",
+      "Remember a parting and stop for a long while",
+      "Keep walking without looking back",
+      "Whatever, anything works"
+    ]
+  },
+  "q24": {
+    "q": "Window paper stirred by wind, like an unread page. You—",
+    "type": "Window paper",
+    "opts": [
+      "Reach out to hold it, afraid it will fly away",
+      "Let it rustle as background",
+      "Open the window and let the wind in",
+      "Shut the window tight and light a lamp",
+      "I'm just here for the ride"
+    ]
+  },
+  "q25": {
+    "q": "When tea steam rises, you think of—",
+    "type": "Tea steam",
+    "opts": [
+      "Old friends around the hearth, few words needed",
+      "Sitting alone, perfect for writing",
+      "Life like tea — bitter first, sweet after",
+      "Tea grows cold, and people disperse",
+      "That is too weird"
+    ]
+  },
+  "q26": {
+    "q": "Seeing geese fly south, what stirs in you—",
+    "type": "Returning geese",
+    "opts": [
+      "Thoughts of home, needing no words",
+      "The vast world, the small self",
+      "Wanting to follow the geese and see far places",
+      "Breaking a reed to give a traveler",
+      "No idea where to start"
+    ]
+  },
+  "q27": {
+    "q": "An ancient temple bell — its echo in the valley. You—",
+    "type": "Temple bell",
+    "opts": [
+      "Listen with folded hands until the sound fades",
+      "Remember a line you never finished writing",
+      "Turn and leave, not disturbing the quiet",
+      "Push open the gate and borrow a book",
+      "I have no clue"
+    ]
+  },
+  "q28": {
+    "q": "Moonlight through paper window, like—",
+    "type": "Moonlight",
+    "opts": [
+      "A letter never sent, folded in your sleeve",
+      "Old years and old matters suddenly clear",
+      "A small path leading to the unknown",
+      "Mercury spilled — brightness everywhere",
+      "My mind goes blank"
+    ]
+  },
+  "q29": {
+    "q": "Wanting to tell someone your heart — in the end you—",
+    "type": "Secret heart",
+    "opts": [
+      "Write it into words and give it to the spring wind",
+      "Tell a confidant, in only a few lines",
+      "Swallow it back into a long sigh",
+      "Tell the mountains and rivers — no answer needed",
+      "What is this asking?"
+    ]
+  },
+  "q30": {
+    "q": "Midway through a book, you suddenly don't want to read—",
+    "type": "Detour · Pages",
+    "opts": [
+      "Close it and return another day",
+      "Jump to the last page and peek at the ending",
+      "Switch books — none will be finished anyway",
+      "Stare blankly at the title page",
+      "Escape first, think later"
+    ]
+  },
+  "q31": {
+    "q": "In an elevator with someone you've met once—",
+    "type": "Detour · Encounter",
+    "opts": [
+      "Pretend to check your phone",
+      "Nod slightly, both silent",
+      "Suddenly want to say something, then swallow it",
+      "Remember their name but act like a stranger",
+      "Whatever, anything works"
+    ]
+  },
+  "q32": {
+    "q": "Receiving a message with no context—",
+    "type": "Detour · Message",
+    "opts": [
+      "Read it three times, guessing who sent it",
+      "Don't reply — wait for an explanation",
+      "Reply with a question mark",
+      "Assume it was sent by mistake and swipe away",
+      "I'm just here for the ride"
+    ]
+  },
+  "q33": {
+    "q": "An old ticket stub tucked in your notebook—",
+    "type": "Detour · Keepsake",
+    "opts": [
+      "Trace that day by the date",
+      "Tuck it back and keep writing something else",
+      "Throw it away to avoid nostalgia",
+      "Photograph it, then forget",
+      "That is too weird"
+    ]
+  },
+  "q34": {
+    "q": "If you could leave one line on the flyleaf, you choose—",
+    "type": "Final question",
+    "opts": [
+      "\"There is true meaning here, but words fail once I try to grasp it.\"",
+      "\"People live for the sake of living itself.\"",
+      "\"Big Brother is watching you\"",
+      "\"So it goes.\"",
+      "No idea where to start"
+    ]
+  },
+  "q35": {
+    "q": "Final question: how would you like to be misread—",
+    "type": "Final question",
+    "opts": [
+      "Finding warmth in silence",
+      "Finding edge in the gaps between words",
+      "Finding craft in the structure",
+      "Finding new possibilities in misreading",
+      "I have no clue"
+    ]
+  },
+  "q36": {
+    "q": "Final question: if literature is a window, you want it to—",
+    "type": "Final question",
+    "opts": [
+      "Show others and show yourself",
+      "Sway in the wind but never close",
+      "Open just a crack — enough is enough",
+      "Push wide and let the rain in too",
+      "My mind goes blank"
+    ]
+  }
+}

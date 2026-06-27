@@ -1,0 +1,530 @@
+{
+  "kongzi": {
+    "name": "Confucius",
+    "region": "Chine",
+    "kind": "Philosophie confucéenne",
+    "intro": "Vous valorisez l'ordre, la cultivation et le soin d'autrui ; vous croyez que les mots doivent porter la morale et les idées transformer.",
+    "one": "Vous êtes comme un maître doux cherchant l'éternel dans l'ordre et la bienveillance.",
+    "quote": "「学而时习之，不亦说乎。」"
+  },
+  "zhuangzi": {
+    "name": "Zhuangzi",
+    "region": "Chine",
+    "kind": "Philosophie libre",
+    "intro": "Vous refusez d'être enchaîné par les règles ; vous préférez l'imagination libre et une sagesse contre les convenances.",
+    "one": "Vous êtes comme le vent dans les bois — léger, insaisissable, indéfinissable.",
+    "quote": "「相濡以沫，不如相忘于江湖。」"
+  },
+  "quyuan": {
+    "name": "Qu Yuan",
+    "region": "Chine",
+    "kind": "Mélancolie romantique",
+    "intro": "Vous portez un idéalisme ardent et l'amour du pays ; vos sentiments brûlent d'intensité et de fidélité.",
+    "one": "Vous êtes comme un long chant funèbre — fervent, loyal, refusant de céder.",
+    "quote": "「路漫漫其修远兮，吾将上下而求索。」"
+  },
+  "libai": {
+    "name": "Li Bai",
+    "region": "Chine",
+    "kind": "Romantisme audacieux",
+    "intro": "Vous êtes passionné et expansif ; la vie doit être magnifique et le langage est votre vin et votre épée.",
+    "one": "Vous êtes comme la lune et le vent — libre, lumineux, sans entraves.",
+    "quote": "「天生我材必有用，千金散尽还复来。」"
+  },
+  "dufu": {
+    "name": "Du Fu",
+    "region": "Chine",
+    "kind": "Patriotisme sombre",
+    "intro": "Vous placez le destin personnel dans le torrent de l'histoire ; votre voix est compatissante et grave.",
+    "one": "Vous êtes comme un long poème qui se déploie — stable, lourd, plein de pitié.",
+    "quote": "「国破山河在，城春草木深。」"
+  },
+  "sushi": {
+    "name": "Su Shi",
+    "region": "Chine",
+    "kind": "Lettré insouciant",
+    "intro": "Vous gardez l'humour et l'ouverture dans l'adversité, mêlant talent et chaleur du quotidien.",
+    "one": "Vous êtes comme un arc-en-ciel après la pluie — clair, doux, avec un arrière-goût.",
+    "quote": "「回首向来萧瑟处，归去，也无风雨也无晴。」"
+  },
+  "caoxueqin": {
+    "name": "Cao Xueqin",
+    "region": "Chine",
+    "kind": "Regard social",
+    "intro": "Vous écrivez la chaleur et la froideur humaines et le caprice du destin — fin et désolé.",
+    "one": "Vous êtes comme un miroir de tous les vivants — splendeur et tristesse ensemble.",
+    "quote": "「满纸荒唐言，一把辛酸泪。」"
+  },
+  "luxun": {
+    "name": "Lu Xun",
+    "region": "Chine",
+    "kind": "Réalisme tranchant",
+    "intro": "Vous ressentez le monde avec une douleur aiguë et usez d'un langage tranchant pour éclairer ses contradictions.",
+    "one": "Vous êtes comme un scalpel froid ouvrant l'émotion et le réel.",
+    "quote": "「希望是本无所谓有，无所谓无的。」"
+  },
+  "shencongwen": {
+    "name": "Shen Congwen",
+    "region": "Chine",
+    "kind": "Lyrisme pastoral",
+    "intro": "Vous trouvez ordre et beauté dans le quotidien simple, avec douceur et sérénité.",
+    "one": "Vous êtes comme une rivière tranquille — tiède, paisible, coulant lentement.",
+    "quote": "「凡事都靠一个缘字。」"
+  },
+  "laoshe": {
+    "name": "Lao She",
+    "region": "Chine",
+    "kind": "Réalisme pékinois",
+    "intro": "Vous veillez à la dignité des gens ordinaires ; l'humour cache l'amertume.",
+    "one": "Vous êtes comme une lanterne de ruelle — familière, drôle, pleine de vie.",
+    "quote": "「人是最美的风景。」"
+  },
+  "zhangailing": {
+    "name": "Eileen Chang",
+    "region": "Chine",
+    "kind": "Distance raffinée",
+    "intro": "Vous voyez la nature humaine dans le détail et gardez distance avec élégance.",
+    "one": "Vous avez un tact magnifique et une lucidité qui perce les mondes brillants.",
+    "quote": "「生命是一袭华美的袍，爬满了蚤子。」"
+  },
+  "yuhua": {
+    "name": "Yu Hua",
+    "region": "Chine",
+    "kind": "Survie ironique",
+    "intro": "Vous restez résilient dans l'absurde et l'épreuve, digérant le lourd par l'humour.",
+    "one": "Vous êtes comme une pierre lissée par la vie — silencieuse, difficile à briser.",
+    "quote": "「人是为了活着本身而活着。」"
+  },
+  "murasaki": {
+    "name": "Murasaki Shikibu",
+    "region": "Japon",
+    "kind": "Monogatari délicat",
+    "intro": "Vous écrivez des émotions subtiles et la lumière des strates sociales — prose contenue et longue.",
+    "one": "Vous êtes comme une lumière derrière le washi — délicate, élégante, à demi-dite.",
+    "quote": "「逢えずして恋しき人を待つほどに。」"
+  },
+  "natsume": {
+    "name": "Natsume Soseki",
+    "region": "Japon",
+    "kind": "Introspection moderne",
+    "intro": "Vous traversez tradition et modernité ; votre style est sobre et réfléchi.",
+    "one": "Vous êtes comme un jardin calme où raison et mélancolie se reflètent.",
+    "quote": "「智に働けば角が立つ。」"
+  },
+  "kawabata": {
+    "name": "Yasunari Kawabata",
+    "region": "Japon",
+    "kind": "Esthétique mono no aware",
+    "intro": "Vous êtes sensible à la beauté fugitive ; vous aimez la pureté, la tristesse et le silence.",
+    "one": "Vous êtes comme un feu au pays des neiges — quiet, transparent, un peu froid.",
+    "quote": "「美在于发现者眼中。」"
+  },
+  "mishima": {
+    "name": "Yukio Mishima",
+    "region": "Japon",
+    "kind": "Intensité esthétique",
+    "intro": "Vous poursuivez la beauté formelle et l'intensité spirituelle — contradictoire et éclatant.",
+    "one": "Vous êtes comme une lame trempée — magnifique, dangereuse, refusant la médiocrité.",
+    "quote": "「不被人理解，反而成为我的骄傲。」"
+  },
+  "oe": {
+    "name": "Kenzaburo Oe",
+    "region": "Japon",
+    "kind": "Humanisme antinucléaire",
+    "intro": "Vous vous souciez des faibles et des blessures historiques ; la littérature est éthique et rédemption.",
+    "one": "Vous êtes comme une plaie qui ne se ferme pas — sérieux, responsable, tourné vers la lumière.",
+    "quote": "「人間は自分の言葉で世界をつくる。」"
+  },
+  "murakami": {
+    "name": "Haruki Murakami",
+    "region": "Japon",
+    "kind": "Solitude urbaine",
+    "intro": "Vous circulez entre quotidien et rêve ; la solitude rythme votre pas.",
+    "one": "Vous êtes comme une musique basse — calme, fluide, un peu distante.",
+    "quote": "「闭上眼睛，世界就会变得不一样。」"
+  },
+  "shakespeare": {
+    "name": "William Shakespeare",
+    "region": "Anglo-américain",
+    "kind": "Panorama dramatique",
+    "intro": "Vous voyez tout le spectre humain ; tragédie et comédie sont en vos mains.",
+    "one": "Vous êtes comme un théâtre — joie et peine côte à côte, tout y est.",
+    "quote": "「To be, or not to be, that is the question.」"
+  },
+  "austen": {
+    "name": "Jane Austen",
+    "region": "Anglo-américain",
+    "kind": "Satire mondaine",
+    "intro": "Vous maîtrisez le détail social et l'éthique du mariage — spirituel et retenu.",
+    "one": "Vous êtes comme un thé raffiné — fin, subtil, lame dans le rire.",
+    "quote": "「A lady's imagination is very rapid.」"
+  },
+  "dickens": {
+    "name": "Charles Dickens",
+    "region": "Anglo-américain",
+    "kind": "Chaleur sociale",
+    "intro": "Vous suivez le sort des humbles ; dans le grand récit reste chaleur et justice.",
+    "one": "Vous êtes comme brouillard et lampes de Londres — sombre, mais lumière humaine.",
+    "quote": "「It was the best of times, it was the worst of times.」"
+  },
+  "woolf": {
+    "name": "Virginia Woolf",
+    "region": "Anglo-américain",
+    "kind": "Flux de conscience",
+    "intro": "Vous captez l'instant et écrivez le flux de la conscience et du temps.",
+    "one": "Vous êtes comme un miroir qui respire, reflétant les ondes intérieures.",
+    "quote": "「生命不是一条直线，而是一团波光。」"
+  },
+  "orwell": {
+    "name": "George Orwell",
+    "region": "Anglo-américain",
+    "kind": "Allégorie politique",
+    "intro": "Vous alertez face au pouvoir et à la manipulation du langage ; la littérature est lucidité et résistance.",
+    "one": "Vous êtes comme une alarme qui ne s'éteint pas — froide, tranchante, sans silence.",
+    "quote": "「Big Brother is watching you.」"
+  },
+  "poe": {
+    "name": "Edgar Allan Poe",
+    "region": "Anglo-américain",
+    "kind": "Suspense gothique",
+    "intro": "Vous aimez l'obscur, le rêve et les bords de la psyché — formes compactes et étranges.",
+    "one": "Vous êtes comme un clocher de minuit — mystérieux, sombre, fascinant.",
+    "quote": "「All that we see or seem is but a dream within a dream.」"
+  },
+  "whitman": {
+    "name": "Walt Whitman",
+    "region": "Anglo-américain",
+    "kind": "Ode libre",
+    "intro": "Vous embrassez la multiplicité et le corps ; le poème est une déclaration ouverte de vie.",
+    "one": "Vous êtes comme le vent sur la plaine — vaste, ardent, sans cadre.",
+    "quote": "「I contain multitudes.」"
+  },
+  "hemingway": {
+    "name": "Ernest Hemingway",
+    "region": "Anglo-américain",
+    "kind": "Minimalisme dur",
+    "intro": "Vous faites confiance aux phrases sèches et fortes et portez le destin en silence.",
+    "one": "Vous êtes comme un récif poli par les vagues — dur, silencieux, fort.",
+    "quote": "「人可以被毁灭，但不能被打败。」"
+  },
+  "fitzgerald": {
+    "name": "F. Scott Fitzgerald",
+    "region": "Anglo-américain",
+    "kind": "Désillusion jazz",
+    "intro": "Vous écrivez splendeur et désenchantement ; la romance cache les fissures d'une époque.",
+    "one": "Vous êtes comme le feu vert de Gatsby — brillant, lointain, mélancolique.",
+    "quote": "「于是我们奋力向前划，逆流而上。」"
+  },
+  "faulkner": {
+    "name": "William Faulkner",
+    "region": "Anglo-américain",
+    "kind": "Épopée sudiste",
+    "intro": "Vous construisez des temps complexes et des épopées familiales d'une densité extrême.",
+    "one": "Vous êtes comme une forêt du Sud — enchevêtrée, profonde, infinie.",
+    "quote": "「The past is never dead. It isn't even past.」"
+  },
+  "salinger": {
+    "name": "J. D. Salinger",
+    "region": "Anglo-américain",
+    "kind": "Aliénation juvénile",
+    "intro": "Vous écrivez la sensibilité adolescente, la rébellion et la soif de sincérité.",
+    "one": "Vous êtes comme un gardien dans le seigle — entêté, seul, refusant de grandir.",
+    "quote": "「I am sick of not saying what I mean.」"
+  },
+  "vonnegut": {
+    "name": "Kurt Vonnegut",
+    "region": "Anglo-américain",
+    "kind": "Humour noir",
+    "intro": "Vous affrontez guerre et vide par l'absurde et l'humour — tendre et ironique.",
+    "one": "Vous êtes comme une étoile de travers — drôle, triste, profondément humaine.",
+    "quote": "「So it goes.」"
+  },
+  "morrison": {
+    "name": "Toni Morrison",
+    "region": "Anglo-américain",
+    "kind": "Épopée afro-américaine",
+    "intro": "Vous écrivez mémoire, race et trauma féminin dans un langage poétique et puissant.",
+    "one": "Vous êtes comme un chant sorti de la terre — grave, solennel, indélébile.",
+    "quote": "「Freeing yourself was one thing; claiming ownership of that freed self was another.」"
+  },
+  "mccarthy": {
+    "name": "Cormac McCarthy",
+    "region": "Anglo-américain",
+    "kind": "Austérité apocalyptique",
+    "intro": "Votre prose est austère ; dans le désert et la violence vous sondez l'humain.",
+    "one": "Vous êtes comme des braises sur la plaine — froides, rares, brûlantes.",
+    "quote": "「You never know what worse luck your bad luck has saved you from.」"
+  },
+  "rousseau": {
+    "name": "Jean-Jacques Rousseau",
+    "region": "France",
+    "kind": "Sentiment des Lumières",
+    "intro": "Vous croyez à la nature et à la sincérité ; vous aimez la civilisation mais la doutez.",
+    "one": "Vous êtes comme un écho dans les bois — ardent, sensible, en quête du vrai.",
+    "quote": "「人生而自由，却无往不在枷锁之中。」"
+  },
+  "balzac": {
+    "name": "Honoré de Balzac",
+    "region": "France",
+    "kind": "Réalisme",
+    "intro": "Vous mettez la société en scène immense où personnages et argent s'entrelacent.",
+    "one": "Vous êtes comme les archives d'une ville — vaste, réel, impitoyable.",
+    "quote": "「人间喜剧」"
+  },
+  "hugo": {
+    "name": "Victor Hugo",
+    "region": "France",
+    "kind": "Humanisme romantique",
+    "intro": "Vous unissez épopée et compassion ; vous parlez pour les faibles.",
+    "one": "Vous êtes comme une cathédrale — grandiose, compatissante, ouverte à la lumière.",
+    "quote": "「比海洋更宽阔的是人的胸怀。」"
+  },
+  "baudelaire": {
+    "name": "Charles Baudelaire",
+    "region": "France",
+    "kind": "Symbolisme urbain",
+    "intro": "Vous cherchez beauté et décadence en la ville moderne ; votre vers est dense et décadent.",
+    "one": "Vous êtes comme une ombre sous néon — magnifique, brisée, addictive.",
+    "quote": "「你永远不知道，在街角会遇见怎样的命运。」"
+  },
+  "proust": {
+    "name": "Marcel Proust",
+    "region": "France",
+    "kind": "Mémoire et conscience",
+    "intro": "Vous faites du temps et de la mémoire un labyrinthe sensoriel sans fin.",
+    "one": "Vous êtes comme une madeleine — un contact et le passé afflue.",
+    "quote": "「真正的发现之旅在于拥有新的眼睛。」"
+  },
+  "camus": {
+    "name": "Albert Camus",
+    "region": "France",
+    "kind": "Révolte absurde",
+    "intro": "Vous restez lucide et digne dans l'absurde ; la révolte est sens.",
+    "one": "Vous êtes comme la pierre de Sisyphe — lourde, mais porteuse d'une lumière invincible.",
+    "quote": "「在隆冬，我终于知道，我身上有一个不可战胜的夏天。」"
+  },
+  "goethe": {
+    "name": "Johann Wolfgang von Goethe",
+    "region": "Allemagne",
+    "kind": "Polymathe classique",
+    "intro": "Vous poursuivez plénitude et équilibre classique ; romantisme et raison coexistent.",
+    "one": "Vous êtes comme un jardin de la Renaissance — fertile, profond, toujours neuf.",
+    "quote": "「理论是灰色的，而生命之树常青。」"
+  },
+  "heine": {
+    "name": "Heinrich Heine",
+    "region": "Allemagne",
+    "kind": "Lyrisme satirique",
+    "intro": "Votre poésie est romantique et mordante ; amour et satire marchent ensemble.",
+    "one": "Vous êtes comme une dague enveloppée de roses — belle, mais tranchante.",
+    "quote": "「哪里有痛苦，哪里就有诗歌。」"
+  },
+  "kafka": {
+    "name": "Franz Kafka",
+    "region": "Allemagne",
+    "kind": "Anxiété absurde",
+    "intro": "Vous alertez face aux règles et à l'identité ; dans l'ordre vous voyez l'absurde.",
+    "one": "Vous êtes comme un labyrinthe silencieux — plus vous avancez, plus vous vous entendez.",
+    "quote": "「我不是世界的一部分，我只是世界的边缘。」"
+  },
+  "mann": {
+    "name": "Thomas Mann",
+    "region": "Allemagne",
+    "kind": "Roman des Lumières",
+    "intro": "Vous tissez philosophie, maladie et crise civilisationnelle en longs récits.",
+    "one": "Vous êtes comme un clocher qui tourne lentement — solennel, complexe, suggestif.",
+    "quote": "「时间是正义的，因为它终将揭示一切。」"
+  },
+  "hesse": {
+    "name": "Hermann Hesse",
+    "region": "Allemagne",
+    "kind": "Quête spirituelle",
+    "intro": "Vous écrivez croissance spirituelle et sagesse orientale — intérieur et limpide.",
+    "one": "Vous êtes comme un chemin vers l'intérieur — calme, profond, invitant à la solitude.",
+    "quote": "「对每个人而言，真正的职责只有一个：找到自我。」"
+  },
+  "rilke": {
+    "name": "Rainer Maria Rilke",
+    "region": "Allemagne",
+    "kind": "Méditation poétique",
+    "intro": "Vous méditez existence, solitude et beauté en langage poétique.",
+    "one": "Vous êtes comme une lettre au futur — lente, pure, touchant l'âme.",
+    "quote": "「有何胜利可言？挺住意味着一切。」"
+  },
+  "pushkin": {
+    "name": "Alexandre Pouchkine",
+    "region": "Russie",
+    "kind": "Lyrisme national",
+    "intro": "Vous êtes poète national et symbole de grâce et de liberté.",
+    "one": "Vous êtes comme les bouleaux russes — clairs, droits, mélancoliques.",
+    "quote": "「假如生活欺骗了你，不要悲伤，不要心急。」"
+  },
+  "dostoevsky": {
+    "name": "Fiodor Dostoïevski",
+    "region": "Russie",
+    "kind": "Interrogatoire de l'âme",
+    "intro": "Vous descendez dans l'abîme moral et les crises de foi ; les personnages se révèlent dans l'extrême.",
+    "one": "Vous êtes comme une confession dans la tempête — ardente, sombre, inévitable.",
+    "quote": "「人是一个谜。解开这个谜，即使搭上性命，也值得。」"
+  },
+  "tolstoy": {
+    "name": "Léon Tolstoï",
+    "region": "Russie",
+    "kind": "Morale épique",
+    "intro": "Avec une vision vaste vous interrogez morale, guerre et sens de la vie.",
+    "one": "Vous êtes comme un vaste champ — lourd, solennel, accueillant tout.",
+    "quote": "「幸福的家庭都是相似的，不幸的家庭各有各的不幸。」"
+  },
+  "chekhov": {
+    "name": "Anton Tchekhov",
+    "region": "Russie",
+    "kind": "Mélancolie discrète",
+    "intro": "Vous écrivez le silence et l'impuissance du quotidien ; l'humour porte la tendresse.",
+    "one": "Vous êtes comme une fumée du soir — légère, lointaine, mélancolique.",
+    "quote": "「人应该像水一样，没有形状，却能适应一切容器。」"
+  },
+  "bulgakov": {
+    "name": "Mikhail Boulgakov",
+    "region": "Russie",
+    "kind": "Satire magique",
+    "intro": "Vous créez dans l'absurde et la censure ; la magie cache la vérité.",
+    "one": "Vous êtes comme un bal du diable — absurde, éclatant, inoubliable.",
+    "quote": "「手稿不灭。」"
+  },
+  "solzhenitsyn": {
+    "name": "Alexandre Soljenitsyne",
+    "region": "Russie",
+    "kind": "Témoin de conscience",
+    "intro": "Vous témoignez du totalitarisme et de la souffrance ; la dignité avant tout.",
+    "one": "Vous êtes comme le vent de Sibérie — froid, lucide, impossible à ignorer.",
+    "quote": "「一条真理胜过整个世界。」"
+  },
+  "borges": {
+    "name": "Jorge Luis Borges",
+    "region": "Amérique latine",
+    "kind": "Labyrinthe conceptuel",
+    "intro": "Vous démontez structures et niveaux ; la réalité même vous fascine.",
+    "one": "Vous êtes comme une bibliothèque qui se replie — complexe, envoûtante.",
+    "quote": "「天堂应该是图书馆的模样。」"
+  },
+  "neruda": {
+    "name": "Pablo Neruda",
+    "region": "Amérique latine",
+    "kind": "Amour et révolution",
+    "intro": "Votre poésie brûle de politique et d'amour ; terre et passion ensemble.",
+    "one": "Vous êtes comme la mer sud-américaine — tumultueuse, romantique, vivante.",
+    "quote": "「我要对你做，春天对樱桃树做的事。」"
+  },
+  "marquez": {
+    "name": "Gabriel García Márquez",
+    "region": "Amérique latine",
+    "kind": "Réalisme magique",
+    "intro": "Vous tissez mythe et réalité ; le temps boucle comme un fleuve.",
+    "one": "Vous êtes comme une pluie centenaire — fantastique, humide, inoubliable.",
+    "quote": "「面对行刑队，上校将会回想起父亲带他去见识冰块的那个下午。」"
+  },
+  "vargasllosa": {
+    "name": "Mario Vargas Llosa",
+    "region": "Amérique latine",
+    "kind": "Narration structurelle",
+    "intro": "Vous maîtrisez récit multiple et allégorie politique avec structure précise.",
+    "one": "Vous êtes comme une carte complexe s'ouvrant vers pouvoir et désir.",
+    "quote": "「写作是对权力的反抗。」"
+  },
+  "paz": {
+    "name": "Octavio Paz",
+    "region": "Amérique latine",
+    "kind": "Philosophie poétique",
+    "intro": "Vous passez de la poésie à la prose, questionnant identité, temps et mystère.",
+    "one": "Vous êtes comme un soleil du désert — ardent, abstrait, illuminant tout.",
+    "quote": "「一朵花不需要理由地开放。」"
+  },
+  "bolano": {
+    "name": "Roberto Bolaño",
+    "region": "Amérique latine",
+    "kind": "Exil errant",
+    "intro": "Vous écrivez exil, jeunesse et fantômes littéraires en récits errants et captivants.",
+    "one": "Vous êtes comme une route sans fin — déserte, libre, légendaire.",
+    "quote": "「文学是世上最危险的职业。」"
+  },
+  "kundera": {
+    "name": "Milan Kundera",
+    "region": "Autres",
+    "kind": "Légèreté et pesanteur",
+    "intro": "Vous pesez l'existence entre plaisanterie et philosophie, légèreté et poids.",
+    "one": "Vous êtes comme une fenêtre réfléchissante — enjouée, profonde, insaisissable.",
+    "quote": "「人类一思考，上帝就发笑。」"
+  },
+  "calvino": {
+    "name": "Italo Calvino",
+    "region": "Autres",
+    "kind": "Fable structurelle",
+    "intro": "Vous faites de la littérature un jeu structurel — léger et intellectuel.",
+    "one": "Vous êtes comme un livre qui se recombine — ludique, fin, jamais fini.",
+    "quote": "「你对任何一条路都还不满意，因为你想同时走两条路。」"
+  },
+  "pamuk": {
+    "name": "Orhan Pamuk",
+    "region": "Autres",
+    "kind": "Carrefour civilisationnel",
+    "intro": "Vous tissez des labyrinthes entre Orient et Occident, individu et histoire.",
+    "one": "Vous êtes comme la neige sur Istanbul — couvrant mémoire et identité.",
+    "quote": "「我到底是谁？这个问题始终困扰着我。」"
+  },
+  "ibsen": {
+    "name": "Henrik Ibsen",
+    "region": "Autres",
+    "kind": "Théâtre social",
+    "intro": "Vous disséquez éthique familiale et hypocrisie sociale au théâtre.",
+    "one": "Vous êtes comme une porte frappée — une fois la question posée, on ne peut l'ignorer.",
+    "quote": "「社会就像一艘船，人人都该有掌舵的责任。」"
+  },
+  "andersen": {
+    "name": "Hans Christian Andersen",
+    "region": "Autres",
+    "kind": "Fable allégorique",
+    "intro": "Vous usez du conte pour écrire solitude, beauté et injustice.",
+    "one": "Vous êtes comme une étoile qui pleure — douce, amère, éclairant l'enfance.",
+    "quote": "「仅仅活着是不够的，你还应该有阳光、自由和一点花的芬芳。」"
+  },
+  "saramago": {
+    "name": "José Saramago",
+    "region": "Autres",
+    "kind": "Récit allégorique",
+    "intro": "Vous écrivez destin collectif et fable morale en phrases longues et fluides.",
+    "one": "Vous êtes comme une cécité qui se propage — collective, allégorique, glaçante.",
+    "quote": "「人类当有更多的耐心。」"
+  },
+  "tagore": {
+    "name": "Rabindranath Tagore",
+    "region": "Autres",
+    "kind": "Lyrisme spirituel",
+    "intro": "Votre poésie brille de nature, de divinité et d'amour.",
+    "one": "Vous êtes comme la lune sur le Gange — sereine, sacrée, sur tous.",
+    "quote": "「生如夏花之绚烂，死如秋叶之静美。」"
+  },
+  "naipaul": {
+    "name": "V. S. Naipaul",
+    "region": "Autres",
+    "kind": "Observateur postcolonial",
+    "intro": "Vous écrivez héritage colonial et identité déchirée d'un regard froid.",
+    "one": "Vous êtes comme un miroir sans chaleur — clair, tranchant, dérangeant.",
+    "quote": "「世界如其所是，而非如我们所愿。」"
+  },
+  "achebe": {
+    "name": "Chinua Achebe",
+    "region": "Autres",
+    "kind": "Récit africain",
+    "intro": "Vous donnez voix à l'histoire silenciée et reconstruisez le récit africain.",
+    "one": "Vous êtes comme des tambours de tribu — stables, puissants, réveillant la mémoire.",
+    "quote": "「直到狮子有了自己的史学家，狩猎的故事才不会只称赞猎人。」"
+  },
+  "gibran": {
+    "name": "Kahlil Gibran",
+    "region": "Autres",
+    "kind": "Poésie philosophique",
+    "intro": "Vos mots sont poésie et proverbe — tendres et spirituels.",
+    "one": "Vous êtes comme une source au désert — simple, profond, apaisant les cœurs.",
+    "quote": "「你的儿女不是你的儿女，他们是生命对自身渴望的儿女。」"
+  }
+}

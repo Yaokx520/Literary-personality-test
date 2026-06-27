@@ -1,0 +1,530 @@
+{
+  "kongzi": {
+    "name": "Confucio",
+    "region": "China",
+    "kind": "Filosofía confuciana",
+    "intro": "Valoras el orden, la cultivación y el cuidado del otro; crees que las palabras deben llevar moral y las ideas transformar.",
+    "one": "Eres como un maestro apacible que busca lo eterno en el orden y la benevolencia.",
+    "quote": "「学而时习之，不亦说乎。」"
+  },
+  "zhuangzi": {
+    "name": "Zhuangzi",
+    "region": "China",
+    "kind": "Filosofía libre",
+    "intro": "No quieres ataduras; prefieres la imaginación libre y una sabiduría contra corriente.",
+    "one": "Eres como el viento entre los árboles: ligero, elusivo, indefinible.",
+    "quote": "「相濡以沫，不如相忘于江湖。」"
+  },
+  "quyuan": {
+    "name": "Qu Yuan",
+    "region": "China",
+    "kind": "Melancolía romántica",
+    "intro": "Tienes un idealismo ardiente y amor a la patria; tus sentimientos son intensos y tenaces.",
+    "one": "Eres como una larga canción trágica: ferviente, fiel, sin ceder.",
+    "quote": "「路漫漫其修远兮，吾将上下而求索。」"
+  },
+  "libai": {
+    "name": "Li Bai",
+    "region": "China",
+    "kind": "Romanticismo audaz",
+    "intro": "Eres apasionado y expansivo; la vida debe ser magnífica y el lenguaje es tu vino y espada.",
+    "one": "Eres como la luna y el viento: libre, luminoso, sin ataduras.",
+    "quote": "「天生我材必有用，千金散尽还复来。」"
+  },
+  "dufu": {
+    "name": "Du Fu",
+    "region": "China",
+    "kind": "Patriotismo sombrío",
+    "intro": "Colocas el destino personal en el torrente de la historia; tu voz es compasiva y grave.",
+    "one": "Eres como un poema largo que se despliega: sereno, denso, lleno de piedad.",
+    "quote": "「国破山河在，城春草木深。」"
+  },
+  "sushi": {
+    "name": "Su Shi",
+    "region": "China",
+    "kind": "Literato despreocupado",
+    "intro": "Mantienes humor y amplitud en la adversidad, uniendo talento y vida cotidiana.",
+    "one": "Eres como un arcoíris tras la lluvia: claro, suave, con regusto.",
+    "quote": "「回首向来萧瑟处，归去，也无风雨也无晴。」"
+  },
+  "caoxueqin": {
+    "name": "Cao Xueqin",
+    "region": "China",
+    "kind": "Mirada social",
+    "intro": "Escribes el calor y frío humano y la volubilidad del destino con finura y desolación.",
+    "one": "Eres como un espejo de todos los seres: esplendor y tristeza juntos.",
+    "quote": "「满纸荒唐言，一把辛酸泪。」"
+  },
+  "luxun": {
+    "name": "Lu Xun",
+    "region": "China",
+    "kind": "Realismo afilado",
+    "intro": "Sientes el mundo con dolor agudo y usas un lenguaje filoso para iluminar contradicciones.",
+    "one": "Eres como un bisturí frío que abre emoción y realidad.",
+    "quote": "「希望是本无所谓有，无所谓无的。」"
+  },
+  "shencongwen": {
+    "name": "Shen Congwen",
+    "region": "China",
+    "kind": "Lirismo pastoral",
+    "intro": "Encuentras orden y belleza en lo cotidiano, con ternura y calma.",
+    "one": "Eres como un río quieto: templado, apacible, de curso lento.",
+    "quote": "「凡事都靠一个缘字。」"
+  },
+  "laoshe": {
+    "name": "Lao She",
+    "region": "China",
+    "kind": "Realismo pekinés",
+    "intro": "Cuidas la dignidad de la gente común; el humor esconde amargura.",
+    "one": "Eres como una linterna en un callejón: cercana, cómica, llena de vida.",
+    "quote": "「人是最美的风景。」"
+  },
+  "zhangailing": {
+    "name": "Eileen Chang",
+    "region": "China",
+    "kind": "Distancia refinada",
+    "intro": "Ves la naturaleza humana en el detalle y guardas distancia con elegancia.",
+    "one": "Tienes un tacto hermoso y una lucidez que atraviesa lo brillante.",
+    "quote": "「生命是一袭华美的袍，爬满了蚤子。」"
+  },
+  "yuhua": {
+    "name": "Yu Hua",
+    "region": "China",
+    "kind": "Supervivencia irónica",
+    "intro": "Mantienes la resistencia en lo absurdo y lo difícil, digiriendo lo pesado con humor.",
+    "one": "Eres como una piedra redondeada por la vida: silenciosa, difícil de quebrar.",
+    "quote": "「人是为了活着本身而活着。」"
+  },
+  "murasaki": {
+    "name": "Murasaki Shikibu",
+    "region": "Japón",
+    "kind": "Monogatari delicado",
+    "intro": "Escribes emociones sutiles y la luz de las capas sociales con prosa contenida y larga.",
+    "one": "Eres como luz tras papel washi: sutil, elegante, de palabras a medias.",
+    "quote": "「逢えずして恋しき人を待つほどに。」"
+  },
+  "natsume": {
+    "name": "Natsume Soseki",
+    "region": "Japón",
+    "kind": "Introspección moderna",
+    "intro": "Transitas entre tradición y modernidad; tu estilo es sobrio y reflexivo.",
+    "one": "Eres como un jardín quieto donde razón y melancolía se reflejan.",
+    "quote": "「智に働けば角が立つ。」"
+  },
+  "kawabata": {
+    "name": "Yasunari Kawabata",
+    "region": "Japón",
+    "kind": "Estética mono no aware",
+    "intro": "Eres sensible a la belleza fugaz; amas lo puro, lo melancólico y lo quieto.",
+    "one": "Eres como un fuego en país de nieve: quieto, transparente, un poco frío.",
+    "quote": "「美在于发现者眼中。」"
+  },
+  "mishima": {
+    "name": "Yukio Mishima",
+    "region": "Japón",
+    "kind": "Intensidad estética",
+    "intro": "Buscas belleza formal e intensidad espiritual: contradictorio y deslumbrante.",
+    "one": "Eres como una hoja templada: bella, peligrosa, sin aceptar lo mediocre.",
+    "quote": "「不被人理解，反而成为我的骄傲。」"
+  },
+  "oe": {
+    "name": "Kenzaburo Oe",
+    "region": "Japón",
+    "kind": "Humanismo antinuclear",
+    "intro": "Te importan los débiles y las heridas históricas; la literatura es ética y redención.",
+    "one": "Eres como una herida que no cierra: serio, responsable, hacia la luz.",
+    "quote": "「人間は自分の言葉で世界をつくる。」"
+  },
+  "murakami": {
+    "name": "Haruki Murakami",
+    "region": "Japón",
+    "kind": "Soledad urbana",
+    "intro": "Caminas entre lo cotidiano y el sueño; la soledad marca tu ritmo.",
+    "one": "Eres como música en voz baja: quieta, fluida, un poco distante.",
+    "quote": "「闭上眼睛，世界就会变得不一样。」"
+  },
+  "shakespeare": {
+    "name": "William Shakespeare",
+    "region": "Angloamericano",
+    "kind": "Panorama dramático",
+    "intro": "Ves todo el espectro humano; tragedia y comedia en tus manos.",
+    "one": "Eres como un teatro: gozo y dolor juntos, todo presente.",
+    "quote": "「To be, or not to be, that is the question.」"
+  },
+  "austen": {
+    "name": "Jane Austen",
+    "region": "Angloamericano",
+    "kind": "Sátira social",
+    "intro": "Dominas el detalle social y la ética del matrimonio con humor contenido.",
+    "one": "Eres como un té refinado: ingenioso, sutil, filo en la risa.",
+    "quote": "「A lady's imagination is very rapid.」"
+  },
+  "dickens": {
+    "name": "Charles Dickens",
+    "region": "Angloamericano",
+    "kind": "Calidez social",
+    "intro": "Miras el destino de los humildes; en lo grandioso queda calor y justicia.",
+    "one": "Eres como niebla y faroles londinenses: oscuro, pero con luz humana.",
+    "quote": "「It was the best of times, it was the worst of times.」"
+  },
+  "woolf": {
+    "name": "Virginia Woolf",
+    "region": "Angloamericano",
+    "kind": "Flujo de conciencia",
+    "intro": "Captas lo instantáneo y escribes el flujo de conciencia y del tiempo.",
+    "one": "Eres como un espejo que respira, reflejando ondas interiores.",
+    "quote": "「生命不是一条直线，而是一团波光。」"
+  },
+  "orwell": {
+    "name": "George Orwell",
+    "region": "Angloamericano",
+    "kind": "Alegoría política",
+    "intro": "Alertas ante el poder y la manipulación del lenguaje; la literatura es lucidez y resistencia.",
+    "one": "Eres como una alarma que no se apaga: fría, afilada, sin callar.",
+    "quote": "「Big Brother is watching you.」"
+  },
+  "poe": {
+    "name": "Edgar Allan Poe",
+    "region": "Angloamericano",
+    "kind": "Suspenso gótico",
+    "intro": "Te atraen la oscuridad, el sueño y los bordes de la psique; formas compactas y extrañas.",
+    "one": "Eres como un campanario de medianoche: misterioso, sombrío, hipnótico.",
+    "quote": "「All that we see or seem is but a dream within a dream.」"
+  },
+  "whitman": {
+    "name": "Walt Whitman",
+    "region": "Angloamericano",
+    "kind": "Oda libre",
+    "intro": "Abrazas la multiplicidad y lo corporal; el poema es declaración abierta de vida.",
+    "one": "Eres como viento en campo abierto: vasto, ardiente, sin marco.",
+    "quote": "「I contain multitudes.」"
+  },
+  "hemingway": {
+    "name": "Ernest Hemingway",
+    "region": "Angloamericano",
+    "kind": "Minimalismo duro",
+    "intro": "Confías en frases secas y fuertes y soportas el destino en silencio.",
+    "one": "Eres como arrecife pulido por olas: duro, silencioso, fuerte.",
+    "quote": "「人可以被毁灭，但不能被打败。」"
+  },
+  "fitzgerald": {
+    "name": "F. Scott Fitzgerald",
+    "region": "Angloamericano",
+    "kind": "Desilusión jazz",
+    "intro": "Escribes esplendor y desencanto; el romance esconde grietas de una era.",
+    "one": "Eres como la luz verde de Gatsby: brillante, lejana, con pena.",
+    "quote": "「于是我们奋力向前划，逆流而上。」"
+  },
+  "faulkner": {
+    "name": "William Faulkner",
+    "region": "Angloamericano",
+    "kind": "Epopeya sureña",
+    "intro": "Construyes tiempos complejos y epopeyas familiares de gran densidad.",
+    "one": "Eres como un bosque sureño denso: enredado, hondo, interminable.",
+    "quote": "「The past is never dead. It isn't even past.」"
+  },
+  "salinger": {
+    "name": "J. D. Salinger",
+    "region": "Angloamericano",
+    "kind": "Alienación juvenil",
+    "intro": "Escribes la sensibilidad adolescente, la rebeldía y el deseo de sinceridad.",
+    "one": "Eres como un guardián en el centeno: terco, solo, sin crecer del todo.",
+    "quote": "「I am sick of not saying what I mean.」"
+  },
+  "vonnegut": {
+    "name": "Kurt Vonnegut",
+    "region": "Angloamericano",
+    "kind": "Humor negro",
+    "intro": "Enfrentas guerra y vacío con humor absurdo: tierno y a la vez irónico.",
+    "one": "Eres como una estrella torcida: graciosa, triste, muy humana.",
+    "quote": "「So it goes.」"
+  },
+  "morrison": {
+    "name": "Toni Morrison",
+    "region": "Angloamericano",
+    "kind": "Epopeya afroamericana",
+    "intro": "Escribes memoria, raza y trauma femenino con lenguaje poético y poderoso.",
+    "one": "Eres como canto que brota de la tierra: grave, solemne, indeleble.",
+    "quote": "「Freeing yourself was one thing; claiming ownership of that freed self was another.」"
+  },
+  "mccarthy": {
+    "name": "Cormac McCarthy",
+    "region": "Angloamericano",
+    "kind": "Austeridad apocalíptica",
+    "intro": "Tu prosa es austera; en yermo y violencia preguntas el límite humano.",
+    "one": "Eres como brasas en la llanura: frías, escasas, pero ardientes.",
+    "quote": "「You never know what worse luck your bad luck has saved you from.」"
+  },
+  "rousseau": {
+    "name": "Jean-Jacques Rousseau",
+    "region": "Francia",
+    "kind": "Sentimiento ilustrado",
+    "intro": "Crees en la naturaleza y la sinceridad; amas la civilización pero la dudas.",
+    "one": "Eres como eco en el bosque: apasionado, sensible, buscando lo auténtico.",
+    "quote": "「人生而自由，却无往不在枷锁之中。」"
+  },
+  "balzac": {
+    "name": "Honoré de Balzac",
+    "region": "Francia",
+    "kind": "Realismo",
+    "intro": "Pones la sociedad en un escenario enorme donde personajes y dinero se entrelazan.",
+    "one": "Eres como un archivo de ciudad: vasto, real, implacable.",
+    "quote": "「人间喜剧」"
+  },
+  "hugo": {
+    "name": "Víctor Hugo",
+    "region": "Francia",
+    "kind": "Humanismo romántico",
+    "intro": "Unes epopeya y compasión humanitaria; hablas por los débiles.",
+    "one": "Eres como una catedral: grandiosa, compasiva, abierta a la luz.",
+    "quote": "「比海洋更宽阔的是人的胸怀。」"
+  },
+  "baudelaire": {
+    "name": "Charles Baudelaire",
+    "region": "Francia",
+    "kind": "Simbolismo urbano",
+    "intro": "Buscas belleza y decadencia en la ciudad moderna; tu verso es denso y decadente.",
+    "one": "Eres como sombra bajo neón: bella, rota, adictiva.",
+    "quote": "「你永远不知道，在街角会遇见怎样的命运。」"
+  },
+  "proust": {
+    "name": "Marcel Proust",
+    "region": "Francia",
+    "kind": "Memoria y conciencia",
+    "intro": "Conviertes tiempo y memoria en laberinto sensorial interminable.",
+    "one": "Eres como una magdalena: un roce y llega el pasado.",
+    "quote": "「真正的发现之旅在于拥有新的眼睛。」"
+  },
+  "camus": {
+    "name": "Albert Camus",
+    "region": "Francia",
+    "kind": "Rebelión absurda",
+    "intro": "Mantienes lucidez y dignidad en lo absurdo; la rebelión es sentido.",
+    "one": "Eres como la piedra de Sísifo: pesada, pero con luz invicta.",
+    "quote": "「在隆冬，我终于知道，我身上有一个不可战胜的夏天。」"
+  },
+  "goethe": {
+    "name": "Johann Wolfgang von Goethe",
+    "region": "Alemania",
+    "kind": "Polímata clásico",
+    "intro": "Buscas plenitud y equilibrio clásico; romanticismo y razón conviven.",
+    "one": "Eres como un jardín renacentista: fértil, profundo, siempre nuevo.",
+    "quote": "「理论是灰色的，而生命之树常青。」"
+  },
+  "heine": {
+    "name": "Heinrich Heine",
+    "region": "Alemania",
+    "kind": "Lirismo satírico",
+    "intro": "Tu poesía es romántica y mordaz; amor y sátira van juntos.",
+    "one": "Eres como daga envuelta en rosas: bella, pero con filo.",
+    "quote": "「哪里有痛苦，哪里就有诗歌。」"
+  },
+  "kafka": {
+    "name": "Franz Kafka",
+    "region": "Alemania",
+    "kind": "Ansiedad absurda",
+    "intro": "Alertas ante reglas e identidad; en el orden ves a menudo lo absurdo.",
+    "one": "Eres como laberinto silencioso: cuanto más entras, más te escuchas.",
+    "quote": "「我不是世界的一部分，我只是世界的边缘。」"
+  },
+  "mann": {
+    "name": "Thomas Mann",
+    "region": "Alemania",
+    "kind": "Novela ilustrada",
+    "intro": "Tejes filosofía, enfermedad y crisis civilizatoria en narrativas largas.",
+    "one": "Eres como campanario que gira despacio: solemne, complejo, sugerente.",
+    "quote": "「时间是正义的，因为它终将揭示一切。」"
+  },
+  "hesse": {
+    "name": "Hermann Hesse",
+    "region": "Alemania",
+    "kind": "Búsqueda espiritual",
+    "intro": "Escribes crecimiento espiritual y sabiduría oriental; interior y claro.",
+    "one": "Eres como camino hacia dentro: quieto, hondo, invita a caminar solo.",
+    "quote": "「对每个人而言，真正的职责只有一个：找到自我。」"
+  },
+  "rilke": {
+    "name": "Rainer Maria Rilke",
+    "region": "Alemania",
+    "kind": "Meditación poética",
+    "intro": "Medias sobre existencia, soledad y belleza en lenguaje poético.",
+    "one": "Eres como carta al futuro: lenta, pura, tocando el alma.",
+    "quote": "「有何胜利可言？挺住意味着一切。」"
+  },
+  "pushkin": {
+    "name": "Aleksandr Pushkin",
+    "region": "Rusia",
+    "kind": "Lirismo nacional",
+    "intro": "Eres poeta nacional y símbolo de gracia y libertad.",
+    "one": "Eres como abedules rusos: claros, erguidos, con melancolía.",
+    "quote": "「假如生活欺骗了你，不要悲伤，不要心急。」"
+  },
+  "dostoevsky": {
+    "name": "Fiódor Dostoyevski",
+    "region": "Rusia",
+    "kind": "Interrogatorio del alma",
+    "intro": "Desciendes al abismo moral y a crisis de fe; los personajes se revelan en extremos.",
+    "one": "Eres como confesión en ventisca: feroz, oscura, ineludible.",
+    "quote": "「人是一个谜。解开这个谜，即使搭上性命，也值得。」"
+  },
+  "tolstoy": {
+    "name": "León Tolstói",
+    "region": "Rusia",
+    "kind": "Moral épica",
+    "intro": "Con visión vasta preguntas por moral, guerra y sentido de la vida.",
+    "one": "Eres como campo amplio: denso, solemne, que lo acoge todo.",
+    "quote": "「幸福的家庭都是相似的，不幸的家庭各有各的不幸。」"
+  },
+  "chekhov": {
+    "name": "Antón Chejov",
+    "region": "Rusia",
+    "kind": "Melancolía tenue",
+    "intro": "Escribes silencio y resignación cotidiana; el humor lleva ternura.",
+    "one": "Eres como humo al atardecer: ligero, lejano, melancólico.",
+    "quote": "「人应该像水一样，没有形状，却能适应一切容器。」"
+  },
+  "bulgakov": {
+    "name": "Mijaíl Bulgákov",
+    "region": "Rusia",
+    "kind": "Sátira mágica",
+    "intro": "Creaste en lo absurdo y la censura; en lo mágico hay verdad.",
+    "one": "Eres como baile del diablo: absurdo, deslumbrante, inolvidable.",
+    "quote": "「手稿不灭。」"
+  },
+  "solzhenitsyn": {
+    "name": "Aleksandr Solzhenitsyn",
+    "region": "Rusia",
+    "kind": "Testigo de conciencia",
+    "intro": "Das testimonio del totalitarismo y el sufrimiento; la dignidad sobre todo.",
+    "one": "Eres como viento siberiano: frío, lúcido, imposible de ignorar.",
+    "quote": "「一条真理胜过整个世界。」"
+  },
+  "borges": {
+    "name": "Jorge Luis Borges",
+    "region": "América Latina",
+    "kind": "Laberinto conceptual",
+    "intro": "Desmontas estructuras y niveles; te fascina la realidad misma.",
+    "one": "Eres como biblioteca que se pliega sola: intrincada, fascinante.",
+    "quote": "「天堂应该是图书馆的模样。」"
+  },
+  "neruda": {
+    "name": "Pablo Neruda",
+    "region": "América Latina",
+    "kind": "Amor y revolución",
+    "intro": "Tu poesía arde en política y amor; tierra y pasión a la par.",
+    "one": "Eres como mar sudamericano: turbulento, romántico, vital.",
+    "quote": "「我要对你做，春天对樱桃树做的事。」"
+  },
+  "marquez": {
+    "name": "Gabriel García Márquez",
+    "region": "América Latina",
+    "kind": "Realismo mágico",
+    "intro": "Tejes mito y realidad; el tiempo gira como un río.",
+    "one": "Eres como lluvia de cien años: fantástica, húmeda, inolvidable.",
+    "quote": "「面对行刑队，上校将会回想起父亲带他去见识冰块的那个下午。」"
+  },
+  "vargasllosa": {
+    "name": "Mario Vargas Llosa",
+    "region": "América Latina",
+    "kind": "Narrativa estructural",
+    "intro": "Dominas narrativa múltiple y alegoría política con estructura precisa.",
+    "one": "Eres como mapa complejo que se abre hacia poder y deseo.",
+    "quote": "「写作是对权力的反抗。」"
+  },
+  "paz": {
+    "name": "Octavio Paz",
+    "region": "América Latina",
+    "kind": "Filosofía poética",
+    "intro": "Transitas poesía y prosa, preguntando identidad, tiempo y misterio.",
+    "one": "Eres como sol del desierto: ardiente, abstracto, ilumina todo.",
+    "quote": "「一朵花不需要理由地开放。」"
+  },
+  "bolano": {
+    "name": "Roberto Bolaño",
+    "region": "América Latina",
+    "kind": "Exilio errante",
+    "intro": "Escribes exilio, juventud y fantasmas literarios en relatos errantes y cautivadores.",
+    "one": "Eres como carretera sin fin: desolada, libre, llena de leyenda.",
+    "quote": "「文学是世上最危险的职业。」"
+  },
+  "kundera": {
+    "name": "Milan Kundera",
+    "region": "Otros",
+    "kind": "Ligereza y peso",
+    "intro": "Pesas la existencia entre broma y filosofía, ligereza y peso.",
+    "one": "Eres como ventana reflectante: juguetona, profunda, esquiva.",
+    "quote": "「人类一思考，上帝就发笑。」"
+  },
+  "calvino": {
+    "name": "Italo Calvino",
+    "region": "Otros",
+    "kind": "Fábula estructural",
+    "intro": "Conviertes la literatura en juego estructural: ligera e inteligente.",
+    "one": "Eres como libro que se recompone: divertido, fino, sin acabar.",
+    "quote": "「你对任何一条路都还不满意，因为你想同时走两条路。」"
+  },
+  "pamuk": {
+    "name": "Orhan Pamuk",
+    "region": "Otros",
+    "kind": "Encrucijada civilizatoria",
+    "intro": "Tejes laberintos entre Oriente y Occidente, individuo e historia.",
+    "one": "Eres como nieve sobre Estambul: cubriendo memoria e identidad.",
+    "quote": "「我到底是谁？这个问题始终困扰着我。」"
+  },
+  "ibsen": {
+    "name": "Henrik Ibsen",
+    "region": "Otros",
+    "kind": "Drama social",
+    "intro": "Disecas ética familiar e hipocresía social en el teatro.",
+    "one": "Eres como puerta que llaman: una vez preguntado, no se puede ignorar.",
+    "quote": "「社会就像一艘船，人人都该有掌舵的责任。」"
+  },
+  "andersen": {
+    "name": "Hans Christian Andersen",
+    "region": "Otros",
+    "kind": "Fábula alegórica",
+    "intro": "Usas el cuento para escribir soledad, belleza e injusticia.",
+    "one": "Eres como estrella que llora: tierna, dulce-amarga, ilumina la infancia.",
+    "quote": "「仅仅活着是不够的，你还应该有阳光、自由和一点花的芬芳。」"
+  },
+  "saramago": {
+    "name": "José Saramago",
+    "region": "Otros",
+    "kind": "Narrativa alegórica",
+    "intro": "Escribes destino colectivo y fábula moral en frases largas y fluidas.",
+    "one": "Eres como ceguera que se extiende: colectiva, alegórica, inquietante.",
+    "quote": "「人类当有更多的耐心。」"
+  },
+  "tagore": {
+    "name": "Rabindranath Tagore",
+    "region": "Otros",
+    "kind": "Lirismo espiritual",
+    "intro": "Tu poesía brilla con naturaleza, lo divino y el amor.",
+    "one": "Eres como luna sobre el Ganges: serena, sagrada, sobre todos.",
+    "quote": "「生如夏花之绚烂，死如秋叶之静美。」"
+  },
+  "naipaul": {
+    "name": "V. S. Naipaul",
+    "region": "Otros",
+    "kind": "Observador poscolonial",
+    "intro": "Escribes legado colonial e identidad rota con mirada fría.",
+    "one": "Eres como espejo sin calor: claro, afilado, incómodo.",
+    "quote": "「世界如其所是，而非如我们所愿。」"
+  },
+  "achebe": {
+    "name": "Chinua Achebe",
+    "region": "Otros",
+    "kind": "Narrativa africana",
+    "intro": "Das voz a historia silenciada y reconstruyes narrativa africana.",
+    "one": "Eres como tambores de tribu: firmes, potentes, despiertan memoria.",
+    "quote": "「直到狮子有了自己的史学家，狩猎的故事才不会只称赞猎人。」"
+  },
+  "gibran": {
+    "name": "Kahlil Gibran",
+    "region": "Otros",
+    "kind": "Poesía filosófica",
+    "intro": "Tus palabras son poesía y proverbio: tiernas y espirituales.",
+    "one": "Eres como manantial en desierto: simple, hondo, consuela corazones.",
+    "quote": "「你的儿女不是你的儿女，他们是生命对自身渴望的儿女。」"
+  }
+}

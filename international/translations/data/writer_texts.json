@@ -1,0 +1,1598 @@
+{
+  "en": {
+    "kongzi": {
+      "intro": "You value order, cultivation, and care for others, believing words should carry moral purpose and ideas should transform people.",
+      "one": "You are like a gentle teacher, seeking eternity in order and benevolence."
+    },
+    "zhuangzi": {
+      "intro": "You resist being bound by rules, favoring free imagination and wisdom that defies convention.",
+      "one": "You are like wind through the woods — light, elusive, impossible to pin down."
+    },
+    "quyuan": {
+      "intro": "You hold fierce idealism and love of country; your feelings burn with intensity and devotion.",
+      "one": "You are like a long, mournful song — ardent, loyal, unwilling to compromise."
+    },
+    "libai": {
+      "intro": "You are passionate and expansive, believing life should be magnificent; language is your wine and sword.",
+      "one": "You are like bright moon and long wind — free, luminous, bound by nothing."
+    },
+    "dufu": {
+      "intro": "You place personal fate within the torrent of history; your voice is compassionate and weighty.",
+      "one": "You are like a long poem slowly unfolding — steady, grave, full of pity."
+    },
+    "sushi": {
+      "intro": "You keep humor and openness in adversity, blending talent with the warmth of everyday life.",
+      "one": "You are like a rainbow after rain — clear, gentle, with lingering aftertaste."
+    },
+    "caoxueqin": {
+      "intro": "You excel at writing the warmth and cold of human bonds and the caprice of fate — delicate yet desolate.",
+      "one": "You are like a mirror reflecting all living souls — splendor and sorrow together."
+    },
+    "luxun": {
+      "intro": "You feel the world with acute pain and use sharp language to illuminate its contradictions.",
+      "one": "You are like a cool scalpel, cutting straight through emotion and reality."
+    },
+    "shencongwen": {
+      "intro": "You find order and beauty in plain daily life, gentle and serene.",
+      "one": "You are like a quiet river — warm, peaceful, flowing slowly."
+    },
+    "laoshe": {
+      "intro": "You care for the dignity of ordinary people in the city streets; humor hides bitterness.",
+      "one": "You are like lamplight in a hutong — familiar, witty, full of life."
+    },
+    "zhangailing": {
+      "intro": "You see human nature in fine detail and keep your distance with elegant restraint.",
+      "one": "You have beautiful tact, and a clear-eyed view of glittering worlds."
+    },
+    "yuhua": {
+      "intro": "You stay resilient amid absurdity and hardship, digesting weight with humor.",
+      "one": "You are like a stone worn smooth by life — silent, not easily broken."
+    },
+    "murasaki": {
+      "intro": "You write subtle emotions and the light of social strata — restrained, lingering prose.",
+      "one": "You are like light through washi paper — delicate, elegant, words half withheld."
+    },
+    "natsume": {
+      "intro": "You wander between tradition and modernity; your style is restrained and reflective.",
+      "one": "You are like a quiet garden where reason and melancholy reflect each other."
+    },
+    "kawabata": {
+      "intro": "You are exquisitely sensitive to fleeting beauty, drawn to purity, sorrow, and stillness.",
+      "one": "You are like a hearth in the snow country — quiet, transparent, slightly chill."
+    },
+    "mishima": {
+      "intro": "You pursue formal beauty and spiritual intensity — contradictory, dazzling.",
+      "one": "You are like a tempered blade — gorgeous, dangerous, refusing mediocrity."
+    },
+    "oe": {
+      "intro": "You care for the vulnerable and historical wounds; literature is a field of ethics and redemption.",
+      "one": "You are like a wound that will not close — serious, responsible, moving toward light."
+    },
+    "murakami": {
+      "intro": "You move between everyday life and dreams; solitude sets your rhythm.",
+      "one": "You are like music playing softly — quiet, fluid, slightly distant."
+    },
+    "shakespeare": {
+      "intro": "You see the full spectrum of human nature; tragedy and comedy both in your hands.",
+      "one": "You are like a theater — joy and grief side by side, all things present."
+    },
+    "austen": {
+      "intro": "You master social detail and the ethics of marriage — witty yet restrained.",
+      "one": "You are like an elegant tea — clever, subtle, blade hidden in laughter."
+    },
+    "dickens": {
+      "intro": "You watch the fate of the poor; grand narratives still hold warmth and justice.",
+      "one": "You are like London fog and lamplight — darkness, yet human light remains."
+    },
+    "woolf": {
+      "intro": "You are keenly attuned to fleeting sensation, writing the flow of consciousness and time.",
+      "one": "You are like a breathing mirror, reflecting inner ripples."
+    },
+    "orwell": {
+      "intro": "You are alert to power and language manipulation; literature is clarity and resistance.",
+      "one": "You are like an alarm that never goes out — cool, sharp, refusing silence."
+    },
+    "poe": {
+      "intro": "You are drawn to darkness, dreams, and the edges of the psyche — compact, uncanny forms.",
+      "one": "You are like a midnight bell tower — mysterious, gloomy, mesmerizing."
+    },
+    "whitman": {
+      "intro": "You embrace multiplicity and embodiment; poetry is an open declaration of life.",
+      "one": "You are like wind over open country — vast, fervent, refusing to be framed."
+    },
+    "hemingway": {
+      "intro": "You trust terse, forceful sentences and bear fate in silence.",
+      "one": "You are like a reef polished by waves — hard, silent, strong."
+    },
+    "fitzgerald": {
+      "intro": "You write glamour and disillusion; romance hides the cracks of an era.",
+      "one": "You are like Gatsby's green light — brilliant, distant, tinged with sorrow."
+    },
+    "faulkner": {
+      "intro": "You build complex time and family epics of extraordinary density.",
+      "one": "You are like a dense southern forest — tangled, deep, impossible to finish."
+    },
+    "salinger": {
+      "intro": "You write adolescent sensitivity, rebellion, and hunger for sincerity.",
+      "one": "You are like a catcher in the rye — stubborn, lonely, unwilling to grow up."
+    },
+    "vonnegut": {
+      "intro": "You face war and void with absurdity and humor — tender yet ironic.",
+      "one": "You are like a crooked star — funny, sad, deeply human."
+    },
+    "morrison": {
+      "intro": "You write memory, race, and women's trauma in language both poetic and powerful.",
+      "one": "You are like a song rising from the soil — grave, solemn, indelible."
+    },
+    "mccarthy": {
+      "intro": "Your prose is austere; in wasteland and violence you probe the limits of humanity.",
+      "one": "You are like embers on a plain — cold, sparse, yet burning."
+    },
+    "rousseau": {
+      "intro": "You believe in nature and sincerity, loving civilization yet doubting it.",
+      "one": "You are like an echo in the woods — passionate, sensitive, asking after truth."
+    },
+    "balzac": {
+      "intro": "You stage society as a vast theater where characters and money intertwine.",
+      "one": "You are like a city archive — sprawling, real, merciless."
+    },
+    "hugo": {
+      "intro": "You combine epic breadth with humanitarian care, speaking for the weak.",
+      "one": "You are like a cathedral — grand, compassionate, open to the light."
+    },
+    "baudelaire": {
+      "intro": "You seek beauty and decay in the modern city; your poetry is lush and decadent.",
+      "one": "You are like a shadow under neon — gorgeous, broken, addictive."
+    },
+    "proust": {
+      "intro": "You turn time and memory into an endless labyrinth of exquisite sensation.",
+      "one": "You are like a madeleine — one touch and the past floods in."
+    },
+    "camus": {
+      "intro": "You stay lucid and dignified within the absurd; rebellion itself is meaning.",
+      "one": "You are like Sisyphus's stone — heavy, yet carrying undefeated light."
+    },
+    "goethe": {
+      "intro": "You pursue wholeness and classical balance; romance and reason coexist.",
+      "one": "You are like a Renaissance garden — fertile, deep, ever fresh."
+    },
+    "heine": {
+      "intro": "Your poetry is both romantic and biting; love and satire walk together.",
+      "one": "You are like a dagger wrapped in roses — beautiful, yet edged."
+    },
+    "kafka": {
+      "intro": "You are alert to rules and identity, often finding absurdity within order.",
+      "one": "You are like a silent maze — the deeper you go, the more you hear yourself."
+    },
+    "mann": {
+      "intro": "You weave philosophy, illness, and civilizational crisis into long narratives.",
+      "one": "You are like a clock tower turning slowly — solemn, complex, endlessly suggestive."
+    },
+    "hesse": {
+      "intro": "You write spiritual growth and Eastern wisdom — inward, lucid.",
+      "one": "You are like a road inward — quiet, deep, inviting solitude."
+    },
+    "rilke": {
+      "intro": "You meditate on existence, solitude, and beauty in poetic language.",
+      "one": "You are like a letter to the future — slow, pure, touching the soul."
+    },
+    "pushkin": {
+      "intro": "You are a national poet and a symbol of grace and freedom.",
+      "one": "You are like Russian birch woods — clear, upright, touched with melancholy."
+    },
+    "dostoevsky": {
+      "intro": "You descend into moral abyss and crises of faith; characters reveal themselves in extremity.",
+      "one": "You are like confession in a blizzard — fierce, dark, impossible to evade."
+    },
+    "tolstoy": {
+      "intro": "With vast vision you ask after morality, war, and the meaning of life.",
+      "one": "You are like a wide field — weighty, solemn, holding everything."
+    },
+    "chekhov": {
+      "intro": "You write silence and helplessness in daily life; humor carries tenderness.",
+      "one": "You are like evening smoke — light, far, quietly sad."
+    },
+    "bulgakov": {
+      "intro": "You keep creating amid absurdity and censorship; magic hides truth.",
+      "one": "You are like a devil's ball — absurd, dazzling, refusing to be forgotten."
+    },
+    "solzhenitsyn": {
+      "intro": "You witness totalitarianism and suffering through literature; dignity above all.",
+      "one": "You are like Siberian wind — cold, lucid, impossible to ignore."
+    },
+    "borges": {
+      "intro": "You dismantle structures and trace hierarchies, fascinated by reality itself.",
+      "one": "You are like a library that folds in on itself — intricate, enchanting."
+    },
+    "neruda": {
+      "intro": "Your poetry burns with politics as well as love; earth and passion surge together.",
+      "one": "You are like the South American sea — turbulent, romantic, vital."
+    },
+    "marquez": {
+      "intro": "You weave myth and reality; time loops like a river.",
+      "one": "You are like rain lasting a hundred years — fantastical, humid, unforgettable."
+    },
+    "vargasllosa": {
+      "intro": "You excel at multiline narrative and political allegory with precise structure.",
+      "one": "You are like a complex map unfolding layer by layer toward power and desire."
+    },
+    "paz": {
+      "intro": "You move between poetry and prose, questioning identity, time, and mystery.",
+      "one": "You are like a desert sun — fierce, abstract, illuminating all things."
+    },
+    "bolano": {
+      "intro": "You write exile, youth, and the ghosts of literature in wandering, captivating narratives.",
+      "one": "You are like a road without end — desolate, free, full of legend."
+    },
+    "kundera": {
+      "intro": "You weigh existence between joke and philosophy, lightness and weight.",
+      "one": "You are like a reflective window — playful, profound, elusive."
+    },
+    "calvino": {
+      "intro": "You turn literature into structural play — light, intellectual.",
+      "one": "You are like a book that reassembles itself — playful, intricate, never finished."
+    },
+    "pamuk": {
+      "intro": "You weave labyrinths between East and West, individual and history.",
+      "one": "You are like snow over Istanbul — covering memory and identity."
+    },
+    "ibsen": {
+      "intro": "You dissect family ethics and social hypocrisy through drama.",
+      "one": "You are like a door knocked upon — once the question is asked, it cannot be unheard."
+    },
+    "andersen": {
+      "intro": "You use fairy tales to write loneliness, beauty, and injustice.",
+      "one": "You are like a star that weeps — gentle, bittersweet, lighting childhood."
+    },
+    "saramago": {
+      "intro": "You write collective fate and moral fable in long, flowing sentences.",
+      "one": "You are like a spreading blindness — collective, allegorical, chilling."
+    },
+    "tagore": {
+      "intro": "Your poetry glows with nature, divinity, and love.",
+      "one": "You are like moonlight on the Ganges — serene, sacred, shining on all."
+    },
+    "naipaul": {
+      "intro": "You write colonial legacy and torn identity with a cool gaze.",
+      "one": "You are like a mirror without warmth — clear, sharp, unsettling."
+    },
+    "achebe": {
+      "intro": "You give voice to silenced history and rebuild African narrative.",
+      "one": "You are like tribal drums — steady, powerful, awakening memory."
+    },
+    "gibran": {
+      "intro": "Your words read like poetry and proverb — tender, spiritual.",
+      "one": "You are like a spring in the desert — simple, deep, comforting hearts."
+    }
+  },
+  "es": {
+    "kongzi": {
+      "intro": "Valoras el orden, la cultivación y el cuidado del otro; crees que las palabras deben llevar moral y las ideas transformar.",
+      "one": "Eres como un maestro apacible que busca lo eterno en el orden y la benevolencia."
+    },
+    "zhuangzi": {
+      "intro": "No quieres ataduras; prefieres la imaginación libre y una sabiduría contra corriente.",
+      "one": "Eres como el viento entre los árboles: ligero, elusivo, indefinible."
+    },
+    "quyuan": {
+      "intro": "Tienes un idealismo ardiente y amor a la patria; tus sentimientos son intensos y tenaces.",
+      "one": "Eres como una larga canción trágica: ferviente, fiel, sin ceder."
+    },
+    "libai": {
+      "intro": "Eres apasionado y expansivo; la vida debe ser magnífica y el lenguaje es tu vino y espada.",
+      "one": "Eres como la luna y el viento: libre, luminoso, sin ataduras."
+    },
+    "dufu": {
+      "intro": "Colocas el destino personal en el torrente de la historia; tu voz es compasiva y grave.",
+      "one": "Eres como un poema largo que se despliega: sereno, denso, lleno de piedad."
+    },
+    "sushi": {
+      "intro": "Mantienes humor y amplitud en la adversidad, uniendo talento y vida cotidiana.",
+      "one": "Eres como un arcoíris tras la lluvia: claro, suave, con regusto."
+    },
+    "caoxueqin": {
+      "intro": "Escribes el calor y frío humano y la volubilidad del destino con finura y desolación.",
+      "one": "Eres como un espejo de todos los seres: esplendor y tristeza juntos."
+    },
+    "luxun": {
+      "intro": "Sientes el mundo con dolor agudo y usas un lenguaje filoso para iluminar contradicciones.",
+      "one": "Eres como un bisturí frío que abre emoción y realidad."
+    },
+    "shencongwen": {
+      "intro": "Encuentras orden y belleza en lo cotidiano, con ternura y calma.",
+      "one": "Eres como un río quieto: templado, apacible, de curso lento."
+    },
+    "laoshe": {
+      "intro": "Cuidas la dignidad de la gente común; el humor esconde amargura.",
+      "one": "Eres como una linterna en un callejón: cercana, cómica, llena de vida."
+    },
+    "zhangailing": {
+      "intro": "Ves la naturaleza humana en el detalle y guardas distancia con elegancia.",
+      "one": "Tienes un tacto hermoso y una lucidez que atraviesa lo brillante."
+    },
+    "yuhua": {
+      "intro": "Mantienes la resistencia en lo absurdo y lo difícil, digiriendo lo pesado con humor.",
+      "one": "Eres como una piedra redondeada por la vida: silenciosa, difícil de quebrar."
+    },
+    "murasaki": {
+      "intro": "Escribes emociones sutiles y la luz de las capas sociales con prosa contenida y larga.",
+      "one": "Eres como luz tras papel washi: sutil, elegante, de palabras a medias."
+    },
+    "natsume": {
+      "intro": "Transitas entre tradición y modernidad; tu estilo es sobrio y reflexivo.",
+      "one": "Eres como un jardín quieto donde razón y melancolía se reflejan."
+    },
+    "kawabata": {
+      "intro": "Eres sensible a la belleza fugaz; amas lo puro, lo melancólico y lo quieto.",
+      "one": "Eres como un fuego en país de nieve: quieto, transparente, un poco frío."
+    },
+    "mishima": {
+      "intro": "Buscas belleza formal e intensidad espiritual: contradictorio y deslumbrante.",
+      "one": "Eres como una hoja templada: bella, peligrosa, sin aceptar lo mediocre."
+    },
+    "oe": {
+      "intro": "Te importan los débiles y las heridas históricas; la literatura es ética y redención.",
+      "one": "Eres como una herida que no cierra: serio, responsable, hacia la luz."
+    },
+    "murakami": {
+      "intro": "Caminas entre lo cotidiano y el sueño; la soledad marca tu ritmo.",
+      "one": "Eres como música en voz baja: quieta, fluida, un poco distante."
+    },
+    "shakespeare": {
+      "intro": "Ves todo el espectro humano; tragedia y comedia en tus manos.",
+      "one": "Eres como un teatro: gozo y dolor juntos, todo presente."
+    },
+    "austen": {
+      "intro": "Dominas el detalle social y la ética del matrimonio con humor contenido.",
+      "one": "Eres como un té refinado: ingenioso, sutil, filo en la risa."
+    },
+    "dickens": {
+      "intro": "Miras el destino de los humildes; en lo grandioso queda calor y justicia.",
+      "one": "Eres como niebla y faroles londinenses: oscuro, pero con luz humana."
+    },
+    "woolf": {
+      "intro": "Captas lo instantáneo y escribes el flujo de conciencia y del tiempo.",
+      "one": "Eres como un espejo que respira, reflejando ondas interiores."
+    },
+    "orwell": {
+      "intro": "Alertas ante el poder y la manipulación del lenguaje; la literatura es lucidez y resistencia.",
+      "one": "Eres como una alarma que no se apaga: fría, afilada, sin callar."
+    },
+    "poe": {
+      "intro": "Te atraen la oscuridad, el sueño y los bordes de la psique; formas compactas y extrañas.",
+      "one": "Eres como un campanario de medianoche: misterioso, sombrío, hipnótico."
+    },
+    "whitman": {
+      "intro": "Abrazas la multiplicidad y lo corporal; el poema es declaración abierta de vida.",
+      "one": "Eres como viento en campo abierto: vasto, ardiente, sin marco."
+    },
+    "hemingway": {
+      "intro": "Confías en frases secas y fuertes y soportas el destino en silencio.",
+      "one": "Eres como arrecife pulido por olas: duro, silencioso, fuerte."
+    },
+    "fitzgerald": {
+      "intro": "Escribes esplendor y desencanto; el romance esconde grietas de una era.",
+      "one": "Eres como la luz verde de Gatsby: brillante, lejana, con pena."
+    },
+    "faulkner": {
+      "intro": "Construyes tiempos complejos y epopeyas familiares de gran densidad.",
+      "one": "Eres como un bosque sureño denso: enredado, hondo, interminable."
+    },
+    "salinger": {
+      "intro": "Escribes la sensibilidad adolescente, la rebeldía y el deseo de sinceridad.",
+      "one": "Eres como un guardián en el centeno: terco, solo, sin crecer del todo."
+    },
+    "vonnegut": {
+      "intro": "Enfrentas guerra y vacío con humor absurdo: tierno y a la vez irónico.",
+      "one": "Eres como una estrella torcida: graciosa, triste, muy humana."
+    },
+    "morrison": {
+      "intro": "Escribes memoria, raza y trauma femenino con lenguaje poético y poderoso.",
+      "one": "Eres como canto que brota de la tierra: grave, solemne, indeleble."
+    },
+    "mccarthy": {
+      "intro": "Tu prosa es austera; en yermo y violencia preguntas el límite humano.",
+      "one": "Eres como brasas en la llanura: frías, escasas, pero ardientes."
+    },
+    "rousseau": {
+      "intro": "Crees en la naturaleza y la sinceridad; amas la civilización pero la dudas.",
+      "one": "Eres como eco en el bosque: apasionado, sensible, buscando lo auténtico."
+    },
+    "balzac": {
+      "intro": "Pones la sociedad en un escenario enorme donde personajes y dinero se entrelazan.",
+      "one": "Eres como un archivo de ciudad: vasto, real, implacable."
+    },
+    "hugo": {
+      "intro": "Unes epopeya y compasión humanitaria; hablas por los débiles.",
+      "one": "Eres como una catedral: grandiosa, compasiva, abierta a la luz."
+    },
+    "baudelaire": {
+      "intro": "Buscas belleza y decadencia en la ciudad moderna; tu verso es denso y decadente.",
+      "one": "Eres como sombra bajo neón: bella, rota, adictiva."
+    },
+    "proust": {
+      "intro": "Conviertes tiempo y memoria en laberinto sensorial interminable.",
+      "one": "Eres como una magdalena: un roce y llega el pasado."
+    },
+    "camus": {
+      "intro": "Mantienes lucidez y dignidad en lo absurdo; la rebelión es sentido.",
+      "one": "Eres como la piedra de Sísifo: pesada, pero con luz invicta."
+    },
+    "goethe": {
+      "intro": "Buscas plenitud y equilibrio clásico; romanticismo y razón conviven.",
+      "one": "Eres como un jardín renacentista: fértil, profundo, siempre nuevo."
+    },
+    "heine": {
+      "intro": "Tu poesía es romántica y mordaz; amor y sátira van juntos.",
+      "one": "Eres como daga envuelta en rosas: bella, pero con filo."
+    },
+    "kafka": {
+      "intro": "Alertas ante reglas e identidad; en el orden ves a menudo lo absurdo.",
+      "one": "Eres como laberinto silencioso: cuanto más entras, más te escuchas."
+    },
+    "mann": {
+      "intro": "Tejes filosofía, enfermedad y crisis civilizatoria en narrativas largas.",
+      "one": "Eres como campanario que gira despacio: solemne, complejo, sugerente."
+    },
+    "hesse": {
+      "intro": "Escribes crecimiento espiritual y sabiduría oriental; interior y claro.",
+      "one": "Eres como camino hacia dentro: quieto, hondo, invita a caminar solo."
+    },
+    "rilke": {
+      "intro": "Medias sobre existencia, soledad y belleza en lenguaje poético.",
+      "one": "Eres como carta al futuro: lenta, pura, tocando el alma."
+    },
+    "pushkin": {
+      "intro": "Eres poeta nacional y símbolo de gracia y libertad.",
+      "one": "Eres como abedules rusos: claros, erguidos, con melancolía."
+    },
+    "dostoevsky": {
+      "intro": "Desciendes al abismo moral y a crisis de fe; los personajes se revelan en extremos.",
+      "one": "Eres como confesión en ventisca: feroz, oscura, ineludible."
+    },
+    "tolstoy": {
+      "intro": "Con visión vasta preguntas por moral, guerra y sentido de la vida.",
+      "one": "Eres como campo amplio: denso, solemne, que lo acoge todo."
+    },
+    "chekhov": {
+      "intro": "Escribes silencio y resignación cotidiana; el humor lleva ternura.",
+      "one": "Eres como humo al atardecer: ligero, lejano, melancólico."
+    },
+    "bulgakov": {
+      "intro": "Creaste en lo absurdo y la censura; en lo mágico hay verdad.",
+      "one": "Eres como baile del diablo: absurdo, deslumbrante, inolvidable."
+    },
+    "solzhenitsyn": {
+      "intro": "Das testimonio del totalitarismo y el sufrimiento; la dignidad sobre todo.",
+      "one": "Eres como viento siberiano: frío, lúcido, imposible de ignorar."
+    },
+    "borges": {
+      "intro": "Desmontas estructuras y niveles; te fascina la realidad misma.",
+      "one": "Eres como biblioteca que se pliega sola: intrincada, fascinante."
+    },
+    "neruda": {
+      "intro": "Tu poesía arde en política y amor; tierra y pasión a la par.",
+      "one": "Eres como mar sudamericano: turbulento, romántico, vital."
+    },
+    "marquez": {
+      "intro": "Tejes mito y realidad; el tiempo gira como un río.",
+      "one": "Eres como lluvia de cien años: fantástica, húmeda, inolvidable."
+    },
+    "vargasllosa": {
+      "intro": "Dominas narrativa múltiple y alegoría política con estructura precisa.",
+      "one": "Eres como mapa complejo que se abre hacia poder y deseo."
+    },
+    "paz": {
+      "intro": "Transitas poesía y prosa, preguntando identidad, tiempo y misterio.",
+      "one": "Eres como sol del desierto: ardiente, abstracto, ilumina todo."
+    },
+    "bolano": {
+      "intro": "Escribes exilio, juventud y fantasmas literarios en relatos errantes y cautivadores.",
+      "one": "Eres como carretera sin fin: desolada, libre, llena de leyenda."
+    },
+    "kundera": {
+      "intro": "Pesas la existencia entre broma y filosofía, ligereza y peso.",
+      "one": "Eres como ventana reflectante: juguetona, profunda, esquiva."
+    },
+    "calvino": {
+      "intro": "Conviertes la literatura en juego estructural: ligera e inteligente.",
+      "one": "Eres como libro que se recompone: divertido, fino, sin acabar."
+    },
+    "pamuk": {
+      "intro": "Tejes laberintos entre Oriente y Occidente, individuo e historia.",
+      "one": "Eres como nieve sobre Estambul: cubriendo memoria e identidad."
+    },
+    "ibsen": {
+      "intro": "Disecas ética familiar e hipocresía social en el teatro.",
+      "one": "Eres como puerta que llaman: una vez preguntado, no se puede ignorar."
+    },
+    "andersen": {
+      "intro": "Usas el cuento para escribir soledad, belleza e injusticia.",
+      "one": "Eres como estrella que llora: tierna, dulce-amarga, ilumina la infancia."
+    },
+    "saramago": {
+      "intro": "Escribes destino colectivo y fábula moral en frases largas y fluidas.",
+      "one": "Eres como ceguera que se extiende: colectiva, alegórica, inquietante."
+    },
+    "tagore": {
+      "intro": "Tu poesía brilla con naturaleza, lo divino y el amor.",
+      "one": "Eres como luna sobre el Ganges: serena, sagrada, sobre todos."
+    },
+    "naipaul": {
+      "intro": "Escribes legado colonial e identidad rota con mirada fría.",
+      "one": "Eres como espejo sin calor: claro, afilado, incómodo."
+    },
+    "achebe": {
+      "intro": "Das voz a historia silenciada y reconstruyes narrativa africana.",
+      "one": "Eres como tambores de tribu: firmes, potentes, despiertan memoria."
+    },
+    "gibran": {
+      "intro": "Tus palabras son poesía y proverbio: tiernas y espirituales.",
+      "one": "Eres como manantial en desierto: simple, hondo, consuela corazones."
+    }
+  },
+  "fr": {
+    "kongzi": {
+      "intro": "Vous valorisez l'ordre, la cultivation et le soin d'autrui ; vous croyez que les mots doivent porter la morale et les idées transformer.",
+      "one": "Vous êtes comme un maître doux cherchant l'éternel dans l'ordre et la bienveillance."
+    },
+    "zhuangzi": {
+      "intro": "Vous refusez d'être enchaîné par les règles ; vous préférez l'imagination libre et une sagesse contre les convenances.",
+      "one": "Vous êtes comme le vent dans les bois — léger, insaisissable, indéfinissable."
+    },
+    "quyuan": {
+      "intro": "Vous portez un idéalisme ardent et l'amour du pays ; vos sentiments brûlent d'intensité et de fidélité.",
+      "one": "Vous êtes comme un long chant funèbre — fervent, loyal, refusant de céder."
+    },
+    "libai": {
+      "intro": "Vous êtes passionné et expansif ; la vie doit être magnifique et le langage est votre vin et votre épée.",
+      "one": "Vous êtes comme la lune et le vent — libre, lumineux, sans entraves."
+    },
+    "dufu": {
+      "intro": "Vous placez le destin personnel dans le torrent de l'histoire ; votre voix est compatissante et grave.",
+      "one": "Vous êtes comme un long poème qui se déploie — stable, lourd, plein de pitié."
+    },
+    "sushi": {
+      "intro": "Vous gardez l'humour et l'ouverture dans l'adversité, mêlant talent et chaleur du quotidien.",
+      "one": "Vous êtes comme un arc-en-ciel après la pluie — clair, doux, avec un arrière-goût."
+    },
+    "caoxueqin": {
+      "intro": "Vous écrivez la chaleur et la froideur humaines et le caprice du destin — fin et désolé.",
+      "one": "Vous êtes comme un miroir de tous les vivants — splendeur et tristesse ensemble."
+    },
+    "luxun": {
+      "intro": "Vous ressentez le monde avec une douleur aiguë et usez d'un langage tranchant pour éclairer ses contradictions.",
+      "one": "Vous êtes comme un scalpel froid ouvrant l'émotion et le réel."
+    },
+    "shencongwen": {
+      "intro": "Vous trouvez ordre et beauté dans le quotidien simple, avec douceur et sérénité.",
+      "one": "Vous êtes comme une rivière tranquille — tiède, paisible, coulant lentement."
+    },
+    "laoshe": {
+      "intro": "Vous veillez à la dignité des gens ordinaires ; l'humour cache l'amertume.",
+      "one": "Vous êtes comme une lanterne de ruelle — familière, drôle, pleine de vie."
+    },
+    "zhangailing": {
+      "intro": "Vous voyez la nature humaine dans le détail et gardez distance avec élégance.",
+      "one": "Vous avez un tact magnifique et une lucidité qui perce les mondes brillants."
+    },
+    "yuhua": {
+      "intro": "Vous restez résilient dans l'absurde et l'épreuve, digérant le lourd par l'humour.",
+      "one": "Vous êtes comme une pierre lissée par la vie — silencieuse, difficile à briser."
+    },
+    "murasaki": {
+      "intro": "Vous écrivez des émotions subtiles et la lumière des strates sociales — prose contenue et longue.",
+      "one": "Vous êtes comme une lumière derrière le washi — délicate, élégante, à demi-dite."
+    },
+    "natsume": {
+      "intro": "Vous traversez tradition et modernité ; votre style est sobre et réfléchi.",
+      "one": "Vous êtes comme un jardin calme où raison et mélancolie se reflètent."
+    },
+    "kawabata": {
+      "intro": "Vous êtes sensible à la beauté fugitive ; vous aimez la pureté, la tristesse et le silence.",
+      "one": "Vous êtes comme un feu au pays des neiges — quiet, transparent, un peu froid."
+    },
+    "mishima": {
+      "intro": "Vous poursuivez la beauté formelle et l'intensité spirituelle — contradictoire et éclatant.",
+      "one": "Vous êtes comme une lame trempée — magnifique, dangereuse, refusant la médiocrité."
+    },
+    "oe": {
+      "intro": "Vous vous souciez des faibles et des blessures historiques ; la littérature est éthique et rédemption.",
+      "one": "Vous êtes comme une plaie qui ne se ferme pas — sérieux, responsable, tourné vers la lumière."
+    },
+    "murakami": {
+      "intro": "Vous circulez entre quotidien et rêve ; la solitude rythme votre pas.",
+      "one": "Vous êtes comme une musique basse — calme, fluide, un peu distante."
+    },
+    "shakespeare": {
+      "intro": "Vous voyez tout le spectre humain ; tragédie et comédie sont en vos mains.",
+      "one": "Vous êtes comme un théâtre — joie et peine côte à côte, tout y est."
+    },
+    "austen": {
+      "intro": "Vous maîtrisez le détail social et l'éthique du mariage — spirituel et retenu.",
+      "one": "Vous êtes comme un thé raffiné — fin, subtil, lame dans le rire."
+    },
+    "dickens": {
+      "intro": "Vous suivez le sort des humbles ; dans le grand récit reste chaleur et justice.",
+      "one": "Vous êtes comme brouillard et lampes de Londres — sombre, mais lumière humaine."
+    },
+    "woolf": {
+      "intro": "Vous captez l'instant et écrivez le flux de la conscience et du temps.",
+      "one": "Vous êtes comme un miroir qui respire, reflétant les ondes intérieures."
+    },
+    "orwell": {
+      "intro": "Vous alertez face au pouvoir et à la manipulation du langage ; la littérature est lucidité et résistance.",
+      "one": "Vous êtes comme une alarme qui ne s'éteint pas — froide, tranchante, sans silence."
+    },
+    "poe": {
+      "intro": "Vous aimez l'obscur, le rêve et les bords de la psyché — formes compactes et étranges.",
+      "one": "Vous êtes comme un clocher de minuit — mystérieux, sombre, fascinant."
+    },
+    "whitman": {
+      "intro": "Vous embrassez la multiplicité et le corps ; le poème est une déclaration ouverte de vie.",
+      "one": "Vous êtes comme le vent sur la plaine — vaste, ardent, sans cadre."
+    },
+    "hemingway": {
+      "intro": "Vous faites confiance aux phrases sèches et fortes et portez le destin en silence.",
+      "one": "Vous êtes comme un récif poli par les vagues — dur, silencieux, fort."
+    },
+    "fitzgerald": {
+      "intro": "Vous écrivez splendeur et désenchantement ; la romance cache les fissures d'une époque.",
+      "one": "Vous êtes comme le feu vert de Gatsby — brillant, lointain, mélancolique."
+    },
+    "faulkner": {
+      "intro": "Vous construisez des temps complexes et des épopées familiales d'une densité extrême.",
+      "one": "Vous êtes comme une forêt du Sud — enchevêtrée, profonde, infinie."
+    },
+    "salinger": {
+      "intro": "Vous écrivez la sensibilité adolescente, la rébellion et la soif de sincérité.",
+      "one": "Vous êtes comme un gardien dans le seigle — entêté, seul, refusant de grandir."
+    },
+    "vonnegut": {
+      "intro": "Vous affrontez guerre et vide par l'absurde et l'humour — tendre et ironique.",
+      "one": "Vous êtes comme une étoile de travers — drôle, triste, profondément humaine."
+    },
+    "morrison": {
+      "intro": "Vous écrivez mémoire, race et trauma féminin dans un langage poétique et puissant.",
+      "one": "Vous êtes comme un chant sorti de la terre — grave, solennel, indélébile."
+    },
+    "mccarthy": {
+      "intro": "Votre prose est austère ; dans le désert et la violence vous sondez l'humain.",
+      "one": "Vous êtes comme des braises sur la plaine — froides, rares, brûlantes."
+    },
+    "rousseau": {
+      "intro": "Vous croyez à la nature et à la sincérité ; vous aimez la civilisation mais la doutez.",
+      "one": "Vous êtes comme un écho dans les bois — ardent, sensible, en quête du vrai."
+    },
+    "balzac": {
+      "intro": "Vous mettez la société en scène immense où personnages et argent s'entrelacent.",
+      "one": "Vous êtes comme les archives d'une ville — vaste, réel, impitoyable."
+    },
+    "hugo": {
+      "intro": "Vous unissez épopée et compassion ; vous parlez pour les faibles.",
+      "one": "Vous êtes comme une cathédrale — grandiose, compatissante, ouverte à la lumière."
+    },
+    "baudelaire": {
+      "intro": "Vous cherchez beauté et décadence en la ville moderne ; votre vers est dense et décadent.",
+      "one": "Vous êtes comme une ombre sous néon — magnifique, brisée, addictive."
+    },
+    "proust": {
+      "intro": "Vous faites du temps et de la mémoire un labyrinthe sensoriel sans fin.",
+      "one": "Vous êtes comme une madeleine — un contact et le passé afflue."
+    },
+    "camus": {
+      "intro": "Vous restez lucide et digne dans l'absurde ; la révolte est sens.",
+      "one": "Vous êtes comme la pierre de Sisyphe — lourde, mais porteuse d'une lumière invincible."
+    },
+    "goethe": {
+      "intro": "Vous poursuivez plénitude et équilibre classique ; romantisme et raison coexistent.",
+      "one": "Vous êtes comme un jardin de la Renaissance — fertile, profond, toujours neuf."
+    },
+    "heine": {
+      "intro": "Votre poésie est romantique et mordante ; amour et satire marchent ensemble.",
+      "one": "Vous êtes comme une dague enveloppée de roses — belle, mais tranchante."
+    },
+    "kafka": {
+      "intro": "Vous alertez face aux règles et à l'identité ; dans l'ordre vous voyez l'absurde.",
+      "one": "Vous êtes comme un labyrinthe silencieux — plus vous avancez, plus vous vous entendez."
+    },
+    "mann": {
+      "intro": "Vous tissez philosophie, maladie et crise civilisationnelle en longs récits.",
+      "one": "Vous êtes comme un clocher qui tourne lentement — solennel, complexe, suggestif."
+    },
+    "hesse": {
+      "intro": "Vous écrivez croissance spirituelle et sagesse orientale — intérieur et limpide.",
+      "one": "Vous êtes comme un chemin vers l'intérieur — calme, profond, invitant à la solitude."
+    },
+    "rilke": {
+      "intro": "Vous méditez existence, solitude et beauté en langage poétique.",
+      "one": "Vous êtes comme une lettre au futur — lente, pure, touchant l'âme."
+    },
+    "pushkin": {
+      "intro": "Vous êtes poète national et symbole de grâce et de liberté.",
+      "one": "Vous êtes comme les bouleaux russes — clairs, droits, mélancoliques."
+    },
+    "dostoevsky": {
+      "intro": "Vous descendez dans l'abîme moral et les crises de foi ; les personnages se révèlent dans l'extrême.",
+      "one": "Vous êtes comme une confession dans la tempête — ardente, sombre, inévitable."
+    },
+    "tolstoy": {
+      "intro": "Avec une vision vaste vous interrogez morale, guerre et sens de la vie.",
+      "one": "Vous êtes comme un vaste champ — lourd, solennel, accueillant tout."
+    },
+    "chekhov": {
+      "intro": "Vous écrivez le silence et l'impuissance du quotidien ; l'humour porte la tendresse.",
+      "one": "Vous êtes comme une fumée du soir — légère, lointaine, mélancolique."
+    },
+    "bulgakov": {
+      "intro": "Vous créez dans l'absurde et la censure ; la magie cache la vérité.",
+      "one": "Vous êtes comme un bal du diable — absurde, éclatant, inoubliable."
+    },
+    "solzhenitsyn": {
+      "intro": "Vous témoignez du totalitarisme et de la souffrance ; la dignité avant tout.",
+      "one": "Vous êtes comme le vent de Sibérie — froid, lucide, impossible à ignorer."
+    },
+    "borges": {
+      "intro": "Vous démontez structures et niveaux ; la réalité même vous fascine.",
+      "one": "Vous êtes comme une bibliothèque qui se replie — complexe, envoûtante."
+    },
+    "neruda": {
+      "intro": "Votre poésie brûle de politique et d'amour ; terre et passion ensemble.",
+      "one": "Vous êtes comme la mer sud-américaine — tumultueuse, romantique, vivante."
+    },
+    "marquez": {
+      "intro": "Vous tissez mythe et réalité ; le temps boucle comme un fleuve.",
+      "one": "Vous êtes comme une pluie centenaire — fantastique, humide, inoubliable."
+    },
+    "vargasllosa": {
+      "intro": "Vous maîtrisez récit multiple et allégorie politique avec structure précise.",
+      "one": "Vous êtes comme une carte complexe s'ouvrant vers pouvoir et désir."
+    },
+    "paz": {
+      "intro": "Vous passez de la poésie à la prose, questionnant identité, temps et mystère.",
+      "one": "Vous êtes comme un soleil du désert — ardent, abstrait, illuminant tout."
+    },
+    "bolano": {
+      "intro": "Vous écrivez exil, jeunesse et fantômes littéraires en récits errants et captivants.",
+      "one": "Vous êres comme une route sans fin — déserte, libre, légendaire."
+    },
+    "kundera": {
+      "intro": "Vous pesez l'existence entre plaisanterie et philosophie, légèreté et poids.",
+      "one": "Vous êtes comme une fenêtre réfléchissante — enjouée, profonde, insaisissable."
+    },
+    "calvino": {
+      "intro": "Vous faites de la littérature un jeu structurel — léger et intellectuel.",
+      "one": "Vous êtes comme un livre qui se recombine — ludique, fin, jamais fini."
+    },
+    "pamuk": {
+      "intro": "Vous tissez des labyrinthes entre Orient et Occident, individu et histoire.",
+      "one": "Vous êtes comme la neige sur Istanbul — couvrant mémoire et identité."
+    },
+    "ibsen": {
+      "intro": "Vous disséquez éthique familiale et hypocrisie sociale au théâtre.",
+      "one": "Vous êtes comme une porte frappée — une fois la question posée, on ne peut l'ignorer."
+    },
+    "andersen": {
+      "intro": "Vous usez du conte pour écrire solitude, beauté et injustice.",
+      "one": "Vous êtes comme une étoile qui pleure — douce, amère, éclairant l'enfance."
+    },
+    "saramago": {
+      "intro": "Vous écrivez destin collectif et fable morale en phrases longues et fluides.",
+      "one": "Vous êtes comme une cécité qui se propage — collective, allégorique, glaçante."
+    },
+    "tagore": {
+      "intro": "Votre poésie brille de nature, de divinité et d'amour.",
+      "one": "Vous êtes comme la lune sur le Gange — sereine, sacrée, sur tous."
+    },
+    "naipaul": {
+      "intro": "Vous écrivez héritage colonial et identité déchirée d'un regard froid.",
+      "one": "Vous êtes comme un miroir sans chaleur — clair, tranchant, dérangeant."
+    },
+    "achebe": {
+      "intro": "Vous donnez voix à l'histoire silenciée et reconstruisez le récit africain.",
+      "one": "Vous êtes comme des tambours de tribu — stables, puissants, réveillant la mémoire."
+    },
+    "gibran": {
+      "intro": "Vos mots sont poésie et proverbe — tendres et spirituels.",
+      "one": "Vous êtes comme une source au désert — simple, profond, apaisant les cœurs."
+    }
+  },
+  "pt": {
+    "kongzi": {
+      "intro": "Valoriza ordem, cultivo e cuidado com o outro; crê que as palavras devem levar moral e as ideias transformar.",
+      "one": "És como um mestre gentil que busca o eterno na ordem e na benevolência."
+    },
+    "zhuangzi": {
+      "intro": "Não queres ataduras; preferes imaginação livre e sabedoria contra a corrente.",
+      "one": "És como vento entre árvores: leve, elusivo, indefinível."
+    },
+    "quyuan": {
+      "intro": "Tens idealismo ardente e amor à pátria; os sentimentos queimam com intensidade e fidelidade.",
+      "one": "És como longo canto trágico: fervoroso, leal, sem ceder."
+    },
+    "libai": {
+      "intro": "És apaixonado e expansivo; a vida deve ser magnífica e a linguagem é teu vinho e espada.",
+      "one": "És como lua e vento: livre, luminoso, sem ataduras."
+    },
+    "dufu": {
+      "intro": "Colocas o destino pessoal no torrente da história; a voz é compassiva e grave.",
+      "one": "És como poema longo que se desdobra: sereno, denso, cheio de piedade."
+    },
+    "sushi": {
+      "intro": "Manténs humor e amplitude na adversidade, unindo talento e calor do quotidiano.",
+      "one": "És como arco-íris após chuva: claro, suave, com regusto."
+    },
+    "caoxueqin": {
+      "intro": "Escreves calor e frio humanos e capricho do destino com finura e desolação.",
+      "one": "És como espelho de todos os seres: esplendor e tristeza juntos."
+    },
+    "luxun": {
+      "intro": "Sentes o mundo com dor aguda e usas linguagem afiada para iluminar contradições.",
+      "one": "És como bisturi frio que abre emoção e realidade."
+    },
+    "shencongwen": {
+      "intro": "Encontras ordem e beleza no quotidiano simples, com ternura e calma.",
+      "one": "És como rio quieto: temperado, apaziguado, de curso lento."
+    },
+    "laoshe": {
+      "intro": "Cuidas da dignidade das pessoas comuns; o humor esconde amargura.",
+      "one": "És como lanterna num beco: próxima, cómica, cheia de vida."
+    },
+    "zhangailing": {
+      "intro": "Vês a natureza humana no detalhe e guardas distância com elegância.",
+      "one": "Tens tacto belo e lucidez que atravessa mundos brilhantes."
+    },
+    "yuhua": {
+      "intro": "Manténs resistência no absurdo e na prova, digerindo o pesado com humor.",
+      "one": "És como pedra arredondada pela vida: silenciosa, difícil de quebrar."
+    },
+    "murasaki": {
+      "intro": "Escreves emoções sutis e luz das camadas sociais com prosa contida e longa.",
+      "one": "És como luz atrás de washi: sutil, elegante, a meias palavras."
+    },
+    "natsume": {
+      "intro": "Transitas entre tradição e modernidade; o estilo é sóbrio e reflexivo.",
+      "one": "És como jardim quieto onde razão e melancolia se refletem."
+    },
+    "kawabata": {
+      "intro": "És sensível à beleza fugaz; amas pureza, melancolia e silêncio.",
+      "one": "És como fogo na terra da neve: quieto, transparente, um pouco frio."
+    },
+    "mishima": {
+      "intro": "Buscas beleza formal e intensidade espiritual: contraditório e deslumbrante.",
+      "one": "És como lâmina temperada: bela, perigosa, recusando mediocridade."
+    },
+    "oe": {
+      "intro": "Importas-te com os fracos e feridas históricas; a literatura é ética e redenção.",
+      "one": "És como ferida que não fecha: sério, responsável, rumo à luz."
+    },
+    "murakami": {
+      "intro": "Caminhas entre quotidiano e sonho; a solidão marca o teu ritmo.",
+      "one": "És como música baixa: calma, fluida, um pouco distante."
+    },
+    "shakespeare": {
+      "intro": "Vês todo o espectro humano; tragédia e comédia nas tuas mãos.",
+      "one": "És como teatro: gozo e dor juntos, tudo presente."
+    },
+    "austen": {
+      "intro": "Dominas detalhe social e ética do casamento com humor contido.",
+      "one": "És como chá refinado: engenhoso, subtil, fio na risada."
+    },
+    "dickens": {
+      "intro": "Olhas o destino dos humildes; no grandioso resta calor e justiça.",
+      "one": "És como nevoeiro e candeeiros londrinos: escuro, mas com luz humana."
+    },
+    "woolf": {
+      "intro": "Captas o instantâneo e escreves fluxo de consciência e do tempo.",
+      "one": "És como espelho que respira, refletindo ondas interiores."
+    },
+    "orwell": {
+      "intro": "Alertas ante poder e manipulação da linguagem; literatura é lucidez e resistência.",
+      "one": "És como alarme que não se apaga: frio, afiado, sem calar."
+    },
+    "poe": {
+      "intro": "Atraem-te escuridão, sonho e bordas da psique; formas compactas e estranhas.",
+      "one": "És como campanário de meia-noite: misterioso, sombrio, hipnótico."
+    },
+    "whitman": {
+      "intro": "Abraças multiplicidade e corporalidade; o poema é declaração aberta de vida.",
+      "one": "És como vento em campo aberto: vasto, ardente, sem moldura."
+    },
+    "hemingway": {
+      "intro": "Confias em frases secas e fortes e suportas o destino em silêncio.",
+      "one": "És como recife polido por ondas: duro, silencioso, forte."
+    },
+    "fitzgerald": {
+      "intro": "Escreves esplendor e desencanto; o romance esconde fissuras de uma era.",
+      "one": "És como luz verde de Gatsby: brilhante, distante, com pena."
+    },
+    "faulkner": {
+      "intro": "Constróis tempos complexos e epopeias familiares de grande densidade.",
+      "one": "És como floresta sulista densa: emaranhada, profunda, interminável."
+    },
+    "salinger": {
+      "intro": "Escreves sensibilidade adolescente, rebeldia e desejo de sinceridade.",
+      "one": "És como guardião no centeio: teimoso, só, sem crescer de todo."
+    },
+    "vonnegut": {
+      "intro": "Enfrentas guerra e vazio com humor absurdo: terno e irónico.",
+      "one": "És como estrela torta: graciosa, triste, muito humana."
+    },
+    "morrison": {
+      "intro": "Escreves memória, raça e trauma feminino com linguagem poética e poderosa.",
+      "one": "És como canto que brota da terra: grave, solene, indelével."
+    },
+    "mccarthy": {
+      "intro": "A tua prosa é austera; no ermo e violência perguntas o limite humano.",
+      "one": "És como brasas na planície: frias, escassas, mas ardentes."
+    },
+    "rousseau": {
+      "intro": "Crês na natureza e sinceridade; amas civilização mas a dúvidas.",
+      "one": "És como eco na floresta: apaixonado, sensível, buscando o autêntico."
+    },
+    "balzac": {
+      "intro": "Pões sociedade em palco enorme onde personagens e dinheiro se entrelaçam.",
+      "one": "És como arquivo de cidade: vasto, real, implacável."
+    },
+    "hugo": {
+      "intro": "Unes epopeia e compaixão humanitária; falas pelos fracos.",
+      "one": "És como catedral: grandiosa, compassiva, aberta à luz."
+    },
+    "baudelaire": {
+      "intro": "Buscas beleza e decadência na cidade moderna; verso denso e decadente.",
+      "one": "És como sombra sob néon: bela, partida, viciante."
+    },
+    "proust": {
+      "intro": "Converts tempo e memória em labirinto sensorial interminável.",
+      "one": "És como madalena: um toque e chega o passado."
+    },
+    "camus": {
+      "intro": "Manténs lucidez e dignidade no absurdo; rebelião é sentido.",
+      "one": "És como pedra de Sísifo: pesada, mas com luz invicta."
+    },
+    "goethe": {
+      "intro": "Buscas plenitude e equilíbrio clássico; romantismo e razão convivem.",
+      "one": "És como jardim renascentista: fértil, profundo, sempre novo."
+    },
+    "heine": {
+      "intro": "A tua poesia é romântica e mordaz; amor e sátira juntos.",
+      "one": "És como adaga envolta em rosas: bela, mas com fio."
+    },
+    "kafka": {
+      "intro": "Alertas ante regras e identidade; na ordem vês muitas vezes o absurdo.",
+      "one": "És como labirinto silencioso: quanto mais entras, mais te ouves."
+    },
+    "mann": {
+      "intro": "Tece filosofia, doença e crise civilizacional em narrativas longas.",
+      "one": "És como campanário que gira devagar: solene, complexo, sugestivo."
+    },
+    "hesse": {
+      "intro": "Escreves crescimento espiritual e sabedoria oriental; interior e claro.",
+      "one": "És como caminho para dentro: quieto, hondo, convida a caminhar só."
+    },
+    "rilke": {
+      "intro": "Medias existência, solidão e beleza em linguagem poética.",
+      "one": "És como carta ao futuro: lenta, pura, tocando a alma."
+    },
+    "pushkin": {
+      "intro": "És poeta nacional e símbolo de graça e liberdade.",
+      "one": "És como bétulas russas: claras, erguidas, com melancolia."
+    },
+    "dostoevsky": {
+      "intro": "Desces ao abismo moral e crises de fé; personagens revelam-se no extremo.",
+      "one": "És como confissão na ventania: feroz, escura, ineludível."
+    },
+    "tolstoy": {
+      "intro": "Com visão vasta perguntas por moral, guerra e sentido da vida.",
+      "one": "És como campo amplo: denso, solene, acolhendo tudo."
+    },
+    "chekhov": {
+      "intro": "Escreves silêncio e resignação quotidiana; humor leva ternura.",
+      "one": "És como fumo ao entardecer: leve, longínquo, melancólico."
+    },
+    "bulgakov": {
+      "intro": "Criaste no absurdo e censura; no mágico há verdade.",
+      "one": "És como baile do diabo: absurdo, deslumbrante, inesquecível."
+    },
+    "solzhenitsyn": {
+      "intro": "Testemunhas totalitarismo e sofrimento; dignidade acima de tudo.",
+      "one": "És como vento siberiano: frio, lúcido, impossível ignorar."
+    },
+    "borges": {
+      "intro": "Desmontas estruturas e níveis; a realidade mesma te fascina.",
+      "one": "És como biblioteca que se dobra: intrincada, fascinante."
+    },
+    "neruda": {
+      "intro": "A tua poesia arde em política e amor; terra e paixão juntos.",
+      "one": "És como mar sul-americano: turbulento, romântico, vital."
+    },
+    "marquez": {
+      "intro": "Tece mito e realidade; o tempo gira como rio.",
+      "one": "És como chuva de cem anos: fantástica, húmida, inesquecível."
+    },
+    "vargasllosa": {
+      "intro": "Dominas narrativa múltipla e alegoria política com estrutura precisa.",
+      "one": "És como mapa complexo abrindo-se para poder e desejo."
+    },
+    "paz": {
+      "intro": "Transitas poesia e prosa, perguntando identidade, tempo e mistério.",
+      "one": "És como sol do deserto: ardente, abstracto, ilumina tudo."
+    },
+    "bolano": {
+      "intro": "Escreves exílio, juventude e fantasmas literários em relatos errantes e cativantes.",
+      "one": "És como estrada sem fim: desolada, livre, cheia de lenda."
+    },
+    "kundera": {
+      "intro": "Pesas existência entre piada e filosofia, leveza e peso.",
+      "one": "És como janela reflectora: brincalhona, profunda, esquiva."
+    },
+    "calvino": {
+      "intro": "Converts literatura em jogo estrutural: leve e inteligente.",
+      "one": "És como livro que se recompõe: divertido, fino, sem acabar."
+    },
+    "pamuk": {
+      "intro": "Tece labirintos entre Oriente e Ocidente, indivíduo e história.",
+      "one": "És como neve sobre Istambul: cobrindo memória e identidade."
+    },
+    "ibsen": {
+      "intro": "Dissecas ética familiar e hipocrisia social no teatro.",
+      "one": "És como porta batida: uma vez perguntado, não se pode ignorar."
+    },
+    "andersen": {
+      "intro": "Usas conto para escrever solidão, beleza e injustiça.",
+      "one": "És como estrela que chora: terna, agridoce, ilumina infância."
+    },
+    "saramago": {
+      "intro": "Escreves destino colectivo e fábula moral em frases longas e fluidas.",
+      "one": "És como cegueira que se espalha: colectiva, alegórica, inquietante."
+    },
+    "tagore": {
+      "intro": "A tua poesia brilha com natureza, divino e amor.",
+      "one": "És como lua sobre o Ganges: serena, sagrada, sobre todos."
+    },
+    "naipaul": {
+      "intro": "Escreves legado colonial e identidade partida com olhar frio.",
+      "one": "És como espelho sem calor: claro, afiado, incómodo."
+    },
+    "achebe": {
+      "intro": "Dás voz a história silenciada e reconstróis narrativa africana.",
+      "one": "És como tambores de tribo: firmes, potentes, despertam memória."
+    },
+    "gibran": {
+      "intro": "As tuas palavras são poesia e provérbio: ternas e espirituais.",
+      "one": "És como nascente no deserto: simples, hondo, consola corações."
+    }
+  },
+  "ja": {
+    "kongzi": {
+      "intro": "秩序と修養、他者への配慮を重んじ、言葉は道を載せ、思想は人を化すと信じる。",
+      "one": "穏やかな師のように、秩序と仁の中に永遠を求める。"
+    },
+    "zhuangzi": {
+      "intro": "規則に縛られたくなく、自由な想像と常識を超えた知恵を好む。",
+      "one": "林を抜ける風のように、軽やかで、跳躍的で、定義しがたい。"
+    },
+    "quyuan": {
+      "intro": "強い理想と家国への思いを持ち、感情は熱く、執着深い。",
+      "one": "悲怆な長歌のように、熱烈で、忠実で、妥協しない。"
+    },
+    "libai": {
+      "intro": "情熱的で、人生は壮麗であるべきと信じ、言葉は酒と剣。",
+      "one": "明月と長風のように、洒脱で、明るく、型にはまらない。"
+    },
+    "dufu": {
+      "intro": "個人の運命を時代の洪流に置き、悲憫に満ち、重厚。",
+      "one": "ゆっくり広がる長詩のように、沈穏で、重く、憐れみ深い。"
+    },
+    "sushi": {
+      "intro": "逆境でも幽默と曠達を保ち、才と市井の煙火を兼ね備える。",
+      "one": "雨上がりの虹のように、透き通り、温かく、余韻がある。"
+    },
+    "caoxueqin": {
+      "intro": "人情の冷暖と運命の無常を尽くし書き、繊細で蒼凉。",
+      "one": "衆生を映す鏡のように、華美と悲凉が共存する。"
+    },
+    "luxun": {
+      "intro": "世界への鋭い痛みを持ち、鋭い言葉で矛盾を照らす。",
+      "one": "冷静なメスで、感情と現実を直接切り開く。"
+    },
+    "shencongwen": {
+      "intro": "素朴な日常から秩序と美を感じ、優しく静か。",
+      "one": "静かな川のように、潤い、穏やかで、ゆっくり流れる。"
+    },
+    "laoshe": {
+      "intro": "市井の人々の尊厳を見つめ、幽默の奥に辛酸。",
+      "one": "胡同の灯のように、親しみがあり、ユーモラスで、煙火気がある。"
+    },
+    "zhangailing": {
+      "intro": "細部に人性を見抜き、距離と分寸を保つ。",
+      "one": "美しい距離感と、繁華を見透かす清醒さを持つ。"
+    },
+    "yuhua": {
+      "intro": "荒诞と困難の中でも靭性を保ち、幽默で重さを消化する。",
+      "one": "生活に磨かれた石のように、黙って、簡単には砕けない。"
+    },
+    "murasaki": {
+      "intro": "微妙な感情と階層の光影を極めて書き、含蓄深長。",
+      "one": "和紙の向こうの光影のように、幽微で、雅致で、言い尽くさない。"
+    },
+    "natsume": {
+      "intro": "伝統と近代のあいだを行き来し、文体は克制で思辨的。",
+      "one": "静かな庭園のように、理性と感傷が互いに映す。"
+    },
+    "kawabata": {
+      "intro": "瞬間の美に極度に敏感で、清浄、哀婉、静寂を好む。",
+      "one": "雪国の炉のように、静かで、透明で、わずかに寒い。"
+    },
+    "mishima": {
+      "intro": "形式美と精神の強度を追い、矛盾しながら绚烂。",
+      "one": "焼き入れの刀のように、華麗で、危うく、凡庸を拒む。"
+    },
+    "oe": {
+      "intro": "弱者と歴史の傷を care し、文学は倫理と救済の場。",
+      "one": "癒えない傷のように、厳粛で、担当し、光へ向かう。"
+    },
+    "murakami": {
+      "intro": "日常と夢のあいだを行き来し、孤独がリズム。",
+      "one": "低く流れる音楽のように、静かで、流動的で、やや距離がある。"
+    },
+    "shakespeare": {
+      "intro": "人性の全スペクトルを見抜き、悲劇も喜劇も手の中。",
+      "one": "劇場のように、悲喜が並び、万象が備わる。"
+    },
+    "austen": {
+      "intro": "社交の細部と婚姻倫理に長け、幽默で克制。",
+      "one": "精緻な下午茶のように、機知に富み、含蓄があり、笑いに刃。"
+    },
+    "dickens": {
+      "intro": "底辺の運命を見つめ、宏大叙事にも温かさと正義。",
+      "one": "ロンドンの霧と灯のように、暗い所にも人の光。"
+    },
+    "woolf": {
+      "intro": "瞬間の感受に鋭く、意識と時間の流れを書く。",
+      "one": "呼吸する鏡のように、内面の細波を映す。"
+    },
+    "orwell": {
+      "intro": "権力と言語操作に警戒し、文学は清醒と抵抗。",
+      "one": "消えない警報のように、冷静で、鋭く、黙らない。"
+    },
+    "poe": {
+      "intro": "暗闇、夢、心理の縁に魅せられ、形式は compact で诡异。",
+      "one": "真夜中の鐘楼のように、神秘で、陰鬱で、惹きつける。"
+    },
+    "whitman": {
+      "intro": "多元と身体性を embrace し、詩は開かれた生命宣言。",
+      "one": "原野の風のように、広く、熱く、枠に収まらない。"
+    },
+    "hemingway": {
+      "intro": "簡潔で力強い文を信じ、沈黙の中で運命を受ける。",
+      "one": "波に磨かれた礁のように、硬く、黙り、力がある。"
+    },
+    "fitzgerald": {
+      "intro": "繁華と幻滅を書き、浪漫の奥に時代の亀裂。",
+      "one": "ギャツビーの緑の灯のように、璀璨で、遠く、哀愁を帯びる。"
+    },
+    "faulkner": {
+      "intro": "複雑な時間と家族叙事詩を構築し、密度极高。",
+      "one": "濃い南方の森のように、絡み合い、深く、読み切れない。"
+    },
+    "salinger": {
+      "intro": "思春期の敏感、反逆、真実への渇望を書く。",
+      "one": "ライ麦畑の番人のように、頑固で、孤独で、大人になりきれない。"
+    },
+    "vonnegut": {
+      "intro": "戦争と虚無に荒诞と幽默で向き合い、優しくも反讽。",
+      "one": "歪んだ星のように、可笑しく、悲凉で、人間味がある。"
+    },
+    "morrison": {
+      "intro": "記憶、人種、女性の傷を詩的で力強い言葉で書く。",
+      "one": "土から生まれた歌のように、沈痛で、厳粛で、消えない。"
+    },
+    "mccarthy": {
+      "intro": "文体は冷硬、荒原と暴力の中で人性の底を問う。",
+      "one": "荒原の余烬のように、冷たく、まばらで、それでも灼く。"
+    },
+    "rousseau": {
+      "intro": "自然と真実を信じ、文明に深情も懐疑も。",
+      "one": "林のこだまのように、熱く、敏感で、本真を問う。"
+    },
+    "balzac": {
+      "intro": "社会を巨大な舞台にし、人物と金銭が交錯。",
+      "one": "都市の档案室のように、庞杂で、真实で、容赦ない。"
+    },
+    "hugo": {
+      "intro": "叙事詩的気概と人道を兼ね、弱者のために声を上げる。",
+      "one": "大聖堂のように、宏伟で、悲悯で、光に開かれる。"
+    },
+    "baudelaire": {
+      "intro": "近代都市で美と堕落を探し、詩風は濃艶で頹廃。",
+      "one": "ネオンの影のように、艶やかで、砕け、中毒性がある。"
+    },
+    "proust": {
+      "intro": "時間と記憶を延々たる迷宮にし、感覚は極めて細やか。",
+      "one": "マドレーヌのように、触れた瞬間、往事が押し寄せる。"
+    },
+    "camus": {
+      "intro": "荒诞の中で清醒と尊厳を保ち、反抗自体が意味。",
+      "one": "シーシュポスの石のように、重いが、不屈の光を帯びる。"
+    },
+    "goethe": {
+      "intro": "全面发展と古典的平衡を求め、浪漫と理性が并存。",
+      "one": "ルネサンスの庭のように、豊かで、深く、色褪せない。"
+    },
+    "heine": {
+      "intro": "詩は浪漫でも辛辣でもあり、愛と讽刺が并行。",
+      "one": "バラに包まれた短剣のように、優美で、鋭さもある。"
+    },
+    "kafka": {
+      "intro": "規則と身份に警戒し、秩序の中に荒诞を見る。",
+      "one": "静かな迷宮のように、進むほど内なるこだまが聞こえる。"
+    },
+    "mann": {
+      "intro": "哲学、病、文明危機を長編叙事に織り込む。",
+      "one": "ゆっくり回る鐘楼のように、厳粛で、複雑で、余韻深い。"
+    },
+    "hesse": {
+      "intro": "精神成長と東方の知恵を書き、内向的で澄んでいる。",
+      "one": "内へ向かう道のように、静かで、深く、独りを誘う。"
+    },
+    "rilke": {
+      "intro": "詩的言語で存在、孤独、美を沉思する。",
+      "one": "未来への手紙のように、ゆっくり、純粋で、魂に触れる。"
+    },
+    "pushkin": {
+      "intro": "民族詩人であり、優雅と自由の象徴。",
+      "one": "ロシアの白樺林のように、清らかで、すっと立ち、憂いを帯びる。"
+    },
+    "dostoevsky": {
+      "intro": "道徳の深淵と信仰の危機に入り、極限で人物が現れる。",
+      "one": "吹雪の中の懺悔のように、激烈で、幽暗で、避けられない。"
+    },
+    "tolstoy": {
+      "intro": "宏大な視野で道徳、戦争、生命の意味を問う。",
+      "one": "広い野原のように、厚重で、厳粛で、すべてを容れる。"
+    },
+    "chekhov": {
+      "intro": "日常の沈黙と無力を書き、幽默に優しさ。",
+      "one": "黄昏の炊烟のように、清淡で、悠远で、惆怅を誘う。"
+    },
+    "bulgakov": {
+      "intro": "荒诞と検閲の中でも創造を保ち、魔術に真実。",
+      "one": "悪魔の舞踏会のように、荒诞で、绚烂で、忘れられない。"
+    },
+    "solzhenitsyn": {
+      "intro": "全体主義と苦難を文学で証し、尊厳がすべてに勝る。",
+      "one": "シベリアの風のように、冷硬で、清醒で、避けられない。"
+    },
+    "borges": {
+      "intro": "構造を解体し、階層を辿り、真実そのものに興味。",
+      "one": "自己折り畳みの図書館のように、複雑で、魅力的。"
+    },
+    "neruda": {
+      "intro": "詩は熱く政治的でもあり、愛と大地同样に澎湃。",
+      "one": "南米の海のように、汹涌で、浪漫で、生命力に満ちる。"
+    },
+    "marquez": {
+      "intro": "神話と現実を織り、時間は川のように回旋。",
+      "one": "百年続く雨のように、奇幻で、潮湿で、忘れられない。"
+    },
+    "vargasllosa": {
+      "intro": "多線叙事と政治寓話に長け、構造は精密。",
+      "one": "複雑な地図のように、層を重ね、権力と欲望を指す。"
+    },
+    "paz": {
+      "intro": "詩と散文のあいだを行き来し、身份、時間、神秘を問う。",
+      "one": "砂漠の太陽のように、熱く、抽象で、万物を照らす。"
+    },
+    "bolano": {
+      "intro": "流亡、青春、文学の幽霊を書き、叙事は散漫で魅力的。",
+      "one": "終点のない公路のように、荒涼で、自由で、伝説に満ちる。"
+    },
+    "kundera": {
+      "intro": "戯谑と哲思のあいだで存在の軽さと重さを量る。",
+      "one": "反射する窓のように、戏谑で、深刻で、捉えどころがない。"
+    },
+    "calvino": {
+      "intro": "文学を構造のゲームにし、軽やかで知的。",
+      "one": "自己再編する本のように、面白く、精巧で、終わらない。"
+    },
+    "pamuk": {
+      "intro": "東西、個人と歴史のあいだに迷宮を織る。",
+      "one": "イスタンブールの雪のように、記憶と身份を覆う。"
+    },
+    "ibsen": {
+      "intro": "ドラマで家族倫理と社会の偽善を解剖する。",
+      "one": "叩かれた扉のように、問いが出たら、聞こえなかったふりはできない。"
+    },
+    "andersen": {
+      "intro": "童話で孤独、美、運命の不公正を書き尽くす。",
+      "one": "涙する星のように、優しく、凄美で、童年を照らす。"
+    },
+    "saramago": {
+      "intro": "長い文で集団の運命と道徳寓話を書く。",
+      "one": "蔓延する失明のように、集団的で、寓意的で、戦慄する。"
+    },
+    "tagore": {
+      "intro": "詩は自然、神性、愛の輝きに満ちる。",
+      "one": "ガンジス川の月光のように、静かで、聖く、衆生を照らす。"
+    },
+    "naipaul": {
+      "intro": "冷たい目で植民地の遺産と身份の撕裂を書く。",
+      "one": "温度のない鏡のように、清晰で、鋭く、居心地悪い。"
+    },
+    "achebe": {
+      "intro": "沈黙した歴史に声を与え、アフリカ叙事を再建。",
+      "one": "部族の太鼓のように、沈穏で、力強く、記憶を呼び醒ます。"
+    },
+    "gibran": {
+      "intro": "言葉は詩であり箴言、優しく霊性に富む。",
+      "one": "砂漠の泉のように、簡潔で、深く、心を慰める。"
+    }
+  },
+  "ru": {
+    "kongzi": {
+      "intro": "Вы цените порядок, воспитание и заботу о других; слова должны нести нравственность, идеи — преображать.",
+      "one": "Вы подобны мягкому учителю, ищущему вечное в порядке и доброте."
+    },
+    "zhuangzi": {
+      "intro": "Вы не хотите быть скованы правилами; любите свободное воображение и мудрость вопреки условностям.",
+      "one": "Вы как ветер в лесу — лёгкий, неуловимый, неопределимый."
+    },
+    "quyuan": {
+      "intro": "У вас горячий идеализм и любовь к отечеству; чувства интенсивны и упорны.",
+      "one": "Вы как долгая скорбная песня — страстная, верная, не сдающаяся."
+    },
+    "libai": {
+      "intro": "Вы страстны и широки; жизнь должна быть величественной, язык — ваше вино и меч.",
+      "one": "Вы как яркая луна и длинный ветер — свободны, светлы, без оков."
+    },
+    "dufu": {
+      "intro": "Вы помещаете личную судьбу в поток истории; голос сострадателен и тяжёл.",
+      "one": "Вы как длинное медленно разворачивающееся стихотворение — устойчивое, grave, полное жалости."
+    },
+    "sushi": {
+      "intro": "В невзгодах сохраняете юмор и широту, сочетая талант с теплом быта.",
+      "one": "Вы как радуга после дождя — ясная, мягкая, с послевкусием."
+    },
+    "caoxueqin": {
+      "intro": "Вы пишете тепло и холод человеческих уз и каприз судьбы — тонко и тоскливо.",
+      "one": "Вы как зеркало, отражающее всех живых — splendor и печаль вместе."
+    },
+    "luxun": {
+      "intro": "Вы остро чувствуете мир и острым языком освещаете противоречия.",
+      "one": "Вы как холодный скальpel, разрезающий эмоцию и реальность."
+    },
+    "shencongwen": {
+      "intro": "В простом быту находите порядок и красоту — нежно и спокойно.",
+      "one": "Вы как тихая река — тёплая, мирная, медленно текущая."
+    },
+    "laoshe": {
+      "intro": "Заботитесь о достоинстве простых людей; в юморе скрыта горечь.",
+      "one": "Вы как фонарь в переулке — близкий, остроумный, полный жизни."
+    },
+    "zhangailing": {
+      "intro": "В деталях видите human nature и держите дистанцию с изяществом.",
+      "one": "У вас прекрасный такт и ясный взгляд сквозь блеск."
+    },
+    "yuhua": {
+      "intro": "Сохраняете стойкость в absurd и трудностях, переваривая тяжесть humor.",
+      "one": "Вы как камень, сглаженный life — молчаливый, не легко broken."
+    },
+    "murasaki": {
+      "intro": "Пишете subtle эмоции и свет social strata — сдержанно и долго.",
+      "one": "Вы как свет за washi — тонкий, elegant, слова наполовину."
+    },
+    "natsume": {
+      "intro": "Между tradition и modernity; стиль сдержан и reflective.",
+      "one": "Вы как тихий сад, где reason и melancholy отражают друг друга."
+    },
+    "kawabata": {
+      "intro": "Чувствительны к мимолётной красоте; любите чистоту, печаль, тишину.",
+      "one": "Вы как очаг в snow country — тихий, прозрачный, слегка холодный."
+    },
+    "mishima": {
+      "intro": "Ищете formal beauty и spiritual intensity — contradictory и dazzling.",
+      "one": "Вы как закалённый клинок — gorgeous, опасный, refusing mediocrity."
+    },
+    "oe": {
+      "intro": "Заботитесь о weak и historical wounds; literature — ethics и redemption.",
+      "one": "Вы как рана, что не заживает — serious, responsible, к свету."
+    },
+    "murakami": {
+      "intro": "Ходите между everyday и dreams; solitude задаёт rhythm.",
+      "one": "Вы как тихая music — calm, fluid, slightly distant."
+    },
+    "shakespeare": {
+      "intro": "Видите весь спектр human nature; tragedy и comedy в руках.",
+      "one": "Вы как theater — joy и grief рядом, всё present."
+    },
+    "austen": {
+      "intro": "Master social detail и marriage ethics — witty yet restrained.",
+      "one": "Вы как refined tea — clever, subtle, blade в laughter."
+    },
+    "dickens": {
+      "intro": "Следите за fate бедных; в grand narrative остаётся warmth и justice.",
+      "one": "Вы как London fog и lamps — dark, но human light."
+    },
+    "woolf": {
+      "intro": "Остро чувствуете instant и пишете flow consciousness и time.",
+      "one": "Вы как breathing mirror, reflecting inner ripples."
+    },
+    "orwell": {
+      "intro": "Alert к power и language manipulation; literature — clarity и resistance.",
+      "one": "Вы как alarm, что не гаснет — cool, sharp, refusing silence."
+    },
+    "poe": {
+      "intro": "Тянет к darkness, dreams и edges psyche — compact, uncanny forms.",
+      "one": "Вы как midnight bell tower — mysterious, gloomy, mesmerizing."
+    },
+    "whitman": {
+      "intro": "Embrace multiplicity и embodiment; poetry — open declaration life.",
+      "one": "Вы как wind over open country — vast, fervent, refusing frame."
+    },
+    "hemingway": {
+      "intro": "Trust terse, forceful sentences и bear fate в silence.",
+      "one": "Вы как reef polished waves — hard, silent, strong."
+    },
+    "fitzgerald": {
+      "intro": "Пишете glamour и disillusion; romance hides cracks era.",
+      "one": "Вы как Gatsby green light — brilliant, distant, tinged sorrow."
+    },
+    "faulkner": {
+      "intro": "Build complex time и family epics extraordinary density.",
+      "one": "Вы как dense southern forest — tangled, deep, impossible finish."
+    },
+    "salinger": {
+      "intro": "Пишете adolescent sensitivity, rebellion, hunger sincerity.",
+      "one": "Вы как catcher in rye — stubborn, lonely, unwilling grow up."
+    },
+    "vonnegut": {
+      "intro": "Face war и void с absurdity и humor — tender yet ironic.",
+      "one": "Вы как crooked star — funny, sad, deeply human."
+    },
+    "morrison": {
+      "intro": "Пишете memory, race, women trauma в poetic, powerful language.",
+      "one": "Вы как song rising soil — grave, solemn, indelible."
+    },
+    "mccarthy": {
+      "intro": "Prose austere; в wasteland и violence probe limits humanity.",
+      "one": "Вы как embers plain — cold, sparse, yet burning."
+    },
+    "rousseau": {
+      "intro": "Believe nature и sincerity; love civilization yet doubt.",
+      "one": "Вы как echo woods — passionate, sensitive, asking truth."
+    },
+    "balzac": {
+      "intro": "Stage society vast theater где characters и money intertwine.",
+      "one": "Вы как city archive — sprawling, real, merciless."
+    },
+    "hugo": {
+      "intro": "Combine epic breadth humanitarian care, speaking weak.",
+      "one": "Вы как cathedral — grand, compassionate, open light."
+    },
+    "baudelaire": {
+      "intro": "Seek beauty и decay modern city; poetry lush, decadent.",
+      "one": "Вы как shadow under neon — gorgeous, broken, addictive."
+    },
+    "proust": {
+      "intro": "Turn time и memory endless labyrinth exquisite sensation.",
+      "one": "Вы как madeleine — one touch и past floods in."
+    },
+    "camus": {
+      "intro": "Stay lucid, dignified within absurd; rebellion itself meaning.",
+      "one": "Вы как Sisyphus stone — heavy, yet carrying undefeated light."
+    },
+    "goethe": {
+      "intro": "Pursue wholeness classical balance; romance и reason coexist.",
+      "one": "Вы как Renaissance garden — fertile, deep, ever fresh."
+    },
+    "heine": {
+      "intro": "Poetry romantic и biting; love и satire walk together.",
+      "one": "Вы как dagger wrapped roses — beautiful, yet edged."
+    },
+    "kafka": {
+      "intro": "Alert rules и identity; в order often find absurd.",
+      "one": "Вы как silent maze — deeper go, more hear yourself."
+    },
+    "mann": {
+      "intro": "Weave philosophy, illness, civilizational crisis long narratives.",
+      "one": "Вы как clock tower turning slowly — solemn, complex, suggestive."
+    },
+    "hesse": {
+      "intro": "Write spiritual growth Eastern wisdom — inward, lucid.",
+      "one": "Вы как road inward — quiet, deep, inviting solitude."
+    },
+    "rilke": {
+      "intro": "Meditate existence, solitude, beauty poetic language.",
+      "one": "Вы как letter future — slow, pure, touching soul."
+    },
+    "pushkin": {
+      "intro": "National poet symbol grace freedom.",
+      "one": "Вы как Russian birch woods — clear, upright, touched melancholy."
+    },
+    "dostoevsky": {
+      "intro": "Descend moral abyss faith crises; characters reveal extremity.",
+      "one": "Вы как confession blizzard — fierce, dark, impossible evade."
+    },
+    "tolstoy": {
+      "intro": "With vast vision ask morality, war, meaning life.",
+      "one": "Вы как wide field — weighty, solemn, holding everything."
+    },
+    "chekhov": {
+      "intro": "Write silence helplessness daily life; humor carries tenderness.",
+      "one": "Вы как evening smoke — light, far, quietly sad."
+    },
+    "bulgakov": {
+      "intro": "Keep creating amid absurdity censorship; magic hides truth.",
+      "one": "Вы как devil ball — absurd, dazzling, refusing forgotten."
+    },
+    "solzhenitsyn": {
+      "intro": "Witness totalitarianism suffering through literature; dignity above all.",
+      "one": "Вы как Siberian wind — cold, lucid, impossible ignore."
+    },
+    "borges": {
+      "intro": "Dismantle structures trace hierarchies; fascinated reality itself.",
+      "one": "Вы как library folds itself — intricate, enchanting."
+    },
+    "neruda": {
+      "intro": "Poetry burns politics love; earth passion surge together.",
+      "one": "Вы как South American sea — turbulent, romantic, vital."
+    },
+    "marquez": {
+      "intro": "Weave myth reality; time loops like river.",
+      "one": "Вы как rain lasting hundred years — fantastical, humid, unforgettable."
+    },
+    "vargasllosa": {
+      "intro": "Excel multiline narrative political allegory precise structure.",
+      "one": "Вы как complex map unfolding layer toward power desire."
+    },
+    "paz": {
+      "intro": "Move poetry prose, questioning identity, time, mystery.",
+      "one": "Вы как desert sun — fierce, abstract, illuminating all."
+    },
+    "bolano": {
+      "intro": "Write exile, youth, ghosts literature wandering captivating narratives.",
+      "one": "Вы как road without end — desolate, free, full legend."
+    },
+    "kundera": {
+      "intro": "Weigh existence between joke philosophy, lightness weight.",
+      "one": "Вы как reflective window — playful, profound, elusive."
+    },
+    "calvino": {
+      "intro": "Turn literature structural play — light, intellectual.",
+      "one": "Вы как book reassembles itself — playful, intricate, never finished."
+    },
+    "pamuk": {
+      "intro": "Weave labyrinths East West, individual history.",
+      "one": "Вы как snow over Istanbul — covering memory identity."
+    },
+    "ibsen": {
+      "intro": "Dissect family ethics social hypocrisy through drama.",
+      "one": "Вы как door knocked — once question asked, cannot unheard."
+    },
+    "andersen": {
+      "intro": "Use fairy tales write loneliness, beauty, injustice.",
+      "one": "Вы как star weeps — gentle, bittersweet, lighting childhood."
+    },
+    "saramago": {
+      "intro": "Write collective fate moral fable long flowing sentences.",
+      "one": "Вы как spreading blindness — collective, allegorical, chilling."
+    },
+    "tagore": {
+      "intro": "Poetry glows nature, divinity, love.",
+      "one": "Вы как moonlight Ganges — serene, sacred, shining all."
+    },
+    "naipaul": {
+      "intro": "Write colonial legacy torn identity cool gaze.",
+      "one": "Вы как mirror without warmth — clear, sharp, unsettling."
+    },
+    "achebe": {
+      "intro": "Give voice silenced history rebuild African narrative.",
+      "one": "Вы как tribal drums — steady, powerful, awakening memory."
+    },
+    "gibran": {
+      "intro": "Words read poetry proverb — tender, spiritual.",
+      "one": "Вы как spring desert — simple, deep, comforting hearts."
+    }
+  }
+}

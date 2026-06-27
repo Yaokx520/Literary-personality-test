@@ -1,0 +1,530 @@
+{
+  "kongzi": {
+    "name": "Confúcio",
+    "region": "China",
+    "kind": "Filosofia confuciana",
+    "intro": "Valoriza ordem, cultivo e cuidado com o outro; crê que as palavras devem levar moral e as ideias transformar.",
+    "one": "És como um mestre gentil que busca o eterno na ordem e na benevolência.",
+    "quote": "「学而时习之，不亦说乎。」"
+  },
+  "zhuangzi": {
+    "name": "Zhuangzi",
+    "region": "China",
+    "kind": "Filosofia livre",
+    "intro": "Não queres ataduras; preferes imaginação livre e sabedoria contra a corrente.",
+    "one": "És como vento entre árvores: leve, elusivo, indefinível.",
+    "quote": "「相濡以沫，不如相忘于江湖。」"
+  },
+  "quyuan": {
+    "name": "Qu Yuan",
+    "region": "China",
+    "kind": "Melancolia romântica",
+    "intro": "Tens idealismo ardente e amor à pátria; os sentimentos queimam com intensidade e fidelidade.",
+    "one": "És como longo canto trágico: fervoroso, leal, sem ceder.",
+    "quote": "「路漫漫其修远兮，吾将上下而求索。」"
+  },
+  "libai": {
+    "name": "Li Bai",
+    "region": "China",
+    "kind": "Romantismo ousado",
+    "intro": "És apaixonado e expansivo; a vida deve ser magnífica e a linguagem é teu vinho e espada.",
+    "one": "És como lua e vento: livre, luminoso, sem ataduras.",
+    "quote": "「天生我材必有用，千金散尽还复来。」"
+  },
+  "dufu": {
+    "name": "Du Fu",
+    "region": "China",
+    "kind": "Patriotismo sombrio",
+    "intro": "Colocas o destino pessoal no torrente da história; a voz é compassiva e grave.",
+    "one": "És como poema longo que se desdobra: sereno, denso, cheio de piedade.",
+    "quote": "「国破山河在，城春草木深。」"
+  },
+  "sushi": {
+    "name": "Su Shi",
+    "region": "China",
+    "kind": "Letrado despreocupado",
+    "intro": "Manténs humor e amplitude na adversidade, unindo talento e calor do quotidiano.",
+    "one": "És como arco-íris após chuva: claro, suave, com regusto.",
+    "quote": "「回首向来萧瑟处，归去，也无风雨也无晴。」"
+  },
+  "caoxueqin": {
+    "name": "Cao Xueqin",
+    "region": "China",
+    "kind": "Olhar social",
+    "intro": "Escreves calor e frio humanos e capricho do destino com finura e desolação.",
+    "one": "És como espelho de todos os seres: esplendor e tristeza juntos.",
+    "quote": "「满纸荒唐言，一把辛酸泪。」"
+  },
+  "luxun": {
+    "name": "Lu Xun",
+    "region": "China",
+    "kind": "Realismo incisivo",
+    "intro": "Sentes o mundo com dor aguda e usas linguagem afiada para iluminar contradições.",
+    "one": "És como bisturi frio que abre emoção e realidade.",
+    "quote": "「希望是本无所谓有，无所谓无的。」"
+  },
+  "shencongwen": {
+    "name": "Shen Congwen",
+    "region": "China",
+    "kind": "Lirismo pastoral",
+    "intro": "Encontras ordem e beleza no quotidiano simples, com ternura e calma.",
+    "one": "És como rio quieto: temperado, apaziguado, de curso lento.",
+    "quote": "「凡事都靠一个缘字。」"
+  },
+  "laoshe": {
+    "name": "Lao She",
+    "region": "China",
+    "kind": "Realismo pequimense",
+    "intro": "Cuidas da dignidade das pessoas comuns; o humor esconde amargura.",
+    "one": "És como lanterna num beco: próxima, cómica, cheia de vida.",
+    "quote": "「人是最美的风景。」"
+  },
+  "zhangailing": {
+    "name": "Eileen Chang",
+    "region": "China",
+    "kind": "Distância refinada",
+    "intro": "Vês a natureza humana no detalhe e guardas distância com elegância.",
+    "one": "Tens tacto belo e lucidez que atravessa mundos brilhantes.",
+    "quote": "「生命是一袭华美的袍，爬满了蚤子。」"
+  },
+  "yuhua": {
+    "name": "Yu Hua",
+    "region": "China",
+    "kind": "Sobrevivência irônica",
+    "intro": "Manténs resistência no absurdo e na prova, digerindo o pesado com humor.",
+    "one": "És como pedra arredondada pela vida: silenciosa, difícil de quebrar.",
+    "quote": "「人是为了活着本身而活着。」"
+  },
+  "murasaki": {
+    "name": "Murasaki Shikibu",
+    "region": "Japão",
+    "kind": "Monogatari delicado",
+    "intro": "Escreves emoções sutis e luz das camadas sociais com prosa contida e longa.",
+    "one": "És como luz atrás de washi: sutil, elegante, a meias palavras.",
+    "quote": "「逢えずして恋しき人を待つほどに。」"
+  },
+  "natsume": {
+    "name": "Natsume Soseki",
+    "region": "Japão",
+    "kind": "Introspecção moderna",
+    "intro": "Transitas entre tradição e modernidade; o estilo é sóbrio e reflexivo.",
+    "one": "És como jardim quieto onde razão e melancolia se refletem.",
+    "quote": "「智に働けば角が立つ。」"
+  },
+  "kawabata": {
+    "name": "Yasunari Kawabata",
+    "region": "Japão",
+    "kind": "Estética mono no aware",
+    "intro": "És sensível à beleza fugaz; amas pureza, melancolia e silêncio.",
+    "one": "És como fogo na terra da neve: quieto, transparente, um pouco frio.",
+    "quote": "「美在于发现者眼中。」"
+  },
+  "mishima": {
+    "name": "Yukio Mishima",
+    "region": "Japão",
+    "kind": "Intensidade estética",
+    "intro": "Buscas beleza formal e intensidade espiritual: contraditório e deslumbrante.",
+    "one": "És como lâmina temperada: bela, perigosa, recusando mediocridade.",
+    "quote": "「不被人理解，反而成为我的骄傲。」"
+  },
+  "oe": {
+    "name": "Kenzaburo Oe",
+    "region": "Japão",
+    "kind": "Humanismo antinuclear",
+    "intro": "Importas-te com os fracos e feridas históricas; a literatura é ética e redenção.",
+    "one": "És como ferida que não fecha: sério, responsável, rumo à luz.",
+    "quote": "「人間は自分の言葉で世界をつくる。」"
+  },
+  "murakami": {
+    "name": "Haruki Murakami",
+    "region": "Japão",
+    "kind": "Solidão urbana",
+    "intro": "Caminhas entre quotidiano e sonho; a solidão marca o teu ritmo.",
+    "one": "És como música baixa: calma, fluida, um pouco distante.",
+    "quote": "「闭上眼睛，世界就会变得不一样。」"
+  },
+  "shakespeare": {
+    "name": "William Shakespeare",
+    "region": "Anglo-americano",
+    "kind": "Panorama dramático",
+    "intro": "Vês todo o espectro humano; tragédia e comédia nas tuas mãos.",
+    "one": "És como teatro: gozo e dor juntos, tudo presente.",
+    "quote": "「To be, or not to be, that is the question.」"
+  },
+  "austen": {
+    "name": "Jane Austen",
+    "region": "Anglo-americano",
+    "kind": "Sátira social",
+    "intro": "Dominas detalhe social e ética do casamento com humor contido.",
+    "one": "És como chá refinado: engenhoso, subtil, fio na risada.",
+    "quote": "「A lady's imagination is very rapid.」"
+  },
+  "dickens": {
+    "name": "Charles Dickens",
+    "region": "Anglo-americano",
+    "kind": "Calor humano",
+    "intro": "Olhas o destino dos humildes; no grandioso resta calor e justiça.",
+    "one": "És como nevoeiro e candeeiros londrinos: escuro, mas com luz humana.",
+    "quote": "「It was the best of times, it was the worst of times.」"
+  },
+  "woolf": {
+    "name": "Virginia Woolf",
+    "region": "Anglo-americano",
+    "kind": "Fluxo de consciência",
+    "intro": "Captas o instantâneo e escreves fluxo de consciência e do tempo.",
+    "one": "És como espelho que respira, refletindo ondas interiores.",
+    "quote": "「生命不是一条直线，而是一团波光。」"
+  },
+  "orwell": {
+    "name": "George Orwell",
+    "region": "Anglo-americano",
+    "kind": "Alegoria política",
+    "intro": "Alertas ante poder e manipulação da linguagem; literatura é lucidez e resistência.",
+    "one": "És como alarme que não se apaga: frio, afiado, sem calar.",
+    "quote": "「Big Brother is watching you.」"
+  },
+  "poe": {
+    "name": "Edgar Allan Poe",
+    "region": "Anglo-americano",
+    "kind": "Suspense gótico",
+    "intro": "Atraem-te escuridão, sonho e bordas da psique; formas compactas e estranhas.",
+    "one": "És como campanário de meia-noite: misterioso, sombrio, hipnótico.",
+    "quote": "「All that we see or seem is but a dream within a dream.」"
+  },
+  "whitman": {
+    "name": "Walt Whitman",
+    "region": "Anglo-americano",
+    "kind": "Ode livre",
+    "intro": "Abraças multiplicidade e corporalidade; o poema é declaração aberta de vida.",
+    "one": "És como vento em campo aberto: vasto, ardente, sem moldura.",
+    "quote": "「I contain multitudes.」"
+  },
+  "hemingway": {
+    "name": "Ernest Hemingway",
+    "region": "Anglo-americano",
+    "kind": "Minimalismo duro",
+    "intro": "Confias em frases secas e fortes e suportas o destino em silêncio.",
+    "one": "És como recife polido por ondas: duro, silencioso, forte.",
+    "quote": "「人可以被毁灭，但不能被打败。」"
+  },
+  "fitzgerald": {
+    "name": "F. Scott Fitzgerald",
+    "region": "Anglo-americano",
+    "kind": "Desilusão jazz",
+    "intro": "Escreves esplendor e desencanto; o romance esconde fissuras de uma era.",
+    "one": "És como luz verde de Gatsby: brilhante, distante, com pena.",
+    "quote": "「于是我们奋力向前划，逆流而上。」"
+  },
+  "faulkner": {
+    "name": "William Faulkner",
+    "region": "Anglo-americano",
+    "kind": "Epopeia sulista",
+    "intro": "Constróis tempos complexos e epopeias familiares de grande densidade.",
+    "one": "És como floresta sulista densa: emaranhada, profunda, interminável.",
+    "quote": "「The past is never dead. It isn't even past.」"
+  },
+  "salinger": {
+    "name": "J. D. Salinger",
+    "region": "Anglo-americano",
+    "kind": "Alienação juvenil",
+    "intro": "Escreves sensibilidade adolescente, rebeldia e desejo de sinceridade.",
+    "one": "És como guardião no centeio: teimoso, só, sem crescer de todo.",
+    "quote": "「I am sick of not saying what I mean.」"
+  },
+  "vonnegut": {
+    "name": "Kurt Vonnegut",
+    "region": "Anglo-americano",
+    "kind": "Humor negro",
+    "intro": "Enfrentas guerra e vazio com humor absurdo: terno e irónico.",
+    "one": "És como estrela torta: graciosa, triste, muito humana.",
+    "quote": "「So it goes.」"
+  },
+  "morrison": {
+    "name": "Toni Morrison",
+    "region": "Anglo-americano",
+    "kind": "Epopeia afro-americana",
+    "intro": "Escreves memória, raça e trauma feminino com linguagem poética e poderosa.",
+    "one": "És como canto que brota da terra: grave, solene, indelével.",
+    "quote": "「Freeing yourself was one thing; claiming ownership of that freed self was another.」"
+  },
+  "mccarthy": {
+    "name": "Cormac McCarthy",
+    "region": "Anglo-americano",
+    "kind": "Austeridade apocalíptica",
+    "intro": "A tua prosa é austera; no ermo e violência perguntas o limite humano.",
+    "one": "És como brasas na planície: frias, escassas, mas ardentes.",
+    "quote": "「You never know what worse luck your bad luck has saved you from.」"
+  },
+  "rousseau": {
+    "name": "Jean-Jacques Rousseau",
+    "region": "França",
+    "kind": "Sentimento iluminista",
+    "intro": "Crês na natureza e sinceridade; amas civilização mas a dúvidas.",
+    "one": "És como eco na floresta: apaixonado, sensível, buscando o autêntico.",
+    "quote": "「人生而自由，却无往不在枷锁之中。」"
+  },
+  "balzac": {
+    "name": "Honoré de Balzac",
+    "region": "França",
+    "kind": "Realismo",
+    "intro": "Pões sociedade em palco enorme onde personagens e dinheiro se entrelaçam.",
+    "one": "És como arquivo de cidade: vasto, real, implacável.",
+    "quote": "「人间喜剧」"
+  },
+  "hugo": {
+    "name": "Victor Hugo",
+    "region": "França",
+    "kind": "Humanismo romântico",
+    "intro": "Unes epopeia e compaixão humanitária; falas pelos fracos.",
+    "one": "És como catedral: grandiosa, compassiva, aberta à luz.",
+    "quote": "「比海洋更宽阔的是人的胸怀。」"
+  },
+  "baudelaire": {
+    "name": "Charles Baudelaire",
+    "region": "França",
+    "kind": "Simbolismo urbano",
+    "intro": "Buscas beleza e decadência na cidade moderna; verso denso e decadente.",
+    "one": "És como sombra sob néon: bela, partida, viciante.",
+    "quote": "「你永远不知道，在街角会遇见怎样的命运。」"
+  },
+  "proust": {
+    "name": "Marcel Proust",
+    "region": "França",
+    "kind": "Memória e consciência",
+    "intro": "Converts tempo e memória em labirinto sensorial interminável.",
+    "one": "És como madalena: um toque e chega o passado.",
+    "quote": "「真正的发现之旅在于拥有新的眼睛。」"
+  },
+  "camus": {
+    "name": "Albert Camus",
+    "region": "França",
+    "kind": "Rebelião absurda",
+    "intro": "Manténs lucidez e dignidade no absurdo; rebelião é sentido.",
+    "one": "És como pedra de Sísifo: pesada, mas com luz invicta.",
+    "quote": "「在隆冬，我终于知道，我身上有一个不可战胜的夏天。」"
+  },
+  "goethe": {
+    "name": "Johann Wolfgang von Goethe",
+    "region": "Alemanha",
+    "kind": "Polímata clássico",
+    "intro": "Buscas plenitude e equilíbrio clássico; romantismo e razão convivem.",
+    "one": "És como jardim renascentista: fértil, profundo, sempre novo.",
+    "quote": "「理论是灰色的，而生命之树常青。」"
+  },
+  "heine": {
+    "name": "Heinrich Heine",
+    "region": "Alemanha",
+    "kind": "Lirismo satírico",
+    "intro": "A tua poesia é romântica e mordaz; amor e sátira juntos.",
+    "one": "És como adaga envolta em rosas: bela, mas com fio.",
+    "quote": "「哪里有痛苦，哪里就有诗歌。」"
+  },
+  "kafka": {
+    "name": "Franz Kafka",
+    "region": "Alemanha",
+    "kind": "Ansiedade absurda",
+    "intro": "Alertas ante regras e identidade; na ordem vês muitas vezes o absurdo.",
+    "one": "És como labirinto silencioso: quanto mais entras, mais te ouves.",
+    "quote": "「我不是世界的一部分，我只是世界的边缘。」"
+  },
+  "mann": {
+    "name": "Thomas Mann",
+    "region": "Alemanha",
+    "kind": "Romance iluminista",
+    "intro": "Tece filosofia, doença e crise civilizacional em narrativas longas.",
+    "one": "És como campanário que gira devagar: solene, complexo, sugestivo.",
+    "quote": "「时间是正义的，因为它终将揭示一切。」"
+  },
+  "hesse": {
+    "name": "Hermann Hesse",
+    "region": "Alemanha",
+    "kind": "Busca espiritual",
+    "intro": "Escreves crescimento espiritual e sabedoria oriental; interior e claro.",
+    "one": "És como caminho para dentro: quieto, hondo, convida a caminhar só.",
+    "quote": "「对每个人而言，真正的职责只有一个：找到自我。」"
+  },
+  "rilke": {
+    "name": "Rainer Maria Rilke",
+    "region": "Alemanha",
+    "kind": "Meditação poética",
+    "intro": "Medias existência, solidão e beleza em linguagem poética.",
+    "one": "És como carta ao futuro: lenta, pura, tocando a alma.",
+    "quote": "「有何胜利可言？挺住意味着一切。」"
+  },
+  "pushkin": {
+    "name": "Alexandre Pushkin",
+    "region": "Rússia",
+    "kind": "Lirismo nacional",
+    "intro": "És poeta nacional e símbolo de graça e liberdade.",
+    "one": "És como bétulas russas: claras, erguidas, com melancolia.",
+    "quote": "「假如生活欺骗了你，不要悲伤，不要心急。」"
+  },
+  "dostoevsky": {
+    "name": "Fiódor Dostoiévski",
+    "region": "Rússia",
+    "kind": "Interrogatório da alma",
+    "intro": "Desces ao abismo moral e crises de fé; personagens revelam-se no extremo.",
+    "one": "És como confissão na ventania: feroz, escura, ineludível.",
+    "quote": "「人是一个谜。解开这个谜，即使搭上性命，也值得。」"
+  },
+  "tolstoy": {
+    "name": "Leão Tolstói",
+    "region": "Rússia",
+    "kind": "Moral épica",
+    "intro": "Com visão vasta perguntas por moral, guerra e sentido da vida.",
+    "one": "És como campo amplo: denso, solene, acolhendo tudo.",
+    "quote": "「幸福的家庭都是相似的，不幸的家庭各有各的不幸。」"
+  },
+  "chekhov": {
+    "name": "Antón Tchekhov",
+    "region": "Rússia",
+    "kind": "Melancolia suave",
+    "intro": "Escreves silêncio e resignação quotidiana; humor leva ternura.",
+    "one": "És como fumo ao entardecer: leve, longínquo, melancólico.",
+    "quote": "「人应该像水一样，没有形状，却能适应一切容器。」"
+  },
+  "bulgakov": {
+    "name": "Mikhail Bulgakov",
+    "region": "Rússia",
+    "kind": "Sátira mágica",
+    "intro": "Criaste no absurdo e censura; no mágico há verdade.",
+    "one": "És como baile do diabo: absurdo, deslumbrante, inesquecível.",
+    "quote": "「手稿不灭。」"
+  },
+  "solzhenitsyn": {
+    "name": "Aleksandr Soljenitsyn",
+    "region": "Rússia",
+    "kind": "Testemunha de consciência",
+    "intro": "Testemunhas totalitarismo e sofrimento; dignidade acima de tudo.",
+    "one": "És como vento siberiano: frio, lúcido, impossível ignorar.",
+    "quote": "「一条真理胜过整个世界。」"
+  },
+  "borges": {
+    "name": "Jorge Luis Borges",
+    "region": "América Latina",
+    "kind": "Labirinto conceptual",
+    "intro": "Desmontas estruturas e níveis; a realidade mesma te fascina.",
+    "one": "És como biblioteca que se dobra: intrincada, fascinante.",
+    "quote": "「天堂应该是图书馆的模样。」"
+  },
+  "neruda": {
+    "name": "Pablo Neruda",
+    "region": "América Latina",
+    "kind": "Amor e revolução",
+    "intro": "A tua poesia arde em política e amor; terra e paixão juntos.",
+    "one": "És como mar sul-americano: turbulento, romântico, vital.",
+    "quote": "「我要对你做，春天对樱桃树做的事。」"
+  },
+  "marquez": {
+    "name": "Gabriel García Márquez",
+    "region": "América Latina",
+    "kind": "Realismo mágico",
+    "intro": "Tece mito e realidade; o tempo gira como rio.",
+    "one": "És como chuva de cem anos: fantástica, húmida, inesquecível.",
+    "quote": "「面对行刑队，上校将会回想起父亲带他去见识冰块的那个下午。」"
+  },
+  "vargasllosa": {
+    "name": "Mario Vargas Llosa",
+    "region": "América Latina",
+    "kind": "Narrativa estrutural",
+    "intro": "Dominas narrativa múltipla e alegoria política com estrutura precisa.",
+    "one": "És como mapa complexo abrindo-se para poder e desejo.",
+    "quote": "「写作是对权力的反抗。」"
+  },
+  "paz": {
+    "name": "Octavio Paz",
+    "region": "América Latina",
+    "kind": "Filosofia poética",
+    "intro": "Transitas poesia e prosa, perguntando identidade, tempo e mistério.",
+    "one": "És como sol do deserto: ardente, abstracto, ilumina tudo.",
+    "quote": "「一朵花不需要理由地开放。」"
+  },
+  "bolano": {
+    "name": "Roberto Bolaño",
+    "region": "América Latina",
+    "kind": "Exílio errante",
+    "intro": "Escreves exílio, juventude e fantasmas literários em relatos errantes e cativantes.",
+    "one": "És como estrada sem fim: desolada, livre, cheia de lenda.",
+    "quote": "「文学是世上最危险的职业。」"
+  },
+  "kundera": {
+    "name": "Milan Kundera",
+    "region": "Outros",
+    "kind": "Leveza e peso",
+    "intro": "Pesas existência entre piada e filosofia, leveza e peso.",
+    "one": "És como janela reflectora: brincalhona, profunda, esquiva.",
+    "quote": "「人类一思考，上帝就发笑。」"
+  },
+  "calvino": {
+    "name": "Italo Calvino",
+    "region": "Outros",
+    "kind": "Fábula estrutural",
+    "intro": "Converts literatura em jogo estrutural: leve e inteligente.",
+    "one": "És como livro que se recompõe: divertido, fino, sem acabar.",
+    "quote": "「你对任何一条路都还不满意，因为你想同时走两条路。」"
+  },
+  "pamuk": {
+    "name": "Orhan Pamuk",
+    "region": "Outros",
+    "kind": "Encruzilhada civilizacional",
+    "intro": "Tece labirintos entre Oriente e Ocidente, indivíduo e história.",
+    "one": "És como neve sobre Istambul: cobrindo memória e identidade.",
+    "quote": "「我到底是谁？这个问题始终困扰着我。」"
+  },
+  "ibsen": {
+    "name": "Henrik Ibsen",
+    "region": "Outros",
+    "kind": "Drama social",
+    "intro": "Dissecas ética familiar e hipocrisia social no teatro.",
+    "one": "És como porta batida: uma vez perguntado, não se pode ignorar.",
+    "quote": "「社会就像一艘船，人人都该有掌舵的责任。」"
+  },
+  "andersen": {
+    "name": "Hans Christian Andersen",
+    "region": "Outros",
+    "kind": "Fábula alegórica",
+    "intro": "Usas conto para escrever solidão, beleza e injustiça.",
+    "one": "És como estrela que chora: terna, agridoce, ilumina infância.",
+    "quote": "「仅仅活着是不够的，你还应该有阳光、自由和一点花的芬芳。」"
+  },
+  "saramago": {
+    "name": "José Saramago",
+    "region": "Outros",
+    "kind": "Narrativa alegórica",
+    "intro": "Escreves destino colectivo e fábula moral em frases longas e fluidas.",
+    "one": "És como cegueira que se espalha: colectiva, alegórica, inquietante.",
+    "quote": "「人类当有更多的耐心。」"
+  },
+  "tagore": {
+    "name": "Rabindranath Tagore",
+    "region": "Outros",
+    "kind": "Lirismo espiritual",
+    "intro": "A tua poesia brilha com natureza, divino e amor.",
+    "one": "És como lua sobre o Ganges: serena, sagrada, sobre todos.",
+    "quote": "「生如夏花之绚烂，死如秋叶之静美。」"
+  },
+  "naipaul": {
+    "name": "V. S. Naipaul",
+    "region": "Outros",
+    "kind": "Observador pós-colonial",
+    "intro": "Escreves legado colonial e identidade partida com olhar frio.",
+    "one": "És como espelho sem calor: claro, afiado, incómodo.",
+    "quote": "「世界如其所是，而非如我们所愿。」"
+  },
+  "achebe": {
+    "name": "Chinua Achebe",
+    "region": "Outros",
+    "kind": "Narrativa africana",
+    "intro": "Dás voz a história silenciada e reconstróis narrativa africana.",
+    "one": "És como tambores de tribo: firmes, potentes, despertam memória.",
+    "quote": "「直到狮子有了自己的史学家，狩猎的故事才不会只称赞猎人。」"
+  },
+  "gibran": {
+    "name": "Kahlil Gibran",
+    "region": "Outros",
+    "kind": "Poesia filosófica",
+    "intro": "As tuas palavras são poesia e provérbio: ternas e espirituais.",
+    "one": "És como nascente no deserto: simples, hondo, consola corações.",
+    "quote": "「你的儿女不是你的儿女，他们是生命对自身渴望的儿女。」"
+  }
+}
