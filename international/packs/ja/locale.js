@@ -88,6 +88,10 @@ window.LIT_I18N = {
     "modalTipWx": "下の画像を長押し → 画像を保存；またはスクショ",
     "modalClose": "閉じる",
     "previewAlt": "結果カードプレビュー",
-    "modalAlt": "結果カード"
-  }
+    "modalAlt": "結果カード",
+    "generating": "カード生成中…",
+    "needResult": "先にテストを完了してください",
+    "genFail": "生成に失敗しました。再試行してください"
+  },
+  "shareUrl": "https://yaokx520.github.io/Literary-personality-test/international/packs/ja/"
 };

@@ -48,7 +48,10 @@
     saved: '结果卡已保存',
     longPressSave: '长按图片保存到相册',
     previewAlt: '结果分享卡预览',
-    modalAlt: '结果分享卡'
+    modalAlt: '结果分享卡',
+    generating: '正在生成结果卡…',
+    needResult: '请先完成测试',
+    genFail: '生成结果卡失败，请重试'
   };
 
   function L(key) {
@@ -841,10 +844,10 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
     const labels = {};
     btnIds.forEach(id => {
       const b = document.getElementById(id);
-      if (b) { labels[id] = b.textContent; b.disabled = true; b.textContent = '生成中…'; }
+      if (b) { labels[id] = b.textContent; b.disabled = true; b.textContent = L('generating') || '…'; }
     });
     try {
-      showToast('正在生成结果卡…');
+      showToast(L('generating'));
       if (lastResult) {
         preloadShareAssetData(lastResult.avKey, lastResult.flowerKey).catch(() => {});
       }
@@ -853,7 +856,7 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
       await fn(url);
     } catch (e) {
       console.error('share card error', e);
-      showToast('生成结果卡失败，请重试');
+      showToast(L('genFail'));
     } finally {
       btnIds.forEach(id => {
         const b = document.getElementById(id);
@@ -863,7 +866,7 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
   }
 
   async function saveShareCard() {
-    if (!lastResult) { showToast('请先完成测试'); return; }
+    if (!lastResult) { showToast(L('needResult')); return; }
     await withShareCardReady(async url => {
       const saveUrl = await finalizeExportUrl(url);
       const name = lastResult.top.name.replace(/[\\/:*?"<>|]/g, '');
@@ -890,7 +893,7 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
   }
 
   async function shareShareCard() {
-    if (!lastResult) { showToast('请先完成测试'); return; }
+    if (!lastResult) { showToast(L('needResult')); return; }
     const shareUrl = config.shareUrl || '';
     await withShareCardReady(async url => {
       const saveUrl = await finalizeExportUrl(url);
@@ -924,7 +927,7 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
   }
 
   async function previewShareCard() {
-    if (!lastResult) { showToast('请先完成测试'); return; }
+    if (!lastResult) { showToast(L('needResult')); return; }
     await withShareCardReady(async url => {
       const saveUrl = await finalizeExportUrl(url);
       showSharePreview(saveUrl);
@@ -954,9 +957,9 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
     const saveBtn = document.getElementById('saveShareCardBtn');
     const shareBtn = document.getElementById('shareImageBtn');
     const previewBtn = document.getElementById('previewShareCardBtn');
-    if (saveBtn) saveBtn.onclick = () => saveShareCard().catch(e => { console.error(e); showToast('保存失败，请重试'); });
-    if (shareBtn) shareBtn.onclick = () => shareShareCard().catch(e => { console.error(e); showToast('分享失败，请重试'); });
-    if (previewBtn) previewBtn.onclick = () => previewShareCard().catch(e => { console.error(e); showToast('预览失败，请重试'); });
+    if (saveBtn) saveBtn.onclick = () => saveShareCard().catch(e => { console.error(e); showToast(L('saveFail')); });
+    if (shareBtn) shareBtn.onclick = () => shareShareCard().catch(e => { console.error(e); showToast(L('shareFail')); });
+    if (previewBtn) previewBtn.onclick = () => previewShareCard().catch(e => { console.error(e); showToast(L('previewFail')); });
   }
 
   function init(cfg) {
@@ -971,7 +974,11 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
 
   global.LiteraryShareCard = {
     init,
+    bindButtons,
     setResult,
+    saveShareCard,
+    shareShareCard,
+    previewShareCard,
     preloadShareAssetData,
     revokeSharePreviewUrl
   };

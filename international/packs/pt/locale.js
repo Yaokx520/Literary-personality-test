@@ -88,6 +88,10 @@ window.LIT_I18N = {
     "modalTipWx": "Toque longo na imagem → Salvar imagem; ou captura",
     "modalClose": "Fechar",
     "previewAlt": "Pré-visualização do cartão",
-    "modalAlt": "Cartão de resultado"
-  }
+    "modalAlt": "Cartão de resultado",
+    "generating": "Gerando cartão…",
+    "needResult": "Conclua o teste primeiro",
+    "genFail": "Falha ao gerar, tente novamente"
+  },
+  "shareUrl": "https://yaokx520.github.io/Literary-personality-test/international/packs/pt/"
 };

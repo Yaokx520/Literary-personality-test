@@ -88,6 +88,10 @@ window.LIT_I18N = {
     "modalTipWx": "Долгое нажатие на изображение → Сохранить; или скриншот",
     "modalClose": "Закрыть",
     "previewAlt": "Предпросмотр карточки",
-    "modalAlt": "Карточка результата"
-  }
+    "modalAlt": "Карточка результата",
+    "generating": "Создание карточки…",
+    "needResult": "Сначала завершите тест",
+    "genFail": "Не удалось создать карточку, повторите"
+  },
+  "shareUrl": "https://yaokx520.github.io/Literary-personality-test/international/packs/ru/"
 };

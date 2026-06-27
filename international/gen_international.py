@@ -31,6 +31,7 @@ SHARE_LABELS = {
         'modalTip': 'Long-press the image to save, or take a screenshot',
         'modalTipWx': 'Long-press the image below → Save image; or screenshot',
         'modalClose': 'Close', 'previewAlt': 'Result card preview', 'modalAlt': 'Result card',
+        'generating': 'Generating card…', 'needResult': 'Please finish the test first', 'genFail': 'Failed to generate card, try again',
     },
     'es': {
         'cardTitle': 'Test de temperamento literario · Mi resultado',
@@ -41,6 +42,7 @@ SHARE_LABELS = {
         'modalTip': 'Mantén pulsada la imagen para guardar, o haz captura',
         'modalTipWx': 'Mantén pulsada la imagen → Guardar imagen; o captura',
         'modalClose': 'Cerrar', 'previewAlt': 'Vista previa de tarjeta', 'modalAlt': 'Tarjeta de resultado',
+        'generating': 'Generando tarjeta…', 'needResult': 'Termina el test primero', 'genFail': 'Error al generar, inténtalo de nuevo',
     },
     'fr': {
         'cardTitle': 'Test de tempérament littéraire · Mon résultat',
@@ -51,6 +53,7 @@ SHARE_LABELS = {
         'modalTip': 'Appui long sur l\'image pour enregistrer, ou capture d\'écran',
         'modalTipWx': 'Appui long sur l\'image → Enregistrer ; ou capture',
         'modalClose': 'Fermer', 'previewAlt': 'Aperçu de la carte', 'modalAlt': 'Carte résultat',
+        'generating': 'Génération de la carte…', 'needResult': 'Terminez d\'abord le test', 'genFail': 'Échec de génération, réessayez',
     },
     'pt': {
         'cardTitle': 'Teste de temperamento literário · Meu resultado',
@@ -61,6 +64,7 @@ SHARE_LABELS = {
         'modalTip': 'Toque longo na imagem para salvar, ou faça captura de tela',
         'modalTipWx': 'Toque longo na imagem → Salvar imagem; ou captura',
         'modalClose': 'Fechar', 'previewAlt': 'Pré-visualização do cartão', 'modalAlt': 'Cartão de resultado',
+        'generating': 'Gerando cartão…', 'needResult': 'Conclua o teste primeiro', 'genFail': 'Falha ao gerar, tente novamente',
     },
     'ja': {
         'cardTitle': '文学気質テスト · あなたの結果',
@@ -71,6 +75,7 @@ SHARE_LABELS = {
         'modalTip': '画像を長押しで保存、またはスクリーンショット',
         'modalTipWx': '下の画像を長押し → 画像を保存；またはスクショ',
         'modalClose': '閉じる', 'previewAlt': '結果カードプレビュー', 'modalAlt': '結果カード',
+        'generating': 'カード生成中…', 'needResult': '先にテストを完了してください', 'genFail': '生成に失敗しました。再試行してください',
     },
     'ru': {
         'cardTitle': 'Тест литературного темперамента · Мой результат',
@@ -81,6 +86,7 @@ SHARE_LABELS = {
         'modalTip': 'Долгое нажатие на изображение для сохранения или скриншот',
         'modalTipWx': 'Долгое нажатие на изображение → Сохранить; или скриншот',
         'modalClose': 'Закрыть', 'previewAlt': 'Предпросмотр карточки', 'modalAlt': 'Карточка результата',
+        'generating': 'Создание карточки…', 'needResult': 'Сначала завершите тест', 'genFail': 'Не удалось создать карточку, повторите',
     },
 }
 
@@ -326,7 +332,8 @@ def merge_lang_pack(lang):
 
 
 def emit_locale_js(lang):
-    ui = {**UI[lang], 'shareLabels': SHARE_LABELS[lang]}
+    base = 'https://yaokx520.github.io/Literary-personality-test/international/packs'
+    ui = {**UI[lang], 'shareLabels': SHARE_LABELS[lang], 'shareUrl': f'{base}/{lang}/'}
     return 'window.LIT_I18N = ' + json.dumps(ui, ensure_ascii=False, indent=2) + ';\n'
 
 
@@ -389,13 +396,13 @@ def emit_index_html(lang):
           <div class="result-title-row"><h2 id="resultTitle"></h2><div class="result-avatar" id="resultAvatar"></div></div>
           <p class="lead" id="resultIntro"></p>
           <div class="personality-tags" id="personalityTags"></div>
+          <div class="result-box radar-panel"><h3>{ui["radar"]}</h3><div class="radar-wrap"><svg id="radarChart" width="320" height="320" viewBox="0 0 320 320"></svg></div><p class="mini" style="text-align:center;margin-top:4px">{ui["radarHint"]}</p></div>
           <div class="result-box"><h3>{ui["verdict"]}</h3><p id="resultOneLiner"></p></div>
           <div class="result-box"><h3>{ui["why"]}</h3><p id="resultWhy"></p></div>
           <div class="result-box quote-card"><h3>{ui["quoteTitle"]}</h3><blockquote id="resultQuote"></blockquote><cite id="resultQuoteAuthor"></cite></div>
           <div class="result-box"><h3>{ui["top5q"]}</h3><div id="top5Quotes" class="top5-quotes"></div></div>
         </div>
         <div>
-          <div class="result-box"><h3>{ui["radar"]}</h3><div class="radar-wrap"><svg id="radarChart" width="320" height="320" viewBox="0 0 320 320"></svg></div><p class="mini" style="text-align:center;margin-top:4px">{ui["radarHint"]}</p></div>
           <div class="result-box"><h3>{ui["probTitle"]}</h3><p class="mini" style="margin-bottom:10px">{ui["probHint"]}</p><div class="prob-hotcold"><div><h4>{ui["hot"]}</h4><ol id="probHotList"></ol></div><div><h4>{ui["cold"]}</h4><ol id="probColdList"></ol></div></div></div>
           <div class="result-box"><h3>{ui["top5"]}</h3><div class="top5" id="top5List"></div></div>
           <div class="result-box"><h3>{ui["share"]}</h3><textarea class="share" id="shareText" readonly></textarea><p class="share-tip" id="shareTip">{ui["shareTip"]}</p>
@@ -452,6 +459,8 @@ def main():
     css_content = css_block.replace('<style>', '').replace('</style>', '')
     if '.bamboo-flower .flower-label' not in css_content:
         css_content += '\n    .bamboo-flower .flower-label { display: none; }\n'
+    if '.radar-panel' not in css_content:
+        css_content += '\n    .radar-panel .radar-wrap { min-height: 280px; }\n    .radar-panel .radar-wrap svg { display: block; }\n'
 
     shared = os.path.join(OUT, '..', 'shared')
     os.makedirs(shared, exist_ok=True)

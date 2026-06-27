@@ -254,3 +254,6 @@
     }
   
     .bamboo-flower .flower-label { display: none; }
+
+    .radar-panel .radar-wrap { min-height: 280px; }
+    .radar-panel .radar-wrap svg { display: block; }

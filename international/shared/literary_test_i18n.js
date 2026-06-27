@@ -2,8 +2,14 @@
 (function () {
   const I18N = window.LIT_I18N || {};
   const DIMS = I18N.dims || ['现实批判', '抒情浪漫', '哲思抽象', '都市孤独', '人文悲悯', '先锋实验'];
+  const RADAR_DIMS = ['现实批判', '抒情浪漫', '哲思抽象', '都市孤独', '人文悲悯', '先锋实验'];
   const MIN_Q = 10, MAX_Q = 16, BRANCH_ADD = 3;
-  const SHARE_URL = I18N.shareUrl || 'https://yaokx520.github.io/Literary-personality-test/international/packs/en/';
+  function packShareUrl() {
+    if (I18N.shareUrl) return I18N.shareUrl;
+    const path = location.pathname.replace(/\/?index\.html?$/i, '');
+    return location.origin + path + (path.endsWith('/') ? '' : '/');
+  }
+  const SHARE_URL = packShareUrl();
   const ui = k => I18N[k] || k;
   const Q1_TRACK = ['13', '46', '79', '10'];
   const MILESTONE_TRACKS = { '13': [3], '46': [4, 6], '79': [7, 9], '10': [10] };
@@ -344,7 +350,9 @@
   }
 
   function drawRadar(userScores, writerTraits) {
-    const cx = 160, cy = 160, R = 110, n = DIMS.length;
+    const chart = els.radarChart || document.getElementById('radarChart');
+    if (!chart) return;
+    const cx = 160, cy = 160, R = 95, n = RADAR_DIMS.length;
     const maxU = Math.max(...userScores, 1), maxT = 10;
     const pt = (vals, max, r = R) => vals.map((v, i) => {
       const a = -Math.PI / 2 + i * 2 * Math.PI / n;
@@ -352,21 +360,26 @@
     });
     const poly = pts => pts.map(p => p.join(',')).join(' ');
     const grid = [0.25, 0.5, 0.75, 1].map(f => {
-      const pts = DIMS.map((_, i) => {
+      const pts = RADAR_DIMS.map((_, i) => {
         const a = -Math.PI / 2 + i * 2 * Math.PI / n;
         return [cx + R * f * Math.cos(a), cy + R * f * Math.sin(a)];
       });
       return `<polygon points="${poly(pts)}" fill="none" stroke="#e7dccd" stroke-width="1"/>`;
     }).join('');
-    const axes = DIMS.map((d, i) => {
+    const axes = RADAR_DIMS.map((d, i) => {
       const a = -Math.PI / 2 + i * 2 * Math.PI / n;
-      const x = cx + (R + 22) * Math.cos(a), y = cy + (R + 22) * Math.sin(a);
-      return `<line x1="${cx}" y1="${cy}" x2="${cx + R * Math.cos(a)}" y2="${cy + R * Math.sin(a)}" stroke="#e7dccd"/><text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#6f6458">${d}</text>`;
+      const x = cx + (R + 28) * Math.cos(a), y = cy + (R + 28) * Math.sin(a);
+      return `<line x1="${cx}" y1="${cy}" x2="${cx + R * Math.cos(a)}" y2="${cy + R * Math.sin(a)}" stroke="#e7dccd"/><text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#6f6458">${d}</text>`;
     }).join('');
     const uPts = pt(userScores, maxU), wPts = pt(writerTraits, maxT);
-    els.radarChart.innerHTML = `${grid}${axes}
+    chart.innerHTML = `${grid}${axes}
       <polygon points="${poly(wPts)}" fill="rgba(176,137,104,.15)" stroke="#b08968" stroke-width="2" stroke-dasharray="6 4"/>
       <polygon points="${poly(uPts)}" fill="rgba(139,94,52,.25)" stroke="#8b5e34" stroke-width="2"/>`;
+  }
+
+  function wireShareCardButtons() {
+    if (typeof LiteraryShareCard === 'undefined') return;
+    LiteraryShareCard.bindButtons();
   }
 
   function showResult() {
@@ -434,6 +447,13 @@
         why,
         pct
       });
+      LiteraryShareCard.init({
+        shareUrl: packShareUrl(),
+        showToast,
+        assetBase: '../../assets/',
+        labels: I18N.shareLabels || {}
+      });
+      wireShareCardButtons();
     }
 
     if (typeof LitStats !== 'undefined') {
