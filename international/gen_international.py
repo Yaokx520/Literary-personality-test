@@ -326,7 +326,7 @@ def emit_index_html(lang):
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <meta name="description" content="{ui["eyebrow"]} — match among 66 writers." />
   <title>{ui["title"]}</title>
-  <link rel="stylesheet" href="../shared/literary.css" />
+  <link rel="stylesheet" href="../../shared/literary.css" />
 </head>
 <body class="view-welcome">
   <div class="wrap">
@@ -407,7 +407,7 @@ def emit_index_html(lang):
   <script src="writers.js"></script>
   <script src="questions.js"></script>
   <script src="../../literary_avatars.js"></script>
-  <script src="../shared/literary_test_i18n.js"></script>
+  <script src="../../shared/literary_test_i18n.js"></script>
 </body>
 </html>
 '''

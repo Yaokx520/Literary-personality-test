@@ -62,7 +62,7 @@ function indexHtml(lang, ui) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="description" content="${ui.eyebrow}" />
   <title>${ui.title}</title>
-  <link rel="stylesheet" href="../shared/literary.css" />
+  <link rel="stylesheet" href="../../shared/literary.css" />
 </head>
 <body class="view-welcome">
   <div class="wrap">
@@ -139,7 +139,7 @@ function indexHtml(lang, ui) {
   <script src="writers.js"></script>
   <script src="questions.js"></script>
   <script src="../../literary_avatars.js"></script>
-  <script src="../shared/literary_test_i18n.js"></script>
+  <script src="../../shared/literary_test_i18n.js"></script>
 </body>
 </html>`;
 }

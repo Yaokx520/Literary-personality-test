@@ -5,22 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Literary Temperament Test · Languages</title>
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px; line-height: 1.7; color: #2b241c; background: #f6f1e8; }
-    h1 { font-size: 1.6rem; }
-    a { display: block; padding: 14px 16px; margin: 8px 0; background: #fffaf1; border: 1px solid #e7dccd; border-radius: 12px; color: #8b5e34; text-decoration: none; font-weight: 600; }
-    a:hover { border-color: #8b5e34; }
-    .zh { margin-top: 24px; font-size: 14px; color: #6f6458; }
+    :root {
+      --bg: #f6f1e8; --card: #fffaf1; --ink: #2b241c; --muted: #6f6458;
+      --line: #e7dccd; --accent: #8b5e34; --shadow: 0 12px 40px rgba(43,36,28,.10);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, rgba(176,137,104,.18), transparent 26%),
+        linear-gradient(180deg, #fbf8f2, #f4ede4);
+    }
+    .wrap { max-width: 520px; margin: 0 auto; padding: 32px 16px 48px; }
+    .hero {
+      background: var(--card); border: 1px solid var(--line); border-radius: 22px;
+      padding: 28px 24px; box-shadow: var(--shadow); margin-bottom: 18px;
+    }
+    .eyebrow {
+      display: inline-block; padding: 6px 12px; border-radius: 999px;
+      background: rgba(139,94,52,.08); color: var(--accent); font-size: 12px; font-weight: 700;
+    }
+    h1 { margin: 14px 0 8px; font-size: 1.75rem; line-height: 1.2; }
+    .sub { margin: 0; color: var(--muted); font-size: 15px; }
+    .lang-list { display: grid; gap: 10px; margin-top: 18px; }
+    .lang-list a {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 18px; background: var(--card);
+      border: 1px solid var(--line); border-radius: 16px;
+      color: var(--ink); text-decoration: none; font-weight: 700; font-size: 16px;
+      box-shadow: 0 4px 16px rgba(43,36,28,.04);
+      transition: border-color .15s, transform .15s;
+    }
+    .lang-list a:hover { border-color: var(--accent); transform: translateY(-1px); }
+    .flag { font-size: 28px; line-height: 1; width: 36px; text-align: center; }
+    .lang-name { flex: 1; }
+    .lang-name small { display: block; font-weight: 500; color: var(--muted); font-size: 13px; margin-top: 2px; }
+    .back {
+      display: inline-flex; align-items: center; gap: 6px; margin-top: 20px;
+      color: var(--muted); text-decoration: none; font-size: 14px;
+    }
+    .back:hover { color: var(--accent); }
   </style>
 </head>
 <body>
-  <h1>Literary Temperament Test</h1>
-  <p>Choose your language / 选择语言：</p>
-  <a href="packs/en/index.html">English</a>
-  <a href="packs/es/index.html">Español</a>
-  <a href="packs/fr/index.html">Français</a>
-  <a href="packs/pt/index.html">Português</a>
-  <a href="packs/ja/index.html">日本語</a>
-  <a href="packs/ru/index.html">Русский</a>
-  <p class="zh"><a href="../index.html">← 中文版 Chinese edition</a></p>
+  <div class="wrap">
+    <section class="hero">
+      <span class="eyebrow">Literary Temperament Test</span>
+      <h1>Choose your language</h1>
+      <p class="sub">选择语言 · 66 writers · 10–16 questions</p>
+    </section>
+    <nav class="lang-list" aria-label="Languages">
+      <a href="packs/en/index.html"><span class="flag" aria-hidden="true">🇺🇸</span><span class="lang-name">English<small>United States / International</small></span></a>
+      <a href="packs/es/index.html"><span class="flag" aria-hidden="true">🇪🇸</span><span class="lang-name">Español<small>España / Latinoamérica</small></span></a>
+      <a href="packs/fr/index.html"><span class="flag" aria-hidden="true">🇫🇷</span><span class="lang-name">Français<small>France</small></span></a>
+      <a href="packs/pt/index.html"><span class="flag" aria-hidden="true">🇧🇷</span><span class="lang-name">Português<small>Brasil / Portugal</small></span></a>
+      <a href="packs/ja/index.html"><span class="flag" aria-hidden="true">🇯🇵</span><span class="lang-name">日本語<small>日本</small></span></a>
+      <a href="packs/ru/index.html"><span class="flag" aria-hidden="true">🇷🇺</span><span class="lang-name">Русский<small>Россия</small></span></a>
+    </nav>
+    <a class="back" href="../index.html">← 中文版 Chinese edition</a>
+  </div>
 </body>
 </html>
