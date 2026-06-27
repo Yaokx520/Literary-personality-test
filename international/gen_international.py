@@ -444,7 +444,7 @@ def emit_index_html(lang):
   <script src="writers.js"></script>
   <script src="questions.js"></script>
   <script src="../../literary_avatars.js"></script>
-  <script src="../../literary_share_card.js"></script>
+  <script src="../../shared/i18n_result_png.js"></script>
   <script src="../../shared/literary_test_i18n.js"></script>
 </body>
 </html>
@@ -468,6 +468,8 @@ def main():
         f.write(css_content)
     shutil.copy2(os.path.join(INTL, 'literary_test_i18n.js'),
                    os.path.join(shared, 'literary_test_i18n.js'))
+    shutil.copy2(os.path.join(INTL, 'i18n_result_png.js'),
+                   os.path.join(shared, 'i18n_result_png.js'))
 
     manifest = []
     for lang in LANGS:
