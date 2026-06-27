@@ -49,6 +49,25 @@
 <img width="1073" height="2247" alt="6f3ee037beb65a5fda12cce9bf3549e5" src="https://github.com/user-attachments/assets/6a2d355c-0715-4e0d-9f10-28a786bc83ff" />
 ---
 
+## International literay personality test（外文版测试）
+
+**Which Writer Are You?**
+
+No trivia, no reading lists. Answer from instinct in rain, streets, farewells, and waking dreams — we match you among **66 writers**. About **10–16**questions; branch choices bloom flower tokens on the bamboo bar. 
+
+I matched with 「Virginia Woolf」.
+You are like a breathing mirror, reflecting inner ripples.
+Traits: Urban solitude · Lyric romance · Avant-garde
+Near matches: Haruki Murakami, Yasunari Kawabata, J. D. Salinger, F. Scott Fitzgerald
+Life is not a straight line, but a shimmer of light on water.
+Try it:
+https://yaokx520.github.io/Literary-personality-test/international/packs/en/
+<img width="547" height="649" alt="图片" src="https://github.com/user-attachments/assets/08f37ea6-e968-48f7-a7df-97b7fe0b8cb1" />
+
+**URL：** [`chinese_poet_personality_test.html](https://yaokx520.github.io/Literary-personality-test/international/`](https://yaokx520.github.io/Literary-personality-test/international/)
+<img width="587" height="745" alt="图片" src="https://github.com/user-attachments/assets/9d6291b1-9158-4f0b-8a4f-c0d83dab566f" />
+
+---
 ## 三个测试的区别
 
 | 对比项 | 文学人格测试 | 诗心测试 |
