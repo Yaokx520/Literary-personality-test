@@ -29,4 +29,4 @@ ru/questions.js
 shared/literary.css
 shared/literary_test_i18n.js
 
-Requires parent ../../assets ../../stats-config.js etc.
+Requires repo root: ../../../assets/ ../../../stats-config.js etc.
