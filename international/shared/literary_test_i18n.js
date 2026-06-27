@@ -320,6 +320,32 @@
       try { cachedProb = computeProbRankings(); } catch (e) { console.error('prob warmup', e); }
     }, 200);
   }
+  function renderProbListsInline(hotEl, coldEl, approx) {
+    const n = 2000;
+    const counts = Object.create(null);
+    WRITERS.forEach(w => { counts[w.id] = 0; });
+    for (let i = 0; i < n; i++) {
+      const scores = Array.from({ length: 6 }, () => Math.random() * 11);
+      let best = WRITERS[0], bestScore = -Infinity;
+      for (const w of WRITERS) {
+        const s = similarity(scores, w.traits);
+        if (s > bestScore) { bestScore = s; best = w; }
+      }
+      counts[best.id]++;
+    }
+    const fmt = c => {
+      const pct = (c / n) * 100;
+      if (pct < 0.016) return '0.016';
+      if (pct < 1) return String(parseFloat(pct.toPrecision(2)));
+      return String(Math.round(pct * 10) / 10);
+    };
+    const all = WRITERS.map(w => ({ name: w.name, prob: fmt(counts[w.id]) }))
+      .sort((a, b) => parseFloat(b.prob) - parseFloat(a.prob));
+    const row = x => `<li>${x.name} <span class="prob-val">${approx} ${x.prob}%</span></li>`;
+    hotEl.innerHTML = all.slice(0, 3).map(row).join('');
+    coldEl.innerHTML = all.slice(-3).reverse().map(row).join('');
+  }
+
   function renderProbRankings() {
     const hotEl = document.getElementById('probHotList');
     const coldEl = document.getElementById('probColdList');
@@ -329,24 +355,29 @@
       if (typeof PersonalityInsights !== 'undefined') {
         PersonalityInsights.renderProbLists(hotEl, coldEl, data, approx);
       } else {
-        hotEl.innerHTML = coldEl.innerHTML = '<li class="muted">—</li>';
+        renderProbListsInline(hotEl, coldEl, approx);
       }
     };
-    if (cachedProb) {
-      render(cachedProb);
-      return;
-    }
-    hotEl.innerHTML = coldEl.innerHTML = '<li class="muted">…</li>';
-    setTimeout(() => {
-      try {
-        cachedProb = computeProbRankings();
-        if (cachedProb) render(cachedProb);
-        else { hotEl.innerHTML = coldEl.innerHTML = '<li class="muted">—</li>'; }
-      } catch (e) {
-        console.error('prob rankings', e);
-        hotEl.innerHTML = coldEl.innerHTML = '<li class="muted">—</li>';
+    try {
+      if (cachedProb) {
+        render(cachedProb);
+        return;
       }
-    }, 0);
+      hotEl.innerHTML = coldEl.innerHTML = '<li class="muted">…</li>';
+      setTimeout(() => {
+        try {
+          cachedProb = computeProbRankings();
+          if (cachedProb) render(cachedProb);
+          else renderProbListsInline(hotEl, coldEl, approx);
+        } catch (e) {
+          console.error('prob rankings', e);
+          renderProbListsInline(hotEl, coldEl, approx);
+        }
+      }, 0);
+    } catch (e) {
+      console.error('prob rankings', e);
+      renderProbListsInline(hotEl, coldEl, approx);
+    }
   }
 
   function drawRadar(userScores, writerTraits) {
@@ -378,8 +409,22 @@
   }
 
   function wireShareCardButtons() {
-    if (typeof LiteraryShareCard === 'undefined') return;
-    LiteraryShareCard.bindButtons();
+    if (typeof I18nResultPng !== 'undefined') I18nResultPng.bindButtons();
+  }
+
+  function initShareExport(top, ranked, dims, why, flowerKey, flowerLabel, avKey, pctFn) {
+    if (typeof I18nResultPng === 'undefined') return;
+    I18nResultPng.init({
+      shareUrl: packShareUrl(),
+      showToast,
+      labels: I18N.shareLabels || {}
+    });
+    I18nResultPng.setPayload({
+      top, ranked, dims, why, flowerKey, flowerLabel, avKey,
+      scores: state.scores.slice(),
+      pct: pctFn
+    });
+    wireShareCardButtons();
   }
 
   function showResult() {
@@ -438,23 +483,7 @@
 
     renderProbRankings();
 
-    if (typeof LiteraryShareCard !== 'undefined') {
-      LiteraryShareCard.setResult({
-        top, ranked, dims, scores: state.scores.slice(),
-        flowerKey, flowerLabel,
-        avKey,
-        avType: typeof LIT_AVATAR_TYPE !== 'undefined' ? (LIT_AVATAR_TYPE[avKey] || '') : '',
-        why,
-        pct
-      });
-      LiteraryShareCard.init({
-        shareUrl: packShareUrl(),
-        showToast,
-        assetBase: '../../assets/',
-        labels: I18N.shareLabels || {}
-      });
-      wireShareCardButtons();
-    }
+    initShareExport(top, ranked, dims, why, flowerKey, flowerLabel, avKey, pct);
 
     if (typeof LitStats !== 'undefined') {
       LitStats.trackResult('literary', { id: top.id, name: top.name });
@@ -585,11 +614,10 @@
   document.getElementById('copyBtn').onclick = copyShareText;
   document.getElementById('muteBtn').onclick = toggleMute;
 
-  if (typeof LiteraryShareCard !== 'undefined') {
-    LiteraryShareCard.init({
-      shareUrl: SHARE_URL,
+  if (typeof I18nResultPng !== 'undefined') {
+    I18nResultPng.init({
+      shareUrl: packShareUrl(),
       showToast,
-      assetBase: '../../assets/',
       labels: I18N.shareLabels || {}
     });
   }
