@@ -460,7 +460,7 @@
     const dims = dominantDims(state.scores);
     const flowerKey = resultFlowerKey();
     const flowerLabel = FLOWER_LABELS[flowerKey];
-    const avKey = typeof litAvatarKey === 'function' ? litAvatarKey(state.scores) : '';
+    const avKey = typeof litAvatarKey === 'function' ? litAvatarKey(state.scores, state.path.length) : '';
     const avType = (typeof LIT_AVATAR_TYPE !== 'undefined' && avKey) ? (LIT_AVATAR_TYPE[avKey] || '') : '';
     const avLabel = (typeof LIT_AVATAR_PAIRS !== 'undefined' && avKey) ? (LIT_AVATAR_PAIRS[avKey] || '') : '';
     const why = buildWhy(top, dims);
