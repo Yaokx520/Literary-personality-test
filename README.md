@@ -29,7 +29,8 @@
 
 **本地文件：** `literary_personality_test_full.html`（或部署为 `index.html`）
 
-<img width="1080" height="2412" alt="0fb335ea5563061bccdb2e4ab5606187" src="https://github.com/user-attachments/assets/0a6c7664-2de4-4d58-8909-b80a4865a674" />
+<img width="785" height="949" alt="图片" src="https://github.com/user-attachments/assets/9ec88b95-0ab8-48a8-bb15-563c8cd4a941" />
+
 
 ---
 
@@ -60,26 +61,25 @@ You are like a breathing mirror, reflecting inner ripples.
 Traits: Urban solitude · Lyric romance · Avant-garde
 Near matches: Haruki Murakami, Yasunari Kawabata, J. D. Salinger, F. Scott Fitzgerald
 Life is not a straight line, but a shimmer of light on water.
-Try it:
-https://yaokx520.github.io/Literary-personality-test/international/packs/en/
-<img width="547" height="649" alt="图片" src="https://github.com/user-attachments/assets/08f37ea6-e968-48f7-a7df-97b7fe0b8cb1" />
+**Try it:**
+https://yaokx520.github.io/Literary-personality-test/international/
 
-**URL：** [`chinese_poet_personality_test.html](https://yaokx520.github.io/Literary-personality-test/international/`](https://yaokx520.github.io/Literary-personality-test/international/)
 <img width="587" height="745" alt="图片" src="https://github.com/user-attachments/assets/9d6291b1-9158-4f0b-8a4f-c0d83dab566f" />
 
 ---
 ## 三个测试的区别
 
-| 对比项 | 文学人格测试 | 诗心测试 |
-|--------|-------------|----------|
-| **对象** | 66 位中外文学家 | 66 位中国诗人 |
-| **时间跨度** | 不限 | 先秦 — 1918 |
-| **题目风格** | 文学气质情境 | 诗意画面情境 |
-| **气质维度** | 现实批判、都市孤独等 | 感时忧世、隐逸疏离等 |
-| **适合谁** | 想对照世界文学原型 | 想对照中国古典诗心 |
-International literay personality test： For the English，Español，Français，Português，日本語 and Русский users
+| 对比项 | 文学人格测试 | 诗心测试 |International literay personality test |
+|--------|-------------|----------|----------|
+| **对象** | 66 位中外文学家 | 66 位中国诗人 |66 worldwide authors  |
+| **时间跨度** | 不限 | 先秦 — 1918 | From 660 B.C  to this day  |
+| **题目风格** | 文学气质情境 | 诗意画面情境 |literay personality and feature |
+| **气质维度** | 现实批判、都市孤独等 | 感时忧世、隐逸疏离等 |Realism, Romanticism, avant-garde experiments, and so on|
+| **适合谁** | 想对照世界文学原型 | 想对照中国古典诗心 |  International users interested in world literature and arts|
+
 以上测试可独立使用，也可都测一遍，看看「世界文学气质」与「中国诗心」是否指向同一个人。
 
+**Language supported ：** Chinese, English，Español，Français，Português，日本語 and Русский.
 ---
 
 ## 功能概览
