@@ -76,7 +76,7 @@ function litAvatarHtml(key) {
   const src = LIT_AVATAR_IMG[key];
   if (!src) return '';
   const type = LIT_AVATAR_TYPE[key] || '';
-  const alt = type ? `气质类型 ${type}` : '气质小人';
+  const alt = type ? `气质类型 ${type}` : '气质形象';
   return `<img src="${src}" alt="${alt}" loading="lazy">`;
 }
 

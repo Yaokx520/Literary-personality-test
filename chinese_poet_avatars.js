@@ -77,7 +77,7 @@ function poetAvatarHtml(key) {
   const src = POET_AVATAR_IMG[key];
   if (!src) return '';
   const type = POET_AVATAR_TYPE[key] || '';
-  const alt = type ? `诗心类型 ${type}` : '诗心小人';
+  const alt = type ? `诗心类型 ${type}` : '诗心所向';
   return `<img src="${src}" alt="${alt}" loading="lazy">`;
 }
 
