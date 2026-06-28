@@ -341,7 +341,7 @@
     const dims = dominantDims(state.scores);
     const flowerKey = resultFlowerKey();
     const flowerLabel = FLOWER_LABELS[flowerKey];
-    const avKey = typeof litAvatarKey === 'function' ? litAvatarKey(state.scores) : '';
+    const avKey = typeof litAvatarKey === 'function' ? litAvatarKey(state.scores, state.path.length) : '';
     const why = buildWhy(top, dims);
 
     els.resultTitle.textContent = top.name;

@@ -44,12 +44,32 @@ const LIT_AVATAR_IMG = {
   '5_0': 'assets/avatars/literary/lav_5_0.png'
 };
 
-function litAvatarKey(scores) {
-  const sorted = scores.map((v, i) => ({ v, i })).sort((a, b) => b.v - a.v);
-  const key = `${sorted[0].i}_${sorted[1].i}`;
-  if (LIT_AVATAR_IMG[key]) return key;
-  const fb = Object.keys(LIT_AVATAR_IMG).find(k => k.startsWith(`${sorted[0].i}_`));
-  return fb || '1_4';
+/** 各选项向量六维均值（literary_questions.js），用于抵消题库维度偏置 */
+const LIT_DIM_AVG = [1.24, 1.97, 1.64, 1.38, 1.48, 1.51];
+
+function estimateLitAnswerCount(scores) {
+  const sum = scores.reduce((a, b) => a + b, 0);
+  const avgSum = LIT_DIM_AVG.reduce((a, b) => a + b, 0);
+  return Math.max(1, Math.round(sum / avgSum));
+}
+
+function litAvatarKey(scores, answerCount) {
+  const n = answerCount > 0 ? answerCount : estimateLitAnswerCount(scores);
+  const norm = scores.map((v, i) => (v - LIT_DIM_AVG[i] * n) / Math.max(1, n));
+  let bestKey = '1_4';
+  let bestDist = Infinity;
+  for (const key of Object.keys(LIT_AVATAR_IMG)) {
+    const [a, b] = key.split('_').map(Number);
+    const centroid = [0, 0, 0, 0, 0, 0];
+    centroid[a] = 2;
+    centroid[b] = 1;
+    const dist = norm.reduce((s, v, i) => s + (v - centroid[i]) ** 2, 0);
+    if (dist < bestDist) {
+      bestDist = dist;
+      bestKey = key;
+    }
+  }
+  return bestKey;
 }
 
 function litAvatarHtml(key) {

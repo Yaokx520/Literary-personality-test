@@ -2018,7 +2018,7 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
 
       els.resultTitle.textContent = top.name;
       if (els.resultAvatar && typeof poetAvatarHtml === 'function') {
-        const avKey = poetAvatarKey(state.scores);
+        const avKey = poetAvatarKey(state.scores, state.path.length);
         const avType = POET_AVATAR_TYPE[avKey] || '';
         const avLabel = POET_AVATAR_PAIRS[avKey] || '';
         els.resultAvatar.innerHTML = poetAvatarHtml(avKey);
@@ -2060,7 +2060,7 @@ ${r.avType ? `<text x="${flTextX}" y="${flowerY + flImageSize + 72}" text-anchor
         PersonalityInsights.renderProbLists(document.getElementById('probHotList'), document.getElementById('probColdList'), prob);
       }
 
-      const avKey = typeof poetAvatarKey === 'function' ? poetAvatarKey(state.scores) : '';
+      const avKey = typeof poetAvatarKey === 'function' ? poetAvatarKey(state.scores, state.path.length) : '';
       lastResult = {
         top, ranked, dims, scores: state.scores.slice(),
         flowerKey, flowerLabel,

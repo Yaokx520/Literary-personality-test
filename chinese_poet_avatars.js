@@ -45,12 +45,32 @@ const POET_AVATAR_IMG = {
   '5_0': 'assets/avatars/poet/pav_5_0.png'
 };
 
-function poetAvatarKey(scores) {
-  const sorted = scores.map((v, i) => ({ v, i })).sort((a, b) => b.v - a.v);
-  const key = `${sorted[0].i}_${sorted[1].i}`;
-  if (POET_AVATAR_IMG[key]) return key;
-  const fb = Object.keys(POET_AVATAR_IMG).find(k => k.startsWith(`${sorted[0].i}_`));
-  return fb || '1_4';
+/** 各选项向量六维均值（chinese_poet_questions.js），用于抵消题库维度偏置 */
+const POET_DIM_AVG = [2.13, 2.01, 1.89, 1.84, 2.01, 1.92];
+
+function estimatePoetAnswerCount(scores) {
+  const sum = scores.reduce((a, b) => a + b, 0);
+  const avgSum = POET_DIM_AVG.reduce((a, b) => a + b, 0);
+  return Math.max(1, Math.round(sum / avgSum));
+}
+
+function poetAvatarKey(scores, answerCount) {
+  const n = answerCount > 0 ? answerCount : estimatePoetAnswerCount(scores);
+  const norm = scores.map((v, i) => (v - POET_DIM_AVG[i] * n) / Math.max(1, n));
+  let bestKey = '1_4';
+  let bestDist = Infinity;
+  for (const key of Object.keys(POET_AVATAR_IMG)) {
+    const [a, b] = key.split('_').map(Number);
+    const centroid = [0, 0, 0, 0, 0, 0];
+    centroid[a] = 2;
+    centroid[b] = 1;
+    const dist = norm.reduce((s, v, i) => s + (v - centroid[i]) ** 2, 0);
+    if (dist < bestDist) {
+      bestDist = dist;
+      bestKey = key;
+    }
+  }
+  return bestKey;
 }
 
 function poetAvatarHtml(key) {
